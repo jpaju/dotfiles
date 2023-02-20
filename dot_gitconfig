@@ -1,0 +1,12 @@
+[user]
+	name = Jaakko Paju
+	email = 36770267+JPaju@users.noreply.github.com
+[pull]
+	rebase = true
+[push]
+	default = current
+	autoSetupRemote = true
+[rebase]
+	autoStash = true
+[core]
+	editor = code --wait
