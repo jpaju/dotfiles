@@ -24,8 +24,14 @@ $ git push
 Run `chezmoi update -v` to update the local dotfiles
 
 
-## Update the brew packages
+## Edit local file
+1. Run `chezmoi edit <file>`
+2. Sync changes to remote [instructions above](#sync-local-changes-to-remote)
+
+
+## Update the brew packages to currently installed packages
 1. Run `brew bundle dump --file ~/.config/brew/Brewfile` to update the Brewfile
 	1. If the file already exists and you want to overwrite it, run the command with the `--force` flag
 	2. If the folder doesn't exist, create it with `mkdir -p ~/.config/brew`
-2. Check TODO
+2. Run `chezmoi add ~/.config/brew/Brewfile`
+3. Sync changes to remote [instructions above](#sync-local-changes-to-remote)

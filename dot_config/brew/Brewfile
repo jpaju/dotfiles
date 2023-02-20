@@ -4,16 +4,27 @@ tap "homebrew/bundle"
 tap "coursier/formulas"
 tap "virtuslab/scala-cli"
 
+
+# Dotfiles management
 brew "chezmoi"
+
+
+# Dev tools
 brew "git"
 brew "gh"
 brew "nvm"
 brew "coursier/formulas/coursier"
 brew "virtuslab/scala-cli/scala-cli"
-brew "iperf3"
 
-cask "dash"
-cask "rectangle"
 cask "visual-studio-code"
 cask "jetbrains-toolbox"
+cask "dash"
 cask "postman"
+
+
+# Utilities
+brew "iperf3"
+
+
+# Apps
+cask "rectangle"
