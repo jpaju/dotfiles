@@ -26,5 +26,10 @@ cask "postman"
 brew "iperf3"
 
 
-# Apps
+# Productivity etc.
 cask "rectangle"
+cask "notion"
+cask "google-chrome"
+cask "firefox"
+cask "signal"
+cask "appcleaner"

@@ -6,7 +6,7 @@ This is my personal dotfiles repository. The files are managed with [chezmoi](ht
 ## Fresh install
 1. Install [homebrew](https://brew.sh)
 2. Install chezmoi with `brew install chezmoi`
-3. Clone this repository with `chezmoi init https://github.com/JPaju/dotfiles.git`
+3. Clone this repository with `chezmoi init git@github.com:JPaju/dotfiles.git`
 4. Check what modifications will be made with `chezmoi diff` and apply them with `chezmoi apply -v`
 5. Install brew packages with `brew bundle install --file ~/.config/brew/Brewfile`
 
