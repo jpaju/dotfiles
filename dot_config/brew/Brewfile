@@ -19,12 +19,17 @@ cask "jetbrains-toolbox"
 cask "dash"
 cask "postman"
 
-# Utilities
+# CLI
 cask "iterm2"
 brew "fish"
-brew "iperf3"
+brew "bat"
+brew "exa"
 brew "fzf"
-brwe "jq"
+brew "tldr"
+brew "jq"
+brew "gping"
+brew "curlie"
+brew "iperf3"
 
 # Window management
 cask "rectangle"
