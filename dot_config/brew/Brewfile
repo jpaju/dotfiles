@@ -4,10 +4,8 @@ tap "homebrew/bundle"
 tap "coursier/formulas"
 tap "virtuslab/scala-cli"
 
-
 # Dotfiles management
 brew "chezmoi"
-
 
 # Dev tools
 brew "git"
@@ -15,21 +13,27 @@ brew "gh"
 brew "nvm"
 brew "coursier/formulas/coursier"
 brew "virtuslab/scala-cli/scala-cli"
-
+brew "sdkman-cli"
 cask "visual-studio-code"
 cask "jetbrains-toolbox"
 cask "dash"
 cask "postman"
 
-
 # Utilities
+cask "iterm2"
+brew "fish"
 brew "iperf3"
+brew "fzf"
+brwe "jq"
 
+# Window management
+cask "rectangle"
+cask "alt-tab"
 
 # Productivity etc.
-cask "rectangle"
 cask "notion"
 cask "google-chrome"
 cask "firefox"
 cask "signal"
 cask "appcleaner"
+cask "aldente"
