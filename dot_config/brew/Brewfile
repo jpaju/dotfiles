@@ -17,6 +17,7 @@ brew "virtuslab/scala-cli/scala-cli"
 brew "sdkman-cli"
 cask "visual-studio-code"
 cask "jetbrains-toolbox"
+cask "docker"
 cask "dash"
 cask "postman"
 
