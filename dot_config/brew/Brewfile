@@ -1,5 +1,6 @@
 tap "homebrew/core"
 tap "homebrew/cask"
+tap "homebrew/cask-fonts"
 tap "homebrew/bundle"
 tap "coursier/formulas"
 tap "virtuslab/scala-cli"
@@ -21,6 +22,7 @@ cask "postman"
 
 # CLI
 cask "iterm2"
+cask "font-fira-code-nerd-font"
 brew "fish"
 brew "bat"
 brew "exa"

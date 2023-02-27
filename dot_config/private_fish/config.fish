@@ -7,3 +7,7 @@ test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shel
 # Environment variables
 set -gx EDITOR "code --wait"
 set -gx VISUAL $EDITOR
+
+# Setup starship prompt
+starship init fish | source
+enable_transience

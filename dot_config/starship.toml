@@ -1,0 +1,45 @@
+# Appearance
+format = """
+$all\
+$fill\
+$line_break\
+$battery\
+$shell\
+$character\
+"""
+
+right_format = """
+$cmd_duration\
+$time
+"""
+
+[character]
+error_symbol = '[✗](bold red) '
+
+[fill]
+symbol = "∙"
+style = "dimmed"
+
+
+# Technical information
+[[battery.display]]
+threshold = 25
+style = 'bold red'
+
+[cmd_duration]
+min_time = 50
+show_milliseconds = true
+
+[time]
+disabled = false
+
+
+# Modules
+[package]
+disabled = true
+
+[scala]
+symbol = ' '
+
+[java]
+style = "red"
