@@ -4,7 +4,6 @@ $all\
 $fill\
 $line_break\
 $battery\
-$shell\
 $character\
 """
 
@@ -13,8 +12,14 @@ $cmd_duration\
 $time
 """
 
+[directory]
+truncation_length = 7
+truncate_to_repo = true
+style = "#E2CC44 bold"
+
 [character]
-error_symbol = '[✗](bold red) '
+error_symbol = "[✗](bold red)"
+success_symbol = "[➜](bold green)"
 
 [fill]
 symbol = "∙"
@@ -24,10 +29,10 @@ style = "dimmed"
 # Technical information
 [[battery.display]]
 threshold = 25
-style = 'bold red'
+style = "bold red"
 
 [cmd_duration]
-min_time = 50
+min_time = 0
 show_milliseconds = true
 
 [time]
@@ -38,8 +43,11 @@ disabled = false
 [package]
 disabled = true
 
-[scala]
-symbol = ' '
+[elm]
+symbol = " "
 
 [java]
-style = "red"
+style = "red bold"
+
+[scala]
+symbol = " "
