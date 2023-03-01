@@ -1,3 +1,3 @@
 function ls
-	exa $argv
+	exa -h --icons --git $argv
 end
