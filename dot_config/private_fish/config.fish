@@ -8,6 +8,9 @@ test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shel
 set -gx EDITOR "code --wait"
 set -gx VISUAL $EDITOR
 
+# Load abbreviations
+source ~/.config/fish/abbreviations.fish
+
 # Setup starship prompt
 starship init fish | source
 enable_transience
