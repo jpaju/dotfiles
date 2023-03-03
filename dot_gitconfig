@@ -1,6 +1,10 @@
 [user]
 	name = Jaakko Paju
 	email = 36770267+JPaju@users.noreply.github.com
+[core]
+	hooksPath = ~/.git/hooks/
+[init]
+	defaultBranch = main
 [pull]
 	rebase = true
 [push]
