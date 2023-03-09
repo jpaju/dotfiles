@@ -48,6 +48,10 @@ abbr --add fgrb  'git rebase -i $(find_commit_hash)'
 abbr --add fgr 	 'git reset $(find_commit_hash)'
 
 
+# GitHub CLI
+abbr --add ghb 	'gh browse'
+
+
 # NPM
 abbr --add nb 	'npm build'
 abbr --add ncl	'npm clean'
