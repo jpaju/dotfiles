@@ -1,3 +1,5 @@
+command_timeout = 750
+
 # Appearance
 format = """
 $all\
@@ -12,18 +14,14 @@ $cmd_duration\
 $time
 """
 
-[directory]
-truncation_length = 7
-truncate_to_repo = true
-style = "#E2CC44 bold"
+# Prompt
+[fill]
+symbol = "∙"
+style = "dimmed"
 
 [character]
 error_symbol = "[✗](bold red)"
 success_symbol = "[➜](bold green)"
-
-[fill]
-symbol = "∙"
-style = "dimmed"
 
 
 # Technical information
@@ -32,7 +30,7 @@ threshold = 25
 style = "bold red"
 
 [cmd_duration]
-min_time = 0
+min_time = 10
 show_milliseconds = true
 
 [time]
@@ -40,6 +38,11 @@ disabled = false
 
 
 # Modules
+[directory]
+truncation_length = 7
+truncate_to_repo = true
+style = "#E2CC44 bold"
+
 [package]
 disabled = true
 
