@@ -25,6 +25,7 @@ cask "postman"
 cask "iterm2"
 cask "font-fira-code-nerd-font"
 brew "fish"
+brew "starship"
 brew "bat"
 brew "exa"
 brew "fd"
@@ -35,9 +36,10 @@ brew "gping"
 brew "curlie"
 brew "iperf3"
 
-# Window management
+# Window/screen management
 cask "rectangle"
 cask "alt-tab"
+cask "monitorcontrol"
 
 # Productivity etc.
 cask "notion"
@@ -45,6 +47,9 @@ cask "numi"
 cask "google-chrome"
 cask "firefox"
 cask "signal"
+cask "spotify"
+
+# Misc
 cask "appcleaner"
 cask "aldente"
 cask "stats"
