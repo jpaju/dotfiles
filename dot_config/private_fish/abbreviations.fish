@@ -52,6 +52,16 @@ abbr --add fgr 	 'git reset $(find_commit_hash)'
 abbr --add ghb 	'gh browse'
 
 
+# Docker
+abbr --add dk 	'docker'
+abbr --add dkb 	'docker build'
+
+# Docker Compose
+abbr --add dcu 	'docker compose up'
+abbr --add dcud 'docker compose up -d'
+abbr --add dcd 	'docker compose down'
+abbr --add dcs  'docker compose stop'
+
 # NPM
 abbr --add nb 	'npm build'
 abbr --add ncl	'npm clean'
@@ -77,3 +87,6 @@ abbr --add cme 	'chezmoi edit'
 abbr --add jps 'jps -lm'
 abbr --add reload 'exec fish'
 abbr --add lt 'ls --tree'
+abbr --add cb 'fish_clipboard_copy'
+abbr --add cpuuid 'uuidgen | fish_clipboard_copy'
+alias uuidgen='uuidgen | tr "[:upper:]" "[:lower:]"'
