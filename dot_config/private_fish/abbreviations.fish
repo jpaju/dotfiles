@@ -3,6 +3,7 @@
 # Git
 abbr --add ga 	'git add'
 abbr --add gaa 	'git add --all'
+abbr --add gap 	'git add --patch'
 abbr --add gb 	'git branch'
 abbr --add gba 	'git branch --all'
 abbr --add gbr 	'git branch --remotes'
