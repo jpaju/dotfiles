@@ -87,7 +87,7 @@ abbr --add cme 	'chezmoi edit'
 # Misc
 abbr --add jps 'jps -lm'
 abbr --add reload 'exec fish'
-abbr --add lt 'ls --tree'
+abbr --add lt 'ls --tree --level 4'
 abbr --add cb 'fish_clipboard_copy'
 abbr --add cpuuid 'uuidgen | fish_clipboard_copy'
 alias uuidgen='uuidgen | tr "[:upper:]" "[:lower:]"'

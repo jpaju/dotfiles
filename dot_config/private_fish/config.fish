@@ -7,6 +7,7 @@ test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shel
 # Environment variables
 set -gx EDITOR "code --wait"
 set -gx VISUAL $EDITOR
+fish_add_path ~/Library/Application\ Support/JetBrains/Toolbox/scripts
 
 # Load abbreviations
 source ~/.config/fish/abbreviations.fish
