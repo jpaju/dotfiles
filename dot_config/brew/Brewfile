@@ -3,6 +3,7 @@ tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask"
 tap "homebrew/core"
+tap "sdkman/tap"
 tap "virtuslab/scala-cli"
 
 # Dotfiles management
@@ -33,6 +34,7 @@ brew "iperf3"
 brew "jq"
 brew "starship"
 brew "tldr"
+brew "fisher"
 cask "font-fira-code-nerd-font"
 cask "iterm2"
 

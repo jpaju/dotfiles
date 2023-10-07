@@ -4,8 +4,12 @@
 <dict>
 	<key>AllowClipboardAccess</key>
 	<true/>
+	<key>CheckTestRelease</key>
+	<true/>
 	<key>Command</key>
 	<string>/opt/homebrew/bin/fish</string>
+	<key>CommandSelection</key>
+	<true/>
 	<key>Custom Color Presets</key>
 	<dict>
 		<key>material-design-colors</key>
@@ -564,6 +568,8 @@
 	<string>DA38994D-9FF9-49CD-84C9-4F5958E809E4</string>
 	<key>DisableFullscreenTransparency</key>
 	<false/>
+	<key>FocusOnRightOrMiddleClick</key>
+	<true/>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
 	<key>HideFromDockAndAppSwitcher</key>
@@ -582,6 +588,10 @@
 	<true/>
 	<key>HotkeyModifiers</key>
 	<integer>524288</integer>
+	<key>HotkeyTermAnimationDuration</key>
+	<real>0.20000000298023224</real>
+	<key>HotkeyWindowsExcludedFromCycling</key>
+	<true/>
 	<key>IRMemory</key>
 	<integer>4</integer>
 	<key>MaxVertically</key>
@@ -1834,7 +1844,7 @@
 			<key>Has Hotkey</key>
 			<true/>
 			<key>Hide After Opening</key>
-			<true/>
+			<false/>
 			<key>Horizontal Spacing</key>
 			<real>1</real>
 			<key>HotKey Activated By Modifier</key>
@@ -2537,7 +2547,7 @@
 	<key>Print In Black And White</key>
 	<true/>
 	<key>PromptOnQuit</key>
-	<false/>
+	<true/>
 	<key>QuitWhenAllWindowsClosed</key>
 	<true/>
 	<key>ShowFullScreenTabBar</key>
