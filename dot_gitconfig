@@ -12,3 +12,5 @@
 	autoSetupRemote = true
 [rebase]
 	autoStash = true
+[includeIf "gitdir:~/work/"]
+	path = ~/.gitconfig-work
