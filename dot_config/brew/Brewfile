@@ -1,8 +1,6 @@
 tap "coursier/formulas"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
-tap "homebrew/cask"
-tap "homebrew/core"
 tap "sdkman/tap"
 tap "virtuslab/scala-cli"
 
@@ -57,3 +55,4 @@ cask "aldente"
 cask "appcleaner"
 cask "bartender"
 cask "stats"
+cask "menubarx"
