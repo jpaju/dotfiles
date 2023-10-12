@@ -5,6 +5,8 @@
 	hooksPath = ~/.git/hooks/
 [init]
 	defaultBranch = main
+[fetch]
+	prune = true
 [pull]
 	rebase = true
 [push]
