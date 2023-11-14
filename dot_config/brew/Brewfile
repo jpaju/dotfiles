@@ -23,7 +23,7 @@ cask "visual-studio-code"
 # CLI
 brew "bat"
 brew "curlie"
-brew "exa"
+brew "eza"
 brew "fd"
 brew "fish"
 brew "fzf"
