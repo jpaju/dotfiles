@@ -9,6 +9,7 @@ abbr --add gba 	'git branch --all'
 abbr --add gbr 	'git branch --remotes'
 abbr --add gbd 	'git branch --delete --remotes'
 abbr --add gcm 	'git commit --message'
+abbr --add gacm 'git add --all && git commit --message'
 abbr --add gca 	'git commit --amend'
 abbr --add gcan 'git commit --amend --no-edit'
 abbr --add gcl 	'git clone'
@@ -25,14 +26,13 @@ abbr --add gpl 	'git pull'
 abbr --add gps 	'git push'
 abbr --add gpsf 'git push --force-with-lease'
 abbr --add gpst 'git push --tags'
-abbr --add gpum 'git push -u origin master'
-abbr --add gpuo 'git push -u origin'
 abbr --add grb 	'git rebase'
 abbr --add grba 'git rebase --abort'
 abbr --add grbc 'git rebase --continue'
 abbr --add grbi 'git rebase -i'
 abbr --add gr 	'git reset'
 abbr --add grh 	'git reset --hard'
+abbr --add grs 	'git reset --soft'
 abbr --add gra 	'git remote add'
 abbr --add grso 'git remote set-url origin'
 abbr --add grsu 'git remote set-url'
@@ -40,6 +40,7 @@ abbr --add grup 'git remote add upstream'
 abbr --add grv 	'git remote -v'
 abbr --add gs 	'git status'
 abbr --add gsw 	'git switch'
+abbr --add gswm 'git switch master'
 abbr --add gtl 	'git tag --list'
 
 # Git with fuzzy finder
@@ -52,7 +53,9 @@ abbr --add fgr 	 'git reset $(find_commit_hash)'
 
 
 # GitHub CLI
-abbr --add ghb 	'gh browse'
+abbr --add ghb    'gh browse'
+abbr --add ghprc  'gh pr create --web'
+abbr --add ghprv  'gh pr view --web'
 
 
 # Docker
