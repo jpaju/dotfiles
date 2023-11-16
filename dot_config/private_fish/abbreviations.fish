@@ -38,9 +38,11 @@ abbr --add grso 'git remote set-url origin'
 abbr --add grsu 'git remote set-url'
 abbr --add grup 'git remote add upstream'
 abbr --add grv 	'git remote -v'
+abbr --add gsp 	'git stash pop'
+abbr --add gsu 	'git stash --include-untracked --message'
 abbr --add gs 	'git status'
 abbr --add gsw 	'git switch'
-abbr --add gswm 'git switch master'
+abbr --add gswm 'git switch (git_default_branch)'
 abbr --add gtl 	'git tag --list'
 
 # Git with fuzzy finder
