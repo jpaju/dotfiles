@@ -42,6 +42,7 @@ abbr --add gsp 	'git stash pop'
 abbr --add gsu 	'git stash --include-untracked --message'
 abbr --add gs 	'git status'
 abbr --add gsw 	'git switch'
+abbr --add gswc 'git switch --create'
 abbr --add gswm 'git switch (git_default_branch)'
 abbr --add gtl 	'git tag --list'
 
