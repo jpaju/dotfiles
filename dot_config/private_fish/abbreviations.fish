@@ -59,6 +59,7 @@ abbr --add fgr 	 'git reset $(find_commit_hash)'
 abbr --add ghb    'gh browse'
 abbr --add ghprc  'gh pr create --web'
 abbr --add ghprv  'gh pr view --web'
+abbr --add ghprm  'gh pr merge --squash --delete-branch'
 
 
 # Docker
