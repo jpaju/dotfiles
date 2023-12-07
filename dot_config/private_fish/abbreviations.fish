@@ -73,15 +73,14 @@ abbr --add dcd 	'docker compose down'
 abbr --add dcs  'docker compose stop'
 
 # NPM
-abbr --add nb 	'npm build'
-abbr --add ncl	'npm clean'
+abbr --add nb 	'npm run build'
+abbr --add ncl	'npm run clean'
 abbr --add nd 	'npm run dev'
 abbr --add nit 	'npm init'
 abbr --add ni 	'npm install'
 abbr --add nig	'npm install -g'
-abbr --add ns 	'npm serve'
-abbr --add nst 	'npm start'
-abbr --add nt 	'npm test'
+abbr --add nst 	'npm run start'
+abbr --add nt 	'npm run test'
 abbr --add nv 	'npm --version'
 
 
