@@ -14,13 +14,15 @@ brew "git"
 brew "nvm"
 brew "sdkman-cli"
 brew "virtuslab/scala-cli/scala-cli"
+brew "pgformatter"
+brew "helix"
 cask "dash"
 cask "docker"
 cask "jetbrains-toolbox"
 cask "postman"
 cask "visual-studio-code"
 
-# CLI
+# CLI & Terminal
 brew "bat"
 brew "curlie"
 brew "eza"

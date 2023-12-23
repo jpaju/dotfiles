@@ -1,0 +1,19 @@
+[[language]]
+name = "scala"
+scope = "source.scala"
+roots = ["build.sbt", "build.sc", "build.gradle", "build.gradle.kts", "pom.xml", ".scala-build"]
+file-types = ["scala", "sbt", "sc"]
+comment-token = "//"
+indent = { tab-width = 2, unit = "  " }
+language-servers = [ "metals" ]
+formatter = { command = "scalafmt --stdin --stdout"}
+auto-format = true
+
+[[language]]
+name = "sql"
+scope = "source.sql"
+file-types = ["sql", "dsql"]
+comment-token = "--"
+indent = { tab-width = 4, unit = "    " }
+injection-regex = "sql"
+formatter = { command = "pg_format"}

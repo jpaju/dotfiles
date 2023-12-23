@@ -11,7 +11,7 @@ set -g sdkman_prefix $SDKMAN_DIR
 sdk current java >/dev/null # This adds java binary to PATH and sets JAVA_HOME variable
 
 # Environment variables
-set -gx EDITOR "code --wait"
+set -gx EDITOR "hx"
 set -gx VISUAL $EDITOR
 fish_add_path ~/Library/Application\ Support/JetBrains/Toolbox/scripts
 
