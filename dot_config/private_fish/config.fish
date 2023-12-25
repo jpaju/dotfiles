@@ -27,6 +27,3 @@ source ~/.config/fish/abbreviations.fish
 # Set up iTerm2 shell integration
 test -e {$HOME}/.iterm2_shell_integration.fish; and source {$HOME}/.iterm2_shell_integration.fish
 
-# Setup starship prompt
-starship init fish | source
-enable_transience
