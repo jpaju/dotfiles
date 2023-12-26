@@ -7,7 +7,7 @@ abbr --add gap 	'git add --patch'
 abbr --add gb 	'git branch'
 abbr --add gba 	'git branch --all'
 abbr --add gbr 	'git branch --remotes'
-abbr --add gbd 	'git branch --delete --remotes'
+abbr --add gbd 	'git branch --delete'
 abbr --add gcm 	'git commit --message'
 abbr --add gacm 'git add --all && git commit --message'
 abbr --add gca 	'git commit --amend'
@@ -29,7 +29,7 @@ abbr --add gpst 'git push --tags'
 abbr --add grb 	'git rebase'
 abbr --add grba 'git rebase --abort'
 abbr --add grbc 'git rebase --continue'
-abbr --add grbi 'git rebase -i'
+abbr --add grbi 'git rebase --interactive'
 abbr --add gr 	'git reset'
 abbr --add grh 	'git reset --hard'
 abbr --add grs 	'git reset --soft'
@@ -47,20 +47,14 @@ abbr --add gswm 'git switch (git_default_branch)'
 abbr --add gtl 	'git tag --list'
 
 # Git with fuzzy finder
-abbr --add fga   'git ls-files -m -o --exclude-standard | fzf --multi --print0 | xargs -0 -o -t git add'
-abbr --add fgap  'git ls-files -m -o --exclude-standard | fzf --multi --print0 | xargs -0 -o -t git add --patch'
 abbr --add fgco  'git checkout $(find_local_branch)'
 abbr --add fgcor 'git checkout --track $(find_remote_branch)'
-abbr --add fgrb  'git rebase -i $(find_commit_hash)'
-abbr --add fgr 	 'git reset $(find_commit_hash)'
-
 
 # GitHub CLI
 abbr --add ghb    'gh browse'
 abbr --add ghprc  'gh pr create --web'
 abbr --add ghprv  'gh pr view --web'
 abbr --add ghprm  'gh pr merge --squash --delete-branch'
-
 
 # Docker
 abbr --add dk 	'docker'
@@ -73,12 +67,10 @@ abbr --add dcd 	'docker compose down'
 abbr --add dcs  'docker compose stop'
 
 # NPM
-abbr --add nb 	'npm run build'
-abbr --add ncl	'npm run clean'
-abbr --add nd 	'npm run dev'
 abbr --add nit 	'npm init'
 abbr --add ni 	'npm install'
-abbr --add nig	'npm install -g'
+abbr --add nb 	'npm run build'
+abbr --add nd 	'npm run dev'
 abbr --add nst 	'npm run start'
 abbr --add nt 	'npm run test'
 abbr --add nv 	'npm --version'
