@@ -75,6 +75,11 @@ abbr --add nst 	'npm run start'
 abbr --add nt 	'npm run test'
 abbr --add nv 	'npm --version'
 
+# Nix
+abbr --add nxsh  'nix shell'
+abbr --add nxd   'nix develop'
+abbr --add nxdsc 'nix develop github:devinsideyou/scala-seed#java17'
+abbr --add nxdts 'nix develop path:$HOME/.config/nix/flakes/typescript'
 
 # Chezmoi
 abbr --add cm 	'chezmoi'

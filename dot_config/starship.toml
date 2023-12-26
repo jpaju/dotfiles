@@ -49,6 +49,10 @@ style = "#E2CC44 bold"
 format = "[$status]($style) "
 disabled = false
 
+[docker_context]
+symbol = '🐳'
+format = 'via [$symbol]($style) '
+
 [package]
 disabled = true
 
@@ -60,3 +64,9 @@ style = "red bold"
 
 [scala]
 symbol = " "
+
+[nix_shell]
+heuristic = true
+symbol = ''
+unknown_msg = 'ad-hoc'
+format = 'via [$symbol $state(\($name\))]($style) '

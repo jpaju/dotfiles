@@ -1,6 +1,11 @@
 # Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+# Install Nix
+sh <(curl -L https://nixos.org/nix/install)
+nix profile install "nixpkgs#nix-your-shell"
+nix profile install "nixpkgs#nil"
+
 # Install chezmoi which manages the dotfiles
 brew install chezmoi
 
