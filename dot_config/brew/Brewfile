@@ -1,8 +1,6 @@
 tap "coursier/formulas"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
-tap "sdkman/tap"
-tap "virtuslab/scala-cli"
 
 # Dotfiles management
 brew "chezmoi"
@@ -12,8 +10,6 @@ brew "coursier/formulas/coursier"
 brew "gh"
 brew "git"
 brew "nvm"
-brew "sdkman-cli"
-brew "virtuslab/scala-cli/scala-cli"
 brew "pgformatter"
 brew "helix"
 cask "dash"

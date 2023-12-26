@@ -18,15 +18,3 @@ brew bundle install --file ~/.config/brew/Brewfile
 
 # Install fisher packages
 fish -c "fisher update"
-
-# Setup JDK
-sdk install java 17.0.8-tem
-sdk use java 17.0.8-tem
-
-# Install Coursier packages
-cs install sbt
-cs install scala
-cs install scala-cli
-cs install metals
-cs install scalafmt
-cs install bloop
