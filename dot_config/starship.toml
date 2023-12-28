@@ -2,9 +2,11 @@ command_timeout = 750
 
 # Appearance
 format = """
+$directory\
 $all\
 $fill\
 $line_break\
+$status\
 $battery\
 $character\
 """
@@ -42,6 +44,10 @@ disabled = false
 truncation_length = 7
 truncate_to_repo = true
 style = "#E2CC44 bold"
+
+[status]
+format = "[$status]($style) "
+disabled = false
 
 [package]
 disabled = true

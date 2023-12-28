@@ -1,3 +1,7 @@
+# Copied from here: https://gist.github.com/duament/bac0181935953b97ca71640727c9c029
+
+# https://github.com/acomagu/fish-async-prompt
+# https://github.com/fish-shell/fish-shell/issues/8223
 
 status is-interactive
 or exit 0
@@ -20,6 +24,7 @@ set -gx STARSHIP_SESSION_KEY (random 10000000000000 9999999999999999)
 function __starship_async_cancel_repaint --on-event fish_cancel
     commandline -f repaint
 end
+
 function __starship_async_maybe_execute
     commandline --is-valid
     if test $status != 2
@@ -28,6 +33,7 @@ function __starship_async_maybe_execute
     end
     commandline -f execute
 end
+
 function __starship_async_cancel_commandline
     if string length -q -- (commandline)
         set -g TRANSIENT 1
@@ -35,26 +41,47 @@ function __starship_async_cancel_commandline
     end
     commandline -f cancel-commandline
 end
+
 function __starship_async_edit_command_buffer
     printf '\e[2F' # 2 lines up
     edit_command_buffer
 end
+
 bind \r  __starship_async_maybe_execute       # ENTER
 bind \cc __starship_async_cancel_commandline  # CTRL+C
 bind \ee __starship_async_edit_command_buffer # ALT+E
 bind \ev __starship_async_edit_command_buffer # ALT+V
 
 # Prompt
-function fish_prompt
+function transient_prompt
     printf '\e[0J' # Clear from cursor to end of screen
     if test $TRANSIENT -eq 1 &> /dev/null
         set -g TRANSIENT 0
         __starship_async_simple_prompt
     else if test -e "$__starship_async_tmpdir"/"$fish_pid"_fish_prompt
-        cat "$__starship_async_tmpdir"/"$fish_pid"_fish_prompt
+        normal_prompt
     else
         __starship_async_simple_prompt
     end
+end 
+
+function normal_prompt
+    cat "$__starship_async_tmpdir"/"$fish_pid"_fish_prompt
+end
+
+function fish_prompt
+    # normal_prompt
+    transient_prompt
+end
+
+# TODO Make the right prompt async as well. Currently there are no slow stuff on the right 
+function fish_right_prompt
+    set STARSHIP_CMD_PIPESTATUS $pipestatus
+    set STARSHIP_CMD_STATUS $status
+    set STARSHIP_DURATION "$CMD_DURATION"
+    set STARSHIP_JOBS (count (jobs -p))
+
+    starship prompt --right --terminal-width=$COLUMNS --status=$STARSHIP_CMD_STATUS --pipestatus=$STARSHIP_CMD_PIPESTATUS --keymap=$STARSHIP_KEYMAP --cmd-duration=$STARSHIP_DURATION --jobs=$STARSHIP_JOBS
 end
 
 # Async task
@@ -69,8 +96,8 @@ function __starship_async_fire --on-event fish_prompt
     set STARSHIP_CMD_STATUS $status
     set STARSHIP_DURATION "$CMD_DURATION"
     set STARSHIP_JOBS (count (jobs -p))
-
     set -l tmpfile "$__starship_async_tmpdir"/"$fish_pid"_fish_prompt
+
     fish -c '
     starship prompt --terminal-width="'$COLUMNS'" --status='$STARSHIP_CMD_STATUS' --pipestatus="'$STARSHIP_CMD_PIPESTATUS'" --keymap='$STARSHIP_KEYMAP' --cmd-duration='$STARSHIP_DURATION' --jobs='$STARSHIP_JOBS' > '$tmpfile'
     kill -s "'$__starship_async_signal'" '$fish_pid &
@@ -92,5 +119,3 @@ function __starship_async_cleanup --on-event fish_exit
     rm -f "$__starship_async_tmpdir"/"$fish_pid"_fish_prompt
 end
 
-# https://github.com/acomagu/fish-async-prompt
-# https://github.com/fish-shell/fish-shell/issues/8223
