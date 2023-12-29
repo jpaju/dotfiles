@@ -81,6 +81,12 @@ abbr --add nxd   'nix develop'
 abbr --add nxdsc 'nix develop github:devinsideyou/scala-seed#java17'
 abbr --add nxdts 'nix develop path:$HOME/.config/nix/flakes/typescript'
 
+# Nix home manager
+abbr --add hm  'home-manager'
+abbr --add hms 'home-manager switch --flake ~/.config/nix/home-manager'
+abbr --add hmu 'nix flake update --flake ~/.config/nix/home-manager'
+
+
 # Chezmoi
 abbr --add cm 	'chezmoi'
 abbr --add cmad 'chezmoi add'

@@ -3,8 +3,7 @@
 
 # Install Nix
 sh <(curl -L https://nixos.org/nix/install)
-nix profile install "nixpkgs#nix-your-shell"
-nix profile install "nixpkgs#nil"
+# TODO Install and setup Nix home-manager
 
 # Install chezmoi which manages the dotfiles
 brew install chezmoi

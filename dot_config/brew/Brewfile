@@ -1,37 +1,15 @@
-tap "coursier/formulas"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 
-# Dotfiles management
-brew "chezmoi"
-
 # Dev tools
-brew "coursier/formulas/coursier"
-brew "gh"
-brew "git"
-brew "nvm"
-brew "pgformatter"
-brew "helix"
 cask "dash"
 cask "docker"
 cask "jetbrains-toolbox"
 cask "postman"
 cask "visual-studio-code"
+cask "pbkit/tap/pbkit"
 
 # CLI & Terminal
-brew "bat"
-brew "curlie"
-brew "eza"
-brew "fd"
-brew "fish"
-brew "fzf"
-brew "diff-so-fancy"
-brew "gping"
-brew "iperf3"
-brew "jq"
-brew "starship"
-brew "tldr"
-brew "fisher"
 cask "font-fira-code-nerd-font"
 cask "iterm2"
 
