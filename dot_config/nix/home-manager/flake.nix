@@ -12,6 +12,8 @@
       arch = "aarch64-darwin";
       pkgs = nixpkgs.legacyPackages.${arch};
     in {
+      formatter = pkgs.nixfmt;
+
       homeConfigurations.jaakkopaju = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 

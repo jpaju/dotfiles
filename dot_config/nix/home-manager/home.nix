@@ -1,12 +1,7 @@
-
-{
-  config,
-  pkgs,
-  ...
-}: {
+{ config, pkgs, ... }: {
   programs.home-manager.enable = true;
 
-  nixpkgs.config.allowUnfree = true; 
+  nixpkgs.config.allowUnfree = true;
 
   home = {
     username = "jaakkopaju";
@@ -44,11 +39,11 @@
       kcat
       lazygit
       pgcli
-      pgformatter
       scala-update
 
       # LSPs
       dockerfile-language-server-nodejs
+      elmPackages.elm-language-server
       kotlin-language-server
       marksman
       metals
@@ -61,6 +56,14 @@
       terraform-ls
       vscode-langservers-extracted
       yaml-language-server
+
+      # Formatters
+      black
+      buf
+      elmPackages.elm-format
+      nixfmt
+      pgformatter
+      nodePackages.prettier
 
       # GUIs currently managed with homebrew due to Nix limitations
       # aldente

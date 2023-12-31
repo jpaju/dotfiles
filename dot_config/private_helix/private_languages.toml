@@ -1,19 +1,86 @@
 [[language]]
+name = "css"
+formatter = { command = "prettier --stdin-filepath dummy.css" }
+auto-format = true
+
+[[language]]
+name = "elm"
+formatter = { command = "elm-format --stdin" }
+auto-format = true
+
+[[language]]
+name = "fish"
+formatter = { command = "fish_indent" }
+auto-format = true
+
+[[language]]
+name = "html"
+formatter = { command = "prettier --stdin-filepath dummy.html" }
+auto-format = true
+
+[[language]]
+name = "javascript"
+formatter = { command = "prettier --stdin-filepath dummy.js" }
+auto-format = true
+
+[[language]]
+name = "json"
+formatter = { command = "prettier --stdin-filepath dummy.json" }
+auto-format = true
+
+[[language]]
+name = "markdown"
+formatter = { command = "prettier --stdin-filepath dummy.md" }
+auto-format = true
+
+[[language]]
+name = "nix"
+formatter = { command = "nixfmt" }
+auto-format = true
+
+[[language]]
+name = "python"
+formatter = { command = "black --quiet" }
+auto-format = true
+
+[[language]]
+name = "prisma"
+auto-format = true
+
+[[language]]
+name = "protobuf"
+formatter = { command = "buf format" }
+auto-format = true
+
+[[language]]
 name = "scala"
-scope = "source.scala"
-roots = ["build.sbt", "build.sc", "build.gradle", "build.gradle.kts", "pom.xml", ".scala-build"]
-file-types = ["scala", "sbt", "sc"]
-comment-token = "//"
-indent = { tab-width = 2, unit = "  " }
-language-servers = [ "metals" ]
-formatter = { command = "scalafmt --stdin --stdout"}
+formatter = { command = "scalafmt --stdin --stdout" }
+
+[[language]]
+name = "scss"
+formatter = { command = "prettier --stdin-filepath dummy.scss" }
 auto-format = true
 
 [[language]]
 name = "sql"
-scope = "source.sql"
-file-types = ["sql", "dsql"]
-comment-token = "--"
-indent = { tab-width = 4, unit = "    " }
-injection-regex = "sql"
-formatter = { command = "pg_format"}
+formatter = { command = "pg_format" }
+auto-format = true
+
+[[language]]
+name = "toml"
+auto-format = true
+
+[[language]]
+name = "typescript"
+formatter = { command = "prettier --stdin-filepath dummy.ts" }
+auto-format = true
+
+[[language]]
+name = "xml"
+auto-format = true
+language-servers = ["vscode-html-language-server"]
+
+[[language]]
+name = "yaml"
+formatter = { command = "prettier --stdin-filepath dummy.yaml" }
+auto-format = true
