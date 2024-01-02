@@ -41,6 +41,10 @@
       pgcli
       scala-update
 
+      # Misc
+      gnupg
+      pinentry
+
       # LSPs
       dockerfile-language-server-nodejs
       elmPackages.elm-language-server
@@ -62,8 +66,9 @@
       buf
       elmPackages.elm-format
       nixfmt
-      pgformatter
       nodePackages.prettier
+      pgformatter
+      scalafmt
 
       # GUIs currently managed with homebrew due to Nix limitations
       # aldente
