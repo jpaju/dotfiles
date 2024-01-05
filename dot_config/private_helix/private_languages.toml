@@ -1,3 +1,17 @@
+# TODO Remove HOCON when PR gets merged: https://github.com/helix-editor/helix/pull/9203
+[[language]]
+name = "hocon"
+scope = "source.conf"
+file-types = ["conf"]
+roots = []
+comment-token = "#"
+auto-format = true
+indent = { tab-width = 2, unit = "  " }
+
+[[grammar]]
+name = "hocon"
+source = { git = "https://github.com/antosha417/tree-sitter-hocon", rev = "c390f10519ae69fdb03b3e5764f5592fb6924bcc" }
+
 [[language]]
 name = "css"
 formatter = { command = "prettier --stdin-filepath dummy.css" }
