@@ -25,7 +25,7 @@ auto-format = true
 [[language]]
 name = "fish"
 formatter = { command = "fish_indent" }
-auto-format = true
+auto-format = false
 
 [[language]]
 name = "html"
@@ -46,6 +46,8 @@ auto-format = true
 name = "markdown"
 formatter = { command = "prettier --stdin-filepath dummy.md" }
 auto-format = true
+soft-wrap.enable = true
+soft-wrap.wrap-at-text-width = true
 
 [[language]]
 name = "nix"
@@ -69,6 +71,7 @@ auto-format = true
 [[language]]
 name = "scala"
 formatter = { command = "scalafmt --stdin --stdout" }
+auto-format = true
 
 [[language]]
 name = "scss"
@@ -86,6 +89,7 @@ auto-format = true
 
 [[language]]
 name = "typescript"
+indent = { tab-width = 4, unit = "    " }
 formatter = { command = "prettier --stdin-filepath dummy.ts" }
 auto-format = true
 
