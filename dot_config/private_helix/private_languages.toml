@@ -14,12 +14,12 @@ source = { git = "https://github.com/antosha417/tree-sitter-hocon", rev = "c390f
 
 [[language]]
 name = "css"
-formatter = { command = "prettier --stdin-filepath dummy.css" }
+formatter = { command = "prettier", args = ["--stdin-filepath ", "dummy.css"] }
 auto-format = true
 
 [[language]]
 name = "elm"
-formatter = { command = "elm-format --stdin" }
+formatter = { command = "elm-format", args = ["--stdin "] }
 auto-format = true
 
 [[language]]
@@ -29,22 +29,22 @@ auto-format = false
 
 [[language]]
 name = "html"
-formatter = { command = "prettier --stdin-filepath dummy.html" }
+formatter = { command = "prettier", args = ["--stdin-filepath", "dummy.html"] }
 auto-format = true
 
 [[language]]
 name = "javascript"
-formatter = { command = "prettier --stdin-filepath dummy.js" }
+formatter = { command = "prettier", args = ["--stdin-filepath", "dummy.js"] }
 auto-format = true
 
 [[language]]
 name = "json"
-formatter = { command = "prettier --stdin-filepath dummy.json" }
+formatter = { command = "prettier", args = ["--stdin-filepath", "dummy.json"] }
 auto-format = true
 
 [[language]]
 name = "markdown"
-formatter = { command = "prettier --stdin-filepath dummy.md" }
+formatter = { command = "prettier", args = ["--stdin-filepath", "dummy.md"] }
 auto-format = true
 soft-wrap.enable = true
 soft-wrap.wrap-at-text-width = true
@@ -56,7 +56,7 @@ auto-format = true
 
 [[language]]
 name = "python"
-formatter = { command = "black --quiet" }
+formatter = { command = "black", args = ["--quiet", "-"] }
 auto-format = true
 
 [[language]]
@@ -70,12 +70,12 @@ auto-format = true
 
 [[language]]
 name = "scala"
-formatter = { command = "scalafmt --stdin --stdout" }
+formatter = { command = "scalafmt", args = ["--stdin", "--stdout"] }
 auto-format = true
 
 [[language]]
 name = "scss"
-formatter = { command = "prettier --stdin-filepath dummy.scss" }
+formatter = { command = "prettier", args = ["--stdin-filepath", "dummy.scss"] }
 auto-format = true
 
 [[language]]
@@ -89,8 +89,7 @@ auto-format = true
 
 [[language]]
 name = "typescript"
-indent = { tab-width = 4, unit = "    " }
-formatter = { command = "prettier --stdin-filepath dummy.ts" }
+formatter = { command = "prettier", args = ["--stdin-filepath", "dummy.ts"] }
 auto-format = true
 
 [[language]]
@@ -100,5 +99,5 @@ language-servers = ["vscode-html-language-server"]
 
 [[language]]
 name = "yaml"
-formatter = { command = "prettier --stdin-filepath dummy.yaml" }
+formatter = { command = "prettier", args = ["--stdin-filepath ", "dummy.yaml"] }
 auto-format = true
