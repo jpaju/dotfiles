@@ -8,6 +8,7 @@ cask "jetbrains-toolbox"
 cask "postman"
 cask "visual-studio-code"
 cask "pbkit/tap/pbkit"
+cask "clang-format"
 
 # CLI & Terminal
 cask "font-fira-code-nerd-font"

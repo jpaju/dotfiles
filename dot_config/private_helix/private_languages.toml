@@ -65,7 +65,12 @@ auto-format = true
 
 [[language]]
 name = "protobuf"
-formatter = { command = "buf format" }
+formatter = { command = "zsh", args = [
+  "-c",
+  "clang-format",
+  "--assume-filename=dummy.proto",
+  "--style=file:$HOME/.config/.clang-format",
+] } # In order to use variable expansion, the command must be run through shell, see: https://github.com/helix-editor/helix/issues/5538#issuecomment-1383197516
 auto-format = true
 
 [[language]]
