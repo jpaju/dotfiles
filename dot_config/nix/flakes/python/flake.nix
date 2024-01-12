@@ -1,6 +1,5 @@
 {
-  description =
-    "General flake for Python development with Python, Poetry and Black";
+  description = "General flake for Python development with Python, Poetry and Black";
 
   inputs.nixpkgs.url = "github:nixos/nixpkgs";
   inputs.flake-utils.url = "github:numtide/flake-utils";
