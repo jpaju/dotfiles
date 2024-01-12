@@ -58,6 +58,7 @@
       nodePackages.typescript-language-server # TypeScript
       python311Packages.python-lsp-server     # Python
       taplo                                   # TOML
+      rust-analyzer                           # Rust
       terraform-ls                            # Terraform
       vscode-langservers-extracted            # JSON, HTML, CSS, SCSS
       yaml-language-server                    # YAML
@@ -69,6 +70,7 @@
       nodePackages.prettier   # JSON, JS, TS, HTML, CSS, YAML, Markdown
       pgformatter             # SQL
       scalafmt                # Scala
+      rustfmt                 # Rust
 
       # GUIs currently managed with homebrew due to Nix limitations
       # aldente
