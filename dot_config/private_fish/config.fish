@@ -1,27 +1,23 @@
-if status is-interactive
-    # Commands to run in interactive sessions can go here
-end
-
 # Set up Homebrew
 eval (/opt/homebrew/bin/brew shellenv)
-
-# Nix setup
-nix-your-shell fish | source
 
 # Environment variables
 set -gx EDITOR "hx"
 set -gx VISUAL $EDITOR
-fish_add_path ~/Library/Application\ Support/JetBrains/Toolbox/scripts # TODO Is this really required?
 
-# FZF opts
-set fzf_fd_opts --hidden --exclude=.git
-set fzf_history_time_format %d-%m-%y
-set fzf_diff_highlighter diff-so-fancy
-# Add '--decorate-refs-exclude="tags/*"' to 'git log' command in _fzf_search_git_log.fish -file to exclude tags from git log search
+if status is-interactive
+    # Nix setup
+    nix-your-shell fish | source
 
-# Load abbreviations
-source ~/.config/fish/abbreviations.fish
+    # FZF opts
+    set fzf_fd_opts --hidden --exclude=.git
+    set fzf_history_time_format %d-%m-%y
+    set fzf_diff_highlighter diff-so-fancy
+    # Add '--decorate-refs-exclude="tags/*"' to 'git log' command in _fzf_search_git_log.fish -file to exclude tags from git log search
 
-# Set up iTerm2 shell integration
-test -e {$HOME}/.iterm2_shell_integration.fish; and source {$HOME}/.iterm2_shell_integration.fish
+    # Load abbreviations
+    source ~/.config/fish/abbreviations.fish
 
+    # Set up iTerm2 shell integration
+    test -e {$HOME}/.iterm2_shell_integration.fish; and source {$HOME}/.iterm2_shell_integration.fish
+end
