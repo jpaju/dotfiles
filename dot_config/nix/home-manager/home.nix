@@ -27,6 +27,7 @@
       gping
       iperf3
       jq
+      ncdu
       tldr
 
       # Dev tools
@@ -46,29 +47,28 @@
       pinentry
 
       # LSPs
-      dockerfile-language-server-nodejs
-      elmPackages.elm-language-server
-      kotlin-language-server
-      marksman
-      metals
-      nil
-      nodePackages."@prisma/language-server"
-      nodePackages.bash-language-server
-      nodePackages.typescript-language-server
-      python311Packages.python-lsp-server
-      taplo
-      terraform-ls
-      vscode-langservers-extracted
-      yaml-language-server
+      dockerfile-language-server-nodejs       # Docker
+      elmPackages.elm-language-server         # Elm
+      kotlin-language-server                  # Kotlin
+      marksman                                # Markdown
+      metals                                  # Scala
+      nil                                     # Nix
+      nodePackages."@prisma/language-server"  # Prisma
+      nodePackages.bash-language-server       # Bash
+      nodePackages.typescript-language-server # TypeScript
+      python311Packages.python-lsp-server     # Python
+      taplo                                   # TOML
+      terraform-ls                            # Terraform
+      vscode-langservers-extracted            # JSON, HTML, CSS, SCSS
+      yaml-language-server                    # YAML
 
       # Formatters
-      black
-      buf
-      elmPackages.elm-format
-      nixfmt
-      nodePackages.prettier
-      pgformatter
-      scalafmt
+      black                   # Python
+      elmPackages.elm-format  # Elm
+      nixfmt                  # Nix
+      nodePackages.prettier   # JSON, JS, TS, HTML, CSS, YAML, Markdown
+      pgformatter             # SQL
+      scalafmt                # Scala
 
       # GUIs currently managed with homebrew due to Nix limitations
       # aldente
