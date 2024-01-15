@@ -951,6 +951,32 @@
 			</array>
 			<key>Keyboard Map</key>
 			<dict>
+				<key>0x28-0xa0000-0x1c</key>
+				<dict>
+					<key>Action</key>
+					<integer>12</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>2</integer>
+					<key>Text</key>
+					<string>{</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>0x29-0xa0000-0x19</key>
+				<dict>
+					<key>Action</key>
+					<integer>12</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>2</integer>
+					<key>Text</key>
+					<string>}</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
 				<key>0x2a-0x200000-0x0</key>
 				<dict>
 					<key>Action</key>
@@ -1098,6 +1124,19 @@
 					<key>Text</key>
 					<string>0x1f</string>
 				</dict>
+				<key>0x37-0x80000-0x1a</key>
+				<dict>
+					<key>Action</key>
+					<integer>12</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>2</integer>
+					<key>Text</key>
+					<string>|</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
 				<key>0x38-0x200000-0x0</key>
 				<dict>
 					<key>Action</key>
@@ -1112,12 +1151,38 @@
 					<key>Text</key>
 					<string>0x7f</string>
 				</dict>
+				<key>0x38-0x80000-0x1c</key>
+				<dict>
+					<key>Action</key>
+					<integer>12</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>2</integer>
+					<key>Text</key>
+					<string>[</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
 				<key>0x39-0x200000-0x0</key>
 				<dict>
 					<key>Action</key>
 					<integer>12</integer>
 					<key>Text</key>
 					<string>9</string>
+				</dict>
+				<key>0x39-0x80000-0x19</key>
+				<dict>
+					<key>Action</key>
+					<integer>12</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>2</integer>
+					<key>Text</key>
+					<string>]</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
 				<key>0x7f-0x100000-0x0</key>
 				<dict>
