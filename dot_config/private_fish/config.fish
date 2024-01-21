@@ -4,6 +4,7 @@ eval (/opt/homebrew/bin/brew shellenv)
 # Environment variables
 set -gx EDITOR "hx"
 set -gx VISUAL $EDITOR
+set -gx XDG_CONFIG_HOME "$HOME/.config"
 
 if status is-interactive
     # Nix setup
