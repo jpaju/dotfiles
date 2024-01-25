@@ -73,10 +73,19 @@ formatter = { command = "zsh", args = [
 ] } # In order to use variable expansion, the command must be run through shell, see: https://github.com/helix-editor/helix/issues/5538#issuecomment-1383197516
 auto-format = true
 
+[language-server.metals]
+command = "metals"
+config = { "isHttpEnabled" = true }
+environment = { "SBT_TPOLECAT_DEV" = "1" }
+
 [[language]]
 name = "scala"
-formatter = { command = "scalafmt", args = ["--stdin", "--stdout"] }
 auto-format = true
+
+[[grammar]]
+name = "scala"
+source = { git = "https://github.com/tree-sitter/tree-sitter-scala", rev = "7891815f42dca9ed6aeb464c2edc39d479ab965c" }
+
 
 [[language]]
 name = "scss"
