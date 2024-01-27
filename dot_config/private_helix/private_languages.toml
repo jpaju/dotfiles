@@ -1,16 +1,12 @@
-# TODO Remove HOCON when PR gets merged: https://github.com/helix-editor/helix/pull/9203
-[[language]]
-name = "hocon"
-scope = "source.conf"
-file-types = ["conf"]
-roots = []
-comment-token = "#"
-auto-format = true
-indent = { tab-width = 2, unit = "  " }
+# ------------------------------------------------- Language servers -------------------------------------------------
 
-[[grammar]]
-name = "hocon"
-source = { git = "https://github.com/antosha417/tree-sitter-hocon", rev = "c390f10519ae69fdb03b3e5764f5592fb6924bcc" }
+[language-server.metals]
+command = "metals"
+config = { "isHttpEnabled" = true }
+environment = { "SBT_TPOLECAT_DEV" = "1" }
+
+
+# ----------------------------------------------------- Languages -----------------------------------------------------
 
 [[language]]
 name = "css"
@@ -73,19 +69,9 @@ formatter = { command = "zsh", args = [
 ] } # In order to use variable expansion, the command must be run through shell, see: https://github.com/helix-editor/helix/issues/5538#issuecomment-1383197516
 auto-format = true
 
-[language-server.metals]
-command = "metals"
-config = { "isHttpEnabled" = true }
-environment = { "SBT_TPOLECAT_DEV" = "1" }
-
 [[language]]
 name = "scala"
 auto-format = true
-
-[[grammar]]
-name = "scala"
-source = { git = "https://github.com/tree-sitter/tree-sitter-scala", rev = "7891815f42dca9ed6aeb464c2edc39d479ab965c" }
-
 
 [[language]]
 name = "scss"
