@@ -47,7 +47,7 @@ soft-wrap.wrap-at-text-width = true
 
 [[language]]
 name = "nix"
-formatter = { command = "nixfmt --width 120" }
+formatter = { command = "nixfmt", args = ["--width", "120"] }
 auto-format = true
 
 [[language]]
