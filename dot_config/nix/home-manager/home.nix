@@ -36,6 +36,7 @@
       tldr
 
       # Dev tools
+      bun # TODO Remove this when helix-gpt is available from nixpkgs
       coursier
       diff-so-fancy
       gh

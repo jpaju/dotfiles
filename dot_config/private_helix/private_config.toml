@@ -5,10 +5,17 @@ line-number = "relative"
 mouse = false
 cursorline = true
 color-modes = true
-text-width = 120
-rulers = [120]
 bufferline = "always"
 shell = ["fish", "-c"]
+
+# Auto-completion
+idle-timeout = 0
+preview-completion-insert = false
+completion-trigger-len = 1
+
+# Width
+text-width = 120
+rulers = [120]
 
 [editor.cursor-shape]
 insert = "bar"
@@ -62,3 +69,6 @@ C-k = [
 A-C-i = [":toggle lsp.display-inlay-hints"]
 A-C-f = [":toggle auto-format"]
 A-G = [":toggle file-picker.git-ignore"]
+
+[keys.insert]
+C-p = ["signature_help"]
