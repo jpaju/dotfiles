@@ -1,4 +1,4 @@
-{ config, pkgs, arch, helix-master, ... }: {
+{ config, pkgs, arch, helix-master, scls-main, ... }: {
   programs.home-manager.enable = true;
 
   nixpkgs.config.allowUnfree = true;
@@ -61,6 +61,7 @@
       nodePackages.bash-language-server # Bash
       nodePackages.typescript-language-server # TypeScript
       python311Packages.python-lsp-server # Python
+      scls-main.defaultPackage.${arch} # Snippets and words
       taplo # TOML
       rust-analyzer # Rust
       terraform-ls # Terraform

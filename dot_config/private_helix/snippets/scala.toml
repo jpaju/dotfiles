@@ -1,0 +1,31 @@
+[[snippets]]
+prefix = "log"
+body = 'println("$1")'
+
+[[snippets]]
+prefix = "fcc"
+body = 'final case class $1()'
+
+[[snippets]]
+prefix = "cc"
+body = 'case class $1()'
+
+[[snippets]]
+prefix = "st"
+body = 'sealed trait $1 extends scala.Product with Serializable'
+
+[[snippets]]
+prefix = "adt"
+body = '''
+sealed trait $1 extends scala.Product with Serializable
+
+object $1 {
+  final case class $2() extends $1
+}'''
+
+[[snippets]]
+prefix = "fr"
+body = '''
+for {
+  value <- $1
+} yield value'''

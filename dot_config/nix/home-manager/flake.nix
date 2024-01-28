@@ -11,9 +11,14 @@
       url = "github:helix-editor/helix/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    scls-main = {
+      url = "github:estin/simple-completion-language-server/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, helix-master, ... }:
+  outputs = { nixpkgs, home-manager, helix-master, scls-main, ... }:
     let
       arch = "aarch64-darwin";
       pkgs = nixpkgs.legacyPackages.${arch};
@@ -28,6 +33,7 @@
         extraSpecialArgs = {
           inherit arch;
           inherit helix-master;
+          inherit scls-main;
         };
       };
     };
