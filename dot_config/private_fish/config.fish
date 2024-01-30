@@ -17,8 +17,9 @@ if status is-interactive
     set fzf_history_time_format "%d.%m.%y %H:%M"
     # Add '--decorate-refs-exclude="tags/*"' to 'git log' command in _fzf_search_git_log.fish -file to exclude tags from git log search
 
-    # Load abbreviations
+    # Load abbreviations and keybinds
     source ~/.config/fish/abbreviations.fish
+    source ~/.config/fish/keybinds.fish
 
     # Set up iTerm2 shell integration
     test -e {$HOME}/.iterm2_shell_integration.fish; and source {$HOME}/.iterm2_shell_integration.fish
