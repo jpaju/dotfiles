@@ -111,6 +111,10 @@ auto-format = true
 language-servers = ["vscode-css-language-server", "scls", "copilot"]
 
 [[language]]
+name = "scheme"
+language-servers = ["copilot"]
+
+[[language]]
 name = "sql"
 formatter = { command = "pg_format" }
 auto-format = true
@@ -134,7 +138,7 @@ language-servers = ["vscode-html-language-server", "scls", "copilot"]
 
 [[language]]
 name = "yaml"
-formatter = { command = "prettier", args = ["--stdin-filepath ", "dummy.yaml"] }
+formatter = { command = "prettier", args = ["--stdin-filepath", "dummy.yaml"] }
 auto-format = true
 language-servers = [
   "yaml-language-server",
