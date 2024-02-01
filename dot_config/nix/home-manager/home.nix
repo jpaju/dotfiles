@@ -36,7 +36,6 @@
       tldr
 
       # Dev tools
-      bun # TODO Remove this when helix-gpt is available from nixpkgs
       coursier
       diff-so-fancy
       gh
@@ -45,7 +44,7 @@
       kcat
       lazygit
       pgcli
-      scala-update
+      # scala-update # TODO Comment until the package is fixed and can be built
 
       # Misc
       gnupg

@@ -1,8 +1,7 @@
 # ------------------------------------------------- Language servers -------------------------------------------------
 [language-server.copilot]
-command = "bun"
-args = ["run", "/usr/local/bin/helix-gpt.js"]
-environment = { HANDLER = "copilot" }
+command = "helix-gpt"
+args = ["--handler", "copilot"]
 
 [language-server.scls]
 command = "simple-completion-language-server"
