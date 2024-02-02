@@ -72,6 +72,12 @@ abbr --add dcud 'docker compose up -d'
 abbr --add dcd  'docker compose down'
 abbr --add dcs  'docker compose stop'
 
+# Direnv
+abbr --add de   'direnv'
+abbr --add dea  'direnv allow'
+abbr --add deb  'direnv block'
+abbr --add des  'direnv status'
+
 # NPM
 abbr --add nit 'npm init'
 abbr --add ni  'npm install'

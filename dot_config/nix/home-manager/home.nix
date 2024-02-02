@@ -3,9 +3,17 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  programs.helix = {
-    enable = true;
-    package = helix-master.packages.${arch}.default;
+  programs = {
+    direnv = {
+      enable = true;
+      enableFishIntegration = true;
+      nix-direnv.enable = true;
+    };
+
+    helix = {
+      enable = true;
+      package = helix-master.packages.${arch}.default;
+    };
   };
 
   home = {
