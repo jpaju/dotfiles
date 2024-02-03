@@ -1,4 +1,4 @@
-theme = "onedark"
+theme = "catppuccin_macchiato"
 
 [editor]
 line-number = "relative"
@@ -29,7 +29,7 @@ render.nbsp = "all"
 render.newline = "none"
 
 [editor.statusline]
-left = ["mode", "spinner", "diagnostics", "selections"]
+left = ["mode", "spacer", "spinner", "diagnostics", "selections"]
 center = ["file-name", "file-modification-indicator", "read-only-indicator"]
 right = [
   "position",
@@ -59,6 +59,9 @@ display-inlay-hints = false
 
 [keys.normal]
 esc = ["collapse_selection", "keep_primary_selection"]
+"*" = ["move_char_right", "move_prev_word_start", "move_next_word_start", "search_selection"]
+"C-*" = ["search_selection"]
+A-w = [":buffer-close"]
 C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 C-k = [
   "extend_to_line_bounds",
