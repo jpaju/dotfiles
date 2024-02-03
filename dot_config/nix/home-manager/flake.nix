@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs-master.url = "github:nixos/nixpkgs/master";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -18,10 +19,11 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, helix-master, scls-main, ... }:
+  outputs = { nixpkgs, nixpkgs-master, home-manager, helix-master, scls-main, ... }:
     let
       arch = "aarch64-darwin";
       pkgs = nixpkgs.legacyPackages.${arch};
+      pkgs-master = nixpkgs-master.legacyPackages.${arch};
     in {
       formatter = pkgs.nixfmt;
 
@@ -34,6 +36,7 @@
           inherit arch;
           inherit helix-master;
           inherit scls-main;
+          inherit pkgs-master;
         };
       };
     };

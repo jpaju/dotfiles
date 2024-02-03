@@ -1,4 +1,4 @@
-{ config, pkgs, arch, helix-master, scls-main, ... }: {
+{ config, pkgs, pkgs-master, arch, helix-master, scls-main, ... }: {
   programs.home-manager.enable = true;
 
   nixpkgs.config.allowUnfree = true;
@@ -63,6 +63,7 @@
       fd
       fx
       fzf
+      pkgs-master.helix-gpt # TODO Change to unstable when available
       gping
       iperf3
       jq
