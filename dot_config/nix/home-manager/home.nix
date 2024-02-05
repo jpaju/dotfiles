@@ -81,6 +81,9 @@
       pgcli
       # scala-update # TODO Comment until the package is fixed and can be built
 
+      # Languages
+      terraform
+
       # Misc
       gnupg
       pinentry
