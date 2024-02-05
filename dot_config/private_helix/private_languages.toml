@@ -51,6 +51,10 @@ auto-format = true
 language-servers = ["vscode-html-language-server", "scls", "copilot"]
 
 [[language]]
+name = "java"
+auto-format = true
+
+[[language]]
 name = "javascript"
 formatter = { command = "prettier", args = ["--stdin-filepath", "dummy.js"] }
 auto-format = true
