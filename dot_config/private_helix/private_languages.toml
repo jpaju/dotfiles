@@ -15,13 +15,17 @@ feature_unicode_input = false
 
 [language-server.scls.environment]
 RUST_LOG = "info,simple-completion-langauge-server=info"
-LOG_FILE = "/tmp/completion.log"
+LOG_FILE = "/dev/null"
 
 
 [language-server.metals]
 command = "metals"
 config = { "isHttpEnabled" = true }
 environment = { "SBT_TPOLECAT_DEV" = "1" }
+
+[language-server.terraform-ls]
+command = "terraform-ls"
+args = ["serve", "-log-file", "/dev/null"]
 
 
 # ----------------------------------------------------- Languages -----------------------------------------------------
@@ -43,6 +47,12 @@ formatter = { command = "fish_indent" }
 auto-format = false
 # language-servers = ["fish-lsp"]
 language-servers = ["scls", "copilot"]
+
+[[language]]
+name = "hcl"
+auto-format = true
+formatter = { command = "terraform", args = ["fmt", "-"] }
+language-servers = ["terraform-ls", "scls", "copilot"]
 
 [[language]]
 name = "html"
@@ -81,12 +91,6 @@ auto-format = true
 language-servers = ["nil", "scls", "copilot"]
 
 [[language]]
-name = "python"
-formatter = { command = "black", args = ["--quiet", "-"] }
-auto-format = true
-language-servers = ["pylsp", "scls", "copilot"]
-
-[[language]]
 name = "prisma"
 auto-format = true
 language-servers = ["prisma-language-server", "scls", "copilot"]
@@ -103,19 +107,25 @@ formatter = { command = "zsh", args = [
 auto-format = true
 
 [[language]]
+name = "python"
+formatter = { command = "black", args = ["--quiet", "-"] }
+auto-format = true
+language-servers = ["pylsp", "scls", "copilot"]
+
+[[language]]
 name = "scala"
 auto-format = true
 language-servers = ["metals", "scls", "copilot"]
+
+[[language]]
+name = "scheme"
+language-servers = ["copilot"]
 
 [[language]]
 name = "scss"
 formatter = { command = "prettier", args = ["--stdin-filepath", "dummy.scss"] }
 auto-format = true
 language-servers = ["vscode-css-language-server", "scls", "copilot"]
-
-[[language]]
-name = "scheme"
-language-servers = ["copilot"]
 
 [[language]]
 name = "sql"

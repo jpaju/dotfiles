@@ -48,6 +48,9 @@
       pgcli
       # scala-update # TODO Comment until the package is fixed and can be built
 
+      # Languages
+      terraform
+
       # LSPs
       dockerfile-language-server-nodejs # Docker
       elmPackages.elm-language-server # Elm
