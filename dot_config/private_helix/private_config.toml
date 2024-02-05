@@ -9,7 +9,7 @@ bufferline = "always"
 shell = ["fish", "-c"]
 
 # Auto-completion
-idle-timeout = 0
+idle-timeout = 50
 preview-completion-insert = false
 completion-trigger-len = 1
 

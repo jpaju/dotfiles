@@ -51,6 +51,7 @@
       # LSPs
       dockerfile-language-server-nodejs # Docker
       elmPackages.elm-language-server # Elm
+      jdt-language-server # Java
       kotlin-language-server # Kotlin
       marksman # Markdown
       metals # Scala
