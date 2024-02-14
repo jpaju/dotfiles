@@ -103,7 +103,7 @@
       scls-main.defaultPackage.${arch} # Snippets and words
       taplo # TOML
       rust-analyzer # Rust
-      terraform-ls # Terraform
+      pkgs-master.terraform-ls # Terraform
       vscode-langservers-extracted # JSON, HTML, CSS, SCSS
       yaml-language-server # YAML
 
