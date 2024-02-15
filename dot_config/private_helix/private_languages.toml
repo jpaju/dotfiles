@@ -15,7 +15,7 @@ feature_unicode_input = false
 
 [language-server.scls.environment]
 RUST_LOG = "info,simple-completion-langauge-server=info"
-LOG_FILE = "/tmp/completion.log"
+LOG_FILE = "/dev/null"
 
 
 [language-server.metals]

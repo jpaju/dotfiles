@@ -94,7 +94,7 @@
       jdt-language-server # Java
       kotlin-language-server # Kotlin
       marksman # Markdown
-      metals # Scala
+      pkgs-master.metals # Scala
       nil # Nix
       nodePackages."@prisma/language-server" # Prisma
       nodePackages.bash-language-server # Bash
