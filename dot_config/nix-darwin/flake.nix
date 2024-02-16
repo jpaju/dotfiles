@@ -32,8 +32,8 @@
       hostname = "Jaakkos-MacBook-Pro"; # TODO Make this configurable depending on the machine
       username = "jaakkopaju";
 
-      pkgs = nixpkgs.legacyPackages.${system};
-      pkgs-master = nixpkgs-master.legacyPackages.${system};
+      pkgs = import nixpkgs { inherit system; };
+      pkgs-master = import nixpkgs-master { inherit system; };
 
       specialArgs = {
         inherit hostname;

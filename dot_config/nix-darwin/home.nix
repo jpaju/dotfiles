@@ -1,6 +1,4 @@
 { config, pkgs, pkgs-master, system, helix-master, scls-main, ... }: {
-  nixpkgs.config.allowUnfree = true;
-
   programs = {
     direnv = {
       enable = true;
@@ -50,7 +48,6 @@
       chezmoi
       nix-your-shell
       starship
-      # iterm2
 
       # CLI
       bat
@@ -107,30 +104,6 @@
       pgformatter # SQL
       scalafmt # Scala
       rustfmt # Rust
-
-      # GUIs currently managed with homebrew due to Nix limitations
-      # aldente
-      # alt-tab
-      # appcleaner
-      # bartender
-      # dash
-      # docker
-      # firefox
-      # font-fira-code-nerd-font
-      # google-chrome
-      # iterm2
-      # jetbrains-toolbox
-      # karabiner-elements
-      # menubarx
-      # monitorcontrol
-      # notion
-      # numi
-      # postman
-      # rectangle
-      # signal
-      # spotify
-      # stats
-      # visual-studio-code
     ];
   };
 }
