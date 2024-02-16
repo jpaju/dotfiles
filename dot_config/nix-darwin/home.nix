@@ -1,6 +1,4 @@
-{ config, pkgs, pkgs-master, arch, helix-master, scls-main, ... }: {
-  programs.home-manager.enable = true;
-
+{ config, pkgs, pkgs-master, system, helix-master, scls-main, ... }: {
   nixpkgs.config.allowUnfree = true;
 
   programs = {
@@ -40,13 +38,11 @@
 
     helix = {
       enable = true;
-      package = helix-master.packages.${arch}.default;
+      package = helix-master.packages.${system}.default;
     };
   };
 
   home = {
-    username = "jaakkopaju";
-    homeDirectory = "/Users/jaakkopaju";
     stateVersion = "23.11";
 
     packages = with pkgs; [
@@ -96,7 +92,7 @@
       nodePackages.bash-language-server # Bash
       nodePackages.typescript-language-server # TypeScript
       python311Packages.python-lsp-server # Python
-      scls-main.defaultPackage.${arch} # Snippets and words
+      scls-main.defaultPackage.${system} # Snippets and words
       taplo # TOML
       rust-analyzer # Rust
       terraform-ls # Terraform
@@ -138,3 +134,4 @@
     ];
   };
 }
+

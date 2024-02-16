@@ -96,11 +96,9 @@ abbr --add nxdts 'nix develop path:$HOME/.config/nix/flakes/typescript'
 abbr --add nxdpy 'nix develop path:$HOME/.config/nix/flakes/python'
 abbr --add nxdrs 'nix develop path:$HOME/.config/nix/flakes/rust'
 
-# Nix home manager
-abbr --add hm  'home-manager'
-abbr --add hmp 'home-manager packages'
-abbr --add hms 'home-manager switch --flake ~/.config/nix/home-manager'
-abbr --add hmu 'nix flake update --flake ~/.config/nix/home-manager'
+# Nix darwin
+abbr --add nds 'darwin-rebuild switch --flake ~/.config/nix-darwin'
+abbr --add ndu 'nix flake update --flake ~/.config/nix-darwin'
 
 # Chezmoi
 abbr --add cm   'chezmoi'
