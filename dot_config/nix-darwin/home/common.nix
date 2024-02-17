@@ -30,7 +30,7 @@
       fd
       fx
       fzf
-      pkgs-master.helix-gpt # TODO Change to unstable when available
+      helix-gpt
       gping
       iperf3
       jq

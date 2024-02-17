@@ -8,10 +8,7 @@
   # $ darwin-rebuild changelog
   system.stateVersion = 4;
 
-  services = {
-    nix-daemon.enable = true;
-    # karabiner-elements.enable = true;
-  };
+  services = { nix-daemon.enable = true; };
 
   nixpkgs = {
     hostPlatform = system;
@@ -21,7 +18,7 @@
   environment = with pkgs; {
     shells = [ fish zsh ];
     loginShell = fish;
-    systemPackages = [ cowsay ]; # TODO Remove this
+    systemPackages = [ ];
   };
 
   # Configure shells that loads the nix-darwin environment.

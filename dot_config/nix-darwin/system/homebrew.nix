@@ -2,13 +2,14 @@
 
   homebrew = {
     enable = true;
+
     # onActivation.cleanup = "zap"; # TODO Uncomment to remove homebrew packages not listed below
-    # onActivation.autoUpdate = true; # TODO Uncomment when configuration ready
-    caskArgs.no_quarantine = true;
+    onActivation.autoUpdate = true;
 
     taps = [ "dashlane/tap" "pbkit/homebrew-tap" ];
     brews = [ "dashlane-cli" "clang-format" "pbkit" ];
 
+    caskArgs.no_quarantine = true;
     casks = let
       devTools = [ "dash" "docker" "jetbrains-toolbox" "postman" "visual-studio-code" ];
       terminal = [ "font-fira-code-nerd-font" "iterm2" ]; # TODO Handle fonts with nix-darwin
