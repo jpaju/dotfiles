@@ -1,8 +1,9 @@
 {
-  description = "Example Darwin system flake";
+  description = "Darwin system flake";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
 
     nix-darwin = {
@@ -29,14 +30,10 @@
   outputs = { self, nix-darwin, nixpkgs, nixpkgs-master, home-manager, helix-master, scls-main, ... }:
     let
       system = "aarch64-darwin";
-      hostname = "Jaakkos-MacBook-Pro"; # TODO Make this configurable depending on the machine
       username = "jaakkopaju";
-
-      pkgs = import nixpkgs { inherit system; };
       pkgs-master = import nixpkgs-master { inherit system; };
 
       specialArgs = {
-        inherit hostname;
         inherit system;
         inherit username;
         inherit nix-darwin;
@@ -44,31 +41,42 @@
         inherit helix-master;
         inherit scls-main;
         inherit pkgs-master;
-        inherit pkgs;
+      };
+
+      homeManagerOptions = homeModules: {
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          users.${username}.imports = homeModules;
+          extraSpecialArgs = specialArgs;
+        };
       };
     in {
-      formatter = pkgs.nixfmt;
 
       # Expose the package set, including overlays, for convenience.
-      darwinPackages = self.darwinConfigurations.${hostname}.pkgs;
+      # darwinPackages = self.darwinConfigurations.${hostname}.pkgs;
 
-      darwinConfigurations.${hostname} = nix-darwin.lib.darwinSystem {
-        inherit system;
-        inherit pkgs;
-        inherit specialArgs;
+      darwinConfigurations = {
 
-        modules = [
-          ./darwin.nix
-          home-manager.darwinModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.${username}.imports = [ ./home.nix ];
-              extraSpecialArgs = specialArgs;
-            };
-          }
-        ];
+        "Jaakkos-MacBook-Pro" = nix-darwin.lib.darwinSystem {
+          inherit system;
+          inherit specialArgs;
+
+          modules = let
+            hmModules = [ ./home/personal.nix ];
+            hmOpts = homeManagerOptions hmModules;
+          in [ ./system/darwin.nix home-manager.darwinModules.home-manager hmOpts ];
+        };
+
+        "Wolt-MacBook-Pro" = nix-darwin.lib.darwinSystem {
+          inherit system;
+          inherit specialArgs;
+
+          modules = let
+            hmModules = [ ./home/work.nix ];
+            hmOpts = homeManagerOptions hmModules;
+          in [ ./system/darwin.nix home-manager.darwinModules.home-manager hmOpts ];
+        };
       };
     };
 
