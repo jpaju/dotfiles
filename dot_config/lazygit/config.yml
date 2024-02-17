@@ -4,5 +4,5 @@ git:
   overrideGpg: true
   paging:
     colorArg: always
-    useConfig: true
-    pager: diff-so-fancy
+    useConfig: false
+    pager: delta --dark --paging=never

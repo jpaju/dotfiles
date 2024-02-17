@@ -39,7 +39,7 @@
 
       # Dev tools
       coursier
-      diff-so-fancy
+      delta
       gh
       git
       gti

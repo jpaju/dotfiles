@@ -105,7 +105,7 @@ abbr --add cm   'chezmoi'
 abbr --add cmad 'chezmoi add'
 abbr --add cmap 'chezmoi apply -v'
 abbr --add cmcd 'chezmoi cd'
-abbr --add cmd  'chezmoi diff | diff-so-fancy | less -RF'
+abbr --add cmd  'chezmoi diff | delta'
 abbr --add cme  'chezmoi edit'
 
 # Misc
