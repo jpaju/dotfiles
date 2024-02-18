@@ -6,6 +6,7 @@
     ./modules/git
     ./modules/intellij
     ./modules/lazygit
+    ./modules/fish
   ];
 
   programs = {

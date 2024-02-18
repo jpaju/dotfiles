@@ -1,7 +1,5 @@
 { pkgs, ... }:
-
 let
-
   fishPlugin = name: {
     inherit name;
     src = pkgs.fishPlugins.${name}.src;
@@ -16,7 +14,6 @@ let
       sha256 = sha256;
     };
   };
-
 in {
   programs = {
     fish = {
@@ -32,6 +29,23 @@ in {
           sha256 = "F1t81VliD+v6WEWqj1c1ehFBXzqLyumx5vV46s/FZRU=";
         })
       ];
+    };
+  };
+
+  xdg.configFile = {
+    "fish/conf.d" = {
+      source = ./conf.d;
+      recursive = true;
+    };
+
+    "fish/functions" = {
+      source = ./functions;
+      recursive = true;
+    };
+
+    "fish/completions" = {
+      source = ./completions;
+      recursive = true;
     };
   };
 }
