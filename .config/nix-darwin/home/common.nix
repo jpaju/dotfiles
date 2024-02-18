@@ -1,6 +1,9 @@
 { pkgs, pkgs-master, system, helix-master, scls-main, ... }: {
 
-  imports = [ ./modules/fish.nix ];
+  imports = [
+
+    ./modules/starship
+  ];
 
   programs = {
     direnv = {
@@ -32,7 +35,6 @@
     packages = with pkgs; [
       # Terminal
       nix-your-shell
-      starship
 
       # CLI
       bat
