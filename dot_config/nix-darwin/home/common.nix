@@ -13,6 +13,13 @@
       package = helix-master.packages.${system}.default;
     };
 
+    ripgrep.enable = true;
+
+    yazi = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+
     zoxide = {
       enable = true;
       enableFishIntegration = true;
@@ -51,6 +58,7 @@
       kcat
       lazygit
       pgcli
+      tokei
       # scala-update # TODO Comment until the package is fixed and can be built
 
       # Languages
