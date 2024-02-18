@@ -5,6 +5,7 @@
     ./modules/starship
     ./modules/git
     ./modules/intellij
+    ./modules/lazygit
   ];
 
   programs = {
@@ -57,7 +58,6 @@
       gh
       gti
       kcat
-      lazygit
       pgcli
       tokei
       # scala-update # TODO Comment until the package is fixed and can be built
