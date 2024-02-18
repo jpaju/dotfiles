@@ -6,6 +6,7 @@
     ./modules/git
     ./modules/helix
     ./modules/intellij
+    ./modules/karabiner
     ./modules/iterm2
     ./modules/lazygit
     ./modules/starship
