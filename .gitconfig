@@ -2,7 +2,7 @@
 	name = Jaakko Paju
 	email = 36770267+JPaju@users.noreply.github.com
 [core]
-	hooksPath = ~/.git/hooks/
+	hooksPath = ~/.config/git/hooks/
 [init]
 	defaultBranch = main
 [fetch]

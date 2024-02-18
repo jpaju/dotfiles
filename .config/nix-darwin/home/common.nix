@@ -31,7 +31,6 @@
 
     packages = with pkgs; [
       # Terminal
-      chezmoi
       nix-your-shell
       starship
 
