@@ -12,7 +12,7 @@
     caskArgs.no_quarantine = true;
     casks = let
       devTools = [ "dash" "docker" "jetbrains-toolbox" "postman" "visual-studio-code" ];
-      terminal = [ "font-fira-code-nerd-font" "iterm2" ]; # TODO Handle fonts with nix-darwin
+      terminal = [ "iterm2" ];
       windowManagement = [ "alt-tab" "monitorcontrol" "rectangle" ];
       productivity = [ "arc" "firefox" "google-chrome" "karabiner-elements" "notion" "numi" "signal" "spotify" ];
       misc = [ "aldente" "appcleaner" "bartender" "menubarx" "stats" ];
