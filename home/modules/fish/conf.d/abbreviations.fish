@@ -90,16 +90,8 @@ abbr --add nxdpy 'nix develop path:$HOME/flakes/python'
 abbr --add nxdrs 'nix develop path:$HOME/flakes/rust'
 
 # Nix darwin
-abbr --add nds 'darwin-rebuild switch --flake ~/.config/nix-darwin'
-abbr --add ndu 'nix flake update --flake ~/.config/nix-darwin'
-
-# Chezmoi
-abbr --add cm   'chezmoi'
-abbr --add cmad 'chezmoi add'
-abbr --add cmap 'chezmoi apply -v'
-abbr --add cmcd 'chezmoi cd'
-abbr --add cmd  'chezmoi diff | delta'
-abbr --add cme  'chezmoi edit'
+abbr --add nds 'darwin-rebuild switch --flake ~/dotfiles'
+abbr --add ndu 'nix flake update --flake ~/dotfiles'
 
 # Misc
 abbr --add reload 'exec fish'
