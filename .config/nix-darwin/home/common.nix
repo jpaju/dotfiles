@@ -3,6 +3,7 @@
   imports = [
 
     ./modules/starship
+    ./modules/git
   ];
 
   programs = {
@@ -52,9 +53,7 @@
 
       # Dev tools
       coursier
-      delta
       gh
-      git
       gti
       kcat
       lazygit
