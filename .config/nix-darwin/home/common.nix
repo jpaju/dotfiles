@@ -7,17 +7,13 @@
     ./modules/intellij
     ./modules/lazygit
     ./modules/fish
+    ./modules/helix
   ];
 
   programs = {
     direnv = {
       enable = true;
       nix-direnv.enable = true;
-    };
-
-    helix = {
-      enable = true;
-      package = helix-master.packages.${system}.default;
     };
 
     ripgrep.enable = true;
@@ -47,7 +43,6 @@
       fd
       fx
       fzf
-      helix-gpt
       gping
       iperf3
       jq
@@ -78,7 +73,6 @@
       nodePackages.bash-language-server # Bash
       nodePackages.typescript-language-server # TypeScript
       python311Packages.python-lsp-server # Python
-      scls-main.defaultPackage.${system} # Snippets and words
       taplo # TOML
       rust-analyzer # Rust
       terraform-ls # Terraform
