@@ -83,11 +83,11 @@ abbr --add nv  'npm --version'
 # Nix
 abbr --add nxsh  'nix shell nixpkgs#'
 abbr --add nxd   'nix develop'
-abbr --add nxdbn 'nix develop path:$HOME/.config/nix/flakes/bun'
+abbr --add nxdbn 'nix develop path:$HOME/flakes/bun'
 abbr --add nxdsc 'nix develop github:devinsideyou/scala-seed#java17'
-abbr --add nxdts 'nix develop path:$HOME/.config/nix/flakes/typescript'
-abbr --add nxdpy 'nix develop path:$HOME/.config/nix/flakes/python'
-abbr --add nxdrs 'nix develop path:$HOME/.config/nix/flakes/rust'
+abbr --add nxdts 'nix develop path:$HOME/flakes/typescript'
+abbr --add nxdpy 'nix develop path:$HOME/flakes/python'
+abbr --add nxdrs 'nix develop path:$HOME/flakes/rust'
 
 # Nix darwin
 abbr --add nds 'darwin-rebuild switch --flake ~/.config/nix-darwin'

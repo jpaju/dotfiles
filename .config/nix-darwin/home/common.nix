@@ -1,13 +1,13 @@
 { pkgs, pkgs-master, system, helix-master, scls-main, ... }: {
 
   imports = [
-
-    ./modules/starship
+    ./modules/fish
+    ./modules/flakes
     ./modules/git
+    ./modules/helix
     ./modules/intellij
     ./modules/lazygit
-    ./modules/fish
-    ./modules/helix
+    ./modules/starship
   ];
 
   programs = {
