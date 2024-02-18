@@ -4,6 +4,7 @@
 
     ./modules/starship
     ./modules/git
+    ./modules/intellij
   ];
 
   programs = {
