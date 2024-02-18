@@ -12,6 +12,11 @@
       enable = true;
       package = helix-master.packages.${system}.default;
     };
+
+    zoxide = {
+      enable = true;
+      enableFishIntegration = true;
+    };
   };
 
   home = {

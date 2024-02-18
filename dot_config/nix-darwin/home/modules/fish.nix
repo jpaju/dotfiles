@@ -25,7 +25,6 @@ in {
       plugins = [
         (fishPlugin "autopair")
         (fishPlugin "fzf-fish")
-        (fishPlugin "z")
         (fishGithubPlugin {
           name = "fish-abbreviation-tips";
           owner = "gazorby";
