@@ -9,6 +9,7 @@
 	prune = true
 [pull]
 	rebase = true
+	updateRefs = true
 [push]
 	default = current
 	autoSetupRemote = true
