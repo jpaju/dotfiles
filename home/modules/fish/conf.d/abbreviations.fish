@@ -51,6 +51,8 @@ abbr --add ghb   'gh browse'
 abbr --add ghprc 'gh pr create --web'
 abbr --add ghprv 'gh pr view --web'
 abbr --add ghprm 'gh pr merge --squash --delete-branch'
+abbr --add ghprs 'gh_pr_switch'
+abbr --add ghrw  'gh run watch'
 
 # Lazygit
 abbr --add lg lazygit
