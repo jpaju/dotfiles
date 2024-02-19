@@ -1,3 +1,3 @@
 function ls
-    eza -h --icons --git $argv
+    eza -h $argv
 end

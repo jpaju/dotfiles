@@ -1,3 +1,3 @@
 function la
-    eza -lahF --icons --git $argv
+    eza -lahF $argv
 end
