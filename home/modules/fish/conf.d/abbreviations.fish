@@ -98,8 +98,9 @@ abbr --add ndu 'nix flake update --flake ~/dotfiles'
 
 # Misc
 abbr --add reload 'exec fish'
-abbr --add jps 'jps -lm'
-abbr --add lt 'ls --tree --level 3'
-abbr --add cb 'fish_clipboard_copy'
+abbr --add jps    'jps -lm'
+abbr --add ya     'yazi'
+abbr --add lt     'ls --tree --level 3'
+abbr --add cb     'fish_clipboard_copy'
 abbr --add cpuuid 'uuidgen | fish_clipboard_copy'
 alias uuidgen='uuidgen | tr "[:upper:]" "[:lower:]"'
