@@ -28,6 +28,12 @@ in {
         sha256 = "F1t81VliD+v6WEWqj1c1ehFBXzqLyumx5vV46s/FZRU=";
       })
     ];
+
+    # Set Ctrl+R to use atuin
+    shellInitLast = ''
+      fzf_configure_bindings --history=
+      bind \cr _atuin_search
+    '';
   };
 
   xdg.configFile = {
