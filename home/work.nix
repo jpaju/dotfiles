@@ -3,7 +3,18 @@
   imports = [ ./common.nix ];
 
   # TODO Enable gpg agent
-  # TODO Add Hashicorp vault
-  home = { packages = with pkgs; [ aws-vault gnupg pinentry ]; };
+  home.packages = with pkgs; [
+
+    aws-iam-authenticator
+    aws-vault
+    awscli2
+    gnupg
+    kubectl
+    kubectx
+    pinentry
+    pyenv
+    vault
+  ];
+
 }
 
