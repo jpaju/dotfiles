@@ -1,35 +1,34 @@
 [user]
-	name = Jaakko Paju
-	email = 36770267+JPaju@users.noreply.github.com
+   name = Jaakko Paju
+   email = 36770267+JPaju@users.noreply.github.com
 [core]
-	hooksPath = ~/.config/git/hooks/
+   pager = delta
+   # hooksPath = ~/.config/git/hooks/
 [init]
-	defaultBranch = main
+   defaultBranch = main
 [fetch]
-	prune = true
+   prune = true
 [pull]
-	rebase = true
-	updateRefs = true
+   rebase = true
+   updateRefs = true
 [push]
-	default = current
-	autoSetupRemote = true
+   default = current
+   autoSetupRemote = true
 [rebase]
-	autoStash = true
+   autoStash = true
 [alias]
-	localprune = !git fetch --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D
+   localprune = !git fetch --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D
 
 [includeIf "gitdir:~/work/"]
-	path = ~/.gitconfig-work
+   path = ~/.gitconfig-work
 
-[core]
-	pager = delta
 [interactive]
-	diffFilter = "delta --color-only"
+   diffFilter = "delta --color-only"
 [merge]
     conflictstyle = diff3
 [diff]
     colorMoved = default
 [delta]
-	features = decorations
-	line-numbers = true
+   features = decorations
+   line-numbers = true
 
