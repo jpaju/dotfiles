@@ -14,6 +14,7 @@
     terraform
 
     # LSPs
+    docker-compose-language-service # docker compose
     dockerfile-language-server-nodejs # Docker
     elmPackages.elm-language-server # Elm
     jdt-language-server # Java
