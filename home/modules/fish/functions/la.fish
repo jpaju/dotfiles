@@ -1,3 +1,3 @@
 function la
-    eza -lahF $argv
+    eza --long --icons --all --header --classify --git $argv
 end

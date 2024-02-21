@@ -1,3 +1,3 @@
 function ls
-    eza -h $argv
+    eza --icons --header --classify $argv
 end
