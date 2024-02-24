@@ -44,7 +44,7 @@
     ".GlobalPreferences"."com.apple.mouse.scaling" = 0.875; # External mouse tracking speed (0.0 - 3.0)
 
     trackpad = {
-      Clicking = true;
+      Clicking = false;
       FirstClickThreshold = 1; # Normal click (0,1,2)
       SecondClickThreshold = 2; # Force click (0,1,2)
       TrackpadRightClick = true; # Right click with two-finger click
