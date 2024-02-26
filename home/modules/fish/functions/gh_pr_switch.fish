@@ -4,8 +4,7 @@ function gh_pr_switch
     set -f selected_pr (
         gh pr list --limit 100 | \
         tail -n +5 | \
-        column -s '$'\t -t | \
-        fzf --ansi --header-lines 2 --preview 'gh pr view --comments {1}' --preview-window down --bind 'ctrl-j:preview-down,ctrl-k:preview-up' | \
+        fzf --ansi --preview 'gh pr view --comments {1}' --preview-window down --bind 'ctrl-j:preview-down,ctrl-k:preview-up' | \
         awk '{print substr($1, 2)}'
     )
 
