@@ -46,11 +46,13 @@
     fd
     fx
     gping
+    gum
     iperf3
     jqp
     ncdu
     nix-your-shell
     tldr
+
   ];
 
   home.file.".jqp.yaml".source = ./.jqp.yaml;
