@@ -77,6 +77,7 @@ C-k = [
 A-C-i = [":toggle lsp.display-inlay-hints"]
 A-C-f = [":toggle auto-format"]
 A-G = [":toggle file-picker.git-ignore"]
+C-p = ["signature_help"]
 
 [keys.normal."+"]
 l = ":lsp-workspace-command"
