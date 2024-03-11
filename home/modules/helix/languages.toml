@@ -3,6 +3,7 @@
 command = "helix-gpt"
 args = ["--handler", "copilot"]
 
+
 [language-server.scls]
 command = "simple-completion-language-server"
 
@@ -18,10 +19,23 @@ RUST_LOG = "info,simple-completion-langauge-server=info"
 LOG_FILE = "/dev/null"
 
 
+# Helix sends LSP config object to the server in both 'initialize' and 'workspace/didChangeConfiguration' requests
+# Thus it can contain configuration for both contexts, see: https://github.com/helix-editor/helix/pull/1684
+# Metals configuration options are documented here: https://scalameta.org/metals/docs/integrations/new-editor/#metals-user-configuration
+
 [language-server.metals]
 command = "metals"
-config = { "isHttpEnabled" = true }
 environment = { "SBT_TPOLECAT_DEV" = "1" }
+
+[language-server.metals.config]
+isHttpEnabled = true
+icons = "unicode"
+metals.autoImportBuild = true
+metals.showImplicitArguments = true
+metals.showImplicitConversionsAndClasses = true
+metals.showInferredType = true
+metals.superMethodLensesEnabled = true
+
 
 [language-server.terraform-ls]
 command = "terraform-ls"
