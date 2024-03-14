@@ -5,6 +5,7 @@ line-number = "relative"
 mouse = false
 cursorline = true
 color-modes = true
+whitespace.render = "all"
 bufferline = "always"
 shell = ["fish", "-c"]
 
@@ -21,12 +22,6 @@ rulers = [120]
 insert = "bar"
 normal = "block"
 select = "underline"
-
-[editor.whitespace]
-render.space = "all"
-render.tab = "all"
-render.nbsp = "all"
-render.newline = "none"
 
 [editor.statusline]
 left = ["mode", "spacer", "spinner", "diagnostics", "selections"]
@@ -59,14 +54,27 @@ display-inlay-hints = false
 
 [keys.normal]
 esc = ["collapse_selection", "keep_primary_selection"]
-"*" = [
+A-w = [":buffer-close"]
+A-f = [":format"]
+A-C-i = [":toggle lsp.display-inlay-hints"]
+A-C-f = [":toggle auto-format"]
+A-G = [":toggle file-picker.git-ignore"]
+C-p = ["signature_help"]
+
+"X" = ["extend_line_above"]
+
+# Select highlighted text for search
+"*" = ["search_selection"]
+
+# Select word at cursor for search
+"C-*" = [
   "move_char_right",
   "move_prev_word_start",
-  "move_next_word_start",
+  "move_next_word_end",
   "search_selection",
 ]
-"C-*" = ["search_selection"]
-A-w = [":buffer-close"]
+
+# Move lines up and down
 C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 C-k = [
   "extend_to_line_bounds",
@@ -74,15 +82,14 @@ C-k = [
   "move_line_up",
   "paste_before",
 ]
-A-C-i = [":toggle lsp.display-inlay-hints"]
-A-C-f = [":toggle auto-format"]
-A-G = [":toggle file-picker.git-ignore"]
-C-p = ["signature_help"]
 
+# Map + to host LSP commands
 [keys.normal."+"]
 l = ":lsp-workspace-command"
 b = ":lsp-workspace-command compile-cascade"
 i = ":lsp-workspace-command build-import"
+
+[keys.normal."§"]
 s = ["split_selection_on_newline", ":sort"]
 
 [keys.insert]
