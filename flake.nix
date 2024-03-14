@@ -21,23 +21,32 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     scls-main = {
       url = "github:estin/simple-completion-language-server/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nix-darwin, nixpkgs, nixpkgs-master, home-manager, helix-master, scls-main, ... }:
+  outputs = { nix-darwin, nixpkgs-master, home-manager, helix-master, scls-main, sops-nix, ... }:
     let
       system = "aarch64-darwin";
       username = "jaakkopaju";
+      userhome = "/Users/${username}";
+
       pkgs-master = import nixpkgs-master { inherit system; };
 
       specialArgs = {
         inherit system;
         inherit username;
+        inherit userhome;
         inherit nix-darwin;
         inherit home-manager;
+        inherit sops-nix;
         inherit helix-master;
         inherit scls-main;
         inherit pkgs-master;

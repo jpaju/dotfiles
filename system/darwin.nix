@@ -1,6 +1,6 @@
-{ pkgs, system, username, ... }: {
+{ pkgs, system, username, userhome, ... }: {
 
-  users.users.${username}.home = "/Users/${username}";
+  users.users.${username}.home = userhome;
 
   imports = [ ./homebrew.nix ./macos-settings.nix ./nix-settings.nix ];
 

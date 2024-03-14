@@ -13,6 +13,7 @@
     ./modules/karabiner
     ./modules/iterm2
     ./modules/lazygit
+    ./modules/secrets
     ./modules/starship
   ];
 }

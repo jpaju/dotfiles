@@ -16,7 +16,17 @@ This is my personal dotfiles repository. The files are managed with [nix-darwin]
    ```bash
    nix run nix-darwin -- switch --flake ~/dotfiles
    ```
-7. Configure iTerm2
+7. Configure sops-nix to manage secrets by configuring the private key.
+   The private key must be placed in `~/.config/sops/age/keys.txt` file .
+   If nix has already installed packages, the secret can be configured with Dashlane CLI (dcli) by running the
+   following command:
+
+   ```bash
+   mkdir -p ~/.config/sops/age/
+   dcli read "dl://sops-nix age private key/password" >> ~/.config/sops/age/keys.txt
+   ```
+
+8. Configure iTerm2
 
    - [Load preferences from custom URL](https://iterm2.com/documentation-preferences-general.html): `~/.config/iterm2/com.googlecode.iterm2.plist`
    - Set up fish [shell integration](https://iterm2.com/documentation-shell-integration.html)
