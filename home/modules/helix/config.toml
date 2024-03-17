@@ -48,17 +48,20 @@ git-ignore = true
 render = true
 skip-levels = 1
 
+[editor.smart-tab]
+supersede-menu = true
+
 [editor.lsp]
 display-messages = true
 display-inlay-hints = false
+
+[keys.insert]
+C-p = ["signature_help"]
 
 [keys.normal]
 esc = ["collapse_selection", "keep_primary_selection"]
 A-w = [":buffer-close"]
 A-f = [":format"]
-A-C-i = [":toggle lsp.display-inlay-hints"]
-A-C-f = [":toggle auto-format"]
-A-G = [":toggle file-picker.git-ignore"]
 C-p = ["signature_help"]
 
 "X" = ["extend_line_above"]
@@ -89,8 +92,13 @@ l = ":lsp-workspace-command"
 b = ":lsp-workspace-command compile-cascade"
 i = ":lsp-workspace-command build-import"
 
+# Map '' to host config toggling commmands
+[keys.normal."'"]
+f = ":toggle-option auto-format"
+h = ":toggle-option file-picker.hidden"
+g = ":toggle-option file-picker.git-ignore"
+i = ":toggle-option lsp.display-inlay-hints"
+w = ":toggle-option soft-wrap.enable"
+
 [keys.normal."§"]
 s = ["split_selection_on_newline", ":sort"]
-
-[keys.insert]
-C-p = ["signature_help"]
