@@ -11,6 +11,7 @@
     ./modules/helix
     ./modules/intellij
     ./modules/karabiner
+    ./modules/kitty
     ./modules/iterm2
     ./modules/lazygit
     ./modules/secrets
