@@ -6,6 +6,7 @@
     coursier
     gh
     kcat
+    lazydocker
     pgcli
     tokei
     # scala-update # TODO Comment until the package is fixed and can be built

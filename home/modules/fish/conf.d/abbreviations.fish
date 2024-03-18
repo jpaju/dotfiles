@@ -54,8 +54,9 @@ abbr --add ghprm 'gh pr merge --squash --delete-branch'
 abbr --add ghprs 'gh_pr_switch'
 abbr --add ghrw  'gh run watch'
 
-# Lazygit
+# Lazy(git/docker)
 abbr --add lg lazygit
+abbr --add ld lazydocker
 
 # Docker
 abbr --add dk  'docker'
