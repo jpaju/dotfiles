@@ -18,7 +18,8 @@
     dockerfile-language-server-nodejs # Docker
     elmPackages.elm-language-server # Elm
     jdt-language-server # Java
-    kotlin-language-server # Kotlin
+    kotlin-language-server # Lua
+    lua-language-server # Kotlin
     marksman # Markdown
     metals # Scala
     nil # Nix
@@ -26,8 +27,8 @@
     nodePackages.bash-language-server # Bash
     nodePackages.typescript-language-server # TypeScript
     python311Packages.python-lsp-server # Python
-    taplo # TOML
-    rust-analyzer # Rust
+    rust-analyzer # TOML
+    taplo # Rust
     terraform-ls # Terraform
     vscode-langservers-extracted # JSON, HTML, CSS, SCSS
     yaml-language-server # YAML
