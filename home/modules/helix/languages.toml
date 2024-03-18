@@ -51,6 +51,15 @@ auto-format = true
 language-servers = ["vscode-css-language-server", "scls", "copilot"]
 
 [[language]]
+name = "docker-compose"
+language-servers = [
+  "docker-compose-language-server",
+  "yaml-language-server",
+  "scls",
+  "copilot",
+]
+
+[[language]]
 name = "elm"
 formatter = { command = "elm-format", args = ["--stdin "] }
 auto-format = true
