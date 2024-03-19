@@ -43,5 +43,7 @@
     scalafmt # Scala
     rustfmt # Rust
   ];
+
+  home.file.".sbt/1.0/global.sbt".source = ./global.sbt;
 }
 
