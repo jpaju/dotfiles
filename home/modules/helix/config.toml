@@ -48,9 +48,6 @@ git-ignore = true
 render = true
 skip-levels = 1
 
-[editor.smart-tab]
-supersede-menu = true
-
 [editor.lsp]
 display-messages = true
 display-inlay-hints = false
@@ -61,7 +58,6 @@ C-p = ["signature_help"]
 [keys.normal]
 esc = ["collapse_selection", "keep_primary_selection"]
 A-w = [":buffer-close"]
-A-f = [":format"]
 C-p = ["signature_help"]
 
 "X" = ["extend_line_above"]
@@ -88,17 +84,23 @@ C-k = [
 
 # Map + to host LSP commands
 [keys.normal."+"]
+r = ":lsp-restart"
+s = ":lsp-stop"
 l = ":lsp-workspace-command"
-b = ":lsp-workspace-command compile-cascade"
-i = ":lsp-workspace-command build-import"
+b = ":lsp-workspace-command compile-cascade" # Scala/Metals specific
+i = ":lsp-workspace-command build-import"    # Scala/Metals specific
 
-# Map '' to host config toggling commmands
-[keys.normal."'"]
+# Map § to host config toggling commmands
+[keys.normal."§"]
 f = ":toggle-option auto-format"
 h = ":toggle-option file-picker.hidden"
 g = ":toggle-option file-picker.git-ignore"
 i = ":toggle-option lsp.display-inlay-hints"
 w = ":toggle-option soft-wrap.enable"
 
-[keys.normal."§"]
+# Map ' to host code/text modification commands
+[keys.normal."'"]
+f = ":format"
 s = ["split_selection_on_newline", ":sort"]
+y = "yank_joined"
+Y = "yank_joined_to_clipboard"
