@@ -16,6 +16,7 @@
     ./modules/lazygit
     ./modules/secrets
     ./modules/starship
+    ./modules/wezterm
   ];
 }
 

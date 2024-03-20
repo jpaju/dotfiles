@@ -12,7 +12,7 @@
     caskArgs.no_quarantine = true;
     casks = let
       devTools = [ "dash" "docker" "jetbrains-toolbox" "postman" "visual-studio-code" ];
-      terminal = [ "iterm2" "kitty" ];
+      terminal = [ "iterm2" "kitty" "wezterm" ];
       windowManagement = [ "alt-tab" "betterdisplay" "monitorcontrol" "rectangle" ];
       productivity = [ "arc" "firefox" "google-chrome" "karabiner-elements" "notion" "numi" "signal" "spotify" ];
       misc = [ "aldente" "appcleaner" "bartender" "logi-options-plus" "menubarx" "stats" ];
