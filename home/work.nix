@@ -11,7 +11,6 @@
     gnupg
     kubectl
     kubectx
-    pinentry
     pyenv
     vault
   ];
