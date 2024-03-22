@@ -50,6 +50,17 @@ style = "#E2CC44 bold"
 format = "[$status]($style) "
 disabled = false
 
+[direnv]
+disabled = false
+format = 'via [$symbol]($style)\($allowed|$loaded\)'
+style = 'bold green'
+symbol = 'direnv'
+not_allowed_msg = '❓'
+allowed_msg = '✅'
+denied_msg = '❌'
+loaded_msg = '👍'
+unloaded_msg = '👎'
+
 [docker_context]
 symbol = '🐳'
 format = 'via [$symbol]($style) '
