@@ -1,2 +1,6 @@
-{ ... }: { imports = [ ./common.nix ]; }
+{ pkgs, ... }: {
+  imports = [ ./common.nix ];
+
+  home.packages = [ pkgs.mqttui ];
+}
 
