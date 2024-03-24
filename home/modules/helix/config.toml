@@ -11,8 +11,9 @@ shell = ["fish", "-c"]
 
 # Auto-completion
 idle-timeout = 50
-preview-completion-insert = false
+completion-timeout = 50
 completion-trigger-len = 1
+preview-completion-insert = false
 
 # Width
 text-width = 120
@@ -57,7 +58,6 @@ C-p = ["signature_help"]
 
 [keys.normal]
 esc = ["collapse_selection", "keep_primary_selection"]
-A-w = [":buffer-close"]
 C-p = ["signature_help"]
 
 "X" = ["extend_line_above"]
@@ -101,6 +101,7 @@ w = ":toggle-option soft-wrap.enable"
 # Map ' to host code/text modification commands
 [keys.normal."'"]
 f = ":format"
+w = ":buffer-close"
 s = ["split_selection_on_newline", ":sort"]
 y = "yank_joined"
 Y = "yank_joined_to_clipboard"
