@@ -1,8 +1,4 @@
-{ pkgs, system, username, userhome, ... }: {
-
-  users.users.${username}.home = userhome;
-
-  imports = [ ./homebrew.nix ./macos-settings.nix ./nix-settings.nix ];
+{ pkgs, system, ... }: {
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog

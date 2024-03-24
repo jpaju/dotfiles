@@ -74,7 +74,7 @@
           modules = let
             hmModules = [ ./home/personal.nix ];
             hmOpts = homeManagerOptions hmModules;
-          in [ ./system/darwin.nix home-manager.darwinModules.home-manager hmOpts ];
+          in [ ./system/personal.nix home-manager.darwinModules.home-manager hmOpts ];
         };
 
         "Wolt-MacBook-Pro" = nix-darwin.lib.darwinSystem {
@@ -84,7 +84,7 @@
           modules = let
             hmModules = [ ./home/work.nix ];
             hmOpts = homeManagerOptions hmModules;
-          in [ ./system/darwin.nix home-manager.darwinModules.home-manager hmOpts ];
+          in [ ./system/work.nix home-manager.darwinModules.home-manager hmOpts ];
         };
       };
     };
