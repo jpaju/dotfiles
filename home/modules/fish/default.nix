@@ -20,6 +20,7 @@ in {
 
     plugins = [
       (fishPlugin "autopair")
+      (fishPlugin "done")
       (fishPlugin "fzf-fish")
       (fishGithubPlugin {
         name = "fish-abbreviation-tips";
@@ -35,6 +36,9 @@ in {
       bind \cr _atuin_search
     '';
   };
+
+  # Required by done plugin to show icons in notifications
+  home.packages = [ pkgs.terminal-notifier ];
 
   xdg.configFile = {
     "fish/conf.d" = {
