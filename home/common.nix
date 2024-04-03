@@ -14,6 +14,7 @@
     ./modules/secrets
     ./modules/starship
     ./modules/wezterm
+    ./modules/zellij
   ];
 }
 
