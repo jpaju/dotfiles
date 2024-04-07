@@ -102,6 +102,8 @@ w = ":toggle-option soft-wrap.enable"
 [keys.normal."'"]
 f = ":format"
 w = ":buffer-close"
+W = ":buffer-close-others"
+r = ":reload-all"
 s = ["split_selection_on_newline", ":sort"]
 y = "yank_joined"
 Y = "yank_joined_to_clipboard"
