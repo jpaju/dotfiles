@@ -58,6 +58,7 @@ C-p = ["signature_help"]
 
 [keys.normal]
 esc = ["collapse_selection", "keep_primary_selection"]
+C-g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
 C-p = ["signature_help"]
 
 "X" = ["extend_line_above"]
