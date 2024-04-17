@@ -16,6 +16,7 @@
 
     eza = {
       enable = true;
+      enableFishIntegration = false; # Enabling this overrides aliases such as 'll' and 'la'
       icons = true;
       git = true;
     };
