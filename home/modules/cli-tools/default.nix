@@ -1,14 +1,14 @@
 { pkgs, ... }: {
 
-  imports = [ ./fzf ./eza ./jq ];
+  imports = [
+    # Comment just to keep newlines when formatted :D
+    ./atuin
+    ./eza
+    ./fzf
+    ./jq
+  ];
 
   programs = {
-    atuin = {
-      enable = true;
-      enableFishIntegration = true;
-      flags = [ "--disable-up-arrow" ];
-    };
-
     bat.enable = true;
 
     direnv = {

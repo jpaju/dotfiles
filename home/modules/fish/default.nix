@@ -12,11 +12,6 @@
         sha256 = "F1t81VliD+v6WEWqj1c1ehFBXzqLyumx5vV46s/FZRU=";
       })
     ];
-
-    # Set Ctrl+R to use atuin
-    shellInitLast = ''
-      bind \cr _atuin_search
-    '';
   };
 
   # Required by done plugin to show icons in notifications
