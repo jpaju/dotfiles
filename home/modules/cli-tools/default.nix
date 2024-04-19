@@ -3,6 +3,7 @@
   imports = [
     # Comment just to keep newlines when formatted :D
     ./atuin
+    ./bat
     ./direnv
     ./eza
     ./fzf
@@ -10,8 +11,6 @@
   ];
 
   programs = {
-    bat.enable = true;
-
     ripgrep.enable = true;
 
     yazi = {
