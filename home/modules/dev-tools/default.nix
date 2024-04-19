@@ -1,10 +1,11 @@
 { pkgs, ... }: {
 
+  imports = [ ./gh ];
+
   home.packages = with pkgs; [
 
     # General
     coursier
-    gh
     kcat
     lazydocker
     pgcli

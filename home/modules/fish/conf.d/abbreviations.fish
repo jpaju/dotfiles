@@ -47,14 +47,6 @@ abbr --add gswc  'git switch --create'
 abbr --add gswm  'git switch (git_default_branch)'
 abbr --add ggrep 'git log -p -G' # Maybe try also 'git rev-list --all | xargs git grep' ?
 
-# GitHub CLI
-abbr --add ghb   'gh browse'
-abbr --add ghprc 'gh pr create --web'
-abbr --add ghprv 'gh pr view --web'
-abbr --add ghprm 'gh pr merge --squash --delete-branch'
-abbr --add ghprs 'gh_pr_switch'
-abbr --add ghrw  'gh run watch'
-
 # Lazy(git/docker)
 abbr --add lg lazygit
 abbr --add ld lazydocker
