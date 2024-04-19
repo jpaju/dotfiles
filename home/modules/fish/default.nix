@@ -27,11 +27,6 @@
       source = ./functions;
       recursive = true;
     };
-
-    "fish/completions" = {
-      source = ./completions;
-      recursive = true;
-    };
   };
 }
 

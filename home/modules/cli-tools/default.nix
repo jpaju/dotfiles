@@ -3,6 +3,7 @@
   imports = [
     # Comment just to keep newlines when formatted :D
     ./atuin
+    ./direnv
     ./eza
     ./fzf
     ./jq
@@ -10,11 +11,6 @@
 
   programs = {
     bat.enable = true;
-
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-    };
 
     ripgrep.enable = true;
 
