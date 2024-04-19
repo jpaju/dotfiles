@@ -1,9 +1,4 @@
 # ------------------------------------------------- Language servers -------------------------------------------------
-[language-server.copilot]
-command = "helix-gpt"
-args = ["--handler", "copilot"]
-
-
 [language-server.scls]
 command = "simple-completion-language-server"
 
@@ -48,7 +43,7 @@ args = ["serve", "-log-file", "/dev/null"]
 name = "css"
 formatter = { command = "prettier", args = ["--stdin-filepath ", "dummy.css"] }
 auto-format = true
-language-servers = ["vscode-css-language-server", "scls", "copilot"]
+language-servers = ["vscode-css-language-server", "scls"]
 
 [[language]]
 name = "docker-compose"
@@ -56,7 +51,6 @@ language-servers = [
   "docker-compose-language-server",
   "yaml-language-server",
   "scls",
-  "copilot",
 ]
 
 [[language]]
@@ -69,19 +63,19 @@ name = "fish"
 formatter = { command = "fish_indent" }
 auto-format = false
 # language-servers = ["fish-lsp"]
-language-servers = ["scls", "copilot"]
+language-servers = ["scls"]
 
 [[language]]
 name = "hcl"
 auto-format = true
 formatter = { command = "terraform", args = ["fmt", "-"] }
-language-servers = ["terraform-ls", "scls", "copilot"]
+language-servers = ["terraform-ls", "scls"]
 
 [[language]]
 name = "html"
 formatter = { command = "prettier", args = ["--stdin-filepath", "dummy.html"] }
 auto-format = true
-language-servers = ["vscode-html-language-server", "scls", "copilot"]
+language-servers = ["vscode-html-language-server", "scls"]
 
 [[language]]
 name = "java"
@@ -91,13 +85,13 @@ auto-format = true
 name = "javascript"
 formatter = { command = "prettier", args = ["--stdin-filepath", "dummy.js"] }
 auto-format = true
-language-servers = ["typescript-language-server", "scls", "copilot"]
+language-servers = ["typescript-language-server", "scls"]
 
 [[language]]
 name = "json"
 formatter = { command = "prettier", args = ["--stdin-filepath", "dummy.json"] }
 auto-format = true
-language-servers = ["vscode-json-language-server", "scls", "copilot"]
+language-servers = ["vscode-json-language-server", "scls"]
 
 [[language]]
 name = "lua"
@@ -109,22 +103,22 @@ formatter = { command = "prettier", args = ["--stdin-filepath", "dummy.md"] }
 auto-format = true
 soft-wrap.enable = true
 soft-wrap.wrap-at-text-width = true
-language-servers = ["marksman", "scls", "copilot"]
+language-servers = ["marksman", "scls"]
 
 [[language]]
 name = "nix"
 formatter = { command = "nixfmt", args = ["--width", "120"] }
 auto-format = true
-language-servers = ["nil", "scls", "copilot"]
+language-servers = ["nil", "scls"]
 
 [[language]]
 name = "prisma"
 auto-format = true
-language-servers = ["prisma-language-server", "scls", "copilot"]
+language-servers = ["prisma-language-server", "scls"]
 
 [[language]]
 name = "protobuf"
-language-servers = ["bufls", "pbkit", "scls", "copilot"]
+language-servers = ["bufls", "pbkit", "scls"]
 formatter = { command = "zsh", args = [
   "-c",
   "clang-format",
@@ -137,52 +131,43 @@ auto-format = true
 name = "python"
 formatter = { command = "black", args = ["--quiet", "-"] }
 auto-format = true
-language-servers = ["pylsp", "scls", "copilot"]
+language-servers = ["pylsp", "scls"]
 
 [[language]]
 name = "scala"
 auto-format = true
-language-servers = ["metals", "scls", "copilot"]
-
-[[language]]
-name = "scheme"
-language-servers = ["copilot"]
+language-servers = ["metals", "scls"]
 
 [[language]]
 name = "scss"
 formatter = { command = "prettier", args = ["--stdin-filepath", "dummy.scss"] }
 auto-format = true
-language-servers = ["vscode-css-language-server", "scls", "copilot"]
+language-servers = ["vscode-css-language-server", "scls"]
 
 [[language]]
 name = "sql"
 formatter = { command = "pg_format --wrap-limit 140" }
 auto-format = true
-language-servers = ["scls", "copilot"]
+language-servers = ["scls"]
 
 [[language]]
 name = "toml"
 auto-format = true
-language-servers = ["taplo", "scls", "copilot"]
+language-servers = ["taplo", "scls"]
 
 [[language]]
 name = "typescript"
 formatter = { command = "prettier", args = ["--stdin-filepath", "dummy.ts"] }
 auto-format = true
-language-servers = ["typescript-language-server", "scls", "copilot"]
+language-servers = ["typescript-language-server", "scls"]
 
 [[language]]
 name = "xml"
 auto-format = true
-language-servers = ["vscode-html-language-server", "scls", "copilot"]
+language-servers = ["vscode-html-language-server", "scls"]
 
 [[language]]
 name = "yaml"
 formatter = { command = "prettier", args = ["--stdin-filepath", "dummy.yaml"] }
 auto-format = true
-language-servers = [
-  "yaml-language-server",
-  "ansible-language-server",
-  "scls",
-  "copilot",
-]
+language-servers = ["yaml-language-server", "ansible-language-server", "scls"]

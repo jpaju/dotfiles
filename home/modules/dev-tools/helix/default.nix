@@ -5,7 +5,6 @@
   };
 
   home.packages = with pkgs; [
-    pkgs.helix-gpt # Copilot/GPT suggestions
     scls-main.defaultPackage.${system} # Snippets and words
 
     # Languages
