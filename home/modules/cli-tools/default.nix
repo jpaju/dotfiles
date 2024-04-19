@@ -33,7 +33,7 @@
     iperf3
     ncdu
     nix-your-shell
-    tldr
+    tlrc
 
   ];
 }
