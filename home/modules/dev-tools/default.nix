@@ -4,6 +4,7 @@
     # Comment just to keep newlines when formatted :D
     ./docker
     ./gh
+    ./git
   ];
 
   home.packages = with pkgs; [
