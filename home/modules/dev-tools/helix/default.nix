@@ -6,6 +6,7 @@
 
   home.packages = with pkgs; [
     scls-main.defaultPackage.${system} # Snippets and words
+    typos-lsp # Spellchecking
 
     # Languages
     terraform
