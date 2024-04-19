@@ -32,13 +32,15 @@
     };
   };
 
-  outputs = { nix-darwin, nixpkgs-master, home-manager, helix-master, scls-main, sops-nix, ... }:
+  outputs = { self, nix-darwin, nixpkgs-master, home-manager, helix-master, scls-main, sops-nix, ... }:
     let
       system = "aarch64-darwin";
       username = "jaakkopaju";
       userhome = "/Users/${username}";
 
       pkgs-master = import nixpkgs-master { inherit system; };
+
+      fishUtils = import "${self}/util/fish.nix";
 
       specialArgs = {
         inherit system;
@@ -50,6 +52,7 @@
         inherit helix-master;
         inherit scls-main;
         inherit pkgs-master;
+        inherit fishUtils;
       };
 
       homeManagerOptions = homeModules: {

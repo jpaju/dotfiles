@@ -1,28 +1,11 @@
-{ pkgs, ... }:
-let
-  fishPlugin = name: {
-    inherit name;
-    src = pkgs.fishPlugins.${name}.src;
-  };
-
-  fishGithubPlugin = { name, owner, rev, sha256 }: {
-    name = name;
-    src = pkgs.fetchFromGitHub {
-      inherit owner;
-      repo = name;
-      rev = rev;
-      sha256 = sha256;
-    };
-  };
-in {
+{ pkgs, fishUtils, ... }: {
   programs.fish = {
     enable = true;
 
     plugins = [
-      (fishPlugin "autopair")
-      (fishPlugin "done")
-      (fishPlugin "fzf-fish")
-      (fishGithubPlugin {
+      (fishUtils.fishPlugin pkgs "autopair")
+      (fishUtils.fishPlugin pkgs "done")
+      (fishUtils.fishGithubPlugin pkgs {
         name = "fish-abbreviation-tips";
         owner = "gazorby";
         rev = "8ed76a62bb044ba4ad8e3e6832640178880df485";
@@ -32,7 +15,6 @@ in {
 
     # Set Ctrl+R to use atuin
     shellInitLast = ''
-      fzf_configure_bindings --history=
       bind \cr _atuin_search
     '';
   };

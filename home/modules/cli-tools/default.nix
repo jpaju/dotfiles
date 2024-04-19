@@ -1,6 +1,6 @@
 { pkgs, ... }: {
 
-  imports = [ ./eza ];
+  imports = [ ./fzf ./eza ];
 
   programs = {
     atuin = {
@@ -14,11 +14,6 @@
     direnv = {
       enable = true;
       nix-direnv.enable = true;
-    };
-
-    fzf = {
-      enable = true;
-      enableFishIntegration = true;
     };
 
     jq.enable = true;
@@ -39,7 +34,6 @@
   home.packages = with pkgs; [
 
     curlie
-    fd
     fx
     gping
     gum
