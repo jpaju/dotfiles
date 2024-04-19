@@ -12,7 +12,7 @@ shell = ["fish", "-c"]
 # Auto-completion
 idle-timeout = 50
 completion-timeout = 50
-completion-trigger-len = 1
+completion-trigger-len = 0
 preview-completion-insert = false
 
 # Width

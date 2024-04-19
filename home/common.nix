@@ -7,7 +7,6 @@
     ./modules/dev-tools
     ./modules/fish
     ./modules/flakes
-    ./modules/helix
     ./modules/karabiner
     ./modules/kitty
     ./modules/iterm2
