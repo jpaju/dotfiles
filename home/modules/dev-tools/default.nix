@@ -1,13 +1,16 @@
 { pkgs, ... }: {
 
-  imports = [ ./gh ];
+  imports = [
+    # Comment just to keep newlines when formatted :D
+    ./docker
+    ./gh
+  ];
 
   home.packages = with pkgs; [
 
     # General
     coursier
     kcat
-    lazydocker
     pgcli
     tokei
     # scala-update # TODO Comment until the package is fixed and can be built

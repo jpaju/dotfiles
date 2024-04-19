@@ -47,20 +47,8 @@ abbr --add gswc  'git switch --create'
 abbr --add gswm  'git switch (git_default_branch)'
 abbr --add ggrep 'git log -p -G' # Maybe try also 'git rev-list --all | xargs git grep' ?
 
-# Lazy(git/docker)
+# Lazygit
 abbr --add lg lazygit
-abbr --add ld lazydocker
-
-# Docker
-abbr --add dk  'docker'
-abbr --add dkb 'docker build'
-
-# Docker Compose
-abbr --add dc   'docker compose'
-abbr --add dcu  'docker compose up'
-abbr --add dcud 'docker compose up -d'
-abbr --add dcd  'docker compose down'
-abbr --add dcs  'docker compose stop'
 
 # NPM
 abbr --add nit 'npm init'
