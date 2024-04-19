@@ -5,6 +5,7 @@
     ./docker
     ./gh
     ./git
+    ./intellij
   ];
 
   home.packages = with pkgs; [

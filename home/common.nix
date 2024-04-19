@@ -8,7 +8,6 @@
     ./modules/fish
     ./modules/flakes
     ./modules/helix
-    ./modules/intellij
     ./modules/karabiner
     ./modules/kitty
     ./modules/iterm2
