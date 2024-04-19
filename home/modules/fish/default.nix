@@ -12,10 +12,31 @@
         sha256 = "F1t81VliD+v6WEWqj1c1ehFBXzqLyumx5vV46s/FZRU=";
       })
     ];
+
+    interactiveShellInit = ''
+      # Load function descriptions to show them in auto-completion
+      # This is a workaround until the following issue is resolved: https://github.com/fish-shell/fish-shell/issues/328
+      # Stole from this comment: https://github.com/fish-shell/fish-shell/issues/1915#issuecomment-72315918
+      for i in (functions);functions $i > /dev/null;end
+
+      bind \cf 'fg 1&> /dev/null'
+
+      # Done plugin options
+      set __done_min_cmd_duration 5000 # Notify if command takes more than 5 seconds
+      set __done_notify_sound 1        # Play sound with the notification
+    '';
   };
 
-  # Required by done plugin to show icons in notifications
-  home.packages = [ pkgs.terminal-notifier ];
+  home = {
+    packages = [ pkgs.terminal-notifier ]; # Required by done plugin to show icons in notifications
+
+    sessionVariables = {
+      EDITOR = "hx";
+      VISUAL = "$EDITOR";
+      PAGER = "less -R";
+      XDG_CONFIG_HOME = "$HOME/.config";
+    };
+  };
 
   xdg.configFile = {
     "fish/conf.d" = {
