@@ -1,6 +1,6 @@
 { pkgs, ... }: {
 
-  imports = [ ./fzf ./eza ];
+  imports = [ ./fzf ./eza ./jq ];
 
   programs = {
     atuin = {
@@ -15,8 +15,6 @@
       enable = true;
       nix-direnv.enable = true;
     };
-
-    jq.enable = true;
 
     ripgrep.enable = true;
 
@@ -38,13 +36,10 @@
     gping
     gum
     iperf3
-    jqp
     ncdu
     nix-your-shell
     tldr
 
   ];
-
-  home.file.".jqp.yaml".source = ./.jqp.yaml;
 }
 
