@@ -3,6 +3,7 @@
   imports = [
     # Comment just to keep newlines when formatted :D
     ./atuin
+    ./broot
     ./bat
     ./direnv
     ./eza
