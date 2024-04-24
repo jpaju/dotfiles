@@ -10,7 +10,7 @@ feature_snippets = true
 feature_unicode_input = false
 
 [language-server.scls.environment]
-RUST_LOG = "info,simple-completion-langauge-server=info"
+RUST_LOG = "info,simple-completion-language-server=info"
 LOG_FILE = "/dev/null"
 
 [language-server.typos]
@@ -27,11 +27,20 @@ environment = { "SBT_TPOLECAT_DEV" = "1" }
 [language-server.metals.config]
 isHttpEnabled = true
 icons = "unicode"
-metals.autoImportBuild = true
-metals.showImplicitArguments = true
-metals.showImplicitConversionsAndClasses = true
-metals.showInferredType = true
-metals.superMethodLensesEnabled = true
+
+[language-server.metals.config.metals]
+autoImportBuild = "all"
+showImplicitArguments = true
+showImplicitConversionsAndClasses = true
+showInferredType = true
+superMethodLensesEnabled = true
+
+[language-server.metals.config.metals.inlayHints]
+inferredTypes.enable = true
+typeParameters.enable = false
+hintsInPatternMatch.enable = true
+implicitArguments.enable = false
+implicitConversions.enable = false
 
 
 [language-server.terraform-ls]
