@@ -59,7 +59,6 @@ C-p = ["signature_help"]
 
 [keys.normal]
 esc = ["collapse_selection", "keep_primary_selection"]
-C-g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
 C-p = ["signature_help"]
 
 "X" = ["extend_line_above"]
@@ -92,7 +91,7 @@ l = ":lsp-workspace-command"
 b = ":lsp-workspace-command compile-cascade" # Scala/Metals specific
 i = ":lsp-workspace-command build-import"    # Scala/Metals specific
 
-# Map § to host config toggling commmands
+# Map § to host config toggling commands
 [keys.normal."§"]
 f = ":toggle-option auto-format"
 h = ":toggle-option file-picker.hidden"
@@ -111,3 +110,9 @@ r = ":reload-all"
 s = ["split_selection_on_newline", ":sort"]
 y = "yank_joined"
 Y = "yank_joined_to_clipboard"
+
+# Map <backspace> to host zellij commands
+[keys.normal.backspace]
+g = ":run-shell-command zellij run -fc -- lazygit"
+f = ":run-shell-command zellij run -fc -- broot"
+s = ":run-shell-command zellij run -f -- sbt"

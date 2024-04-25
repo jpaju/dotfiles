@@ -9,6 +9,9 @@
     };
   };
 
-  xdg.configFile = { "zellij/config.kdl".source = ./config.kdl; };
+  xdg.configFile = {
+    "zellij/config.kdl".source = ./config.kdl;
+    "fish/functions/zellij_run_floating_center.fish".source = ./run_floating.fish;
+  };
 }
 

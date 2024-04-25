@@ -111,6 +111,7 @@ pane_frames false
 // Default: default
 //
 // theme "default"
+theme "catppuccin-macchiato"
 
 // The name of the default layout to load on startup
 // Default: "default"
