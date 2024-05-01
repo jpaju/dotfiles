@@ -43,6 +43,27 @@ implicitArguments.enable = false
 implicitConversions.enable = false
 
 
+[language-server.eslint]
+command = "vscode-eslint-language-server"
+args = ["--stdio"]
+
+# Configuration reference: https://github.com/microsoft/vscode-eslint?tab=readme-ov-file#settings-options
+[language-server.eslint.config]
+validate = "on"
+run = "onType"
+workingDirectory.mode = "location"
+experimental = { useFlatConfig = true }
+format.enable = false
+nodePath = ""
+
+# Rules/actions/reporting configuration
+rulesCustomizations = [{ rule = "*", severity = "warn" }]
+codeActionOnSave.enable = false
+codeAction.disableRuleComment = { enable = true, location = "separateLine" }
+codeAction.showDocumentation.enable = true
+problems = { shortenToSingleLine = true }
+
+
 [language-server.terraform-ls]
 command = "terraform-ls"
 args = ["serve", "-log-file", "/dev/null"]
@@ -99,9 +120,10 @@ auto-format = true
 
 [[language]]
 name = "javascript"
+roots = ["package.json"]
 formatter = { command = "prettier", args = ["--stdin-filepath", "dummy.js"] }
 auto-format = true
-language-servers = ["typescript-language-server", "scls", "typos"]
+language-servers = ["typescript-language-server", "eslint", "scls", "typos"]
 
 [[language]]
 name = "json"
@@ -173,14 +195,23 @@ language-servers = ["taplo", "scls", "typos"]
 
 [[language]]
 name = "typescript"
+roots = ["package.json"]
 formatter = { command = "prettier", args = ["--stdin-filepath", "dummy.ts"] }
 auto-format = true
-language-servers = ["typescript-language-server", "scls", "typos"]
+language-servers = ["typescript-language-server", "eslint", "scls", "typos"]
+
+[[language]]
+name = "tsx"
+language-servers = ["typescript-language-server", "eslint", "scls", "typos"]
 
 [[language]]
 name = "xml"
 auto-format = true
 language-servers = ["vscode-html-language-server", "scls", "typos"]
+
+[[language]]
+name = "jsx"
+language-servers = ["typescript-language-server", "eslint", "scls", "typos"]
 
 [[language]]
 name = "yaml"
