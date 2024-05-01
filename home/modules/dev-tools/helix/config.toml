@@ -12,7 +12,7 @@ shell = ["fish", "-c"]
 # Auto-completion
 idle-timeout = 50
 completion-timeout = 50
-completion-trigger-len = 0
+completion-trigger-len = 1
 preview-completion-insert = false
 
 # Width
@@ -105,6 +105,8 @@ f = ":format"
 w = ":buffer-close"
 W = ":buffer-close-others"
 r = ":reload-all"
+")" = "rotate_selection_contents_forward"
+"(" = "rotate_selection_contents_backward"
 s = ["split_selection_on_newline", ":sort"]
 y = "yank_joined"
 Y = "yank_joined_to_clipboard"
