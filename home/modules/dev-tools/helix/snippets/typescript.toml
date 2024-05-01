@@ -1,0 +1,20 @@
+[[snippets]]
+prefix = "log"
+body = 'console.log("$1")'
+
+[[snippets]]
+prefix = "gen"
+body = '''
+Effect.gen(function* () {
+  $1
+})'''
+
+[[snippets]]
+prefix = "tag"
+body = '''
+export interface $1 {
+  $2
+}
+
+export const $1 = Context.Tag('$1')<$1, $1>();
+'''
