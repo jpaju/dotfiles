@@ -11,35 +11,39 @@ function add-nix-direnv --description "Add nix-direnv configuration to current f
         return 1
     end
 
-    set flakes_path "$HOME/.config/nix/flakes"
+    set flakes_path "$HOME/flakes"
 
     # Write lang specific flake to .envrc
     switch $lang
         case bun
-            echo "use flake path:$flakes_path/bun" >> .envrc
+            cp "$flakes_path/bun/flake.nix" .
 
-        case python py
-            echo "use flake path:$flakes_path/python" >> .envrc
+        case python
+            cp "$flakes_path/python/flake.nix" .
 
-        case rust rs
-            echo "use flake path:$flakes_path/rust" >> .envrc
+        case rust
+            cp "$flakes_path/rust/flake.nix" .
 
-        case scala sc
-            echo "use flake github:devinsideyou/scala-seed#java17" >> .envrc
+        case scala
+            cp "$flakes_path/scala/flake.nix" .
 
-        case typescript ts
-            echo "use flake path:$flakes_path/typescript" >> .envrc
+        case npm
+            cp "$flakes_path/npm/flake.nix" .
 
         case '*'
             echo (set_color red)"Unknown language: $lang"(set_color normal)
             return 1
     end
 
+    echo "use flake" >> .envrc
+
+    echo '.direnv' >> .gitignore
+
     # Add '.direnv' to .ignore file if it's not there already.
     if not test -e .ignore; or grep --count "^\.direnv\$" .ignore -eq 0
         echo '.direnv' >> .ignore
     end
 
-    echo (set_color green)"Added .envrc file, and added .direnv to .ignore."
-    echo "Run 'direnv allow' to apply changes."(set_color normal)
+    echo (set_color green)"Added flake.nix, .envrc, and '.direnv' to .ignore."
+    echo (set_color yellow)"Add flake.nix to git and run 'direnv allow' to load dev shell."(set_color normal)
 end

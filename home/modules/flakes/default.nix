@@ -1,7 +1,9 @@
 { ... }: {
   home.file = {
+    "flakes/bun".source = ./bun;
+    "flakes/npm".source = ./npm;
     "flakes/rust".source = ./rust;
-    "flakes/typescript".source = ./typescript;
+    "flakes/scala".source = ./scala;
     "flakes/python".source = ./python;
   };
 }
