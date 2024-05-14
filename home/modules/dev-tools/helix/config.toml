@@ -2,7 +2,7 @@ theme = "catppuccin_macchiato"
 
 [editor]
 line-number = "relative"
-mouse = false
+mouse = true
 cursorline = true
 color-modes = true
 whitespace.render = "all"
