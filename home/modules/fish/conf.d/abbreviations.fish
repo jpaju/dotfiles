@@ -7,9 +7,11 @@ abbr --add nb  'npm run build'
 abbr --add nd  'npm run dev'
 abbr --add nst 'npm run start'
 abbr --add nt  'npm run test'
+abbr --add nti 'npm run test:integration'
 abbr --add nv  'npm --version'
 
 # Nix
+abbr --add nxfu  'nix flake update'
 abbr --add nxsh  'nix shell nixpkgs#'
 abbr --add nxd   'nix develop'
 abbr --add nxdbn 'nix develop path:$HOME/flakes/bun'
