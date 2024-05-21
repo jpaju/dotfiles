@@ -3,6 +3,21 @@ prefix = "log"
 body = 'console.log("$1")'
 
 [[snippets]]
+prefix = "EE"
+body = 'Effect.Effect<$1>'
+
+[[snippets]]
+prefix = "LL"
+body = 'Layer.Layer<$1>'
+
+[[snippets]]
+prefix = "Err"
+body = '''
+export class $1 {
+    readonly _tag = '$1';
+}'''
+
+[[snippets]]
 prefix = "gen"
 body = '''
 Effect.gen(function* () {
