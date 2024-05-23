@@ -1,7 +1,32 @@
+prompttoReturnFromSubprocess: false
+
 gui:
+  showFileIcons: true
   nerdFontsVersion: "3"
+  filterMode: fuzzy
+
+  spinner:
+    rate: 50
+    frames:
+      - "⣾"
+      - "⣽"
+      - "⣻"
+      - "⢿"
+      - "⡿"
+      - "⣟"
+      - "⣯"
+      - "⣷"
+
 git:
   overrideGpg: true
+
+  merging:
+    args: "--ff-only"
+
+  mainBranches:
+    - master
+    - main
+
   paging:
     colorArg: always
     useConfig: false
