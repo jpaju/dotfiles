@@ -7,9 +7,10 @@
     ./modules/dev-tools
     ./modules/fish
     ./modules/flakes
+    ./modules/iterm2
     ./modules/karabiner
     ./modules/kitty
-    ./modules/iterm2
+    ./modules/nix
     ./modules/secrets
     ./modules/starship
     ./modules/wezterm

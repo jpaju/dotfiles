@@ -10,20 +10,6 @@ abbr --add nt  'npm run test'
 abbr --add nti 'npm run test:integration'
 abbr --add nv  'npm --version'
 
-# Nix
-abbr --add nxfu  'nix flake update'
-abbr --add nxsh  'nix shell nixpkgs#'
-abbr --add nxd   'nix develop'
-abbr --add nxdbn 'nix develop path:$HOME/flakes/bun'
-abbr --add nxdsc 'nix develop github:devinsideyou/scala-seed#java17'
-abbr --add nxdts 'nix develop path:$HOME/flakes/typescript'
-abbr --add nxdpy 'nix develop path:$HOME/flakes/python'
-abbr --add nxdrs 'nix develop path:$HOME/flakes/rust'
-
-# Nix darwin
-abbr --add nds 'darwin-rebuild switch --flake ~/dotfiles'
-abbr --add ndu 'nix flake update --flake ~/dotfiles'
-
 # Misc
 abbr --add cb     'fish_clipboard_copy'
 abbr --add cpuuid 'uuidgen | fish_clipboard_copy'
