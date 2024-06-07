@@ -8,15 +8,11 @@
     ./eza
     ./fzf
     ./jq
+    ./yazi
   ];
 
   programs = {
     ripgrep.enable = true;
-
-    yazi = {
-      enable = true;
-      enableFishIntegration = true;
-    };
 
     zoxide = {
       enable = true;
