@@ -10,9 +10,9 @@ bufferline = "always"
 shell = ["fish", "-c"]
 
 # Auto-completion
-idle-timeout = 50
-completion-timeout = 50
-completion-trigger-len = 1
+idle-timeout = 20
+completion-timeout = 20
+completion-trigger-len = 0
 preview-completion-insert = false
 
 # Width
@@ -53,6 +53,7 @@ skip-levels = 1
 display-messages = true
 display-inlay-hints = false
 
+# ============================================ Keybinds ============================================
 [keys.insert]
 C-p = ["signature_help"]
 
