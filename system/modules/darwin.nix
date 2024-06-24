@@ -11,10 +11,7 @@
     config.allowUnfree = true;
   };
 
-  fonts = {
-    fontDir.enable = true;
-    fonts = [ (pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; }) ];
-  };
+  fonts.packages = [ (pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; }) ];
 
   environment = with pkgs; {
     shells = [ fish zsh ];
