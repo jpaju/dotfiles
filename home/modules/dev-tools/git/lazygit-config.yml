@@ -1,4 +1,4 @@
-prompttoReturnFromSubprocess: false
+promptToReturnFromSubprocess: false
 
 gui:
   showFileIcons: true
@@ -16,6 +16,24 @@ gui:
       - "⣟"
       - "⣯"
       - "⣷"
+
+customCommands:
+  # Ideally we could use either of these to not to conflict with the default Push keybind, but currently these are not supported
+  # - key: "<c-P>"
+  # - key: "<a-p>"
+  - key: "P"
+    command: "git {{.Form.GitCmd}} {{.SelectedRemote.Name}} {{.SelectedLocalCommit.Sha}}:refs/heads/{{.CheckedOutBranch.Name}}"
+    context: "commits"
+    loadingText: "Pushing commit..."
+    description: "Push a specific commit (and any preceding)"
+    stream: true
+    prompts:
+      - type: "menu"
+        title: "How to push?"
+        key: "GitCmd"
+        options:
+          - value: "push"
+          - value: "push --force-with-lease"
 
 git:
   overrideGpg: true

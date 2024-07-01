@@ -29,6 +29,7 @@ return {
     { key = 'Enter',      mods = 'ALT',             action = wezterm.action.DisableDefaultAssignment },
 
     { key = 'P',          mods = 'CMD',             action = wezterm.action.ActivateCommandPalette },
+    { key = 'P',          mods = 'CTRL|SHIFT',      action = wezterm.action.DisableDefaultAssignment },
 
     { key = 'LeftArrow',  mods = 'SUPER|ALT',       action = wezterm.action.ActivateTabRelative(-1) },
     { key = 'RightArrow', mods = 'SUPER|ALT',       action = wezterm.action.ActivateTabRelative(1) },
