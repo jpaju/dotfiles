@@ -1,6 +1,7 @@
 # https://fishshell.com/docs/current/cmds/abbr.html
 
 # NPM
+abbr --add nr  'npm run'
 abbr --add nit 'npm init'
 abbr --add ni  'npm install'
 abbr --add nb  'npm run build'

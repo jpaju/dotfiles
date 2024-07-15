@@ -7,15 +7,23 @@ prefix = "EE"
 body = 'Effect.Effect<$1>'
 
 [[snippets]]
+prefix = "OO"
+body = 'Option.Option<$1>'
+
+[[snippets]]
 prefix = "LL"
 body = 'Layer.Layer<$1>'
 
 [[snippets]]
-prefix = "Err"
+prefix = "TODO"
 body = '''
-export class $1 {
-    readonly _tag = '$1';
-}'''
+const result = yield* Effect.dieMessage('TODO')
+return result
+'''
+
+[[snippets]]
+prefix = "Err"
+body = '''export class $1 extends Data.TaggedError('$1') {}'''
 
 [[snippets]]
 prefix = "gen"
@@ -28,8 +36,27 @@ Effect.gen(function* () {
 prefix = "tag"
 body = '''
 export interface $1 {
-  $2
+  readonly $2
 }
 
 export const $1 = Context.Tag('$1')<$1, $1>();
+'''
+
+[[snippets]]
+prefix = "live"
+body = '''
+export namespace Live$1 {
+  const layer = Layer.effect(
+    $1,
+    Effect.gen(function* () {
+      return create()
+    })
+  )
+
+  function create(): $1 {
+    return $1.of({
+
+    })
+  }
+}
 '''
