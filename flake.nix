@@ -17,8 +17,8 @@
     };
 
     helix-master = {
-      # url = "github:helix-editor/helix/master";
-      url = "github:the-mikedavis/helix/driver";
+      url = "github:helix-editor/helix/master";
+      # url = "github:the-mikedavis/helix/driver";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

@@ -6,12 +6,13 @@ mouse = true
 cursorline = true
 color-modes = true
 whitespace.render = "all"
+end-of-line-diagnostics = "hint"
 bufferline = "always"
 shell = ["fish", "-c"]
 
 # Auto-completion
-idle-timeout = 20
-completion-timeout = 20
+idle-timeout = 50
+completion-timeout = 5
 completion-trigger-len = 0
 preview-completion-insert = false
 
@@ -23,6 +24,19 @@ rulers = [120]
 insert = "bar"
 normal = "block"
 select = "underline"
+
+[editor.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+"'" = "'"
+'`' = '`'
+'<' = '>'
+
+[editor.inline-diagnostics]
+cursor-line = "hint"
+other-lines = "disable"
 
 [editor.statusline]
 left = ["mode", "spacer", "spinner", "diagnostics", "selections"]
@@ -52,6 +66,7 @@ skip-levels = 1
 [editor.lsp]
 display-messages = true
 display-inlay-hints = false
+goto-reference-include-declaration = false
 
 # ============================================ Keybinds ============================================
 [keys.insert]
@@ -113,6 +128,6 @@ Y = "yank_joined_to_clipboard"
 
 # Map <backspace> to host zellij commands
 [keys.normal.backspace]
-g = ":run-shell-command zellij run -fc -- lazygit"
-f = ":run-shell-command zellij run -fc -- broot"
-s = ":run-shell-command zellij run -f -- sbt"
+g = ":sh zellij run -fc --height 96% --width 96% -y 4% -x 2% -- lazygit"
+f = ":sh zellij run -fc --height 96% --width 96% -y 4% -x 2% -- yazi"
+F = ":sh zellij run -fc --height 96% --width 96% -y 4% -x 2% -- broot"
