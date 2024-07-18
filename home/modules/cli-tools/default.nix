@@ -25,6 +25,7 @@
 
     curlie
     fx
+    gobang
     gping
     gum
     iperf3
