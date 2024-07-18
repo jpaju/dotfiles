@@ -1,6 +1,6 @@
 { pkgs, ... }: {
 
-  imports = [ ./common.nix ];
+  imports = [ ./common.nix ./modules/k9s ];
 
   # TODO Enable gpg agent
   home.packages = with pkgs; [
