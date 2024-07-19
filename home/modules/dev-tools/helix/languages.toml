@@ -202,6 +202,7 @@ language-servers = ["typescript-language-server", "eslint", "scls", "typos"]
 
 [[language]]
 name = "tsx"
+auto-format = true
 language-servers = ["typescript-language-server", "eslint", "scls", "typos"]
 
 [[language]]
@@ -211,6 +212,7 @@ language-servers = ["vscode-html-language-server", "scls", "typos"]
 
 [[language]]
 name = "jsx"
+auto-format = true
 language-servers = ["typescript-language-server", "eslint", "scls", "typos"]
 
 [[language]]
