@@ -73,7 +73,7 @@ args = ["serve", "-log-file", "/dev/null"]
 
 [[language]]
 name = "css"
-formatter = { command = "prettier", args = ["--stdin-filepath ", "dummy.css"] }
+formatter = { command = "prettier", args = ["--parser", "css"] }
 auto-format = true
 language-servers = ["vscode-css-language-server", "scls", "typos"]
 
@@ -110,7 +110,7 @@ language-servers = ["terraform-ls", "scls", "typos"]
 
 [[language]]
 name = "html"
-formatter = { command = "prettier", args = ["--stdin-filepath", "dummy.html"] }
+formatter = { command = "prettier", args = ["--parser", "html"] }
 auto-format = true
 language-servers = ["vscode-html-language-server", "scls", "typos"]
 
@@ -121,15 +121,20 @@ auto-format = true
 [[language]]
 name = "javascript"
 roots = ["package.json"]
-formatter = { command = "prettier", args = ["--stdin-filepath", "dummy.js"] }
+formatter = { command = "prettier", args = ["--parser", "babel"] }
 auto-format = true
 language-servers = ["typescript-language-server", "eslint", "scls", "typos"]
 
 [[language]]
 name = "json"
-formatter = { command = "prettier", args = ["--stdin-filepath", "dummy.json"] }
 auto-format = true
 language-servers = ["vscode-json-language-server", "scls", "typos"]
+
+[[language]]
+name = "json5"
+formatter = { command = "prettier", args = ["--parser", "json5"] }
+auto-format = true
+language-servers = ["scls", "typos"]
 
 [[language]]
 name = "lua"
@@ -137,7 +142,7 @@ auto-format = true
 
 [[language]]
 name = "markdown"
-formatter = { command = "prettier", args = ["--stdin-filepath", "dummy.md"] }
+formatter = { command = "prettier", args = ["--parser", "markdown"] }
 auto-format = true
 soft-wrap.enable = true
 soft-wrap.wrap-at-text-width = true
@@ -178,7 +183,7 @@ language-servers = ["metals", "scls", "typos"]
 
 [[language]]
 name = "scss"
-formatter = { command = "prettier", args = ["--stdin-filepath", "dummy.scss"] }
+formatter = { command = "prettier", args = ["--parser", "scss"] }
 auto-format = true
 language-servers = ["vscode-css-language-server", "scls", "typos"]
 
@@ -196,7 +201,7 @@ language-servers = ["taplo", "scls", "typos"]
 [[language]]
 name = "typescript"
 roots = ["package.json"]
-formatter = { command = "prettier", args = ["--stdin-filepath", "dummy.ts"] }
+formatter = { command = "prettier", args = ["--parser", "typescript"] }
 auto-format = true
 language-servers = ["typescript-language-server", "eslint", "scls", "typos"]
 
@@ -217,7 +222,7 @@ language-servers = ["typescript-language-server", "eslint", "scls", "typos"]
 
 [[language]]
 name = "yaml"
-formatter = { command = "prettier", args = ["--stdin-filepath", "dummy.yaml"] }
+formatter = { command = "prettier", args = ["--parser", "yaml"] }
 auto-format = true
 language-servers = [
   "yaml-language-server",
