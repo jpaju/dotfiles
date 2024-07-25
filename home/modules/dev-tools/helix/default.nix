@@ -1,4 +1,4 @@
-{ pkgs, pkgs-master, system, helix-master, scls-main, ... }: {
+{ pkgs, system, helix-master, scls-main, ... }: {
   programs.helix = {
     enable = true;
     package = helix-master.packages.${system}.default;
@@ -19,7 +19,7 @@
     kotlin-language-server # Lua
     lua-language-server # Kotlin
     marksman # Markdown
-    pkgs-master.metals # Scala
+    metals # Scala
     nil # Nix
     nodePackages."@prisma/language-server" # Prisma
     nodePackages.bash-language-server # Bash
