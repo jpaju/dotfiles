@@ -29,6 +29,7 @@
     gping
     gum
     iperf3
+    moar
     ncdu
     nix-your-shell
     tlrc

@@ -33,7 +33,7 @@
     sessionVariables = {
       EDITOR = "hx";
       VISUAL = "$EDITOR";
-      PAGER = "less -R";
+      PAGER = "moar";
       XDG_CONFIG_HOME = "$HOME/.config";
     };
   };
