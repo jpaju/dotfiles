@@ -22,8 +22,8 @@
   };
 
   home.packages = with pkgs; [
-
     curlie
+    entr # Watch mode for any CLI command
     fx # JSON TUI
     gobang # SQL TUI
     gping
