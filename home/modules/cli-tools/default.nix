@@ -24,16 +24,15 @@
   home.packages = with pkgs; [
 
     curlie
-    fx
-    gobang
+    fx # JSON TUI
+    gobang # SQL TUI
     gping
-    gum
+    gum # CLI/TUI component library
     iperf3
-    moar
+    moar # Pager
     ncdu
-    nix-your-shell
-    tlrc
-
+    nix-your-shell # Nix shell support for fish
+    tlrc # Rust TLDR client
   ];
 }
 
