@@ -41,7 +41,15 @@
         }
         {
           key = "ctrl-h";
-          internal = "back";
+          internal = "up_tree";
+        }
+        {
+          key = "alt-f";
+          internal = "toggle_files";
+        }
+        {
+          key = "alt-.";
+          internal = "toggle_hidden";
         }
       ];
     };
