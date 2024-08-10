@@ -20,6 +20,7 @@
     lua-language-server # Kotlin
     marksman # Markdown
     metals # Scala
+    nixd # Nix
     nil # Nix
     nodePackages."@prisma/language-server" # Prisma
     nodePackages.bash-language-server # Bash

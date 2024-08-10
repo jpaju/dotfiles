@@ -152,7 +152,7 @@ language-servers = ["marksman", "scls", "typos"]
 name = "nix"
 formatter = { command = "nixfmt", args = ["--width", "120"] }
 auto-format = true
-language-servers = ["nil", "scls", "typos"]
+language-servers = ["nixd", "nil", "scls", "typos"]
 
 [[language]]
 name = "prisma"
