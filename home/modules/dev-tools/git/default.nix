@@ -64,11 +64,6 @@
   xdg.configFile = {
     "lazygit/config.yml".source = ./lazygit-config.yml;
 
-    "git/hooks/pre-push" = {
-      source = ./pre-push;
-      executable = true;
-    };
-
     "fish/functions/git_default_branch.fish".source = ./git_default_branch.fish;
   };
 

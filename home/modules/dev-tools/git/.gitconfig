@@ -3,7 +3,6 @@
    email = 36770267+JPaju@users.noreply.github.com
 [core]
    pager = delta
-   # hooksPath = ~/.config/git/hooks/
 [init]
    defaultBranch = main
 [fetch]
