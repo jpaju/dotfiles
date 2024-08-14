@@ -31,6 +31,7 @@
         "git log --graph --abbrev-commit --decorate --format=format:'%C(bold yellow)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(bold red)%s%C(reset) %C(blue)- %an%C(reset)%C(auto)%d%C(reset)' --all";
       gm = "git merge";
       gmff = "git merge --ff-only";
+      gms = "git maintenance start";
       gpl = "git pull";
       gplu = "git pull upstream";
       gps = "git push";
