@@ -80,16 +80,11 @@ language-servers = ["vscode-css-language-server", "scls", "typos"]
 [[language]]
 name = "docker-compose"
 language-servers = [
-  "docker-compose-language-server",
+  "docker-compose-langserver",
   "yaml-language-server",
   "scls",
   "typos",
 ]
-
-[[language]]
-name = "elm"
-formatter = { command = "elm-format", args = ["--stdin "] }
-auto-format = true
 
 [[language]]
 name = "env"
@@ -224,9 +219,4 @@ language-servers = ["typescript-language-server", "eslint", "scls", "typos"]
 name = "yaml"
 formatter = { command = "prettier", args = ["--parser", "yaml"] }
 auto-format = true
-language-servers = [
-  "yaml-language-server",
-  "ansible-language-server",
-  "scls",
-  "typos",
-]
+language-servers = ["yaml-language-server", "scls", "typos"]
