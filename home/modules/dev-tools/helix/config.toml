@@ -120,6 +120,7 @@ f = ":format"
 w = ":buffer-close"
 W = ":buffer-close-others"
 r = ":reload-all"
+g = ":reset-diff-change"
 ")" = "rotate_selection_contents_forward"
 "(" = "rotate_selection_contents_backward"
 s = ["split_selection_on_newline", ":sort"]
