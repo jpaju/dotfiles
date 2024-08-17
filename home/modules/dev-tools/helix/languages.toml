@@ -184,7 +184,7 @@ language-servers = ["vscode-css-language-server", "scls", "typos"]
 
 [[language]]
 name = "sql"
-formatter = { command = "pg_format --wrap-limit 140" }
+formatter = { command = "pg_format", args = ["--wrap-limit", "140"] }
 auto-format = true
 language-servers = ["scls", "typos"]
 
