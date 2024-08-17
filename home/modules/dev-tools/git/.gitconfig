@@ -29,7 +29,9 @@
     conflictstyle = diff3
 [diff]
     colorMoved = default
+[include]
+    path = ~/.catppuccin.gitconfig
 [delta]
-   features = decorations
+   features = decorations catppuccin-macchiato
    line-numbers = true
 
