@@ -9,9 +9,9 @@ keybinds {
         bind "Alt n" { NewPane; }
         bind "Alt i" { MoveTab "Left"; }
         bind "Alt o" { MoveTab "Right"; }
-        bind "Alt h" { MoveFocusOrTab "Left"; }
+        bind "Alt h" { MoveFocus "Left"; }
+        bind "Alt l" { MoveFocus "Right"; }
         bind "Alt j" { MoveFocus "Down"; }
-        bind "Alt l" { MoveFocusOrTab "Right"; }
         bind "Alt k" { MoveFocus "Up"; }
         bind "Alt =" "Alt +" { Resize "Increase"; }
         bind "Alt -" { Resize "Decrease"; }
@@ -32,7 +32,7 @@ default_shell "fish"
 
 mouse_mode true
 
-copy_on_select false
+copy_on_select true
 
 theme "catppuccin-macchiato"
 
