@@ -158,7 +158,7 @@ formatter = { command = "zsh", args = [
   "--assume-filename=dummy.proto",
   "--style=file:$HOME/.config/.clang-format",
 ] } # In order to use variable expansion, the command must be run through shell, see: https://github.com/helix-editor/helix/issues/5538#issuecomment-1383197516
-auto-format = true
+auto-format = false
 
 [[language]]
 name = "python"
@@ -180,7 +180,7 @@ language-servers = ["vscode-css-language-server", "scls", "typos"]
 [[language]]
 name = "sql"
 formatter = { command = "pg_format", args = ["--wrap-limit", "140"] }
-auto-format = true
+auto-format = false
 language-servers = ["scls", "typos"]
 
 [[language]]
