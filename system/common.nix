@@ -16,7 +16,7 @@
     caskArgs.no_quarantine = true;
 
     taps = [ "dashlane/tap" "pbkit/homebrew-tap" ];
-    brews = [ "dashlane-cli" "clang-format" "pbkit" ];
+    brews = [ "dashlane-cli" "pbkit" ];
 
     casks = let
       devTools = [ "dash" "docker" "jetbrains-toolbox" "postman" "visual-studio-code" ];

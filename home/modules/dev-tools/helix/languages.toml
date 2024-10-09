@@ -68,6 +68,10 @@ problems = { shortenToSingleLine = true }
 command = "terraform-ls"
 args = ["serve", "-log-file", "/dev/null"]
 
+[language-server.buf-lsp]
+command = "buf"
+args = ["beta", "lsp"]
+environment = { "BUF_BETA_SUPPRESS_WARNINGS" = "1" }
 
 # ----------------------------------------------------- Languages -----------------------------------------------------
 
@@ -151,13 +155,17 @@ language-servers = ["prisma-language-server", "scls", "typos"]
 
 [[language]]
 name = "protobuf"
-language-servers = ["bufls", "pbkit", "scls", "typos"]
-formatter = { command = "zsh", args = [
-  "-c",
-  "clang-format",
-  "--assume-filename=dummy.proto",
-  "--style=file:$HOME/.config/.clang-format",
-] } # In order to use variable expansion, the command must be run through shell, see: https://github.com/helix-editor/helix/issues/5538#issuecomment-1383197516
+language-servers = [
+  { name = "buf-lsp", except-features = [
+    "goto-definition",
+    "goto-reference",
+  ] },
+  { name = "pbkit", except-features = [
+    "hover",
+  ] },
+  "scls",
+  "typos",
+]
 auto-format = false
 
 [[language]]

@@ -1,4 +1,4 @@
-{ pkgs, system, helix-master, scls-main, ... }: {
+{ pkgs, pkgs-master, system, helix-master, scls-main, ... }: {
   programs.helix = {
     enable = true;
     package = helix-master.packages.${system}.default;
@@ -10,6 +10,7 @@
 
     # Languages
     terraform
+    pkgs-master.buf
 
     # LSPs
     docker-compose-language-service # docker compose
