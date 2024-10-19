@@ -25,8 +25,3 @@ This is my personal dotfiles repository. The files are managed with [nix-darwin]
    mkdir -p ~/.config/sops/age/
    dcli read "dl://sops-nix age private key/password" >> ~/.config/sops/age/keys.txt
    ```
-
-8. Configure iTerm2
-
-   - [Load preferences from custom URL](https://iterm2.com/documentation-preferences-general.html): `~/.config/iterm2/com.googlecode.iterm2.plist`
-   - Set up fish [shell integration](https://iterm2.com/documentation-shell-integration.html)

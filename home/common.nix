@@ -7,7 +7,6 @@
     ./modules/dev-tools
     ./modules/fish
     ./modules/flakes
-    ./modules/iterm2
     ./modules/karabiner
     ./modules/nix
     ./modules/secrets

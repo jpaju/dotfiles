@@ -21,10 +21,10 @@
 
     casks = let
       devTools = [ "dash" "docker" "jetbrains-toolbox" "postman" "visual-studio-code" ];
-      terminal = [ "iterm2" "wezterm" ];
+      terminal = [ "wezterm" ];
       windowManagement = [ "alt-tab" "betterdisplay" "monitorcontrol" "rectangle" ];
       productivity = [ "arc" "firefox" "google-chrome" "karabiner-elements" "notion" "numi" "spotify" ];
-      misc = [ "aldente" "appcleaner" "bartender" "logi-options-plus" "menubarx" "stats" ];
+      misc = [ "aldente" "appcleaner" "bartender" "logi-options+" "menubarx" "stats" ];
     in devTools ++ terminal ++ windowManagement ++ productivity ++ misc;
   };
 
