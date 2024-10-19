@@ -10,8 +10,9 @@
     # When invoking homebrew manually, dont't auto update
     global.autoUpdate = false;
 
-    # When invoking homebrew with nix-darwin, auto update and clean up
+    # When invoking homebrew with nix-darwin, perform update&upgrade packages and clean up
     onActivation.autoUpdate = true;
+    onActivation.upgrade = true;
     onActivation.cleanup = "zap";
     caskArgs.no_quarantine = true;
 
