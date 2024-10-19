@@ -9,7 +9,6 @@
     ./modules/flakes
     ./modules/iterm2
     ./modules/karabiner
-    ./modules/kitty
     ./modules/nix
     ./modules/secrets
     ./modules/starship
