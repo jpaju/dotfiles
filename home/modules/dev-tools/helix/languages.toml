@@ -76,6 +76,15 @@ environment = { "BUF_BETA_SUPPRESS_WARNINGS" = "1" }
 # ----------------------------------------------------- Languages -----------------------------------------------------
 
 [[language]]
+name = "csv"
+file-types = ["csv"]
+scope = "source.csv"
+
+[[grammar]]
+name = "csv"
+source = { git = "https://github.com/weartist/rainbow-csv-tree-sitter", rev = "d3dbf916446131417e4c2ea9eb8591b23b466d27" }
+
+[[language]]
 name = "css"
 formatter = { command = "prettier", args = ["--stdin-filepath ", "dummy.css"] }
 auto-format = true
