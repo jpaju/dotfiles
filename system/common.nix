@@ -16,8 +16,8 @@
     onActivation.cleanup = "zap";
     caskArgs.no_quarantine = true;
 
-    taps = [ "dashlane/tap" "pbkit/homebrew-tap" ];
-    brews = [ "dashlane-cli" ];
+    taps = [ "pbkit/homebrew-tap" ];
+    brews = [ ];
 
     casks = let
       devTools = [ "dash" "docker" "jetbrains-toolbox" "postman" "visual-studio-code" ];
