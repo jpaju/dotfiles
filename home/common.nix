@@ -2,7 +2,7 @@
 
   home.stateVersion = "23.11";
 
-  home.packages = [ pkgs._1password ];
+  home.packages = [ pkgs._1password-cli ];
 
   imports = [
     ./modules/cli-tools

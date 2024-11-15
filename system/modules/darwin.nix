@@ -15,7 +15,6 @@
 
   environment = with pkgs; {
     shells = [ fish zsh ];
-    loginShell = fish;
     systemPackages = [ ];
   };
 
