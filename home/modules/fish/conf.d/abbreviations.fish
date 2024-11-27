@@ -15,6 +15,7 @@ abbr --add nv  'npm --version'
 # Misc
 abbr --add cb     'fish_clipboard_copy'
 abbr --add cpuuid 'uuidgen | fish_clipboard_copy'
+abbr --add gw    './gradlew'
 abbr --add jps    'jps -lm'
 abbr --add loc    'tokei'
 abbr --add lt     'ls --tree --level 3'
