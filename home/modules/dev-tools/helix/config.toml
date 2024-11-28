@@ -72,6 +72,9 @@ goto-reference-include-declaration = false
 [keys.insert]
 C-p = ["signature_help"]
 
+[keys.select]
+"X" = ["extend_line_above"]
+
 [keys.normal]
 esc = ["collapse_selection", "keep_primary_selection"]
 C-p = ["signature_help"]
@@ -97,6 +100,11 @@ C-k = [
   "move_line_up",
   "paste_before",
 ]
+
+# Swap default file picker keybinds
+[keys.normal.space]
+f = "file_picker_in_current_directory"
+F = "file_picker"
 
 # Map + to host LSP commands
 [keys.normal."+"]
