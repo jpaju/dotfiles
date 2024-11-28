@@ -1,4 +1,4 @@
-{ pkgs, fishUtils, ... }: {
+{ pkgs, config, fishUtils, ... }: {
   programs.fish = {
     enable = true;
 
@@ -34,19 +34,23 @@
       EDITOR = "hx";
       VISUAL = "$EDITOR";
       PAGER = "moar";
-      XDG_CONFIG_HOME = "$HOME/.config";
     };
   };
 
-  xdg.configFile = {
-    "fish/conf.d" = {
-      source = ./conf.d;
-      recursive = true;
-    };
+  xdg = {
+    enable = true;
+    configHome = "${config.home.homeDirectory}/.config";
 
-    "fish/functions" = {
-      source = ./functions;
-      recursive = true;
+    configFile = {
+      "fish/conf.d" = {
+        source = ./conf.d;
+        recursive = true;
+      };
+
+      "fish/functions" = {
+        source = ./functions;
+        recursive = true;
+      };
     };
   };
 }
