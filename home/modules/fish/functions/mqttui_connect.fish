@@ -1,5 +1,5 @@
 function mqttui_connect --wraps='mqttui'
-    set secrets (gum spin --title "Loading list of secrets from 1password" --show-output -- op item list --vault Private --format json | jq -r '.[].title | select(. != null)')
+    set secrets (gum spin --title "Loading list of secrets from 1password" --show-output -- op item list --format json | jq -r '.[] | select(.category == "SERVER") | .title')
 
     if not set -q secrets[1]
         print_red "Failed to read secrets, aborting"; return 1
