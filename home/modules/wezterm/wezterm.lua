@@ -22,7 +22,7 @@ return {
   -- Keyboard
   use_ime = true,
   use_dead_keys = false,
-  enable_kitty_keyboard = false,
+  enable_kitty_keyboard = true,
 
   keys = {
     { key = 'F11',        mods = 'NONE',            action = wezterm.action.ToggleFullScreen },
@@ -52,10 +52,6 @@ return {
     -- Make Alt-Left/Right jump back/forward a word
     { key = 'LeftArrow',  mods = 'SUPER',           action = wezterm.action.SendString '\x01' },
     { key = 'RightArrow', mods = 'SUPER',           action = wezterm.action.SendString '\x05' },
-
-    -- Make Alt-Left/Right jump back/forward a word
-    { key = "LeftArrow",  mods = "ALT",             action = wezterm.action.SendString '\x1bb' },
-    { key = "RightArrow", mods = "ALT",             action = wezterm.action.SendString '\x1bf' },
 
     -- Make Cmd/Alt+backspace to remove whole line/one word
     { key = 'Backspace',  mods = 'SUPER',           action = wezterm.action.SendString '\x15' },
