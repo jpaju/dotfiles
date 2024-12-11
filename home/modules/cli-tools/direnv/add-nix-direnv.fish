@@ -35,7 +35,7 @@ function add-nix-direnv --description "Add nix-direnv configuration to current f
             return 1
     end
 
-    echo "use flake" >> .envrc
+    printf "use flake\ndotenv\n" >> .envrc
 
     echo '.direnv' >> .gitignore
 
