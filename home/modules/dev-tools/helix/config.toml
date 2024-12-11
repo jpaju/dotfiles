@@ -65,6 +65,7 @@ skip-levels = 1
 
 [editor.lsp]
 display-messages = true
+display-progress-messages = true
 display-inlay-hints = false
 goto-reference-include-declaration = false
 
