@@ -39,7 +39,7 @@ superMethodLensesEnabled = true
 inferredTypes.enable = true
 typeParameters.enable = false
 hintsInPatternMatch.enable = true
-implicitArguments.enable = false
+implicitArguments.enable = true
 implicitConversions.enable = false
 
 
