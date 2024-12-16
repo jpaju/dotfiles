@@ -61,6 +61,7 @@
           useUserPackages = true;
           users.${username}.imports = homeModules;
           extraSpecialArgs = specialArgs;
+          backupFileExtension = "bak";
         };
       };
     in {
