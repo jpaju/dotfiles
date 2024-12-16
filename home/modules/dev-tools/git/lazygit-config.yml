@@ -34,9 +34,17 @@ git:
     pager: delta --dark --paging=never
 
 gui:
-  showFileIcons: true
-  nerdFontsVersion: "3"
   filterMode: fuzzy
+  scrollHeight: 20
+  showFileIcons: true
+  showNumstatInFilesView: true
+  nerdFontsVersion: "3"
+  expandFocusedSidePanel: true
+  expandedSidePanelWeight: 3
+
+  # Uses Go's time format syntax: https://pkg.go.dev/time#Time.Format
+  timeFormat: 02.01.2006
+  shortTimeFormat: 15:04
 
   spinner:
     rate: 50
