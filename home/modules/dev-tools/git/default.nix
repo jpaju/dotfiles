@@ -1,10 +1,9 @@
-{ pkgs-master, ... }: {
+{ ... }: {
   programs = {
     git = {
       enable = true;
 
       delta.enable = true;
-      delta.package = pkgs-master.delta;
     };
 
     lazygit.enable = true;
