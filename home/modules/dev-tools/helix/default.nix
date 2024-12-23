@@ -16,6 +16,8 @@
     docker-compose-language-service # docker compose
     dockerfile-language-server-nodejs # Docker
     elmPackages.elm-language-server # Elm
+    gopls # Go
+    golangci-lint-langserver # Go linting
     jdt-language-server # Java
     kotlin-language-server # Lua
     lua-language-server # Kotlin

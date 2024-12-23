@@ -24,6 +24,9 @@ function add-nix-direnv --description "Add nix-direnv configuration to current f
         case bun
             cp "$flakes_path/bun/flake.nix" .
 
+        case go
+            cp "$flakes_path/go/flake.nix" .
+
         case python
             cp "$flakes_path/python/flake.nix" .
 
