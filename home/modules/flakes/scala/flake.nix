@@ -10,7 +10,7 @@
       in {
         devShells.default = pkgs.mkShell {
           name = "scala";
-          packages = with pkgs; [ temurin-bin-21 ammonite scala-cli ];
+          packages = with pkgs; [ sbt temurin-bin-21 ammonite scala-cli ];
 
           shellHook = ''
             export SBT_TPOLECAT_DEV=1
