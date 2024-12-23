@@ -15,6 +15,7 @@
 
   xdg.configFile = {
     "fish/functions/add-nix-direnv.fish".source = ./add-nix-direnv.fish;
+    "fish/functions/gitignore-flake.fish".source = ./gitignore-flake.fish;
     "fish/completions/add-nix-direnv.fish".source = ./add-nix-direnv-completions.fish;
   };
 }
