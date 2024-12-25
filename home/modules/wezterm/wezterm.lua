@@ -1,5 +1,7 @@
 local wezterm = require 'wezterm'
 
+local act = wezterm.action;
+
 return {
   default_prog = { '/etc/profiles/per-user/jaakkopaju/bin/fish' },
 
@@ -25,35 +27,41 @@ return {
   enable_kitty_keyboard = true,
 
   keys = {
-    { key = 'F11',        mods = 'NONE',            action = wezterm.action.ToggleFullScreen },
-    { key = 'Enter',      mods = 'ALT',             action = wezterm.action.DisableDefaultAssignment },
+    { key = 'F11',        mods = 'NONE',                          action = act.ToggleFullScreen },
+    { key = 'Enter',      mods = 'ALT',                           action = act.DisableDefaultAssignment },
 
-    { key = 'P',          mods = 'CMD',             action = wezterm.action.ActivateCommandPalette },
-    { key = 'P',          mods = 'CTRL|SHIFT',      action = wezterm.action.DisableDefaultAssignment },
+    { key = 'P',          mods = 'CMD',                           action = act.ActivateCommandPalette },
+    { key = 'P',          mods = 'CTRL|SHIFT',                    action = act.DisableDefaultAssignment },
 
-    { key = 'LeftArrow',  mods = 'SUPER|ALT',       action = wezterm.action.ActivateTabRelative(-1) },
-    { key = 'RightArrow', mods = 'SUPER|ALT',       action = wezterm.action.ActivateTabRelative(1) },
-    { key = 'LeftArrow',  mods = 'SHIFT|SUPER|ALT', action = wezterm.action.MoveTabRelative(-1) },
-    { key = 'RightArrow', mods = 'SHIFT|SUPER|ALT', action = wezterm.action.MoveTabRelative(1) },
+    { key = 'LeftArrow',  mods = 'SUPER|ALT',                     action = act.ActivateTabRelative(-1) },
+    { key = 'RightArrow', mods = 'SUPER|ALT',                     action = act.ActivateTabRelative(1) },
 
-    { key = '+',          mods = 'SUPER',           action = wezterm.action.IncreaseFontSize },
-    { key = '-',          mods = 'SUPER',           action = wezterm.action.DecreaseFontSize },
+    { key = '+',          mods = 'SUPER',                         action = act.IncreaseFontSize },
+    { key = '-',          mods = 'SUPER',                         action = act.DecreaseFontSize },
 
-    { key = 'phys:2',     mods = 'ALT',             action = wezterm.action.SendString '@' },
-    { key = 'phys:3',     mods = 'ALT',             action = wezterm.action.SendString '£' },
-    { key = 'phys:4',     mods = 'ALT',             action = wezterm.action.SendString '$' },
-    { key = 'phys:7',     mods = 'ALT',             action = wezterm.action.SendString '|' },
-    { key = 'phys:8',     mods = 'ALT',             action = wezterm.action.SendString '[' },
-    { key = 'phys:9',     mods = 'ALT',             action = wezterm.action.SendString ']' },
-    { key = 'phys:7',     mods = 'SHIFT|ALT',       action = wezterm.action.SendString '\\' },
-    { key = 'phys:8',     mods = 'SHIFT|ALT',       action = wezterm.action.SendString '{' },
-    { key = 'phys:9',     mods = 'SHIFT|ALT',       action = wezterm.action.SendString '}' },
+    { key = 'phys:2',     mods = 'ALT',                           action = act.SendString '@' },
+    { key = 'phys:3',     mods = 'ALT',                           action = act.SendString '£' },
+    { key = 'phys:4',     mods = 'ALT',                           action = act.SendString '$' },
+    { key = 'phys:7',     mods = 'ALT',                           action = act.SendString '|' },
+    { key = 'phys:8',     mods = 'ALT',                           action = act.SendString '[' },
+    { key = 'phys:9',     mods = 'ALT',                           action = act.SendString ']' },
+    { key = 'phys:7',     mods = 'SHIFT|ALT',                     action = act.SendString '\\' },
+    { key = 'phys:8',     mods = 'SHIFT|ALT',                     action = act.SendString '{' },
+    { key = 'phys:9',     mods = 'SHIFT|ALT',                     action = act.SendString '}' },
 
-    -- Make Alt-Left/Right jump back/forward a word
-    { key = 'LeftArrow',  mods = 'SUPER',           action = wezterm.action.SendString '\x01' },
-    { key = 'RightArrow', mods = 'SUPER',           action = wezterm.action.SendString '\x05' },
+    -- Alt+Left/Right to jump to backward/forward a word
+    { key = 'LeftArrow',  mods = 'OPT',                           action = act.SendKey { key = 'b', mods = 'ALT' } },
+    { key = 'RightArrow', mods = 'OPT',                           action = act.SendKey { key = 'f', mods = 'ALT' } },
 
-    -- Make Cmd/Alt+backspace to remove whole line/one word
-    { key = 'Backspace',  mods = 'SUPER',           action = wezterm.action.SendString '\x15' },
+    -- Cmd+Left/Right to jump to beginning/end of line
+    { key = 'LeftArrow',  mods = 'SUPER',                         action = act.SendKey { key = 'a', mods = 'CTRL' } },
+    { key = 'RightArrow', mods = 'SUPER',                         action = act.SendKey { key = 'e', mods = 'CTRL' } },
+
+    -- Cmd+backspace to remove whole line
+    { key = 'Backspace',  mods = 'SUPER',                         action = act.SendKey { key = 'u', mods = 'CTRL' } },
+
+    -- WezTerm doesn't play nice with Delete key when kitty keyboard protocol is enabled
+    -- See: https://github.com/wez/wezterm/issues/4785
+    { key = 'Delete',     action = act.SendKey { key = 'Delete' } },
   }
 }
