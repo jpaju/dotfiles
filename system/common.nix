@@ -21,7 +21,7 @@
 
     casks = let
       devTools = [ "dash" "docker" "jetbrains-toolbox" "postman" "visual-studio-code" ];
-      terminal = [ "wezterm" ];
+      terminal = [ "ghostty" "wezterm" ];
       windowManagement = [ "alt-tab" "betterdisplay" "monitorcontrol" "rectangle" ];
       productivity = [ "arc" "firefox" "google-chrome" "karabiner-elements" "notion" "numi" "spotify" ];
       misc = [ "1password" "aldente" "appcleaner" "bartender" "logi-options+" "menubarx" "stats" ];

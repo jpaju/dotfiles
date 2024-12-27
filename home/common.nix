@@ -9,6 +9,7 @@
     ./modules/dev-tools
     ./modules/fish
     ./modules/flakes
+    ./modules/ghostty
     ./modules/karabiner
     ./modules/nix
     ./modules/secrets
