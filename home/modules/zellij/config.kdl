@@ -42,9 +42,6 @@ keybinds clear-defaults=true {
     unbind "Alt [" "Alt ]" 
 
     shared_among "normal" "locked" {
-        bind "Alt +" { Resize "Increase"; }
-        bind "Alt -" { Resize "Decrease"; }
-        bind "Alt =" { Resize "Increase"; }
         bind "Alt Up" { PreviousSwapLayout; }
         bind "Alt Down" { NextSwapLayout; }
         bind "Alt h" { MoveFocus "left"; }
