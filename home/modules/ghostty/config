@@ -5,8 +5,9 @@ font-family = FiraCode Nerd Font Mono
 keybind = cmd+opt+left=previous_tab
 keybind = cmd+opt+right=next_tab
 
-# Cmd+backspace to remove whole line
+# Cmd/alt+backspace to work correctly
 keybind = cmd+backspace=text:\x15
+keybind = alt+backspace=csi:119;5u
 
 # Configure opt key to be alt, but hard code some characters
 macos-option-as-alt = true
