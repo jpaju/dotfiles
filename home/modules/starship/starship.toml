@@ -52,14 +52,11 @@ disabled = false
 
 [direnv]
 disabled = false
-format = 'via [$symbol]($style)\($allowed|$loaded\)'
+format = 'via [$symbol]($style)\($loaded\)'
 style = 'bold green'
 symbol = 'direnv'
-not_allowed_msg = '❓'
-allowed_msg = '✅'
-denied_msg = '❌'
-loaded_msg = '👍'
-unloaded_msg = '👎'
+loaded_msg = '✅'
+unloaded_msg = '❌'
 
 [docker_context]
 symbol = '🐳'
@@ -81,4 +78,4 @@ symbol = " "
 heuristic = true
 symbol = ''
 unknown_msg = 'ad-hoc'
-format = 'via [$symbol $state(\($name\))]($style) '
+format = 'via [$symbol $name]($style) '
