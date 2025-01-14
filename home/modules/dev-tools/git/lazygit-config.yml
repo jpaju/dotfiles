@@ -38,6 +38,7 @@ gui:
   scrollHeight: 20
   showFileIcons: true
   showNumstatInFilesView: true
+  showDivergenceFromBaseBranch: arrowAndNumber
   nerdFontsVersion: "3"
   expandFocusedSidePanel: true
   expandedSidePanelWeight: 3

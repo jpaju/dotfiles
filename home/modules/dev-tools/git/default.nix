@@ -57,7 +57,7 @@
       gswm = "git switch (git_default_branch)";
       ggrep = "git log -p -G"; # Maybe try also 'git rev-list --all | xargs git grep' ?
 
-      lg = "env TERM=xterm-256color lazygit";
+      lg = "lazygit";
     };
   };
 
