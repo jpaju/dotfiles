@@ -37,7 +37,7 @@
 
     # Formatters
     black # Python
-    elmPackages.elm-format # Elm
+    # elmPackages.elm-format # Elm
     nixfmt # Nix
     nodePackages.prettier # JSON, JS, TS, HTML, CSS, YAML, Markdown
     pgformatter # SQL
