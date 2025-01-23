@@ -1,16 +1,16 @@
 # https://fishshell.com/docs/current/cmds/abbr.html
 
 # NPM
-abbr --add nr  'npm run'
-abbr --add nit 'npm init'
-abbr --add ni  'npm install'
-abbr --add nb  'npm run build'
-abbr --add nc  'npm run compile'
-abbr --add nd  'npm run dev'
-abbr --add nst 'npm run start'
-abbr --add nt  'npm run test'
-abbr --add nti 'npm run test:integration'
-abbr --add nv  'npm --version'
+abbr --add nr  'pnpm'
+abbr --add nit 'pnpm init'
+abbr --add ni  'pnpm install'
+abbr --add nb  'pnpm build'
+abbr --add nc  'pnpm compile'
+abbr --add nd  'pnpm dev'
+abbr --add nst 'pnpm start'
+abbr --add nt  'pnpm test'
+abbr --add nti 'pnpm test:integration'
+abbr --add nv  'pnpm --version'
 
 # Misc
 abbr --add cb     'fish_clipboard_copy'
