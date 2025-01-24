@@ -151,8 +151,6 @@ auto-format = true
 name = "markdown"
 formatter = { command = "prettier", args = ["--stdin-filepath", "dummy.md"] }
 auto-format = true
-soft-wrap.enable = true
-soft-wrap.wrap-at-text-width = true
 language-servers = ["marksman", "scls", "typos"]
 
 [[language]]
