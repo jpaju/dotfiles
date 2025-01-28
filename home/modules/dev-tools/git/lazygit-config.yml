@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
 promptToReturnFromSubprocess: false
 
 customCommands:
@@ -42,6 +43,7 @@ gui:
   nerdFontsVersion: "3"
   expandFocusedSidePanel: true
   expandedSidePanelWeight: 3
+  switchTabsWithPanelJumpKeys: true
 
   # Uses Go's time format syntax: https://pkg.go.dev/time#Time.Format
   timeFormat: 02.01.2006
