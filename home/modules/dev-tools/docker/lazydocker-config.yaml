@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://json.schemastore.org/lazydocker.json
+
+gui:
+  scrollHeight: 20
+  returnImmediately: true
+  expandFocusedSidePanel: true
+  containerStatusHealthStyle: icon
+
+  # Catppuccin Macchiato Maroon
+  theme:
+    activeBorderColor:
+      - "#ee99a0"
+      - bold
+    inactiveBorderColor:
+      - "#a5adcb"
+    optionsTextColor:
+      - "#8aadf4"
+    selectedLineBgColor:
+      - "#363a4f"
+
+logs:
+  timestamps: true
+  since: 120m

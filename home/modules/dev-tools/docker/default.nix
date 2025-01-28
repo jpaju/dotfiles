@@ -1,6 +1,4 @@
 { pkgs, ... }: {
-  home.packages = [ pkgs.lazydocker ];
-
   programs.fish.shellAbbrs = {
     dk = "docker";
     dkb = "docker build";
@@ -14,4 +12,7 @@
 
     ld = "lazydocker";
   };
+
+  home.packages = [ pkgs.lazydocker ];
+  xdg.configFile."lazydocker/config.yml".source = ./lazydocker-config.yaml;
 }
