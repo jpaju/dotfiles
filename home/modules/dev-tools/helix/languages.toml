@@ -13,6 +13,11 @@ feature_unicode_input = false
 RUST_LOG = "info,simple-completion-language-server=info"
 LOG_FILE = "/dev/null"
 
+[language-server.taplo]
+command = "taplo"
+args = ["lsp", "stdio"]
+environment = { RUST_LOG = "error" }
+
 [language-server.typos]
 command = "typos-lsp"
 config.diagnosticSeverity = "Hint" # Valid values: Error, Warning, Info or Hint.
