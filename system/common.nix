@@ -20,11 +20,42 @@
     brews = [ "pbkit" ];
 
     casks = let
-      devTools = [ "dash" "docker" "jetbrains-toolbox" "postman" "visual-studio-code" ];
       terminal = [ "ghostty" "wezterm" ];
+      devTools = [
+        # Newline please
+        "dash"
+        "docker"
+        "jetbrains-toolbox"
+        "postman"
+        "visual-studio-code"
+      ];
+
       windowManagement = [ "alt-tab" "betterdisplay" "monitorcontrol" "rectangle" ];
-      productivity = [ "arc" "firefox" "google-chrome" "karabiner-elements" "notion" "numi" "spotify" "raycast" ];
-      misc = [ "1password" "aldente" "appcleaner" "bartender" "logi-options+" "menubarx" "stats" ];
+
+      productivity = [
+        # Newline
+        "arc"
+        "firefox"
+        "google-chrome"
+        "karabiner-elements"
+        "notion"
+        "numi"
+        "spotify"
+        "ticktick"
+        "raycast"
+      ];
+
+      misc = [
+        # Please keep the newline :D
+        "1password"
+        "aldente"
+        "appcleaner"
+        "bartender"
+        "logi-options+"
+        "menubarx"
+        "stats"
+      ];
+
     in devTools ++ terminal ++ windowManagement ++ productivity ++ misc;
   };
 
