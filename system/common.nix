@@ -17,7 +17,7 @@
     caskArgs.no_quarantine = true;
 
     taps = [ "pbkit/homebrew-tap" ];
-    brews = [ ];
+    brews = [ "pbkit" ];
 
     casks = let
       devTools = [ "dash" "docker" "jetbrains-toolbox" "postman" "visual-studio-code" ];
