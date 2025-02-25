@@ -1,15 +1,15 @@
 # https://fishshell.com/docs/current/cmds/abbr.html
 
 # NPM
-abbr --add nr  'pnpm'
+abbr --add nr  'pnpm run'
 abbr --add nit 'pnpm init'
 abbr --add ni  'pnpm install'
-abbr --add nb  'pnpm build'
-abbr --add nc  'pnpm compile'
-abbr --add nd  'pnpm dev'
-abbr --add nst 'pnpm start'
-abbr --add nt  'pnpm test'
-abbr --add nti 'pnpm test:integration'
+abbr --add nb  'pnpm run build'
+abbr --add nc  'pnpm run compile'
+abbr --add nd  'pnpm run dev'
+abbr --add nst 'pnpm run start'
+abbr --add nt  'pnpm run test'
+abbr --add nti 'pnpm run test:integration'
 abbr --add nv  'pnpm --version'
 
 # Misc

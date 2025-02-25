@@ -6,6 +6,7 @@
       za = "zellij attach";
       zac = "zellij attach (basename (pwd)) --create";
       zls = "zellij list-sessions";
+      zkl = "zellij kill-session";
     };
   };
 
