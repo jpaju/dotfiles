@@ -67,6 +67,7 @@
     "lazygit/config.yml".source = ./lazygit-config.yml;
 
     "fish/functions/git_default_branch.fish".source = ./git_default_branch.fish;
+    "fish/functions/git_blame.fish".source = ./git_blame.fish;
   };
 
 }

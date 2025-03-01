@@ -107,7 +107,13 @@ C-k = [
 f = "file_picker_in_current_directory"
 F = "file_picker"
 
-# Map + to host LSP commands
+# <space><space> for git commands
+[keys.normal.space.space]
+r = ":reset-diff-change"
+w = ":sh gh browse %{buffer_name}:%{cursor_line} -b=%sh{git rev-parse --abbrev-ref HEAD}"
+b = ":sh git_blame %{buffer_name} %{cursor_line}"
+
+# + for LSP commands
 [keys.normal."+"]
 r = ":lsp-restart"
 s = ":lsp-stop"
@@ -115,7 +121,7 @@ l = ":lsp-workspace-command"
 b = ":lsp-workspace-command compile-cascade" # Scala/Metals specific
 i = ":lsp-workspace-command build-import"    # Scala/Metals specific
 
-# Map § to host config toggling commands
+# § for config toggling commands
 [keys.normal."§"]
 f = ":toggle-option auto-format"
 h = ":toggle-option file-picker.hidden"
@@ -123,7 +129,7 @@ g = ":toggle-option file-picker.git-ignore"
 i = ":toggle-option lsp.display-inlay-hints"
 w = ":toggle-option soft-wrap.enable"
 
-# Map ' to host code/text modification commands
+# ' for code/text modification commands
 [keys.normal."'"]
 f = ":format"
 w = ":buffer-close"
@@ -136,9 +142,9 @@ s = ["split_selection_on_newline", ":sort"]
 y = "yank_joined"
 Y = "yank_joined_to_clipboard"
 
-# Map <backspace> to host zellij commands
+# <backspace> for zellij commands
 [keys.normal.backspace]
-g = ":sh zellij run -fc --height 96% --width 96% -y 4% -x 2% -- lazygit"
-p = ":sh zellij run -fc --height 84% --width 74% -y 8% -x 13% -- fish -c 'gh_pr_switch --wait-on-error'"
-f = ":sh zellij run -fc --height 96% --width 96% -y 4% -x 2% -- yazi"
-F = ":sh zellij run -fc --height 96% --width 96% -y 4% -x 2% -- broot"
+g = ":sh 'zellij run -fc --height 96% --width 96% -y 4% -x 2% -- lazygit'"
+p = ":sh 'zellij run -fc --height 84% --width 74% -y 8% -x 13% -- fish -c 'gh_pr_switch --wait-on-error''"
+f = ":sh 'zellij run -fc --height 96% --width 96% -y 4% -x 2% -- yazi'"
+F = ":sh 'zellij run -fc --height 96% --width 96% -y 4% -x 2% -- broot'"
