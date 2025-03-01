@@ -171,18 +171,7 @@ language-servers = ["prisma-language-server", "scls", "typos"]
 
 [[language]]
 name = "protobuf"
-language-servers = [
-  { name = "buf-lsp", except-features = [
-    "goto-definition",
-    "goto-reference",
-  ] },
-  { name = "pbkit", except-features = [
-    "hover",
-  ] },
-  "scls",
-  "typos",
-]
-auto-format = false
+language-servers = ["protols", "scls", "typos"]
 
 [[language]]
 name = "python"

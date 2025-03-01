@@ -16,9 +16,6 @@
     onActivation.cleanup = "zap";
     caskArgs.no_quarantine = true;
 
-    taps = [ "pbkit/homebrew-tap" ];
-    brews = [ "pbkit" ];
-
     casks = let
       terminal = [ "ghostty" "wezterm" ];
       devTools = [
