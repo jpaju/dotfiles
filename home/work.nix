@@ -1,6 +1,6 @@
 { pkgs, ... }: {
 
-  imports = [ ./common.nix ./modules/k9s ];
+  imports = [ ./common.nix ./modules/k8s ];
 
   # TODO Enable gpg agent
   home.packages = with pkgs; [
@@ -10,8 +10,6 @@
     evans # gRPC TUI
     gnupg
     grpcurl # gRPC CLI
-    kubectl
-    kubectx
     pyenv
     vault
   ];

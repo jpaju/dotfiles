@@ -1,4 +1,20 @@
 { pkgs, ... }: {
+  home.packages = with pkgs; [
+    kubectl # Comment to keep newlines :D
+    kubectx
+    argo-rollouts
+  ];
+
+  programs.fish.shellAbbrs = {
+    k = "kubectl";
+    kctx = "kubectx";
+  };
+
+  programs.kubecolor = {
+    enable = true;
+    enableAlias = true;
+  };
+
   programs.k9s = {
     enable = true;
 
