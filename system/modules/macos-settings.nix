@@ -1,5 +1,8 @@
 { ... }: {
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local = {
+    touchIdAuth = true;
+    watchIdAuth = true;
+  };
 
   system.defaults = {
     spaces.spans-displays = true; # Displays have separate Spaces

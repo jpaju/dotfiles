@@ -4,7 +4,7 @@
   # $ darwin-rebuild changelog
   system.stateVersion = 4;
 
-  services = { nix-daemon.enable = true; };
+  nix.enable = true;
 
   nixpkgs = {
     hostPlatform = system;

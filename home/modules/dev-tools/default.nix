@@ -9,13 +9,7 @@
     ./intellij
   ];
 
-  home.packages = with pkgs; [
-    coursier
-    kcat
-    pgcli
-    tokei
-    # scala-update # TODO Comment until the package is fixed and can be built
-  ];
+  home.packages = with pkgs; [ coursier kcat pgcli tokei ];
 
   home.file.".sbt/1.0/global.sbt".source = ./global.sbt;
 }

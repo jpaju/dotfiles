@@ -25,7 +25,6 @@
     metals # Scala
     nixd # Nix
     nil # Nix
-    nodePackages."@prisma/language-server" # Prisma
     nodePackages.bash-language-server # Bash
     nodePackages.typescript-language-server # TypeScript
     python311Packages.python-lsp-server # Python
@@ -38,7 +37,6 @@
 
     # Formatters
     black # Python
-    # elmPackages.elm-format # Elm
     nixfmt # Nix
     nodePackages.prettier # JSON, JS, TS, HTML, CSS, YAML, Markdown
     pgformatter # SQL
