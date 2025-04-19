@@ -14,11 +14,7 @@
 
   programs = {
     ripgrep.enable = true;
-
-    zoxide = {
-      enable = true;
-      enableFishIntegration = true;
-    };
+    zoxide.enable = true;
   };
 
   home.packages = with pkgs; [

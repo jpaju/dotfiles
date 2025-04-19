@@ -1,9 +1,6 @@
 { pkgs, fishUtils, ... }: {
   programs = {
-    fzf = {
-      enable = true;
-      enableFishIntegration = true;
-    };
+    fzf.enable = true;
 
     fish = {
       plugins = [ (fishUtils.fishPlugin pkgs "fzf-fish") ];

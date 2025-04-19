@@ -1,27 +1,23 @@
 { ... }: {
-  programs = {
-    yazi = {
-      enable = true;
-      enableFishIntegration = true;
+  programs.yazi = {
+    enable = true;
 
-      settings = {
-        manager = {
-          ratio = [ 1 2 3 ];
-          show_hidden = true;
-          show_symlink = true;
-        };
+    settings = {
+      manager = {
+        ratio = [ 1 2 3 ];
+        show_hidden = true;
+        show_symlink = true;
       };
+    };
 
-      initLua = ./init.lua;
+    initLua = ./init.lua;
 
-      keymap = {
-        input.prepend_keymap = [{
-          run = "close";
-          on = [ "<Esc>" ];
-          desc = "Cancel input";
-        }];
-      };
-
+    keymap = {
+      input.prepend_keymap = [{
+        run = "close";
+        on = [ "<Esc>" ];
+        desc = "Cancel input";
+      }];
     };
   };
 

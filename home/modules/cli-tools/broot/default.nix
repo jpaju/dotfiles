@@ -1,7 +1,6 @@
 { ... }: {
   programs.broot = {
     enable = true;
-    enableFishIntegration = true;
 
     settings = {
       icon_theme = "nerdfont";

@@ -4,6 +4,8 @@
 
   home.packages = [ pkgs._1password-cli ];
 
+  home.shell.enableFishIntegration = true;
+
   imports = [
     ./modules/cli-tools
     ./modules/dev-tools
