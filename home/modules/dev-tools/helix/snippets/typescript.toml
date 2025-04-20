@@ -17,8 +17,7 @@ body = 'Layer.Layer<$1>'
 [[snippets]]
 prefix = "TODO"
 body = '''
-const result = yield* Effect.dieMessage('TODO')
-return result
+return yield* Effect.dieMessage('TODO')
 '''
 
 [[snippets]]
