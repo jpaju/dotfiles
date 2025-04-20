@@ -2,7 +2,6 @@
 
   imports = [ ./common.nix ./modules/k8s ];
 
-  # TODO Enable gpg agent
   home.packages = with pkgs; [
     aws-iam-authenticator
     aws-vault
@@ -13,6 +12,8 @@
     pyenv
     vault
   ];
+
+  services.gpg-agent.enable = true;
 
 }
 
