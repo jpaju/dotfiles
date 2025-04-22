@@ -5,16 +5,22 @@
   };
 
   system.defaults = {
-    spaces.spans-displays = true; # Displays have separate Spaces
+    spaces.spans-displays = false; # Displays have separate Spaces
 
     dock = {
       mru-spaces = false; # Auto-arrange spaces based on most recent use
+
+      appswitcher-all-displays = true;
+
+      show-process-indicators = true;
       show-recents = false;
       autohide = true;
       magnification = true;
       largesize = 70;
       tilesize = 50;
     };
+
+    WindowManager.GloballyEnabled = false; # Disable Stage Manager
 
     # Menubar clock format: e.g 'd EEE h.mm.ss'
     menuExtraClock = {
@@ -25,7 +31,10 @@
       ShowSeconds = true;
     };
 
+    # Finder & files
+    NSGlobalDomain.NSDocumentSaveNewDocumentsToCloud = false;
     finder = {
+      AppleShowAllFiles = true; # Show hidden files
       AppleShowAllExtensions = true; # Show all file extensions
       FXPreferredViewStyle = "clmv"; # Finder preferred view is column
       ShowStatusBar = true;
@@ -47,7 +56,8 @@
     ".GlobalPreferences"."com.apple.mouse.scaling" = 0.875; # External mouse tracking speed (0.0 - 3.0)
 
     trackpad = {
-      Clicking = false;
+      Clicking = false; # Disable tap to click
+      ActuationStrength = 1; # Disable silent clicking
       FirstClickThreshold = 1; # Normal click (0,1,2)
       SecondClickThreshold = 2; # Force click (0,1,2)
       TrackpadRightClick = true; # Right click with two-finger click
