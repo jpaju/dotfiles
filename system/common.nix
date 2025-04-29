@@ -21,7 +21,7 @@
       devTools = [
         # Newline please
         "dash"
-        "docker"
+        "orbstack"
         "jetbrains-toolbox"
         "postman"
         "visual-studio-code"
