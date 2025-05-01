@@ -15,8 +15,8 @@
     nxdpy = "nix develop path:$HOME/flakes/python";
     nxdrs = "nix develop path:$HOME/flakes/rust";
 
-    nds = "darwin_rebuild"; # NDS aka nix darwin switch
+    nds = "nix_darwin_switch";
   };
 
-  xdg.configFile."fish/functions/darwin_rebuild.fish".source = ./darwin_rebuild.fish;
+  xdg.configFile."fish/functions/nix_darwin_switch.fish".source = ./nix_darwin_switch.fish;
 }

@@ -1,4 +1,4 @@
-function darwin_rebuild
+function nix_darwin_switch
     set -l generation_before (get_current_generation)
     
     darwin-rebuild switch --flake ~/dotfiles
