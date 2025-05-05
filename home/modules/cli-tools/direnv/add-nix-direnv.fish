@@ -27,6 +27,12 @@ function add-nix-direnv --description "Add nix-direnv configuration to current f
         case go
             cp "$flakes_path/go/flake.nix" .
 
+        case kotlin
+            cp "$flakes_path/kotlin/flake.nix" .
+
+        case npm
+            cp "$flakes_path/npm/flake.nix" .
+
         case python
             cp "$flakes_path/python/flake.nix" .
 
@@ -35,9 +41,6 @@ function add-nix-direnv --description "Add nix-direnv configuration to current f
 
         case scala
             cp "$flakes_path/scala/flake.nix" .
-
-        case npm
-            cp "$flakes_path/npm/flake.nix" .
 
         case '*'
             echo (set_color red)"Unknown language: $lang"(set_color normal)

@@ -1,10 +1,11 @@
 { ... }: {
   home.file = {
-    "flakes/go".source = ./go;
     "flakes/bun".source = ./bun;
+    "flakes/go".source = ./go;
+    "flakes/kotlin".source = ./kotlin;
     "flakes/npm".source = ./npm;
+    "flakes/python".source = ./python;
     "flakes/rust".source = ./rust;
     "flakes/scala".source = ./scala;
-    "flakes/python".source = ./python;
   };
 }
