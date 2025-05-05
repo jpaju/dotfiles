@@ -3,6 +3,7 @@
     direnv = {
       enable = true;
       nix-direnv.enable = true;
+      stdlib = "use flake";
     };
 
     fish.shellAbbrs = {
