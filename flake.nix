@@ -70,7 +70,6 @@
       # darwinPackages = self.darwinConfigurations.${hostname}.pkgs;
 
       darwinConfigurations = {
-
         "Jaakkos-MacBook-Pro" = nix-darwin.lib.darwinSystem {
           inherit system;
           inherit specialArgs;
@@ -91,6 +90,17 @@
           in [ ./system/work.nix home-manager.darwinModules.home-manager hmOpts ];
         };
       };
-    };
 
+      # Export certain modules so they can be reused from other flakes by importing
+      homeManagerModules = {
+        inherit fishUtils;
+        dev-tools = import ./home/modules/dev-tools;
+        cli-tools = import ./home/modules/cli-tools;
+
+        fish = import ./home/modules/fish;
+        starship = import ./home/modules/starship;
+        zellij = import ./home/modules/zellij;
+      };
+
+    };
 }
