@@ -29,10 +29,9 @@
     '';
   };
 
-  home = {
-    packages = [ pkgs.terminal-notifier ]; # Required by done plugin to show icons in notifications
-    sessionVariables.PAGER = "moar";
-  };
+  home.packages = pkgs.lib.optionals pkgs.stdenv.isDarwin [
+    pkgs.terminal-notifier # Required by done plugin to show icons in macOS notifications
+  ];
 
   xdg = {
     enable = true;

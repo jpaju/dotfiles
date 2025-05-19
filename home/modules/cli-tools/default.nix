@@ -32,5 +32,7 @@
     sshs # SSH TUI
     tlrc # Rust TLDR client
   ];
+
+  home.sessionVariables.PAGER = "moar";
 }
 
