@@ -16,7 +16,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    helix-master = {
+    helix = {
       url = "github:helix-editor/helix/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -32,7 +32,7 @@
     };
   };
 
-  outputs = { self, nix-darwin, nixpkgs-master, home-manager, helix-master, scls, sops-nix, ... }:
+  outputs = { self, nix-darwin, nixpkgs-master, home-manager, helix, scls, sops-nix, ... }:
     let
       system = "aarch64-darwin";
       username = "jaakkopaju";
@@ -49,7 +49,7 @@
         inherit nix-darwin;
         inherit home-manager;
         inherit sops-nix;
-        inherit helix-master;
+        inherit helix;
         inherit scls;
         inherit pkgs-master;
         inherit fishUtils;

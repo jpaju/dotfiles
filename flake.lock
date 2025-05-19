@@ -36,7 +36,7 @@
         "type": "github"
       }
     },
-    "helix-master": {
+    "helix": {
       "inputs": {
         "flake-utils": "flake-utils",
         "nixpkgs": [
@@ -155,7 +155,7 @@
     },
     "root": {
       "inputs": {
-        "helix-master": "helix-master",
+        "helix": "helix",
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs",
@@ -167,7 +167,7 @@
     "rust-overlay": {
       "inputs": {
         "nixpkgs": [
-          "helix-master",
+          "helix",
           "nixpkgs"
         ]
       },

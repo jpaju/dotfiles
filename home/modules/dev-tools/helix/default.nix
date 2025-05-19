@@ -1,7 +1,7 @@
-{ pkgs, system, helix-master, scls, ... }: {
+{ pkgs, system, helix, scls, ... }: {
   programs.helix = {
     enable = true;
-    package = helix-master.packages.${system}.default;
+    package = helix.packages.${system}.default;
   };
 
   home.packages = with pkgs; [
