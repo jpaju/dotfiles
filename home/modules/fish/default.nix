@@ -29,12 +29,7 @@
 
   home = {
     packages = [ pkgs.terminal-notifier ]; # Required by done plugin to show icons in notifications
-
-    sessionVariables = {
-      EDITOR = "hx";
-      VISUAL = "$EDITOR";
-      PAGER = "moar";
-    };
+    sessionVariables.PAGER = "moar";
   };
 
   xdg = {

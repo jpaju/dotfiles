@@ -4,6 +4,11 @@
     package = helix.packages.${system}.default;
   };
 
+  home.sessionVariables = {
+    EDITOR = "hx";
+    VISUAL = "$EDITOR";
+  };
+
   home.packages = with pkgs; [
     scls.defaultPackage.${system} # Snippets and words
     typos-lsp # Spellchecking
