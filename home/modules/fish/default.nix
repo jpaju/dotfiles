@@ -29,6 +29,9 @@
     '';
   };
 
+  # Nix shell support for fish (or any shell other than bash)
+  programs.nix-your-shell.enable = true;
+
   home.packages = pkgs.lib.optionals pkgs.stdenv.isDarwin [
     pkgs.terminal-notifier # Required by done plugin to show icons in macOS notifications
   ];

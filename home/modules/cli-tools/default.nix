@@ -28,7 +28,6 @@
     moar # Pager
     ncdu
     procps # On macOS includes only 'watch' command
-    nix-your-shell # Nix shell support for fish
     sshs # SSH TUI
     tlrc # Rust TLDR client
   ];
