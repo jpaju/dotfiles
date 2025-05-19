@@ -1,4 +1,6 @@
 { pkgs, config, fishUtils, ... }: {
+  home.shell.enableFishIntegration = true;
+
   programs.fish = {
     enable = true;
 
