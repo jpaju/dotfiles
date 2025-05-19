@@ -8,6 +8,3 @@
 if test -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish'
   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish'
 end
-
-# Set up Homebrew
-eval (/opt/homebrew/bin/brew shellenv)
