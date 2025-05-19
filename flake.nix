@@ -26,13 +26,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    scls-main = {
+    scls = {
       url = "github:estin/simple-completion-language-server/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nix-darwin, nixpkgs-master, home-manager, helix-master, scls-main, sops-nix, ... }:
+  outputs = { self, nix-darwin, nixpkgs-master, home-manager, helix-master, scls, sops-nix, ... }:
     let
       system = "aarch64-darwin";
       username = "jaakkopaju";
@@ -50,7 +50,7 @@
         inherit home-manager;
         inherit sops-nix;
         inherit helix-master;
-        inherit scls-main;
+        inherit scls;
         inherit pkgs-master;
         inherit fishUtils;
       };

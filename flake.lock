@@ -82,7 +82,7 @@
     "naersk": {
       "inputs": {
         "nixpkgs": [
-          "scls-main",
+          "scls",
           "nixpkgs"
         ]
       },
@@ -160,7 +160,7 @@
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs",
         "nixpkgs-master": "nixpkgs-master",
-        "scls-main": "scls-main",
+        "scls": "scls",
         "sops-nix": "sops-nix"
       }
     },
@@ -185,7 +185,7 @@
         "type": "github"
       }
     },
-    "scls-main": {
+    "scls": {
       "inputs": {
         "flake-utils": "flake-utils_2",
         "naersk": "naersk",

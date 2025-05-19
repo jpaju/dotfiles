@@ -1,11 +1,11 @@
-{ pkgs, system, helix-master, scls-main, ... }: {
+{ pkgs, system, helix-master, scls, ... }: {
   programs.helix = {
     enable = true;
     package = helix-master.packages.${system}.default;
   };
 
   home.packages = with pkgs; [
-    scls-main.defaultPackage.${system} # Snippets and words
+    scls.defaultPackage.${system} # Snippets and words
     typos-lsp # Spellchecking
 
     # Languages
