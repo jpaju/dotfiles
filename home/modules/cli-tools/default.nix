@@ -19,6 +19,7 @@
 
   home.packages = with pkgs; [
     curlie
+    claude-code
     entr # Watch mode for any CLI command
     fx # JSON TUI
     gobang # SQL TUI
@@ -33,5 +34,7 @@
   ];
 
   home.sessionVariables.PAGER = "moar";
+
+  programs.fish.shellAbbrs.cc = "claude";
 }
 
