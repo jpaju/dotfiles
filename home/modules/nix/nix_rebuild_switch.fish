@@ -1,7 +1,11 @@
-function nix_darwin_switch
+function nix_rebuild_switch
     set -l generation_before (get_current_generation)
-    
-    darwin-rebuild switch --flake ~/dotfiles
+
+    if is_darwin
+        darwin-rebuild switch --flake ~/dotfiles
+    else
+        sudo nixos-rebuild switch
+    end
 
     set -l generation_after (get_current_generation)
 
@@ -13,10 +17,13 @@ function nix_darwin_switch
 end
 
 function get_current_generation
-    set -l generations (darwin-rebuild --list-generations | string trim)
-    set -l current_generation (echo $generations[-1] | string split ' ')[1]
-
-    echo $current_generation
+    if is_darwin
+        set current_generation (darwin-rebuild --list-generations | sed -n '$p' | awk '{print $1}')
+        echo $current_generation
+    else
+        set current_generation (nixos-rebuild list-generations | sed -n '2p' | awk '{print $1}')
+        echo $current_generation
+    end
 end
 
 function compare_nix_version --description "Compare two Nix generations using nvd" --argument-names path gen1 gen2
@@ -29,5 +36,9 @@ function compare_nix_version --description "Compare two Nix generations using nv
     set -l full_path2 $path-$gen2-link
 
     nvd diff $full_path1 $full_path2
-end 
+end
+
+function is_darwin
+    uname -a | string match -q "*Darwin*"
+end
 
