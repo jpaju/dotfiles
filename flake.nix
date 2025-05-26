@@ -91,8 +91,10 @@
         };
       };
 
-      # Export certain modules so they can be reused from other flakes by importing
-      homeManagerModules = {
+      # Export certain modules to be reused from other flakes by importing
+      systemModules.nix-settings = import ./system/modules/nix-settings.nix;
+
+      homeModules = {
         inherit fishUtils;
         dev-tools = import ./home/modules/dev-tools;
         cli-tools = import ./home/modules/cli-tools;

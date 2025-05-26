@@ -4,12 +4,7 @@
   # $ darwin-rebuild changelog
   system.stateVersion = 4;
 
-  nix.enable = true;
-
-  nixpkgs = {
-    hostPlatform = system;
-    config.allowUnfree = true;
-  };
+  nixpkgs.hostPlatform = system;
 
   fonts.packages = [ pkgs.nerd-fonts.fira-code ];
 
@@ -18,9 +13,4 @@
     systemPackages = [ ];
   };
 
-  # Configure shells that loads the nix-darwin environment.
-  programs = {
-    zsh.enable = true;
-    fish.enable = true;
-  };
 }
