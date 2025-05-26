@@ -96,13 +96,12 @@
 
       homeModules = {
         inherit fishUtils;
-        dev-tools = import ./home/modules/dev-tools;
-        cli-tools = import ./home/modules/cli-tools;
-
+        nix = import ./home/modules/nix;
         fish = import ./home/modules/fish;
         starship = import ./home/modules/starship;
         zellij = import ./home/modules/zellij;
+        dev-tools = import ./home/modules/dev-tools;
+        cli-tools = import ./home/modules/cli-tools;
       };
-
     };
 }
