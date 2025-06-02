@@ -12,8 +12,5 @@
     pyenv
     vault
   ];
-
-  services.gpg-agent.enable = true;
-
 }
 
