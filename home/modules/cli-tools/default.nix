@@ -9,6 +9,7 @@
     ./eza.nix
     ./fzf.nix
     ./jq
+    ./moar.nix
     ./yazi
   ];
 
@@ -26,14 +27,11 @@
     gping
     gum # CLI/TUI component library
     iperf3
-    moar # Pager
     ncdu
     procps # On macOS includes only 'watch' command
     sshs # SSH TUI
     tlrc # Rust TLDR client
   ];
-
-  home.sessionVariables.PAGER = "moar";
 
   programs.fish.shellAbbrs.cc = "claude";
 }
