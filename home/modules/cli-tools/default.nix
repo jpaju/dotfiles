@@ -2,12 +2,12 @@
 
   imports = [
     # Comment just to keep newlines when formatted :D
-    ./atuin
-    ./broot
-    ./bat
+    ./atuin.nix
+    ./broot.nix
+    ./bat.nix
     ./direnv
-    ./eza
-    ./fzf
+    ./eza.nix
+    ./fzf.nix
     ./jq
     ./yazi
   ];

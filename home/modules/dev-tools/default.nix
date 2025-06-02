@@ -6,7 +6,7 @@
     ./gh
     ./git
     ./helix
-    ./intellij
+    ./intellij.nix
   ];
 
   home.packages = with pkgs; [ coursier kcat pgcli tokei ];
