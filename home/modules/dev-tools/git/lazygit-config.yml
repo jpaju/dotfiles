@@ -10,7 +10,7 @@ customCommands:
     context: "commits"
     loadingText: "Pushing commit..."
     description: "Push a specific commit (and any preceding)"
-    stream: true
+    output: log
     prompts:
       - type: "menu"
         title: "How to push?"

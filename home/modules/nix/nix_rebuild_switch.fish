@@ -2,7 +2,7 @@ function nix_rebuild_switch
     set -l generation_before (get_current_generation)
 
     if is_darwin
-        darwin-rebuild switch --flake ~/dotfiles
+        sudo darwin-rebuild switch --flake ~/dotfiles
     else
         sudo nixos-rebuild switch
     end
@@ -18,7 +18,7 @@ end
 
 function get_current_generation
     if is_darwin
-        set current_generation (darwin-rebuild --list-generations | sed -n '$p' | awk '{print $1}')
+        set current_generation (sudo darwin-rebuild --list-generations | sed -n '$p' | awk '{print $1}')
         echo $current_generation
     else
         set current_generation (nixos-rebuild list-generations | sed -n '2p' | awk '{print $1}')
