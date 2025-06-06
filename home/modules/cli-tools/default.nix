@@ -1,7 +1,6 @@
 { pkgs, ... }: {
 
-  imports = [
-    # Comment just to keep newlines when formatted :D
+  imports = [ # Newline
     ./atuin.nix
     ./broot.nix
     ./bat.nix

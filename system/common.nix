@@ -18,8 +18,7 @@
 
     casks = let
       terminal = [ "ghostty" "wezterm" ];
-      devTools = [
-        # Newline please
+      devTools = [ # Newline
         "dash"
         "orbstack"
         "jetbrains-toolbox"
@@ -29,8 +28,7 @@
 
       windowManagement = [ "alt-tab" "betterdisplay" "monitorcontrol" "rectangle" ];
 
-      productivity = [
-        # Newline
+      productivity = [ # Newline
         "arc"
         "firefox"
         "google-chrome"
@@ -42,8 +40,7 @@
         "raycast"
       ];
 
-      misc = [
-        # Please keep the newline :D
+      misc = [ # Newline
         "1password"
         "aldente"
         "appcleaner"
