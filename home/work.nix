@@ -1,6 +1,6 @@
 { pkgs, ... }: {
 
-  imports = [ ./common.nix ./modules/k8s.nix ];
+  imports = [ ./common.nix ./modules/dev-tools/k8s ];
 
   home.packages = with pkgs; [
     aws-iam-authenticator

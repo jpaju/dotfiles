@@ -8,15 +8,11 @@
     ./modules/ai
     ./modules/cli-tools
     ./modules/dev-tools
-    ./modules/fish
-    ./modules/flakes
-    ./modules/ghostty
     ./modules/karabiner
     ./modules/nix
     ./modules/secrets
-    ./modules/starship
-    ./modules/wezterm
-    ./modules/zellij
+    ./modules/shell
+    ./modules/terminal
   ];
 }
 

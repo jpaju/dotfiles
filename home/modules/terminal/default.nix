@@ -1,0 +1,6 @@
+{ ... }: {
+  imports = [ # Newline
+    ./ghostty
+    ./wezterm
+  ];
+}

@@ -1,6 +1,6 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [
-    kubectl # Comment to keep newlines :D
+  home.packages = with pkgs; [ # Newline
+    kubectl
     kubectx
     argo-rollouts
   ];

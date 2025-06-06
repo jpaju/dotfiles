@@ -1,8 +1,8 @@
 { pkgs, ... }: {
 
-  imports = [
-    # Comment just to keep newlines when formatted :D
+  imports = [ # Newline
     ./docker
+    ./flakes
     ./gh
     ./git
     ./helix
