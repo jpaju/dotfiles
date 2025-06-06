@@ -5,6 +5,7 @@
   home.packages = [ pkgs._1password-cli ];
 
   imports = [
+    ./modules/ai
     ./modules/cli-tools
     ./modules/dev-tools
     ./modules/fish

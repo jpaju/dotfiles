@@ -20,7 +20,6 @@
 
   home.packages = with pkgs; [
     curlie
-    claude-code
     entr # Watch mode for any CLI command
     fx # JSON TUI
     gobang # SQL TUI
@@ -32,7 +31,5 @@
     sshs # SSH TUI
     tlrc # Rust TLDR client
   ];
-
-  programs.fish.shellAbbrs.cc = "claude";
 }
 
