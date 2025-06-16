@@ -20,6 +20,7 @@
       terminal = [ "ghostty" "wezterm" ];
       devTools = [ # Newline
         "dash"
+        "cursor"
         "orbstack"
         "jetbrains-toolbox"
         "postman"
