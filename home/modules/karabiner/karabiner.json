@@ -4,6 +4,87 @@
             "complex_modifications": {
                 "rules": [
                     {
+                        "description": "Ctrl+h/j/k/l for up/down",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": { "mandatory": ["control"] }
+                                },
+                                "to": [{ "key_code": "left_arrow" }],
+                                "conditions": [
+                                  {
+                                    "type": "frontmost_application_unless",
+                                    "bundle_identifiers": [
+                                      "^com.apple.Terminal$",
+                                      "^com.github.wez.wezterm$",
+                                      "^com.mitchellh.ghostty$",
+                                      "^company.thebrowser.Browser$"
+                                    ]
+                                  }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "j",
+                                    "modifiers": { "mandatory": ["control"] }
+                                },
+                                "to": [{ "key_code": "down_arrow" }],
+                                "conditions": [
+                                  {
+                                    "type": "frontmost_application_unless",
+                                    "bundle_identifiers": [
+                                      "^com.apple.Terminal$",
+                                      "^com.github.wez.wezterm$",
+                                      "^com.mitchellh.ghostty$",
+                                      "^company.thebrowser.Browser$"
+                                    ]
+                                  }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": { "mandatory": ["control"] }
+                                },
+                                "to": [{ "key_code": "up_arrow" }],
+                                "conditions": [
+                                  {
+                                    "type": "frontmost_application_unless",
+                                    "bundle_identifiers": [
+                                      "^com.apple.Terminal$",
+                                      "^com.github.wez.wezterm$",
+                                      "^com.mitchellh.ghostty$",
+                                      "^company.thebrowser.Browser$"
+                                    ]
+                                  }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": { "mandatory": ["control"] }
+                                },
+                                "to": [{ "key_code": "right_arrow" }],
+                                "conditions": [
+                                  {
+                                    "type": "frontmost_application_unless",
+                                    "bundle_identifiers": [
+                                      "^com.apple.Terminal$",
+                                      "^com.github.wez.wezterm$",
+                                      "^com.mitchellh.ghostty$",
+                                      "^company.thebrowser.Browser$"
+                                    ]
+                                  }
+                                ]
+                            }
+                        ]
+                    },
+                    {
                         "description": "Change caps_lock to control if pressed with other keys, to escape if pressed alone.",
                         "manipulators": [
                             {
