@@ -4,8 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
-    nixpkgs-master.url = "github:nixos/nixpkgs/master";
-
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,13 +30,11 @@
     };
   };
 
-  outputs = { self, nix-darwin, nixpkgs-master, home-manager, helix, scls, sops-nix, ... }:
+  outputs = { self, nix-darwin, home-manager, helix, scls, sops-nix, ... }:
     let
       system = "aarch64-darwin";
       username = "jaakkopaju";
       userhome = "/Users/${username}";
-
-      pkgs-master = import nixpkgs-master { inherit system; };
 
       fishUtils = import "${self}/util/fish.nix";
 
@@ -51,7 +47,6 @@
         inherit sops-nix;
         inherit helix;
         inherit scls;
-        inherit pkgs-master;
         inherit fishUtils;
       };
 
