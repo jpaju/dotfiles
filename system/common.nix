@@ -24,6 +24,8 @@
     onActivation.cleanup = "zap";
     caskArgs.no_quarantine = true;
 
+    brews = [ "sst/tap/opencode" ]; # TODO Remove when available from nixpkgs
+
     casks = let
       terminal = [ "ghostty" "wezterm" ];
       devTools = [ # Newline

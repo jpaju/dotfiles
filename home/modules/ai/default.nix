@@ -1,1 +1,6 @@
-{ ... }: { imports = [ ./claude-code ]; }
+{ ... }: {
+  imports = [ # Newline
+    ./claude-code
+    ./open-code
+  ];
+}
