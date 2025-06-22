@@ -114,10 +114,8 @@ language-servers = ["scls", "typos"]
 
 [[language]]
 name = "fish"
-formatter = { command = "fish_indent" }
 auto-format = false
-# language-servers = ["fish-lsp"]
-language-servers = ["scls", "typos"]
+language-servers = ["fish-lsp", "scls", "typos"]
 
 [[language]]
 name = "hcl"

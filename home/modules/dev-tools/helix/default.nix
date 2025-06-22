@@ -21,6 +21,7 @@
     docker-compose-language-service # docker compose
     dockerfile-language-server-nodejs # Docker
     elmPackages.elm-language-server # Elm
+    fish-lsp # Fish
     gopls # Go
     golangci-lint-langserver # Go linting
     jdt-language-server # Java
