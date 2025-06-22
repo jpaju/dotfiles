@@ -41,4 +41,3 @@ end
 function is_darwin
     uname -a | string match -q "*Darwin*"
 end
-
