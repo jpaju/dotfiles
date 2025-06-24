@@ -91,6 +91,7 @@
 
       homeModules = {
         inherit fishUtils;
+        ai = import ./home/modules/ai;
         cli-tools = import ./home/modules/cli-tools;
         dev-tools = import ./home/modules/dev-tools;
         nix = import ./home/modules/nix;
