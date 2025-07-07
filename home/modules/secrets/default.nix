@@ -9,6 +9,9 @@
 
     age.keyFile = "${userhome}/.config/sops/age/keys.txt";
 
-    secrets = { copilot_api_key = { }; };
+    secrets = {
+      copilot_api_key = { };
+      anthropic_api_key = { };
+    };
   };
 }
