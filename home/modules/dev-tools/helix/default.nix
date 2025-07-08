@@ -33,7 +33,7 @@
     nil # Nix
     nodePackages.bash-language-server # Bash
     nodePackages.typescript-language-server # TypeScript
-    python311Packages.python-lsp-server # Python
+    python313Packages.python-lsp-server # Python
     regols # Open Policy Agent
     rust-analyzer # TOML
     taplo # Rust
