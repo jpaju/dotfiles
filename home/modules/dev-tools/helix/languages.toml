@@ -39,6 +39,8 @@ showImplicitArguments = true
 showImplicitConversionsAndClasses = true
 showInferredType = true
 superMethodLensesEnabled = true
+startMcpServer = true
+mcpClient = "claude"
 
 [language-server.metals.config.metals.inlayHints]
 inferredTypes.enable = true
