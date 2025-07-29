@@ -30,16 +30,23 @@ cursor-line = "hint"
 other-lines = "disable"
 
 [editor.statusline]
-left = ["mode", "spacer", "spinner", "diagnostics", "selections"]
-center = ["file-name", "file-modification-indicator", "read-only-indicator"]
-right = [
-  "position",
-  "file-encoding",
-  "file-line-ending",
+left = [
+  "mode",
+  "spacer",
+  "spinner",
+  "diagnostics",
   "file-type",
   "separator",
   "spacer",
   "version-control",
+]
+center = ["file-name", "file-modification-indicator", "read-only-indicator"]
+right = [
+  "selections",
+  "position",
+  "file-line-ending",
+  "file-encoding",
+  "file-indent-style",
 ]
 separator = "|"
 mode.normal = "NORMAL"
