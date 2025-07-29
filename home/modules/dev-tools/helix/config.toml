@@ -2,7 +2,6 @@ theme = "catppuccin_macchiato"
 
 [editor]
 line-number = "relative"
-mouse = true
 cursorline = true
 color-modes = true
 rainbow-brackets = true
@@ -25,14 +24,6 @@ rulers = [120]
 insert = "bar"
 normal = "block"
 select = "underline"
-
-[editor.auto-pairs]
-'(' = ')'
-'{' = '}'
-'[' = ']'
-'"' = '"'
-"'" = "'"
-'`' = '`'
 
 [editor.inline-diagnostics]
 cursor-line = "hint"
@@ -57,16 +48,13 @@ mode.select = "SELECT"
 
 [editor.file-picker]
 hidden = false
-git-ignore = true
 
 [editor.indent-guides]
 render = true
 skip-levels = 1
 
 [editor.lsp]
-display-messages = true
 display-progress-messages = true
-display-inlay-hints = false
 goto-reference-include-declaration = false
 
 # ============================================ Keybinds ============================================
@@ -80,19 +68,9 @@ C-p = ["signature_help"]
 esc = ["collapse_selection", "keep_primary_selection"]
 ret = ["goto_word"]
 C-p = ["signature_help"]
-
 "X" = ["extend_line_above"]
 
-# Select highlighted text for search
-"*" = ["search_selection"]
-
-# Select word at cursor for search
-"C-*" = [
-  "move_char_right",
-  "move_prev_word_start",
-  "move_next_word_end",
-  "search_selection",
-]
+"*" = ["search_selection"] # Select highlighted text for search
 
 # Move lines up and down
 C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
