@@ -29,6 +29,7 @@
     lua-language-server # Kotlin
     marksman # Markdown
     metals # Scala
+    mpls # Markdown preview
     nixd # Nix
     nil # Nix
     nodePackages.bash-language-server # Bash

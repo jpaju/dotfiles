@@ -49,6 +49,9 @@ hintsInPatternMatch.enable = true
 implicitArguments.enable = true
 implicitConversions.enable = false
 
+[language-server.mpls]
+command = "mpls"
+args = ["--dark-mode", "--enable-emoji", "--no-auto"]
 
 [language-server.eslint]
 command = "vscode-eslint-language-server"
@@ -147,7 +150,7 @@ auto-format = true
 name = "markdown"
 formatter = { command = "prettier", args = ["--stdin-filepath", "dummy.md"] }
 auto-format = true
-language-servers = ["marksman", "scls", "typos"]
+language-servers = ["marksman", "mpls", "scls", "typos"]
 
 [[language]]
 name = "nix"
