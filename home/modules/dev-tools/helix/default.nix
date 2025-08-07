@@ -1,4 +1,4 @@
-{ pkgs, system, helix, scls, ... }: {
+{ pkgs, system, helix, ... }: {
   programs.helix = {
     enable = true;
     package = helix.packages.${system}.default;
@@ -10,7 +10,7 @@
   };
 
   home.packages = with pkgs; [
-    scls.defaultPackage.${system} # Snippets and words
+    simple-completion-language-server # Snippets
     typos-lsp # Spellchecking
 
     # Languages

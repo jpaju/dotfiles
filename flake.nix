@@ -23,14 +23,9 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    scls = {
-      url = "github:estin/simple-completion-language-server/main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = { self, nix-darwin, home-manager, helix, scls, sops-nix, ... }:
+  outputs = { self, nix-darwin, home-manager, helix, sops-nix, ... }:
     let
       system = "aarch64-darwin";
       username = "jaakkopaju";
@@ -46,7 +41,6 @@
         inherit home-manager;
         inherit sops-nix;
         inherit helix;
-        inherit scls;
         inherit fishUtils;
       };
 
