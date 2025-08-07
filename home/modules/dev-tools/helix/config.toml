@@ -15,6 +15,7 @@ idle-timeout = 50
 completion-timeout = 5
 completion-trigger-len = 0
 preview-completion-insert = false
+word-completion.trigger-length = 2
 
 # Width
 text-width = 120

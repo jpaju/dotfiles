@@ -5,9 +5,9 @@ command = "simple-completion-language-server"
 [language-server.scls.config]
 max_completion_items = 10     # set max completion results len for each group: words, snippets, unicode-input
 snippets_first = true
-feature_words = true
 feature_snippets = true
 feature_unicode_input = false
+feature_words = false
 
 [language-server.scls.environment]
 RUST_LOG = "info,simple-completion-language-server=info"
