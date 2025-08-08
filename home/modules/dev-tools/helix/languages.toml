@@ -35,12 +35,12 @@ icons = "unicode"
 
 [language-server.metals.config.metals]
 autoImportBuild = "all"
+defaultBspToBuildTool = true
 showImplicitArguments = true
 showImplicitConversionsAndClasses = true
 showInferredType = true
 superMethodLensesEnabled = true
 startMcpServer = true
-mcpClient = "claude"
 
 [language-server.metals.config.metals.inlayHints]
 inferredTypes.enable = true
@@ -48,6 +48,7 @@ typeParameters.enable = false
 hintsInPatternMatch.enable = true
 implicitArguments.enable = true
 implicitConversions.enable = false
+hintsXRayMode.enable = true
 
 [language-server.mpls]
 command = "mpls"
