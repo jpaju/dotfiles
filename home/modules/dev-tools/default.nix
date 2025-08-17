@@ -7,6 +7,7 @@
     ./git
     ./helix
     ./intellij.nix
+    ./terraform.nix
   ];
 
   home.packages = with pkgs; [ coursier kcat pgcli tokei ];
