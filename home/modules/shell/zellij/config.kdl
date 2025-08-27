@@ -31,6 +31,9 @@ plugins {
     }
 }
 
+web_server true
+web_server_ip "127.0.0.1"
+web_server_port 8082
 
 // Whether to allow sessions started in the terminal to be shared through a local web server, assuming one is
 // running (see the `web_server` option for more details).
