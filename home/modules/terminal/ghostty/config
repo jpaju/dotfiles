@@ -5,10 +5,6 @@ font-family = FiraCode Nerd Font Mono
 keybind = cmd+opt+left=previous_tab
 keybind = cmd+opt+right=next_tab
 
-# Cmd/alt+backspace to work correctly
-keybind = cmd+backspace=text:\x15
-keybind = alt+backspace=csi:119;5u
-
 # Configure opt key to be alt, but hard code some characters
 macos-option-as-alt = true
 keybind = alt+2=text:@
@@ -17,7 +13,7 @@ keybind = alt+4=text:$
 keybind = alt+7=text:|
 keybind = alt+8=text:[
 keybind = alt+9=text:]
-keybind = shift+alt+7=text:\\
+keybind = shift+alt+slash=text:\\
 keybind = shift+alt+8=text:{
 keybind = shift+alt+9=text:}
 keybind = alt+right_bracket=text:~
