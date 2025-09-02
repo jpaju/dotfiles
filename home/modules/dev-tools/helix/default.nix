@@ -1,4 +1,10 @@
-{ pkgs, system, helix, ... }: {
+{
+  pkgs,
+  system,
+  helix,
+  ...
+}:
+{
   programs.helix = {
     enable = true;
     package = helix.packages.${system}.default;
@@ -15,7 +21,7 @@
 
     # Languages
     terraform
-    protols
+    go
 
     # LSPs
     docker-compose-language-service # docker compose
@@ -23,6 +29,7 @@
     elmPackages.elm-language-server # Elm
     fish-lsp # Fish
     gopls # Go
+    golangci-lint # Go linting
     golangci-lint-langserver # Go linting
     jdt-language-server # Java
     kotlin-language-server # Lua
@@ -32,10 +39,10 @@
     mpls # Markdown preview
     nixd # Nix
     nil # Nix
-    nodePackages.bash-language-server # Bash
-    nodePackages.typescript-language-server # TypeScript
+    bash-language-server # Bash
+    typescript-language-server # TypeScript
+    protols # Protobuf
     python313Packages.python-lsp-server # Python
-    regols # Open Policy Agent
     rust-analyzer # TOML
     taplo # Rust
     terraform-ls # Terraform
@@ -45,7 +52,7 @@
     # Formatters
     black # Python
     nixfmt # Nix
-    nodePackages.prettier # JSON, JS, TS, HTML, CSS, YAML, Markdown
+    prettier # JSON, JS, TS, HTML, CSS, YAML, Markdown
     pgformatter # SQL
     scalafmt # Scala
     rustfmt # Rust
