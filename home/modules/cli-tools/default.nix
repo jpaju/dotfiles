@@ -1,9 +1,12 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
 
-  imports = [ # Newline
+  imports = [
+    # Newline
     ./atuin.nix
     ./broot.nix
     ./bat.nix
+    ./btop.nix
     ./direnv
     ./eza.nix
     ./fzf.nix
@@ -31,4 +34,3 @@
     tlrc # Rust TLDR client
   ];
 }
-
