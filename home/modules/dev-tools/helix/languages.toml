@@ -160,6 +160,10 @@ name = "lua"
 auto-format = true
 
 [[language]]
+name = "kotlin"
+language-servers = ["kotlin-lsp", "scls", "typos"]
+
+[[language]]
 name = "markdown"
 language-servers = ["marksman", "mpls", "scls", "typos"]
 auto-format = true

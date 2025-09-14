@@ -30,6 +30,8 @@
     onActivation.cleanup = "zap";
     caskArgs.no_quarantine = true;
 
+    brews = [ "JetBrains/utils/kotlin-lsp" ];
+
     casks =
       let
         terminal = [
