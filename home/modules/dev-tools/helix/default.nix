@@ -24,8 +24,7 @@
     go
 
     # LSPs
-    docker-compose-language-service # docker compose
-    dockerfile-language-server-nodejs # Docker
+    docker-language-server # docker & docker compose
     elmPackages.elm-language-server # Elm
     fish-lsp # Fish
     gopls # Go
