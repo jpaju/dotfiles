@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   programs.broot = {
     enable = true;
 
@@ -9,7 +10,10 @@
         "verbs.hjson"
         {
           file = "skins/catppuccin-macchiato.hjson";
-          luma = [ "dark" "unknown" ];
+          luma = [
+            "dark"
+            "unknown"
+          ];
         }
       ];
 
@@ -54,4 +58,3 @@
     };
   };
 }
-

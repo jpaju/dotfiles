@@ -1,6 +1,11 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
 
-  home.packages = with pkgs; [ nh nix-output-monitor nvd ];
+  home.packages = with pkgs; [
+    nh
+    nix-output-monitor
+    nvd
+  ];
 
   programs.fish.shellAbbrs = {
     nxsh = "nix shell nixpkgs#";

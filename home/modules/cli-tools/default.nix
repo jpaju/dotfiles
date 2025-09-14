@@ -2,7 +2,6 @@
 {
 
   imports = [
-    # Newline
     ./atuin.nix
     ./broot.nix
     ./bat.nix
@@ -15,10 +14,8 @@
     ./yazi
   ];
 
-  programs = {
-    ripgrep.enable = true;
-    zoxide.enable = true;
-  };
+  programs.ripgrep.enable = true;
+  programs.zoxide.enable = true;
 
   home.packages = with pkgs; [
     curlie

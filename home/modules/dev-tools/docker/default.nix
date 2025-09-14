@@ -1,4 +1,5 @@
-{  lib, ... }: {
+{ lib, ... }:
+{
   programs.fish.shellAbbrs = {
     dk = "docker";
     dkb = "docker build";
@@ -13,7 +14,7 @@
     ld = "lazydocker";
   };
 
-  programs.lazydocker = { enable = true; };
+  programs.lazydocker.enable = true;
 
   xdg.configFile."lazydocker/config.yml".source = lib.mkForce ./lazydocker-config.yaml;
 }

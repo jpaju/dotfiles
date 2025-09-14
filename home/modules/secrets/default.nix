@@ -1,3 +1,7 @@
-{ ... }: {
-  imports = [ ./interface.nix ./sops.nix ];
+{ ... }:
+{
+  imports = [
+    ./interface.nix
+    ./sops.nix
+  ];
 }

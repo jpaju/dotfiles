@@ -1,4 +1,5 @@
-{ pkgs, system, ... }: {
+{ pkgs, system, ... }:
+{
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
@@ -9,7 +10,10 @@
   fonts.packages = [ pkgs.nerd-fonts.fira-code ];
 
   environment = with pkgs; {
-    shells = [ fish zsh ];
+    shells = [
+      fish
+      zsh
+    ];
     systemPackages = [ ];
   };
 

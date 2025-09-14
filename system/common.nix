@@ -1,16 +1,22 @@
-{ username, userhome, ... }: {
+{ username, userhome, ... }:
+{
 
   users.users.${username}.home = userhome;
 
-  /* Apparently temporary fix when nix-darwin is doing some migrations
-     For more information, see:
-       - https://github.com/nix-darwin/nix-darwin/pull/1017
-       - https://github.com/nix-darwin/nix-darwin/pull/1341
-       - https://github.com/nix-darwin/nix-darwin/issues/96
+  /*
+    Apparently temporary fix when nix-darwin is doing some migrations
+    For more information, see:
+      - https://github.com/nix-darwin/nix-darwin/pull/1017
+      - https://github.com/nix-darwin/nix-darwin/pull/1341
+      - https://github.com/nix-darwin/nix-darwin/issues/96
   */
   system.primaryUser = username;
 
-  imports = [ ./modules/darwin.nix ./modules/macos-settings.nix ./modules/nix-settings.nix ];
+  imports = [
+    ./modules/darwin.nix
+    ./modules/macos-settings.nix
+    ./modules/nix-settings.nix
+  ];
 
   homebrew = {
     enable = true;
@@ -24,42 +30,52 @@
     onActivation.cleanup = "zap";
     caskArgs.no_quarantine = true;
 
-    casks = let
-      terminal = [ "ghostty" "wezterm" ];
-      devTools = [ # Newline
-        "dash"
-        "cursor"
-        "orbstack"
-        "jetbrains-toolbox"
-        "postman"
-        "visual-studio-code"
-      ];
+    casks =
+      let
+        terminal = [
+          "ghostty"
+          "wezterm"
+        ];
+        devTools = [
+          "dash"
+          "cursor"
+          "orbstack"
+          "jetbrains-toolbox"
+          "postman"
+          "visual-studio-code"
+        ];
 
-      windowManagement = [ "alt-tab" "betterdisplay" "monitorcontrol" "rectangle" ];
+        windowManagement = [
+          "alt-tab"
+          "betterdisplay"
+          "monitorcontrol"
+          "rectangle"
+        ];
 
-      productivity = [ # Newline
-        "arc"
-        "firefox"
-        "google-chrome"
-        "karabiner-elements"
-        "notion"
-        "numi"
-        "spotify"
-        "ticktick"
-        "raycast"
-      ];
+        productivity = [
+          "arc"
+          "firefox"
+          "google-chrome"
+          "karabiner-elements"
+          "notion"
+          "numi"
+          "spotify"
+          "ticktick"
+          "raycast"
+        ];
 
-      misc = [ # Newline
-        "1password"
-        "aldente"
-        "appcleaner"
-        "bartender"
-        "logi-options+"
-        "menubarx"
-        "stats"
-      ];
+        misc = [
+          "1password"
+          "aldente"
+          "appcleaner"
+          "bartender"
+          "logi-options+"
+          "menubarx"
+          "stats"
+        ];
 
-    in devTools ++ terminal ++ windowManagement ++ productivity ++ misc;
+      in
+      devTools ++ terminal ++ windowManagement ++ productivity ++ misc;
   };
 
 }

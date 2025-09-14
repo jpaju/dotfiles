@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   home.file = {
     "flakes/bun".source = ./bun;
     "flakes/go".source = ./go;

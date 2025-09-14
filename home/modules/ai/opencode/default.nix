@@ -1,4 +1,5 @@
-{ pkgs, config, ... }: {
+{ pkgs, config, ... }:
+{
   imports = [ ../../secrets/interface.nix ];
 
   programs.opencode = {

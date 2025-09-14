@@ -1,5 +1,6 @@
-{ ... }: {
-  imports = [ # Newline
+{ ... }:
+{
+  imports = [
     ./claude
     ./opencode
   ];

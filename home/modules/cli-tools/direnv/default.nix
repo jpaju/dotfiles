@@ -1,17 +1,16 @@
-{ ... }: {
-  programs = {
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-      stdlib = "use flake";
-    };
+{ ... }:
+{
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+    stdlib = "use flake";
+  };
 
-    fish.shellAbbrs = {
-      de = "direnv";
-      dea = "direnv allow";
-      deb = "direnv block";
-      des = "direnv status";
-    };
+  programs.fish.shellAbbrs = {
+    de = "direnv";
+    dea = "direnv allow";
+    deb = "direnv block";
+    des = "direnv status";
   };
 
   xdg.configFile = {
