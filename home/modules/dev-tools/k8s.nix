@@ -1,5 +1,6 @@
-{ pkgs, ... }: {
-  home.packages = with pkgs; [ # Newline
+{ pkgs, ... }:
+{
+  home.packages = with pkgs; [
     kubectl
     kubectx
     argo-rollouts
@@ -36,16 +37,7 @@
         sinceSeconds = -1;
       };
     };
-
-    skins = {
-      catppuccin-macchiato = let
-        theme = "catppuccin-macchiato";
-        rev = "4432383da214face855a873d61d2aa914084ffa2";
-      in pkgs.fetchurl {
-        url = "https://raw.githubusercontent.com/catppuccin/k9s/${rev}/dist/${theme}.yaml";
-        hash = "sha256-OR23zFdI/aQBL4cdqN/cnawEASRGw0voBP93QLzivfE=";
-      };
-    };
-
   };
+
+  catppuccin.k9s.enable = true;
 }

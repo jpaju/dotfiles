@@ -13,7 +13,7 @@ return {
   harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
 
   -- Apperance
-  color_scheme = 'Snazzy',
+  color_scheme = 'Catppuccin Macchiato',
   underline_position = '-2pt',
   underline_thickness = '1pt',
 

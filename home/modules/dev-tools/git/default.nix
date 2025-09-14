@@ -1,8 +1,8 @@
-{ ... }: {
+{ ... }:
+{
   programs = {
     git = {
       enable = true;
-
       delta.enable = true;
     };
 
@@ -60,8 +60,9 @@
     };
   };
 
+  catppuccin.delta.enable = true;
+
   home.file.".gitconfig".source = ./.gitconfig;
-  home.file.".catppuccin.gitconfig".source = ./.catppuccin.gitconfig;
 
   xdg.configFile = {
     "lazygit/config.yml".source = ./lazygit-config.yml;

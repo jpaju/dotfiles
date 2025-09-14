@@ -1,8 +1,11 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
 
   home.stateVersion = "23.11";
 
   home.packages = [ pkgs._1password-cli ];
+
+  catppuccin.flavor = "macchiato";
 
   imports = [
     ./modules/ai
@@ -15,4 +18,3 @@
     ./modules/terminal
   ];
 }
-
