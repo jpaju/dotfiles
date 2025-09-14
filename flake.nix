@@ -23,9 +23,23 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    catppuccin = {
+      url = "github:catppuccin/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nix-darwin, home-manager, helix, sops-nix, ... }:
+  outputs =
+    {
+      self,
+      nix-darwin,
+      home-manager,
+      helix,
+      sops-nix,
+      catppuccin,
+      ...
+    }:
     let
       system = "aarch64-darwin";
       username = "jaakkopaju";
@@ -53,7 +67,8 @@
           backupFileExtension = "bak";
         };
       };
-    in {
+    in
+    {
 
       # Expose the package set, including overlays, for convenience.
       # darwinPackages = self.darwinConfigurations.${hostname}.pkgs;
@@ -63,20 +78,35 @@
           inherit system;
           inherit specialArgs;
 
-          modules = let
-            hmModules = [ ./home/personal.nix ];
-            hmOpts = homeManagerOptions hmModules;
-          in [ ./system/personal.nix home-manager.darwinModules.home-manager hmOpts ];
+          modules =
+            let
+              hmModules = [
+                ./home/personal.nix
+                catppuccin.homeModules.catppuccin
+              ];
+              hmOpts = homeManagerOptions hmModules;
+            in
+            [
+              ./system/personal.nix
+              home-manager.darwinModules.home-manager
+              hmOpts
+            ];
         };
 
         "Wolt-MacBook-Pro" = nix-darwin.lib.darwinSystem {
           inherit system;
           inherit specialArgs;
 
-          modules = let
-            hmModules = [ ./home/work.nix ];
-            hmOpts = homeManagerOptions hmModules;
-          in [ ./system/work.nix home-manager.darwinModules.home-manager hmOpts ];
+          modules =
+            let
+              hmModules = [ ./home/work.nix ];
+              hmOpts = homeManagerOptions hmModules;
+            in
+            [
+              ./system/work.nix
+              home-manager.darwinModules.home-manager
+              hmOpts
+            ];
         };
       };
 
