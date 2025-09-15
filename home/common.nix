@@ -5,10 +5,9 @@
 
   home.packages = [ pkgs._1password-cli ];
 
-  catppuccin.flavor = "macchiato";
-
   imports = [
     ./modules/ai
+    ./modules/catpuccin.nix
     ./modules/cli-tools
     ./modules/dev-tools
     ./modules/karabiner

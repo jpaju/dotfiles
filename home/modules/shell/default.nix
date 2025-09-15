@@ -4,5 +4,6 @@
     ./fish
     ./starship
     ./zellij
+    ../catpuccin.nix
   ];
 }

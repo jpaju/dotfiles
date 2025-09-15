@@ -55,6 +55,7 @@
         inherit home-manager;
         inherit sops-nix;
         inherit helix;
+        inherit catppuccin;
         inherit fishUtils;
       };
 
@@ -80,10 +81,7 @@
 
           modules =
             let
-              hmModules = [
-                ./home/personal.nix
-                catppuccin.homeModules.catppuccin
-              ];
+              hmModules = [ ./home/personal.nix ];
               hmOpts = homeManagerOptions hmModules;
             in
             [
