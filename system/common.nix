@@ -30,6 +30,8 @@
     onActivation.cleanup = "zap";
     caskArgs.no_quarantine = true;
 
+    taps = [ "pakerwreah/calendr" ];
+
     brews = [ "JetBrains/utils/kotlin-lsp" ];
 
     casks =
@@ -56,6 +58,7 @@
 
         productivity = [
           "arc"
+          "calendr"
           "firefox"
           "google-chrome"
           "karabiner-elements"
