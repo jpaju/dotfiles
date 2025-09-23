@@ -19,12 +19,14 @@
     secrets = {
       copilot_api_key = { };
       anthropic_api_key = { };
+      openai_api_key = { };
     };
   };
 
   # Implement the secrets interface using sops-nix backend
-  secrets = {
-    anthropic_api_key = config.sops.secrets.anthropic_api_key.path;
-    copilot_api_key = config.sops.secrets.copilot_api_key.path;
+  secrets = with config.sops; {
+    anthropic_api_key = secrets.anthropic_api_key.path;
+    copilot_api_key = secrets.copilot_api_key.path;
+    openai_api_key = secrets.openai_api_key.path;
   };
 }

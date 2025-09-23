@@ -7,6 +7,7 @@
 
     package = pkgs.writeShellScriptBin "opencode" ''
       export ANTHROPIC_API_KEY="$(cat ${config.secrets.anthropic_api_key})"
+      export OPENAI_API_KEY="$(cat ${config.secrets.openai_api_key})"
       exec ${pkgs.opencode}/bin/opencode "$@"
     '';
 

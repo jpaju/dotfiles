@@ -35,5 +35,11 @@
       description = "Path to the GitHub Copilot API key file";
       readOnly = true;
     };
+
+    openai_api_key = lib.mkOption {
+      type = lib.types.str;
+      description = "Path to the OpenAI API key file";
+      readOnly = true;
+    };
   };
 }
