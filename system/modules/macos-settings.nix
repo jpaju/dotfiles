@@ -24,13 +24,24 @@
       tilesize = 50;
     };
 
+    # Menubar items
+    controlcenter = {
+      AirDrop = false;
+      BatteryShowPercentage = false;
+      Bluetooth = false;
+      FocusModes = false;
+      NowPlaying = false;
+      Sound = false;
+    };
+
     # Menubar clock format: e.g 'd EEE h.mm.ss'
     menuExtraClock = {
       IsAnalog = false;
-      ShowAMPM = true;
-      ShowDate = 0;
-      ShowDayOfWeek = false;
+      ShowAMPM = false;
+      Show24Hour = true;
       ShowSeconds = true;
+      ShowDayOfWeek = false;
+      ShowDate = 2; # 0 = When space allows 1 = Always 2 = Never
     };
 
     # Finder & files
