@@ -2,6 +2,8 @@
 {
   imports = [ ../../secrets/interface.nix ];
 
+  programs.fish.shellAbbrs.oc = "opencode";
+
   programs.opencode = {
     enable = true;
 
@@ -12,11 +14,15 @@
     '';
 
     settings = {
-      autoshare = false;
-      autoupdate = true;
-      theme = "tokyonight";
+      autoupdate = false;
+      share = "disabled";
+      theme = "catppuccin";
+      permission = {
+        edit = "ask";
+        bash = "ask";
+        webfetch = "ask";
+      };
     };
   };
 
-  programs.fish.shellAbbrs.oc = "opencode";
 }
