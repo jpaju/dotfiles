@@ -62,20 +62,23 @@ unloaded_msg = '❌'
 symbol = '🐳'
 format = 'via [$symbol]($style) '
 
-[package]
-disabled = true
-
 [elm]
 symbol = " "
 
 [java]
 style = "red bold"
 
-[scala]
-symbol = " "
-
 [nix_shell]
 heuristic = true
 symbol = ''
 unknown_msg = 'ad-hoc'
 format = 'via [$symbol $name]($style) '
+
+[package]
+disabled = true
+
+[python]
+symbol = ' '
+
+[scala]
+symbol = " "
