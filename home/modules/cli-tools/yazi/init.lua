@@ -1,3 +1,9 @@
+-- Register plugins
+require("git"):setup()
+require("starship"):setup()
+
+-- FIXME These functions seem not to have any effect currently
+-- Customize status bar to display file owner and group
 function Status:owner()
   local h = cx.active.current.hovered
   if h == nil or ya.target_family() ~= "unix" then
@@ -12,6 +18,7 @@ function Status:owner()
   }
 end
 
+-- Override status bar render to include owner information
 function Status:render(area)
   self.area = area
 
