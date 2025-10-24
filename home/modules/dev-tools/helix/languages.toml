@@ -148,10 +148,6 @@ language-servers = ["typescript-language-server", "eslint", "scls", "typos"]
 
 [[language]]
 name = "json"
-formatter = { command = "prettier", args = [
-  "--stdin-filepath",
-  "%{buffer_name}",
-] }
 auto-format = true
 language-servers = ["vscode-json-language-server", "scls", "typos"]
 
