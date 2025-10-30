@@ -10,7 +10,7 @@
     ./eza.nix
     ./fzf.nix
     ./jq
-    ./moar.nix
+    ./moor.nix
     ./yazi
   ];
 
