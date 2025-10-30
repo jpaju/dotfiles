@@ -1,9 +1,10 @@
 { ... }:
 {
-  programs.git = {
-    enable = true;
-    delta.enable = true;
-  };
+
+  programs.git.enable = true;
+
+  programs.delta.enable = true;
+  programs.delta.enableGitIntegration = true;
 
   programs.lazygit.enable = true;
 
