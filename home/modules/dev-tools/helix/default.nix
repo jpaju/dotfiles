@@ -22,6 +22,7 @@
     # Languages
     terraform
     go
+    protobuf # Required by protols
 
     # LSPs
     docker-language-server # docker & docker compose
@@ -31,8 +32,8 @@
     golangci-lint # Go linting
     golangci-lint-langserver # Go linting
     jdt-language-server # Java
-    kotlin-language-server # Lua
-    lua-language-server # Kotlin
+    kotlin-language-server # Kotlin
+    lua-language-server # Lua
     marksman # Markdown
     metals # Scala
     mpls # Markdown preview
@@ -42,8 +43,8 @@
     typescript-language-server # TypeScript
     protols # Protobuf
     python313Packages.python-lsp-server # Python
-    rust-analyzer # TOML
-    taplo # Rust
+    rust-analyzer # Rust
+    taplo # TOML
     terraform-ls # Terraform
     vscode-langservers-extracted # JSON, HTML, CSS, SCSS
     yaml-language-server # YAML
