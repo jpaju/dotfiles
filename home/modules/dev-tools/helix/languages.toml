@@ -54,27 +54,6 @@ hintsXRayMode.enable = true
 command = "mpls"
 args = ["--dark-mode", "--enable-emoji", "--no-auto"]
 
-[language-server.eslint]
-command = "vscode-eslint-language-server"
-args = ["--stdio"]
-
-# Configuration reference: https://github.com/microsoft/vscode-eslint?tab=readme-ov-file#settings-options
-[language-server.eslint.config]
-validate = "on"
-run = "onType"
-workingDirectory.mode = "location"
-experimental = { useFlatConfig = true }
-format.enable = false
-nodePath = ""
-
-# Rules/actions/reporting configuration
-rulesCustomizations = [{ rule = "*", severity = "warn" }]
-codeActionOnSave.enable = false
-codeAction.disableRuleComment = { enable = true, location = "separateLine" }
-codeAction.showDocumentation.enable = true
-problems = { shortenToSingleLine = true }
-
-
 [language-server.terraform-ls]
 command = "terraform-ls"
 args = ["serve", "-log-file", "/dev/null"]

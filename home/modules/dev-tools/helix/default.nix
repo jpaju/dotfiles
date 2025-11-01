@@ -52,7 +52,7 @@
     # Formatters
     black # Python
     nixfmt # Nix
-    prettier # JSON, JS, TS, HTML, CSS, YAML, Markdown
+    prettier # JS, TS, HTML, CSS, YAML, Markdown
     pgformatter # SQL
     scalafmt # Scala
     rustfmt # Rust
