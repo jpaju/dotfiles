@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./go
     ./k8s
     ./kafka.nix
     ./mqtt

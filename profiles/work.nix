@@ -8,6 +8,7 @@
   home-manager.users.${username}.imports = [ ../home/work.nix ];
 
   dotfiles = {
+    go.enable = true;
     k8s.enable = true;
     kafka.enable = true;
     python.enable = true;

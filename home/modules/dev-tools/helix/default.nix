@@ -21,16 +21,12 @@
 
     # Languages
     terraform
-    go
     protobuf # Required by protols
 
     # LSPs
     docker-language-server # docker & docker compose
     elmPackages.elm-language-server # Elm
     fish-lsp # Fish
-    gopls # Go
-    golangci-lint # Go linting
-    golangci-lint-langserver # Go linting
     jdt-language-server # Java
     kotlin-language-server # Kotlin
     lua-language-server # Lua

@@ -1,5 +1,3 @@
-# Copied mostly from https://github.com/the-nix-way/dev-templates/blob/main/go/flake.nix
-
 {
   description = "General flake for Go development";
 
