@@ -8,6 +8,7 @@
 
     go.enable = lib.mkEnableOption "Go tools";
     python.enable = lib.mkEnableOption "Python tools";
+    rust.enable = lib.mkEnableOption "Rust tools";
     scala.enable = lib.mkEnableOption "Scala tools";
     typescript.enable = lib.mkEnableOption "TypeScript tools";
   };

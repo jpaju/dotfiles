@@ -36,7 +36,6 @@
     nil # Nix
     bash-language-server # Bash
     protols # Protobuf
-    rust-analyzer # Rust
     taplo # TOML
     terraform-ls # Terraform
     vscode-langservers-extracted # JSON, HTML, CSS, SCSS
@@ -46,7 +45,6 @@
     nixfmt # Nix
     prettier # JS, TS, HTML, CSS, YAML, Markdown
     pgformatter # SQL
-    rustfmt # Rust
   ];
 
   xdg.configFile = {

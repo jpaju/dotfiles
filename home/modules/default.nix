@@ -6,6 +6,7 @@
     ./kafka.nix
     ./mqtt
     ./python
+    ./rust
     ./scala
     ./typescript
   ];
