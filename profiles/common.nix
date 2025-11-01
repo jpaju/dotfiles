@@ -16,6 +16,7 @@
     home-manager.darwinModules.home-manager
     ../options.nix
     ../system/modules
+    ../system/common.nix
   ];
 
   home-manager = {

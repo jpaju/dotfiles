@@ -1,11 +1,10 @@
 { username, ... }:
 {
-  imports = [
-    ./common.nix
-    ../system/personal.nix
-  ];
+  imports = [ ./common.nix ];
 
-  home-manager.users.${username}.imports = [ ../home/personal.nix ];
+  home-manager.users.${username} = {
+    imports = [ ../home/common.nix ];
+  };
 
   dotfiles = {
     # Utilities

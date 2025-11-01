@@ -1,9 +1,6 @@
 { username, pkgs, ... }:
 {
-  imports = [
-    ./common.nix
-    ../system/work.nix
-  ];
+  imports = [ ./common.nix ];
 
   home-manager.users.${username} = {
     imports = [ ../home/common.nix ];
