@@ -21,7 +21,6 @@
 
     # Languages
     terraform
-    protobuf # Required by protols
 
     # LSPs
     docker-language-server # docker & docker compose
@@ -35,7 +34,6 @@
     nixd # Nix
     nil # Nix
     bash-language-server # Bash
-    protols # Protobuf
     taplo # TOML
     terraform-ls # Terraform
     vscode-langservers-extracted # JSON, HTML, CSS, SCSS
