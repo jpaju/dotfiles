@@ -3,7 +3,6 @@
 
   imports = [
     ./common.nix
-    ./modules/dev-tools/k8s.nix
   ];
 
   home.packages = with pkgs; [
