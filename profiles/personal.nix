@@ -9,5 +9,6 @@
 
   dotfiles = {
     kafka.enable = false;
+    scala.enable = true;
   };
 }

@@ -7,6 +7,5 @@
     "flakes/npm".source = ./npm;
     "flakes/python".source = ./python;
     "flakes/rust".source = ./rust;
-    "flakes/scala".source = ./scala;
   };
 }

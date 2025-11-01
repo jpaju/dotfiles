@@ -2,5 +2,6 @@
 {
   imports = [
     ./kafka.nix
+    ./scala
   ];
 }

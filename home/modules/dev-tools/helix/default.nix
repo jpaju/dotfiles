@@ -35,7 +35,6 @@
     kotlin-language-server # Kotlin
     lua-language-server # Lua
     marksman # Markdown
-    metals # Scala
     mpls # Markdown preview
     nixd # Nix
     nil # Nix
@@ -54,7 +53,6 @@
     nixfmt # Nix
     prettier # JS, TS, HTML, CSS, YAML, Markdown
     pgformatter # SQL
-    scalafmt # Scala
     rustfmt # Rust
   ];
 
