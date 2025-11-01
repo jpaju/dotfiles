@@ -21,7 +21,6 @@
 
     # LSPs
     docker-language-server # docker & docker compose
-    elmPackages.elm-language-server # Elm
     fish-lsp # Fish
     jdt-language-server # Java
     kotlin-language-server # Kotlin

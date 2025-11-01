@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./elm
     ./go
     ./k8s
     ./kafka.nix

@@ -6,6 +6,7 @@
 
     k8s.enable = lib.mkEnableOption "Kubernetes tools";
 
+    elm.enable = lib.mkEnableOption "Elm tools";
     go.enable = lib.mkEnableOption "Go tools";
     postgres.enable = lib.mkEnableOption "PostgreSQL tools";
     protobuf.enable = lib.mkEnableOption "Protobuf and gRPC tools";

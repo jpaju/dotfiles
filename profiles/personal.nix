@@ -8,6 +8,7 @@
   home-manager.users.${username}.imports = [ ../home/personal.nix ];
 
   dotfiles = {
+    elm.enable = true;
     kafka.enable = false;
     mqtt.enable = true;
     postgres.enable = true;
