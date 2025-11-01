@@ -1,12 +1,10 @@
 { pkgs, ... }:
 {
-
   home.stateVersion = "23.11";
 
   home.packages = [ pkgs._1password-cli ];
 
   imports = [
-    ./modules/ai
     ./modules/catpuccin.nix
     ./modules/cli-tools
     ./modules/dev-tools

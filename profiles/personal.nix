@@ -8,6 +8,7 @@
 
   dotfiles = {
     # Utilities
+    ai.enable = true;
     communication.enable = true;
     media.enable = true;
     remote-access.enable = true;

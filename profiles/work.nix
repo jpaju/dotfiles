@@ -13,6 +13,7 @@
 
   dotfiles = {
     # Utilities
+    ai.enable = true;
     work-vpn.enable = true;
 
     # Technologies

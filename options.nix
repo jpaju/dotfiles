@@ -2,6 +2,7 @@
 {
   options.dotfiles = {
     # Utilities
+    ai.enable = lib.mkEnableOption "AI coding tools";
     communication.enable = lib.mkEnableOption "Communication apps";
     media.enable = lib.mkEnableOption "Media apps";
     remote-access.enable = lib.mkEnableOption "Remote access tools";
