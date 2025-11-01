@@ -35,7 +35,7 @@ icons = "unicode"
 
 [language-server.metals.config.metals]
 autoImportBuild = "all"
-defaultBspToBuildTool = true
+defaultBspToBuildTool = false            # TODO see https://github.com/scalameta/metals/issues/7941
 showImplicitArguments = true
 showImplicitConversionsAndClasses = true
 showInferredType = true
