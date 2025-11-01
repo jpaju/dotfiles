@@ -18,24 +18,20 @@
   home.packages = with pkgs; [
     simple-completion-language-server # Snippets
     typos-lsp # Spellchecking
-
-    # LSPs
-    docker-language-server # docker & docker compose
     fish-lsp # Fish
-    jdt-language-server # Java
-    lua-language-server # Lua
+    bash-language-server # Bash
+    docker-language-server # docker & docker compose
     marksman # Markdown
     mpls # Markdown preview
     nixd # Nix
     nil # Nix
-    bash-language-server # Bash
+    nixfmt # Nix
     taplo # TOML
     vscode-langservers-extracted # JSON, HTML, CSS, SCSS
     yaml-language-server # YAML
-
-    # Formatters
-    nixfmt # Nix
     prettier # JS, TS, HTML, CSS, YAML, Markdown
+    jdt-language-server # Java
+    lua-language-server # Lua
   ];
 
   xdg.configFile = {
