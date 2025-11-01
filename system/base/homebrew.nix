@@ -20,8 +20,8 @@
           "ghostty"
           "wezterm"
         ];
+
         devTools = [
-          "dash"
           "cursor"
           "orbstack"
           "jetbrains-toolbox"
@@ -36,11 +36,14 @@
           "rectangle"
         ];
 
-        productivity = [
+        browsers = [
           "arc"
-          "calendr"
           "firefox"
           "google-chrome"
+        ];
+
+        productivity = [
+          "calendr"
           "karabiner-elements"
           "notion"
           "numi"
@@ -60,6 +63,6 @@
         ];
 
       in
-      devTools ++ terminal ++ windowManagement ++ productivity ++ misc;
+      devTools ++ terminal ++ windowManagement ++ browsers ++ productivity ++ misc;
   };
 }
