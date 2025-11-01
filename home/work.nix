@@ -1,12 +1,5 @@
-{ pkgs, ... }:
+{ ... }:
 {
 
-  imports = [
-    ./common.nix
-  ];
-
-  home.packages = with pkgs; [
-    gnupg
-    vault
-  ];
+  imports = [ ./common.nix ];
 }

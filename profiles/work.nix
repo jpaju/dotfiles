@@ -1,11 +1,18 @@
-{ username, ... }:
+{ username, pkgs, ... }:
 {
   imports = [
     ./common.nix
     ../system/work.nix
   ];
 
-  home-manager.users.${username}.imports = [ ../home/work.nix ];
+  home-manager.users.${username} = {
+    imports = [ ../home/common.nix ];
+
+    home.packages = with pkgs; [
+      gnupg
+      vault
+    ];
+  };
 
   dotfiles = {
     # Utilities
