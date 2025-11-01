@@ -1,9 +1,6 @@
-{ pkgs, ... }:
+{ ... }:
 {
-  programs.gh = {
-    enable = true;
-    extensions = [ pkgs.gh-markdown-preview ];
-  };
+  programs.gh.enable = true;
 
   programs.fish.shellAbbrs = {
     ghb = "gh browse";

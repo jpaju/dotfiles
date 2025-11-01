@@ -7,7 +7,6 @@
     ./gh
     ./git
     ./helix
-    ./intellij.nix
     ./terraform.nix
   ];
 

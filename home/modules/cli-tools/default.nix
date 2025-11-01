@@ -22,9 +22,7 @@
     entr # Watch mode for any CLI command
     fx # JSON TUI
     gobang # SQL TUI
-    gping
     gum # CLI/TUI component library
-    iperf3
     ncdu
     procps # On macOS includes only 'watch' command
     sshs # SSH TUI
