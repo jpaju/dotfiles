@@ -12,6 +12,7 @@
     work-vpn.enable = true;
 
     # Technologies
+    aws.enable = true;
     k8s.enable = true;
     kafka.enable = true;
     mongodb.enable = true;

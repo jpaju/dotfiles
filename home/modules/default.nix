@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./aws
     ./elm
     ./go
     ./k8s

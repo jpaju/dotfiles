@@ -8,6 +8,7 @@
     work-vpn.enable = lib.mkEnableOption "Work VPN";
 
     # Technologies
+    aws.enable = lib.mkEnableOption "AWS tools";
     k8s.enable = lib.mkEnableOption "Kubernetes tools";
     kafka.enable = lib.mkEnableOption "Kafka tools";
     mongodb.enable = lib.mkEnableOption "MongoDB tools";

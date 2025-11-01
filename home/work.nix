@@ -6,9 +6,6 @@
   ];
 
   home.packages = with pkgs; [
-    aws-iam-authenticator
-    aws-vault
-    awscli2
     gnupg
     vault
   ];
