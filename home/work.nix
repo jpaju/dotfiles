@@ -12,7 +12,6 @@
     evans # gRPC TUI
     gnupg
     grpcurl # gRPC CLI
-    pyenv
     vault
   ];
 }

@@ -10,6 +10,7 @@
   dotfiles = {
     k8s.enable = true;
     kafka.enable = true;
+    python.enable = true;
     scala.enable = true;
   };
 }

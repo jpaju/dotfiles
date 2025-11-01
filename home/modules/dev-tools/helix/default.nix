@@ -41,7 +41,6 @@
     bash-language-server # Bash
     typescript-language-server # TypeScript
     protols # Protobuf
-    python313Packages.python-lsp-server # Python
     rust-analyzer # Rust
     taplo # TOML
     terraform-ls # Terraform
@@ -49,7 +48,6 @@
     yaml-language-server # YAML
 
     # Formatters
-    black # Python
     nixfmt # Nix
     prettier # JS, TS, HTML, CSS, YAML, Markdown
     pgformatter # SQL
