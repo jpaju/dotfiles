@@ -39,6 +39,7 @@
     users.${username} = {
       imports = [
         ../options.nix
+        ../home/base
         ../home/modules
       ];
 
