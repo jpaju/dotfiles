@@ -5,7 +5,7 @@
     ./elm
     ./go
     ./k8s
-    ./kafka.nix
+    ./kafka
     ./kotlin
     ./mqtt
     ./postgres
