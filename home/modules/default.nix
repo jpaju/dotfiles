@@ -5,6 +5,7 @@
     ./go
     ./k8s
     ./kafka.nix
+    ./kotlin
     ./mqtt
     ./postgres
     ./protobuf

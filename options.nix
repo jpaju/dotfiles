@@ -8,6 +8,7 @@
 
     elm.enable = lib.mkEnableOption "Elm tools";
     go.enable = lib.mkEnableOption "Go tools";
+    kotlin.enable = lib.mkEnableOption "Kotlin tools";
     postgres.enable = lib.mkEnableOption "PostgreSQL tools";
     protobuf.enable = lib.mkEnableOption "Protobuf and gRPC tools";
     python.enable = lib.mkEnableOption "Python tools";

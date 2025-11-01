@@ -3,7 +3,6 @@
 
   imports = [
     ./docker
-    ./flakes
     ./gh
     ./git
     ./helix

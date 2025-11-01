@@ -32,8 +32,6 @@
 
     taps = [ "pakerwreah/calendr" ];
 
-    brews = [ "JetBrains/utils/kotlin-lsp" ];
-
     casks =
       let
         terminal = [

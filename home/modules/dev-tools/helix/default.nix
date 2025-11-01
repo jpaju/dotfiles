@@ -23,7 +23,6 @@
     docker-language-server # docker & docker compose
     fish-lsp # Fish
     jdt-language-server # Java
-    kotlin-language-server # Kotlin
     lua-language-server # Lua
     marksman # Markdown
     mpls # Markdown preview
