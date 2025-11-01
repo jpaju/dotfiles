@@ -1,0 +1,6 @@
+{ ... }:
+{
+  dotfiles = {
+    kafka.enable = false;
+  };
+}

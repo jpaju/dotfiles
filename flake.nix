@@ -81,10 +81,18 @@
 
           modules =
             let
-              hmModules = [ ./home/personal.nix ];
+              hmModules = [
+                ./options.nix
+                ./profiles/personal.nix
+                ./home/modules/kafka.nix
+                ./home/personal.nix
+              ];
               hmOpts = homeManagerOptions hmModules;
             in
             [
+              ./options.nix
+              ./profiles/personal.nix
+              ./system/modules/kafka.nix
               ./system/personal.nix
               home-manager.darwinModules.home-manager
               hmOpts

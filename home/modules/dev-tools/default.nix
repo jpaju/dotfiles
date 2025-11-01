@@ -12,7 +12,6 @@
 
   home.packages = with pkgs; [
     coursier
-    kcat
     pgcli
     tokei
   ];
