@@ -15,8 +15,8 @@
   imports = [
     home-manager.darwinModules.home-manager
     ../options.nix
+    ../system/base
     ../system/modules
-    ../system/common.nix
   ];
 
   home-manager = {
