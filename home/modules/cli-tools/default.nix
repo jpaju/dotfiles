@@ -21,7 +21,6 @@
     curlie
     entr # Watch mode for any CLI command
     fx # JSON TUI
-    gobang # SQL TUI
     gum # CLI/TUI component library
     ncdu
     procps # On macOS includes only 'watch' command

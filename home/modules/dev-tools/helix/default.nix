@@ -38,7 +38,6 @@
     # Formatters
     nixfmt # Nix
     prettier # JS, TS, HTML, CSS, YAML, Markdown
-    pgformatter # SQL
   ];
 
   xdg.configFile = {

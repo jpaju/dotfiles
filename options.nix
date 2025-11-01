@@ -7,6 +7,7 @@
     k8s.enable = lib.mkEnableOption "Kubernetes tools";
 
     go.enable = lib.mkEnableOption "Go tools";
+    postgres.enable = lib.mkEnableOption "PostgreSQL tools";
     protobuf.enable = lib.mkEnableOption "Protobuf and gRPC tools";
     python.enable = lib.mkEnableOption "Python tools";
     rust.enable = lib.mkEnableOption "Rust tools";

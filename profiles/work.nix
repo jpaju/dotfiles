@@ -11,6 +11,7 @@
     go.enable = true;
     k8s.enable = true;
     kafka.enable = true;
+    postgres.enable = true;
     protobuf.enable = true;
     python.enable = true;
     scala.enable = true;

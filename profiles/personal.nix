@@ -10,6 +10,7 @@
   dotfiles = {
     kafka.enable = false;
     mqtt.enable = true;
+    postgres.enable = true;
     rust.enable = true;
     scala.enable = true;
     terraform.enable = true;
