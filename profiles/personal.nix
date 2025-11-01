@@ -8,10 +8,17 @@
   home-manager.users.${username}.imports = [ ../home/personal.nix ];
 
   dotfiles = {
-    elm.enable = true;
-    kafka.enable = false;
+    # Utilities
+    communication.enable = true;
+    media.enable = true;
+    remote-access.enable = true;
+
+    # Technologies
     mqtt.enable = true;
     postgres.enable = true;
+
+    # Programming languages
+    elm.enable = true;
     rust.enable = true;
     scala.enable = true;
     terraform.enable = true;

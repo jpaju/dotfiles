@@ -8,12 +8,19 @@
   home-manager.users.${username}.imports = [ ../home/work.nix ];
 
   dotfiles = {
-    go.enable = true;
+    # Utilities
+    work-vpn.enable = true;
+
+    # Technologies
     k8s.enable = true;
     kafka.enable = true;
-    kotlin.enable = true;
+    mongodb.enable = true;
     postgres.enable = true;
     protobuf.enable = true;
+
+    # Programming languages
+    go.enable = true;
+    kotlin.enable = true;
     python.enable = true;
     scala.enable = true;
     terraform.enable = true;
