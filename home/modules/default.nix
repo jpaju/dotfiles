@@ -3,7 +3,9 @@
   imports = [
     ./ai
     ./aws
+    ./docker
     ./elm
+    ./gh
     ./go
     ./k8s
     ./kafka

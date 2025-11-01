@@ -14,6 +14,8 @@
     remote-access.enable = true;
 
     # Technologies
+    docker.enable = true;
+    github.enable = true;
     mqtt.enable = true;
     postgres.enable = true;
 

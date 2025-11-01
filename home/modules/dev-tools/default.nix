@@ -1,8 +1,0 @@
-{ pkgs, ... }:
-{
-
-  imports = [
-    ./docker
-    ./gh
-  ];
-}

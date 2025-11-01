@@ -10,6 +10,8 @@
 
     # Technologies
     aws.enable = lib.mkEnableOption "AWS tools";
+    docker.enable = lib.mkEnableOption "Docker and container tools";
+    github.enable = lib.mkEnableOption "GitHub CLI tools";
     k8s.enable = lib.mkEnableOption "Kubernetes tools";
     kafka.enable = lib.mkEnableOption "Kafka tools";
     mongodb.enable = lib.mkEnableOption "MongoDB tools";

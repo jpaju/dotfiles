@@ -18,6 +18,8 @@
 
     # Technologies
     aws.enable = true;
+    docker.enable = true;
+    github.enable = true;
     k8s.enable = true;
     kafka.enable = true;
     mongodb.enable = true;

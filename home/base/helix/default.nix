@@ -20,7 +20,6 @@
     typos-lsp # Spellchecking
     fish-lsp # Fish
     bash-language-server # Bash
-    docker-language-server # docker & docker compose
     marksman # Markdown
     mpls # Markdown preview
     nixd # Nix
