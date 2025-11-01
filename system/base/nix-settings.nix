@@ -1,6 +1,12 @@
-{ pkgs, username, ... }:
+{
+  pkgs,
+  system,
+  username,
+  ...
+}:
 {
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.hostPlatform = system;
 
   nix.enable = true;
   nix.package = pkgs.nix;
@@ -18,6 +24,13 @@
       username
     ];
   };
+
+  fonts.packages = [ pkgs.nerd-fonts.fira-code ];
+
+  environment.shells = with pkgs; [
+    fish
+    zsh
+  ];
 
   # Don't remove if shells are installed by other means, otherwise nix environment is not loaded correctly
   programs.zsh.enable = true;
