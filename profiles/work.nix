@@ -14,6 +14,7 @@
     protobuf.enable = true;
     python.enable = true;
     scala.enable = true;
+    terraform.enable = true;
     typescript.enable = true;
   };
 }

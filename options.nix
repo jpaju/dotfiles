@@ -11,6 +11,7 @@
     python.enable = lib.mkEnableOption "Python tools";
     rust.enable = lib.mkEnableOption "Rust tools";
     scala.enable = lib.mkEnableOption "Scala tools";
+    terraform.enable = lib.mkEnableOption "Terraform tools";
     typescript.enable = lib.mkEnableOption "TypeScript tools";
   };
 }

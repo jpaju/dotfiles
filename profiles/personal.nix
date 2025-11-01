@@ -12,6 +12,7 @@
     mqtt.enable = true;
     rust.enable = true;
     scala.enable = true;
+    terraform.enable = true;
     typescript.enable = true;
   };
 }

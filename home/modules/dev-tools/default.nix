@@ -7,7 +7,6 @@
     ./gh
     ./git
     ./helix
-    ./terraform.nix
   ];
 
   home.packages = with pkgs; [

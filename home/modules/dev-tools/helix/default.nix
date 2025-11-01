@@ -19,9 +19,6 @@
     simple-completion-language-server # Snippets
     typos-lsp # Spellchecking
 
-    # Languages
-    terraform
-
     # LSPs
     docker-language-server # docker & docker compose
     elmPackages.elm-language-server # Elm
@@ -35,7 +32,6 @@
     nil # Nix
     bash-language-server # Bash
     taplo # TOML
-    terraform-ls # Terraform
     vscode-langservers-extracted # JSON, HTML, CSS, SCSS
     yaml-language-server # YAML
 

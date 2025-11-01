@@ -9,6 +9,7 @@
     ./python
     ./rust
     ./scala
+    ./terraform
     ./typescript
   ];
 }
