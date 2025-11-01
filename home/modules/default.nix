@@ -6,5 +6,6 @@
     ./mqtt
     ./python
     ./scala
+    ./typescript
   ];
 }

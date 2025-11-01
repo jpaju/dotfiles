@@ -39,7 +39,6 @@
     nixd # Nix
     nil # Nix
     bash-language-server # Bash
-    typescript-language-server # TypeScript
     protols # Protobuf
     rust-analyzer # Rust
     taplo # TOML

@@ -12,5 +12,6 @@
     kafka.enable = true;
     python.enable = true;
     scala.enable = true;
+    typescript.enable = true;
   };
 }

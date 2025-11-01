@@ -11,5 +11,6 @@
     kafka.enable = false;
     mqtt.enable = true;
     scala.enable = true;
+    typescript.enable = true;
   };
 }
