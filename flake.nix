@@ -58,61 +58,22 @@
         inherit catppuccin;
         inherit fishUtils;
       };
-
-      homeManagerOptions = homeModules: {
-        home-manager = {
-          useGlobalPkgs = true;
-          useUserPackages = true;
-          users.${username}.imports = homeModules;
-          extraSpecialArgs = specialArgs;
-          backupFileExtension = "bak";
-        };
-      };
     in
     {
-
-      # Expose the package set, including overlays, for convenience.
-      # darwinPackages = self.darwinConfigurations.${hostname}.pkgs;
 
       darwinConfigurations = {
         "Jaakkos-MacBook-Pro" = nix-darwin.lib.darwinSystem {
           inherit system;
           inherit specialArgs;
 
-          modules =
-            let
-              hmModules = [
-                ./options.nix
-                ./profiles/personal.nix
-                ./home/modules/kafka.nix
-                ./home/personal.nix
-              ];
-              hmOpts = homeManagerOptions hmModules;
-            in
-            [
-              ./options.nix
-              ./profiles/personal.nix
-              ./system/modules/kafka.nix
-              ./system/personal.nix
-              home-manager.darwinModules.home-manager
-              hmOpts
-            ];
+          modules = [ ./profiles/personal.nix ];
         };
 
         "Wolt-MacBook-Pro" = nix-darwin.lib.darwinSystem {
           inherit system;
           inherit specialArgs;
 
-          modules =
-            let
-              hmModules = [ ./home/work.nix ];
-              hmOpts = homeManagerOptions hmModules;
-            in
-            [
-              ./system/work.nix
-              home-manager.darwinModules.home-manager
-              hmOpts
-            ];
+          modules = [ ./profiles/work.nix ];
         };
       };
 
