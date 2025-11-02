@@ -13,6 +13,7 @@
     karabiner.enable = true;
     media.enable = true;
     remote-access.enable = true;
+    terminal.enable = true;
 
     # Technologies
     docker.enable = true;

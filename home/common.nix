@@ -6,6 +6,5 @@
 
   imports = [
     ./modules/secrets
-    ./modules/terminal
   ];
 }

@@ -7,6 +7,7 @@
     karabiner.enable = lib.mkEnableOption "Karabiner-Elements";
     media.enable = lib.mkEnableOption "Media apps";
     remote-access.enable = lib.mkEnableOption "Remote access tools";
+    terminal.enable = lib.mkEnableOption "Terminals";
     work-vpn.enable = lib.mkEnableOption "Work VPN";
 
     # Technologies

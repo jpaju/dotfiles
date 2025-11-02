@@ -8,6 +8,7 @@
     ./media.nix
     ./mongodb.nix
     ./remote-access.nix
+    ./terminal
     ./work-vpn.nix
   ];
 }

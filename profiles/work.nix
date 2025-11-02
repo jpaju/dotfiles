@@ -15,6 +15,7 @@
     # Utilities
     ai.enable = true;
     karabiner.enable = true;
+    terminal.enable = true;
     work-vpn.enable = true;
 
     # Technologies

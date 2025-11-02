@@ -17,10 +17,6 @@
 
       casks =
         let
-          terminal = [
-            "ghostty"
-            "wezterm"
-          ];
           devTools = [
             "cursor"
             "orbstack"
@@ -62,7 +58,7 @@
           ];
 
         in
-        devTools ++ terminal ++ windowManagement ++ browsers ++ productivity ++ misc;
+        devTools ++ windowManagement ++ browsers ++ productivity ++ misc;
     };
   };
 }
