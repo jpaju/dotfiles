@@ -14,6 +14,7 @@
   dotfiles = {
     # Utilities
     ai.enable = true;
+    karabiner.enable = true;
     work-vpn.enable = true;
 
     # Technologies

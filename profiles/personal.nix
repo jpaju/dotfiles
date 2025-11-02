@@ -10,6 +10,7 @@
     # Utilities
     ai.enable = true;
     communication.enable = true;
+    karabiner.enable = true;
     media.enable = true;
     remote-access.enable = true;
 

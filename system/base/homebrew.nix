@@ -44,7 +44,6 @@
 
           productivity = [
             "calendr"
-            "karabiner-elements"
             "notion"
             "numi"
             "spotify"

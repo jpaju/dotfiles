@@ -4,6 +4,7 @@
     # Utilities
     ai.enable = lib.mkEnableOption "AI coding tools";
     communication.enable = lib.mkEnableOption "Communication apps";
+    karabiner.enable = lib.mkEnableOption "Karabiner-Elements";
     media.enable = lib.mkEnableOption "Media apps";
     remote-access.enable = lib.mkEnableOption "Remote access tools";
     work-vpn.enable = lib.mkEnableOption "Work VPN";

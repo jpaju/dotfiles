@@ -3,6 +3,7 @@
   imports = [
     ./communication.nix
     ./kafka.nix
+    ./karabiner
     ./kotlin.nix
     ./media.nix
     ./mongodb.nix
