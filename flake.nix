@@ -77,16 +77,13 @@
         };
       };
 
-      # Export certain modules to be reused from other flakes by importing
-      systemModules.nix-settings = import ./system/modules/nix-settings.nix;
+      systemModules.nix-settings = import ./system/base/nix-settings.nix;
 
-      homeModules = {
-        inherit fishUtils;
-        ai = import ./home/modules/ai;
-        cli-tools = import ./home/modules/cli-tools;
-        dev-tools = import ./home/modules/dev-tools;
-        nix = import ./home/modules/nix;
-        shell = import ./home/modules/shell;
+      exports = {
+        options = import ./options.nix;
+        home = import ./home;
+        system = import ./system;
+        util = import ./util;
       };
     };
 }
