@@ -27,19 +27,19 @@
     anthropic_api_key = lib.mkOption {
       type = lib.types.str;
       description = "Path to the Anthropic API key file";
-      readOnly = true;
+      readOnly = false;
     };
 
     copilot_api_key = lib.mkOption {
       type = lib.types.str;
       description = "Path to the GitHub Copilot API key file";
-      readOnly = true;
+      readOnly = false;
     };
 
     openai_api_key = lib.mkOption {
       type = lib.types.str;
       description = "Path to the OpenAI API key file";
-      readOnly = true;
+      readOnly = false;
     };
   };
 }
