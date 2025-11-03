@@ -2,6 +2,7 @@
   username,
   userhome,
   system,
+  homeStateVersion,
   nix-darwin,
   home-manager,
   sops-nix,
@@ -26,6 +27,7 @@
     extraSpecialArgs = {
       inherit
         userhome
+        homeStateVersion
         system
         nix-darwin
         sops-nix
