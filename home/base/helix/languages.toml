@@ -81,7 +81,7 @@ language-servers = ["vscode-css-language-server", "scls", "typos"]
 [[language]]
 name = "docker-compose"
 language-servers = [
-  "docker-compose-langserver",
+  "docker-language-server",
   "yaml-language-server",
   "scls",
   "typos",
