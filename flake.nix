@@ -45,18 +45,26 @@
       username = "jaakkopaju";
       userhome = "/Users/${username}";
 
+      # DO NOT CHANGE THESE
+      systemStateVersion = 4;
+      homeStateVersion = "23.11";
+
       fishUtils = import "${self}/util/fish.nix";
 
       specialArgs = {
-        inherit system;
-        inherit username;
-        inherit userhome;
-        inherit nix-darwin;
-        inherit home-manager;
-        inherit sops-nix;
-        inherit helix;
-        inherit catppuccin;
-        inherit fishUtils;
+        inherit
+          system
+          homeStateVersion
+          systemStateVersion
+          username
+          userhome
+          nix-darwin
+          home-manager
+          sops-nix
+          helix
+          catppuccin
+          fishUtils
+          ;
       };
     in
     {

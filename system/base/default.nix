@@ -1,7 +1,8 @@
-{ ... }:
+{ systemStateVersion, ... }:
 {
+  system.stateVersion = systemStateVersion;
+
   imports = [
-    ./darwin.nix
     ./homebrew.nix
     ./macos-settings.nix
     ./nix-settings.nix
