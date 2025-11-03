@@ -16,6 +16,7 @@
     ./python
     ./rust
     ./scala
+    ./secrets
     ./terraform
     ./typescript
   ];
