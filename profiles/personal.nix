@@ -8,6 +8,7 @@
 
   dotfiles = {
     # Utilities
+    _1password.enable = true;
     ai.enable = true;
     communication.enable = true;
     karabiner.enable = true;

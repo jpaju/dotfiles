@@ -13,6 +13,7 @@
 
   dotfiles = {
     # Utilities
+    _1password.enable = true;
     ai.enable = true;
     karabiner.enable = true;
     secrets.enable = true;

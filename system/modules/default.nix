@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./1password.nix
     ./communication.nix
     ./kafka.nix
     ./karabiner

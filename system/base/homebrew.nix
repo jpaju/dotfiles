@@ -48,7 +48,6 @@
           ];
 
           misc = [
-            "1password"
             "aldente"
             "appcleaner"
             "bartender"
