@@ -15,8 +15,7 @@
   imports = [
     home-manager.darwinModules.home-manager
     ../options.nix
-    ../system/base
-    ../system/modules
+    ../system
   ];
 
   home-manager = {
@@ -39,8 +38,7 @@
     users.${username} = {
       imports = [
         ../options.nix
-        ../home/base
-        ../home/modules
+        ../home
       ];
 
       # Expose dotfiles options from system nix-darwin/nixOS to home-manager

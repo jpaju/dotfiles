@@ -2,14 +2,10 @@
 {
   imports = [ ./common.nix ];
 
-  home-manager.users.${username} = {
-    imports = [ ../home/common.nix ];
-
-    home.packages = with pkgs; [
-      gnupg
-      vault
-    ];
-  };
+  home-manager.users.${username}.home.packages = with pkgs; [
+    gnupg
+    vault
+  ];
 
   dotfiles = {
     # Utilities
