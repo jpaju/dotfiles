@@ -58,11 +58,6 @@ args = ["--dark-mode", "--enable-emoji", "--no-auto"]
 command = "terraform-ls"
 args = ["serve", "-log-file", "/dev/null"]
 
-[language-server.buf-lsp]
-command = "buf"
-args = ["beta", "lsp"]
-environment = { "BUF_BETA_SUPPRESS_WARNINGS" = "1" }
-
 [language-server.nixd]
 command = "nixd"
 args = ["--log=error"]
