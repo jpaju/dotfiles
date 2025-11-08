@@ -29,10 +29,10 @@ git:
     - master
     - main
 
-  paging:
-    colorArg: always
-    useConfig: false
-    pager: delta --dark --paging=never
+  pagers:
+    - pager: delta --dark --paging=never
+      colorArg: always
+      useExternalDiffGitConfig: false
 
 gui:
   filterMode: fuzzy
