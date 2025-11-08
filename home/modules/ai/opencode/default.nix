@@ -1,9 +1,17 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   imports = [ ../../secrets/interface.nix ];
 
   config = lib.mkIf config.dotfiles.ai.enable {
-    programs.fish.shellAbbrs.oc = "opencode";
+    programs.fish.shellAbbrs = {
+      oc = "opencode";
+      occ = "opencode --continue";
+    };
 
     programs.opencode = {
       enable = true;
@@ -18,13 +26,34 @@
       '';
 
       settings = {
-        autoupdate = false;
-        share = "disabled";
         theme = "catppuccin";
+
+        share = "disabled";
+        autoupdate = false;
+
         permission = {
           edit = "ask";
-          bash = "ask";
-          webfetch = "ask";
+          webfetch = "allow";
+          bash = {
+            "*" = "ask";
+            "ls" = "allow";
+            "pwd" = "allow";
+            "head" = "allow";
+            "tail" = "allow";
+            "wc" = "allow";
+            "cat" = "allow";
+            "grep" = "allow";
+            "rg" = "allow";
+            "git status" = "allow";
+            "git diff *" = "allow";
+            "git log *" = "allow";
+            "git show *" = "allow";
+            "git blame *" = "allow";
+            "gh pr list *" = "allow";
+            "gh pr view *" = "allow";
+            "gh pr diff *" = "allow";
+            "gh pr checks *" = "allow";
+          };
         };
       };
     };
