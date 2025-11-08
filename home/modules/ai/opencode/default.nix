@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   imports = [ ../../secrets/interface.nix ];
 
@@ -18,13 +23,26 @@
       '';
 
       settings = {
-        autoupdate = false;
-        share = "disabled";
         theme = "catppuccin";
+
+        share = "disabled";
+        autoupdate = false;
+
         permission = {
           edit = "ask";
-          bash = "ask";
-          webfetch = "ask";
+          webfetch = "allow";
+          bash = {
+            "*" = "ask";
+            "ls" = "allow";
+            "pwd" = "allow";
+            "grep" = "allow";
+            "rg" = "allow";
+            "git status" = "allow";
+            "git diff *" = "allow";
+            "git log *" = "allow";
+            "git show *" = "allow";
+            "git blame *" = "allow";
+          };
         };
       };
     };
