@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  nix-ai-tools,
   ...
 }:
 {
@@ -22,7 +23,7 @@
         export ANTHROPIC_API_KEY="$(cat ${config.secrets.anthropic_api_key})"
         export OPENAI_API_KEY="$(cat ${config.secrets.openai_api_key})"
 
-        exec ${pkgs.opencode}/bin/opencode "$@"
+        exec ${nix-ai-tools.opencode}/bin/opencode "$@"
       '';
 
       settings = {
