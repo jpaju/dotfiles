@@ -15,7 +15,7 @@
 
     home.file.".sbt/1.0/global.sbt".source = ./global.sbt;
 
+    home.file."flakes/scala/flake.nix".source = ./flake.nix;
     xdg.configFile."fish/functions/metals_reset.fish".source = ./metals_reset.fish;
-    xdg.configFile."flakes/scala/flake.nix".source = ./flake.nix;
   };
 }

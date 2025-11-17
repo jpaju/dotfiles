@@ -10,8 +10,6 @@
       kotlin-language-server
     ];
 
-    home.file = {
-      "flakes/kotlin".source = ./flake.nix;
-    };
+    home.file."flakes/kotlin/flake.nix".source = ./flake.nix;
   };
 }

@@ -34,6 +34,6 @@
           export VIRTUAL_ENV
       }'';
 
-    xdg.configFile."flakes/python/flake.nix".source = ./flake.nix;
+    home.file."flakes/python/flake.nix".source = ./flake.nix;
   };
 }

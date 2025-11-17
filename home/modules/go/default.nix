@@ -13,6 +13,6 @@
       golangci-lint-langserver
     ];
 
-    xdg.configFile."flakes/go/flake.nix".source = ./flake.nix;
+    home.file."flakes/go/flake.nix".source = ./flake.nix;
   };
 }
