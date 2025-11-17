@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   config = lib.mkIf config.dotfiles.rust.enable {
     home.packages = with pkgs; [
@@ -6,6 +11,6 @@
       rustfmt
     ];
 
-    xdg.configFile."flakes/rust/flake.nix".source = ./flake.nix;
+    home.file."flakes/rust/flake.nix".source = ./flake.nix;
   };
 }

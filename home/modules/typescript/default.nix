@@ -12,7 +12,7 @@
       prettier
     ];
 
-    xdg.configFile."flakes/npm/flake.nix".source = ./npm-flake.nix;
-    xdg.configFile."flakes/bun/flake.nix".source = ./bun-flake.nix;
+    home.file."flakes/npm/flake.nix".source = ./npm-flake.nix;
+    home.file."flakes/bun/flake.nix".source = ./bun-flake.nix;
   };
 }
