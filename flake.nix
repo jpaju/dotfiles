@@ -4,6 +4,11 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
+    nix-ai-tools = {
+      url = "github:numtide/nix-ai-tools";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,7 +36,7 @@
   };
 
   outputs =
-    {
+    inputs@{
       self,
       nix-darwin,
       home-manager,
@@ -49,6 +54,7 @@
       systemStateVersion = 4;
       homeStateVersion = "23.11";
 
+      nix-ai-tools = inputs.nix-ai-tools.packages.${system};
       fishUtils = import "${self}/util/fish.nix";
 
       specialArgs = {
@@ -63,6 +69,7 @@
           sops-nix
           helix
           catppuccin
+          nix-ai-tools
           fishUtils
           ;
       };

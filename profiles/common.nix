@@ -8,6 +8,7 @@
   sops-nix,
   helix,
   catppuccin,
+  nix-ai-tools,
   fishUtils,
   config,
   ...
@@ -33,6 +34,7 @@
         sops-nix
         helix
         catppuccin
+        nix-ai-tools
         fishUtils
         ;
     };
