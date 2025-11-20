@@ -19,5 +19,6 @@
     ./secrets
     ./terraform
     ./typescript
+    ./wolt-tools
   ];
 }

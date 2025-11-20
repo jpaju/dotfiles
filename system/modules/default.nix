@@ -10,6 +10,6 @@
     ./mongodb.nix
     ./remote-access.nix
     ./terminal
-    ./work-vpn.nix
+    ./wolt-tools.nix
   ];
 }
