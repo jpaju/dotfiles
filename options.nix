@@ -10,7 +10,7 @@
     remote-access.enable = lib.mkEnableOption "Remote access tools";
     secrets.enable = lib.mkEnableOption "Secrets management (sops-nix)";
     terminal.enable = lib.mkEnableOption "Terminals";
-    work-vpn.enable = lib.mkEnableOption "Work VPN";
+    wolt-tools.enable = lib.mkEnableOption "Wolt tools";
 
     # Technologies
     aws.enable = lib.mkEnableOption "AWS tools";

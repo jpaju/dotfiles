@@ -1,11 +1,6 @@
-{ username, pkgs, ... }:
+{ ... }:
 {
   imports = [ ./common.nix ];
-
-  home-manager.users.${username}.home.packages = with pkgs; [
-    gnupg
-    vault
-  ];
 
   dotfiles = {
     # Utilities
@@ -14,7 +9,7 @@
     karabiner.enable = true;
     secrets.enable = true;
     terminal.enable = true;
-    work-vpn.enable = true;
+    wolt-tools.enable = true;
 
     # Technologies
     aws.enable = true;
