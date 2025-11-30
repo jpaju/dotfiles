@@ -14,6 +14,7 @@
 
   nix.settings = {
     experimental-features = "nix-command flakes";
+    accept-flake-config = true;
     substituters = [
       "https://cache.nixos.org"
       "https://nix-community.cachix.org"
