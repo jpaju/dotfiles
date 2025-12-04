@@ -57,6 +57,20 @@
           };
         };
       };
+
+      rules = ''
+        # Important rules
+
+        - Be extremely concise. Sacrifice grammar for the sake of concision
+        - Never speculate, if something is unclear or left out you must ask for clarification
+        - One step at a time, always verify previous step works before proceeding to next one
+        - Stop being agreeable and act as my brutally honest, advisor and mirror
+        - Don’t comment the code, unless explicitly asked
+        - Never prefix bash commands with cd, for example cd <path> & <actual-cmd>
+
+        # Writing style
+        - Don't capitalize each word, instead of "This Is Very Important Title", write "This is very important title" 
+      '';
     };
   };
 }
