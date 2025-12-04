@@ -24,3 +24,21 @@ This is my personal dotfiles repository. The files are managed with [nix-darwin]
    mkdir -p ~/.config/sops/age/
    op item get "sops-nix age private key" --fields password >> ~/.config/sops/age/keys.txt
    ```
+
+## Manual steps
+
+- Exclude these folders from spotlight indexing, see [instructions](https://support.apple.com/en-gb/guide/mac-help/mchl1bb43b84/mac)
+  - `~/.cache`
+  - `~/.cargo`
+  - `~/.claude`
+  - `~/.gradle`
+  - `~/.ivy2`
+  - `~/.npm`
+  - `~/.pyenv`
+  - `~/.sbt`
+  - `~/Dev`
+  - `~/cache`
+  - `~/dotfiles`
+  - `~/go`
+  - `~/tldr`
+  - `~/work`
