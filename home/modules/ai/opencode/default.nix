@@ -22,6 +22,7 @@
 
         export ANTHROPIC_API_KEY="$(cat ${config.secrets.anthropic_api_key})"
         export OPENAI_API_KEY="$(cat ${config.secrets.openai_api_key})"
+        export CONTEXT7_API_KEY="$(cat ${config.secrets.context7_api_key})"
 
         exec ${nix-ai-tools.opencode}/bin/opencode "$@"
       '';
@@ -31,6 +32,14 @@
 
         share = "disabled";
         autoupdate = false;
+
+        mcp.context7 = {
+          type = "remote";
+          url = "https://mcp.context7.com/mcp";
+          headers = {
+            CONTEXT7_API_KEY = "{env:CONTEXT7_API_KEY}";
+          };
+        };
 
         permission = {
           edit = "ask";
