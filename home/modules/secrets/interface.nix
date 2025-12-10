@@ -42,6 +42,12 @@
       readOnly = false;
     };
 
+    google_generative_ai_api_key = lib.mkOption {
+      type = lib.types.str;
+      description = "Path to the Google Generative AI API key file";
+      readOnly = false;
+    };
+
     context7_api_key = lib.mkOption {
       type = lib.types.str;
       description = "Path to the Context7 API key file";

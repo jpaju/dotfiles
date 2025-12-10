@@ -22,6 +22,7 @@
 
         export ANTHROPIC_API_KEY="$(cat ${config.secrets.anthropic_api_key})"
         export OPENAI_API_KEY="$(cat ${config.secrets.openai_api_key})"
+        export GOOGLE_GENERATIVE_AI_API_KEY="$(cat ${config.secrets.google_generative_ai_api_key})"
         export CONTEXT7_API_KEY="$(cat ${config.secrets.context7_api_key})"
 
         exec ${nix-ai-tools.opencode}/bin/opencode "$@"
@@ -48,6 +49,7 @@
             "*" = "ask";
             "ls" = "allow";
             "pwd" = "allow";
+            "echo" = "allow";
             "head" = "allow";
             "tail" = "allow";
             "wc" = "allow";
@@ -78,7 +80,7 @@
         - Never prefix bash commands with cd, for example cd <path> & <actual-cmd>
 
         # Writing style
-        - Don't capitalize each word, instead of "This Is Very Important Title", write "This is very important title" 
+        - Only capitalize the first word of a title/heading. Instead of "This Is Very Important Title", write "This is very important title" 
       '';
     };
   };
