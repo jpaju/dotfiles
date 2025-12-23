@@ -36,6 +36,7 @@
             "arc"
             "firefox"
             "google-chrome"
+            "zen"
           ];
 
           productivity = [
