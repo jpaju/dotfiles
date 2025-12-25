@@ -131,6 +131,7 @@ auto-format = true
 
 [[language]]
 name = "kotlin"
+auto-format = true
 language-servers = ["kotlin-lsp", "scls", "typos"]
 
 [[language]]
