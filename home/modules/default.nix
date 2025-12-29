@@ -6,6 +6,7 @@
     ./docker
     ./elm
     ./gh
+    ./ghostty
     ./go
     ./k8s
     ./kafka
