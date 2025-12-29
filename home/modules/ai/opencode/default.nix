@@ -48,19 +48,26 @@
           bash = {
             "*" = "ask";
             "ls" = "allow";
+            "wc" = "allow";
+            "cat" = "allow";
             "pwd" = "allow";
             "echo" = "allow";
             "head" = "allow";
             "tail" = "allow";
-            "wc" = "allow";
-            "cat" = "allow";
             "grep" = "allow";
             "rg" = "allow";
+          }
+          // {
             "git status" = "allow";
             "git diff *" = "allow";
             "git log *" = "allow";
             "git show *" = "allow";
             "git blame *" = "allow";
+          }
+          // {
+            "gh issue view *" = "allow";
+            "gh search *" = "allow";
+            "gh repo view *" = "allow";
             "gh pr list *" = "allow";
             "gh pr view *" = "allow";
             "gh pr diff *" = "allow";
