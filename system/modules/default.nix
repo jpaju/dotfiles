@@ -9,7 +9,7 @@
     ./media.nix
     ./mongodb.nix
     ./remote-access.nix
-    ./terminal
+    ./wezterm
     ./wolt-tools.nix
   ];
 }
