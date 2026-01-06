@@ -42,6 +42,11 @@
           };
         };
 
+        plugin = [
+          "@franlol/opencode-md-table-formatter@latest"
+          "@mohak34/opencode-notifier@latest"
+        ];
+
         permission = {
           edit = "ask";
           webfetch = "allow";
