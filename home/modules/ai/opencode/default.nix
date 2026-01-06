@@ -42,6 +42,11 @@
           };
         };
 
+        plugin = [
+          "@franlol/opencode-md-table-formatter@latest"
+          "@mohak34/opencode-notifier@latest"
+        ];
+
         permission = {
           edit = "ask";
           webfetch = "allow";
@@ -95,6 +100,15 @@
         # Writing style
         - Only capitalize the first word of a title/heading. Instead of "This Is Very Important Title", write "This is very important title" 
       '';
+    };
+
+    xdg.configFile."opencode/opencode-notifier.json".text = builtins.toJSON {
+      events = {
+        complete.sound = false;
+        complete.notification = false;
+        error.sound = false;
+        error.notification = false;
+      };
     };
   };
 }
