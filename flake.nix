@@ -20,7 +20,7 @@
     };
 
     helix.url = "github:helix-editor/helix/master";
-    nix-ai-tools.url = "github:numtide/nix-ai-tools";
+    llm-agents.url = "github:numtide/llm-agents.nix";
     catppuccin.url = "github:catppuccin/nix";
   };
 
@@ -43,7 +43,7 @@
       systemStateVersion = 4;
       homeStateVersion = "23.11";
 
-      nix-ai-tools = inputs.nix-ai-tools.packages.${system};
+      llm-agents = inputs.llm-agents.packages.${system};
       fishUtils = import "${self}/util/fish.nix";
 
       specialArgs = {
@@ -58,7 +58,7 @@
           sops-nix
           helix
           catppuccin
-          nix-ai-tools
+          llm-agents
           fishUtils
           ;
       };

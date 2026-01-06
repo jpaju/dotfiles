@@ -8,7 +8,7 @@
   sops-nix,
   helix,
   catppuccin,
-  nix-ai-tools,
+  llm-agents,
   fishUtils,
   config,
   ...
@@ -34,7 +34,7 @@
         sops-nix
         helix
         catppuccin
-        nix-ai-tools
+        llm-agents
         fishUtils
         ;
     };

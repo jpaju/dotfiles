@@ -1,12 +1,12 @@
 {
   config,
   lib,
-  nix-ai-tools,
+  llm-agents,
   ...
 }:
 {
   config = lib.mkIf config.dotfiles.ai.enable {
-    home.packages = [ nix-ai-tools.claude-code ];
+    home.packages = [ llm-agents.claude-code ];
     home.file."./claude/settings.json".source = ./settings.json;
 
     programs.fish.shellAbbrs = {

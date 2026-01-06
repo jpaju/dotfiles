@@ -2,7 +2,7 @@
   config,
   lib,
   pkgs,
-  nix-ai-tools,
+  llm-agents,
   ...
 }:
 {
@@ -25,7 +25,7 @@
         export GOOGLE_GENERATIVE_AI_API_KEY="$(cat ${config.secrets.google_generative_ai_api_key})"
         export CONTEXT7_API_KEY="$(cat ${config.secrets.context7_api_key})"
 
-        exec ${nix-ai-tools.opencode}/bin/opencode "$@"
+        exec ${llm-agents.opencode}/bin/opencode "$@"
       '';
 
       settings = {
