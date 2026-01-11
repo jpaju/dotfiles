@@ -23,7 +23,7 @@
 
     # Load homebrew environment if on mac
     shellInit = ''
-      ${if pkgs.stdenv.isDarwin then "eval (/opt/homebrew/bin/brew shellenv)" else ""}
+      ${if pkgs.stdenv.isDarwin then "eval (/opt/homebrew/bin/brew shellenv fish)" else ""}
     '';
 
     interactiveShellInit = ''
