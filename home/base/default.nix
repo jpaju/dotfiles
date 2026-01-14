@@ -27,11 +27,12 @@
     curlie
     entr # Watch mode for any CLI command
     fx # JSON TUI
+    glow # TUI markdown renderer
     gum # CLI/TUI component library
     ncdu
     procps # On macOS includes only 'watch' command
     sshs # SSH TUI
-    tokei # Count lines of code
     tlrc # Rust TLDR client
+    tokei # Count lines of code
   ];
 }
