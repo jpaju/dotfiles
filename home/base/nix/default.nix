@@ -8,7 +8,10 @@
   ];
 
   programs.fish.shellAbbrs = {
-    nxsh = "nix shell nixpkgs#";
+    nxsh = {
+      expansion = "nix shell nixpkgs#%";
+      setCursor = "%";
+    };
     nxfu = "nix flake update";
     nxd = "nix develop";
     nrs = "nix_rebuild_switch &| nom";
