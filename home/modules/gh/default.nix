@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   programs.gh.enable = true;
 
@@ -22,6 +22,13 @@
     };
   };
   catppuccin.gh-dash.enable = true;
+
+  # GH CLI doesn't have support for discussions as of yet. For more information see
+  #  - https://github.com/cli/cli/discussions/4212
+  #  - https://docs.github.com/en/graphql/guides/using-the-graphql-api-for-discussions
+  home.packages = [
+    (pkgs.writeShellScriptBin "gh-discussion-search" (builtins.readFile ./gh-discussion-search.sh))
+  ];
 
   xdg.configFile."fish/functions/gh_pr_switch.fish".source = ./gh_pr_switch.fish;
 }
