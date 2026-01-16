@@ -56,15 +56,14 @@
           webfetch = "allow";
           bash = {
             "*" = "ask";
-            "ls" = "allow";
-            "wc" = "allow";
-            "cat" = "allow";
+            "ls *" = "allow";
+            "wc *" = "allow";
             "pwd" = "allow";
-            "echo" = "allow";
-            "head" = "allow";
-            "tail" = "allow";
-            "grep" = "allow";
-            "rg" = "allow";
+            "head *" = "allow";
+            "tail *" = "allow";
+            "grep *" = "allow";
+            "rg *" = "allow";
+            "jq *" = "allow";
           }
           // {
             "git status" = "allow";
