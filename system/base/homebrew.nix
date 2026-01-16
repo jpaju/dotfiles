@@ -19,8 +19,9 @@
         let
           devTools = [
             "cursor"
-            "orbstack"
             "jetbrains-toolbox"
+            "kitlangton-hex"
+            "orbstack"
             "postman"
             "visual-studio-code"
           ];
