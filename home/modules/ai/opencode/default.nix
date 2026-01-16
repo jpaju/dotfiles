@@ -80,6 +80,7 @@
             "gh pr view *" = "allow";
             "gh pr diff *" = "allow";
             "gh pr checks *" = "allow";
+            "gh-discussion-search *" = "allow";
           };
         };
       };

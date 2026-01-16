@@ -71,39 +71,9 @@ gh search issues --repo <owner/repo> "<keyword>" --limit 20
 # Search closed issues
 gh search issues --repo <owner/repo> "<keyword>" --state closed --limit 20
 
-# Search discussions using GraphQL API
-gh api graphql -f query='
-  query {
-    search(query: "repo:<owner/repo> <keyword>", type: DISCUSSION, first: 20) {
-      discussionCount
-      nodes {
-        ... on Discussion {
-          number
-          title
-          url
-          category { name }
-          isAnswered
-          createdAt
-        }
-      }
-    }
-  }
-'
-
-# Get discussion categories (to find category ID for creating discussions)
-gh api graphql -f query='
-  query {
-    repository(owner: "<owner>", name: "<repo>") {
-      discussionCategories(first: 10) {
-        nodes {
-          id
-          name
-          description
-        }
-      }
-    }
-  }
-'
+# Search discussions (using safe wrapper)
+gh-discussion-search <owner/repo> "<keyword>"
+gh-discussion-search <owner/repo> "<keyword>" 50  # optional: custom limit (max 100)
 ```
 
 ### 3. Summarize findings
