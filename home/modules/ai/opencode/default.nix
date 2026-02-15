@@ -64,6 +64,9 @@
             "grep *" = "allow";
             "rg *" = "allow";
             "jq *" = "allow";
+            "sort *" = "allow";
+            "sed *" = "allow";
+            "awk *" = "allow";
           }
           // {
             "git status" = "allow";
