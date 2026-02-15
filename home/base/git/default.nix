@@ -1,12 +1,18 @@
 { ... }:
 {
+  imports = [
+    ./delta.nix
+    ./lazygit.nix
+  ];
 
   programs.git.enable = true;
 
-  programs.delta.enable = true;
-  programs.delta.enableGitIntegration = true;
+  home.file.".gitconfig".source = ./.gitconfig;
 
-  programs.lazygit.enable = true;
+  xdg.configFile = {
+    "fish/functions/git_default_branch.fish".source = ./git_default_branch.fish;
+    "fish/functions/git_blame.fish".source = ./git_blame.fish;
+  };
 
   programs.fish.shellAbbrs = {
     ga = "git add";
@@ -55,19 +61,5 @@
     gswc = "git switch --create";
     gswm = "git switch (git_default_branch)";
     ggrep = "git log -p -G"; # Maybe try also 'git rev-list --all | xargs git grep' ?
-
-    lg = "lazygit";
   };
-
-  catppuccin.delta.enable = true;
-
-  home.file.".gitconfig".source = ./.gitconfig;
-
-  xdg.configFile = {
-    "lazygit/config.yml".source = ./lazygit-config.yml;
-
-    "fish/functions/git_default_branch.fish".source = ./git_default_branch.fish;
-    "fish/functions/git_blame.fish".source = ./git_blame.fish;
-  };
-
 }
