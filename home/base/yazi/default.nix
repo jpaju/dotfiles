@@ -5,7 +5,7 @@
 
   programs.yazi = {
     enable = true;
-
+    shellWrapperName = "y";
     initLua = ./init.lua;
 
     plugins = with pkgs.yaziPlugins; {
