@@ -1,5 +1,7 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 {
+  imports = [ ./lazydocker.nix ];
+
   programs.fish.shellAbbrs = {
     dk = "docker";
     dkb = "docker build";
@@ -10,13 +12,7 @@
     dcd = "docker compose down";
     dcs = "docker compose stop";
     dce = "docker compose exec -it";
-
-    ld = "lazydocker";
   };
 
-  programs.lazydocker.enable = true;
-
   home.packages = [ pkgs.docker-language-server ];
-
-  xdg.configFile."lazydocker/config.yml".source = lib.mkForce ./lazydocker-config.yaml;
 }
