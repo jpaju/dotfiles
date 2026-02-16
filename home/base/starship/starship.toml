@@ -50,6 +50,23 @@ style = "#E2CC44 bold"
 format = "[$status]($style) "
 disabled = false
 
+[aws]
+symbol = '  '
+disabled = false
+
+[aws.profile_aliases]
+wolt-aws-merchantoncall_rw = 'merchantoncall_rw'
+wolt-aws-merchantfoundations_rw = 'merchantfoundations_rw'
+wolt-aws-merchantfoundations_ro = 'merchantfoundations_ro'
+
+wolt-aws-dev-merchantoncall_rw = 'dev-merchantoncall_rw'
+wolt-aws-dev-merchantfoundations_rw = 'dev-merchantfoundations_rw'
+wolt-aws-dev-merchantfoundations_ro = 'dev-merchantfoundations_ro'
+
+wolt-legacy-merchantfoundations_ro = 'legacy-merchantfoundations_ro'
+wolt-legacy-merchantfoundations_rw = 'legacy-merchantfoundations_rw'
+wolt-legacy-merchantoncall_rw = 'legacy-merchantoncall_rw'
+
 [direnv]
 disabled = false
 format = 'via [$symbol]($style)\($loaded\)'
