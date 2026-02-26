@@ -12,6 +12,7 @@
   xdg.configFile = {
     "fish/functions/git_default_branch.fish".source = ./git_default_branch.fish;
     "fish/functions/git_blame.fish".source = ./git_blame.fish;
+    "fish/functions/gh_browse.fish".source = ./gh_browse.fish;
   };
 
   programs.fish.shellAbbrs = {

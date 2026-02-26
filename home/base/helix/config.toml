@@ -97,7 +97,7 @@ F = "file_picker"
 # <space><space> for git commands
 [keys.normal.space.space]
 r = ":reset-diff-change"
-w = ":sh gh browse %{buffer_name}:%{cursor_line} -b=%sh{git rev-parse --abbrev-ref HEAD}"
+w = ":sh gh_browse %{buffer_name} %{selection_line_start} %{selection_line_end}"
 b = ":sh git_blame %{buffer_name} %{cursor_line}"
 
 # + for LSP commands
