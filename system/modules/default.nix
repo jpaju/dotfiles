@@ -2,6 +2,7 @@
 {
   imports = [
     ./1password.nix
+    ./3dprinting.nix
     ./communication.nix
     ./kafka.nix
     ./karabiner

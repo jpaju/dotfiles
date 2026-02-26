@@ -5,6 +5,7 @@
   dotfiles = {
     # Utilities
     _1password.enable = true;
+    _3dprinting.enable = true;
     ai.enable = true;
     communication.enable = true;
     karabiner.enable = true;
