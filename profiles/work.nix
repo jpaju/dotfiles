@@ -3,6 +3,8 @@
   imports = [ ./common.nix ];
 
   dotfiles = {
+    browsers = [ "google-chrome" ];
+
     # Utilities
     _1password.enable = true;
     ai.enable = true;

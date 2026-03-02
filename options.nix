@@ -1,6 +1,12 @@
 { lib, ... }:
 {
   options.dotfiles = {
+    browsers = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = [ ];
+      description = "List of browser cask names to install via Homebrew";
+    };
+
     # Utilities
     _1password.enable = lib.mkEnableOption "1Password password manager";
     _3dprinting.enable = lib.mkEnableOption "3D printing tools";

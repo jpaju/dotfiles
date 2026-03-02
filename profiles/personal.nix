@@ -3,6 +3,13 @@
   imports = [ ./common.nix ];
 
   dotfiles = {
+    browsers = [
+      "arc"
+      "firefox"
+      "google-chrome"
+      "zen"
+    ];
+
     # Utilities
     _1password.enable = true;
     _3dprinting.enable = true;

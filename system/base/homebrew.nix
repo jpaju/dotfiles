@@ -33,13 +33,6 @@
             "rectangle"
           ];
 
-          browsers = [
-            "arc"
-            "firefox"
-            "google-chrome"
-            "zen"
-          ];
-
           productivity = [
             "calendr"
             "notion"
@@ -59,7 +52,7 @@
           ];
 
         in
-        devTools ++ windowManagement ++ browsers ++ productivity ++ misc;
+        devTools ++ windowManagement ++ productivity ++ misc;
     };
   };
 }
