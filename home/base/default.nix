@@ -12,7 +12,7 @@
     ./fzf.nix
     ./git
     ./helix
-    ./jq
+    ./json
     ./markdown
     ./moor.nix
     ./nix
@@ -27,7 +27,6 @@
   home.packages = with pkgs; [
     curlie
     entr # Watch mode for any CLI command
-    fx # JSON TUI
     gum # CLI/TUI component library
     ncdu
     procps # On macOS includes only 'watch' command
