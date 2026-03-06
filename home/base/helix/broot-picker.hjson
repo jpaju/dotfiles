@@ -1,0 +1,10 @@
+{
+  verbs: [
+    {
+      invocation: "ok"
+      key: "enter"
+      apply_to: "text_file"
+      cmd: ":write_output {file};:quit"
+    }
+  ]
+}

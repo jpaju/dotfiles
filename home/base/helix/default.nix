@@ -37,7 +37,10 @@
     "helix/config.toml".source = ./config.toml;
     "helix/languages.toml".source = ./languages.toml;
     "helix/ignore".source = ./ignore;
+    "helix/broot-picker.hjson".source = ./broot-picker.hjson;
+
     "fish/functions/yazi_picker.fish".source = ./yazi_picker.fish;
+    "fish/functions/broot_picker.fish".source = ./broot_picker.fish;
 
     "helix/snippets" = {
       source = ./snippets;
