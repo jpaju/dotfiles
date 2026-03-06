@@ -30,5 +30,8 @@
     (pkgs.writeShellScriptBin "gh-discussion-search" (builtins.readFile ./gh-discussion-search.sh))
   ];
 
-  xdg.configFile."fish/functions/gh_pr_switch.fish".source = ./gh_pr_switch.fish;
+  xdg.configFile = {
+    "fish/functions/gh_pr_switch.fish".source = ./gh_pr_switch.fish;
+    "fish/functions/gh_browse.fish".source = ./gh_browse.fish;
+  };
 }
