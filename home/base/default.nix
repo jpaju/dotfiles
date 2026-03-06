@@ -13,6 +13,7 @@
     ./git
     ./helix
     ./jq
+    ./markdown
     ./moor.nix
     ./nix
     ./starship
@@ -27,7 +28,6 @@
     curlie
     entr # Watch mode for any CLI command
     fx # JSON TUI
-    glow # TUI markdown renderer
     gum # CLI/TUI component library
     ncdu
     procps # On macOS includes only 'watch' command
