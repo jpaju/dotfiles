@@ -134,5 +134,5 @@ Y = "yank_joined_to_clipboard"
 g = ":sh 'zellij run -fc --height 96% --width 96% -y 4% -x 2% -- lazygit'"
 d = ":sh 'zellij run -fc --height 96% --width 96% -y 4% -x 2% -- gh dash'"
 p = ''':sh 'zellij run -fc --height 84% --width 74% -y 8% -x 13% -- fish -c gh_pr_switch\ --wait-on-error''''
-f = ":sh 'zellij run -fc --height 96% --width 96% -y 4% -x 2% -- yazi'"
+f = ''':sh 'zellij run -fc --height 96% --width 96% -y 4% -x 2% -- fish -c "yazi_picker open %{buffer_name}"''''
 F = ":sh 'zellij run -fc --height 96% --width 96% -y 4% -x 2% -- broot'"
