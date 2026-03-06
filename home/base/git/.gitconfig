@@ -1,8 +1,6 @@
 [user]
    name = Jaakko Paju
    email = 36770267+JPaju@users.noreply.github.com
-[core]
-   pager = delta
 [init]
    defaultBranch = main
 [fetch]
@@ -17,6 +15,11 @@
    updateRefs = true
 [rerere]
    enabled = true
+[core]
+   pager = delta
+[pager]
+   branch = false
+   tag = false
 [log]
    abbrevCommit = true
    decorate  = true
