@@ -4,6 +4,7 @@ theme = "catppuccin_macchiato"
 # ✅ Enable git glame https://github.com/helix-editor/helix/pull/13133
 # ✅ Enable icons https://github.com/helix-editor/helix/pull/12369
 # ✅ Picker borders https://github.com/gj1118/helix#aesthetic-gradient-borders
+# ✅ Enable Noice CMD
 [editor]
 line-number = "relative"
 cursorline = true
@@ -83,6 +84,12 @@ auto-fetch = true
 [editor.lsp]
 display-progress-messages = true
 goto-reference-include-declaration = false
+
+[editor.cmdline]
+style = "popup"
+use-full-height = true
+min-popup-width = 100
+max-popup-width = 200
 
 [icons.kind]
 enabled = true
