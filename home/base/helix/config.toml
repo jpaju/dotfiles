@@ -7,7 +7,6 @@ color-modes = true
 rainbow-brackets = true
 whitespace.render = "all"
 end-of-line-diagnostics = "hint"
-bufferline = "always"
 shell = ["fish", "-c"]
 
 # Auto-completion
@@ -20,6 +19,10 @@ word-completion.trigger-length = 2
 # Width
 text-width = 120
 rulers = [120]
+
+[editor.bufferline]
+render-mode = "always"
+separator = ""
 
 [editor.cursor-shape]
 insert = "bar"
