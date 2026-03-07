@@ -1,5 +1,7 @@
 theme = "catppuccin_macchiato"
 
+# TODO
+# ✅ Enable icons https://github.com/helix-editor/helix/pull/12369
 [editor]
 line-number = "relative"
 cursorline = true
@@ -67,6 +69,22 @@ skip-levels = 1
 [editor.lsp]
 display-progress-messages = true
 goto-reference-include-declaration = false
+
+[icons.kind]
+enabled = true
+
+[icons.vcs]
+enabled = true
+
+[icons.mime]
+enabled = true
+
+[icons.diagnostic]
+enabled = true
+error = ""
+warning = " "
+info = " "
+hint = ""
 
 # ============================================ Keybinds ============================================
 [keys.insert]
