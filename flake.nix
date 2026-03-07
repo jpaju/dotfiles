@@ -19,7 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    helix.url = "github:helix-editor/helix/master";
+    helix.url = "github:gj1118/helix/master";
     llm-agents.url = "github:numtide/llm-agents.nix";
     catppuccin.url = "github:catppuccin/nix";
   };
