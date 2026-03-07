@@ -3,6 +3,7 @@ theme = "catppuccin_macchiato"
 # TODO
 # ✅ Enable git glame https://github.com/helix-editor/helix/pull/13133
 # ✅ Enable icons https://github.com/helix-editor/helix/pull/12369
+# ✅ Picker borders https://github.com/gj1118/helix#aesthetic-gradient-borders
 [editor]
 line-number = "relative"
 cursorline = true
@@ -10,6 +11,7 @@ color-modes = true
 rainbow-brackets = true
 whitespace.render = "all"
 end-of-line-diagnostics = "hint"
+rounded-corners = true
 shell = ["fish", "-c"]
 
 # Auto-completion
@@ -35,6 +37,13 @@ select = "underline"
 [editor.inline-diagnostics]
 cursor-line = "hint"
 other-lines = "disable"
+[editor.gradient-borders]
+enable = true
+thickness = 1
+direction = "horizontal"
+start-color = "#FFFFFF"
+end-color = "#FFFFFF"
+animation-speed = 0
 
 [editor.statusline]
 left = [
