@@ -1,6 +1,7 @@
 theme = "catppuccin_macchiato"
 
 # TODO
+# ✅ Enable git glame https://github.com/helix-editor/helix/pull/13133
 # ✅ Enable icons https://github.com/helix-editor/helix/pull/12369
 [editor]
 line-number = "relative"
@@ -65,6 +66,10 @@ hidden = false
 [editor.indent-guides]
 render = true
 skip-levels = 1
+
+[editor.inline-blame]
+show = "cursor-line"
+auto-fetch = true
 
 [editor.lsp]
 display-progress-messages = true
