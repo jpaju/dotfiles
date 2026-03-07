@@ -36,9 +36,6 @@ insert = "bar"
 normal = "block"
 select = "underline"
 
-[editor.inline-diagnostics]
-cursor-line = "hint"
-other-lines = "disable"
 [editor.gradient-borders]
 enable = true
 thickness = 1
@@ -82,10 +79,16 @@ skip-levels = 1
 show = "cursor-line"
 auto-fetch = true
 
+# =============================================== LSP ===============================================
 [editor.lsp]
 display-progress-messages = true
 goto-reference-include-declaration = false
 
+[editor.inline-diagnostics]
+cursor-line = "hint"
+other-lines = "disable"
+
+# =============================================== CMD ===============================================
 [editor.cmdline]
 style = "popup"
 use-full-height = true
