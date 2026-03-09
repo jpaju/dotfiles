@@ -74,6 +74,13 @@
             "git log *" = "allow";
             "git show *" = "allow";
             "git blame *" = "allow";
+            "git branch -v" = "allow";
+            "git branch -r" = "allow";
+            "git branch -a" = "allow";
+            "git branch --all" = "allow";
+            "git branch --list" = "allow";
+            "git branch --remotes" = "allow";
+            "git branch --show-current" = "allow";
           }
           // {
             "gh issue view *" = "allow";
