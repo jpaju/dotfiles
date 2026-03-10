@@ -46,6 +46,18 @@
           };
         };
 
+        mcp.datadog = {
+          type = "remote";
+          url = "https://mcp.datadoghq.eu/api/unstable/mcp-server/mcp";
+          enabled = false;
+        };
+
+        mcp.glean = {
+          type = "remote";
+          url = "https://doordash-be.glean.com/mcp/default";
+          enabled = false;
+        };
+
         plugin = [
           "@franlol/opencode-md-table-formatter@latest"
           "@mohak34/opencode-notifier@latest"
