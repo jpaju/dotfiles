@@ -54,6 +54,11 @@ hintsXRayMode.enable = true
 command = "mpls"
 args = ["--dark-mode", "--enable-emoji", "--no-auto"]
 
+[language-server.kotlin-lsp]
+command = "kotlin-lsp"
+args = ["--stdio"]
+timeout = 120
+
 [language-server.terraform-ls]
 command = "terraform-ls"
 args = ["serve", "-log-file", "/dev/null"]
