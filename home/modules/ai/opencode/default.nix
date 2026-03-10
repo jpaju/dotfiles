@@ -28,9 +28,8 @@
         exec ${llm-agents.opencode}/bin/opencode "$@"
       '';
 
-      commands = {
-        investigate-issue = ./commands/investigate-issue.md;
-      };
+      skills = ./skills;
+      commands = ./commands;
 
       settings = {
         theme = "catppuccin";
