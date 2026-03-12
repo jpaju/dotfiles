@@ -12,6 +12,7 @@
   xdg.configFile = {
     "fish/functions/git_default_branch.fish".source = ./git_default_branch.fish;
     "fish/functions/git_blame.fish".source = ./git_blame.fish;
+    "fish/functions/git_wt_rename.fish".source = ./git_wt_rename.fish;
   };
 
   programs.fish.shellAbbrs = {
@@ -42,5 +43,6 @@
     gswc = "git switch --create";
     gswm = "git switch (git_default_branch)";
     ggrep = "git log -p -G"; # Maybe try also 'git rev-list --all | xargs git grep' ?
+    gwtr = "git_wt_rename";
   };
 }
