@@ -1,5 +1,11 @@
 theme = "catppuccin_macchiato"
 
+# TODO
+# ✅ Enable git glame https://github.com/helix-editor/helix/pull/13133
+# ✅ Enable icons https://github.com/helix-editor/helix/pull/12369
+# ✅ Picker borders https://github.com/gj1118/helix#aesthetic-gradient-borders
+# ✅ Enable Noice CMD
+# ✅ Enable Noice notifications
 [editor]
 line-number = "relative"
 cursorline = true
@@ -7,7 +13,7 @@ color-modes = true
 rainbow-brackets = true
 whitespace.render = "all"
 end-of-line-diagnostics = "hint"
-bufferline = "always"
+rounded-corners = true
 shell = ["fish", "-c"]
 
 # Auto-completion
@@ -21,14 +27,22 @@ word-completion.trigger-length = 2
 text-width = 120
 rulers = [120]
 
+[editor.bufferline]
+render-mode = "always"
+separator = ""
+
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
 select = "underline"
 
-[editor.inline-diagnostics]
-cursor-line = "hint"
-other-lines = "disable"
+[editor.gradient-borders]
+enable = true
+thickness = 1
+direction = "horizontal"
+start-color = "#FFFFFF"
+end-color = "#FFFFFF"
+animation-speed = 0
 
 [editor.statusline]
 left = [
@@ -61,9 +75,53 @@ hidden = false
 render = true
 skip-levels = 1
 
+[editor.inline-blame]
+show = "cursor-line"
+auto-fetch = true
+
+# =============================================== LSP ===============================================
 [editor.lsp]
 display-progress-messages = true
 goto-reference-include-declaration = false
+
+[editor.inline-diagnostics]
+cursor-line = "hint"
+other-lines = "disable"
+
+# =============================================== CMD ===============================================
+[editor.cmdline]
+style = "popup"
+use-full-height = true
+min-popup-width = 100
+max-popup-width = 200
+
+[editor.cmdline.icons]
+search = "🔍"
+command = " "
+shell = ""
+general = "💬"
+
+# ========================================== Notifications ==========================================
+[editor.notifications]
+padding = 0
+shadow = { enable = false }
+
+# =============================================== Icons ===============================================
+[icons.kind]
+enabled = true
+
+[icons.vcs]
+enabled = true
+
+[icons.mime]
+enabled = true
+
+[icons.diagnostic]
+enabled = true
+error = ""
+warning = " "
+info = " "
+hint = ""
 
 # ============================================ Keybinds ============================================
 [keys.insert]
@@ -98,7 +156,7 @@ F = "file_picker"
 [keys.normal.space.space]
 r = ":reset-diff-change"
 w = ":sh gh_browse %{buffer_name} %{selection_line_start} %{selection_line_end}"
-b = ":sh git_blame %{buffer_name} %{cursor_line}"
+b = "blame_line"
 
 # + for LSP commands
 [keys.normal."+"]

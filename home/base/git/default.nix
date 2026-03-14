@@ -11,7 +11,6 @@
 
   xdg.configFile = {
     "fish/functions/git_default_branch.fish".source = ./git_default_branch.fish;
-    "fish/functions/git_blame.fish".source = ./git_blame.fish;
     "fish/functions/git_wt_rename.fish".source = ./git_wt_rename.fish;
   };
 
