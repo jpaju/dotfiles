@@ -30,6 +30,7 @@
     gum # CLI/TUI component library
     ncdu
     procps # On macOS includes only 'watch' command
+    serpl # Global search and replace
     sshs # SSH TUI
     tlrc # Rust TLDR client
     tokei # Count lines of code
