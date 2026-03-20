@@ -24,16 +24,24 @@
         openai_api_key = { };
         google_generative_ai_api_key = { };
         context7_api_key = { };
+      }
+      // lib.optionalAttrs config.dotfiles.wolt-tools.enable {
+        jira_api_token = { };
       };
     };
 
     # Implement the secrets interface using sops-nix backend
-    secrets = with config.sops; {
-      anthropic_api_key = secrets.anthropic_api_key.path;
-      copilot_api_key = secrets.copilot_api_key.path;
-      openai_api_key = secrets.openai_api_key.path;
-      google_generative_ai_api_key = secrets.google_generative_ai_api_key.path;
-      context7_api_key = secrets.context7_api_key.path;
-    };
+    secrets =
+      with config.sops;
+      {
+        anthropic_api_key = secrets.anthropic_api_key.path;
+        copilot_api_key = secrets.copilot_api_key.path;
+        openai_api_key = secrets.openai_api_key.path;
+        google_generative_ai_api_key = secrets.google_generative_ai_api_key.path;
+        context7_api_key = secrets.context7_api_key.path;
+      }
+      // lib.optionalAttrs config.dotfiles.wolt-tools.enable {
+        jira_api_token = config.sops.secrets.jira_api_token.path;
+      };
   };
 }

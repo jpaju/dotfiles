@@ -53,5 +53,11 @@
       description = "Path to the Context7 API key file";
       readOnly = false;
     };
+
+    jira_api_token = lib.mkOption {
+      type = lib.types.str;
+      description = "Path to the Jira API token file";
+      readOnly = false;
+    };
   };
 }

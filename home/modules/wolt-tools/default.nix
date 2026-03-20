@@ -15,7 +15,7 @@
     home.packages =
       let
         jiraWrapped = pkgs.writeShellScriptBin "jira" ''
-          export JIRA_API_TOKEN="$(op read "op://Private/7372wd5ekuqogdq3btpe7ncuyi/credential")"
+          export JIRA_API_TOKEN="$(cat ${config.secrets.jira_api_token})"
           exec ${pkgs.jira-cli-go}/bin/jira "$@"
         '';
       in
