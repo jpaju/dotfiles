@@ -9,41 +9,22 @@
   imports = [ ../../secrets/interface.nix ];
 
   config = lib.mkIf config.dotfiles.ai.enable {
-    programs.fish.shellAbbrs = {
-      oc = "opencode";
-      occ = "opencode --continue";
-    };
-
     programs.opencode = {
       enable = true;
-
-      package = pkgs.writeShellScriptBin "opencode" ''
-        export OPENCODE_DISABLE_LSP_DOWNLOAD=true
-
-        export ANTHROPIC_API_KEY="$(cat ${config.secrets.anthropic_api_key})"
-        export OPENAI_API_KEY="$(cat ${config.secrets.openai_api_key})"
-        export GOOGLE_GENERATIVE_AI_API_KEY="$(cat ${config.secrets.google_generative_ai_api_key})"
-        export CONTEXT7_API_KEY="$(cat ${config.secrets.context7_api_key})"
-
-        exec ${llm-agents.opencode}/bin/opencode "$@"
-      '';
 
       rules = ./rules.md;
       skills = ./skills;
       commands = ./commands;
 
       settings = {
-        theme = "catppuccin";
-
         share = "disabled";
         autoupdate = false;
+        theme = "catppuccin";
 
         mcp.context7 = {
           type = "remote";
           url = "https://mcp.context7.com/mcp";
-          headers = {
-            CONTEXT7_API_KEY = "{env:CONTEXT7_API_KEY}";
-          };
+          headers.CONTEXT7_API_KEY = "{env:CONTEXT7_API_KEY}";
         };
 
         mcp.datadog = {
@@ -106,6 +87,22 @@
           };
         };
       };
+
+      package = pkgs.writeShellScriptBin "opencode" ''
+        export OPENCODE_DISABLE_LSP_DOWNLOAD=true
+
+        export ANTHROPIC_API_KEY="$(cat ${config.secrets.anthropic_api_key})"
+        export OPENAI_API_KEY="$(cat ${config.secrets.openai_api_key})"
+        export GOOGLE_GENERATIVE_AI_API_KEY="$(cat ${config.secrets.google_generative_ai_api_key})"
+        export CONTEXT7_API_KEY="$(cat ${config.secrets.context7_api_key})"
+
+        exec ${llm-agents.opencode}/bin/opencode "$@"
+      '';
+    };
+
+    programs.fish.shellAbbrs = {
+      oc = "opencode";
+      occ = "opencode --continue";
     };
 
     xdg.configFile."opencode/opencode-notifier.json".text = builtins.toJSON {
