@@ -21,6 +21,10 @@
         autoupdate = false;
         theme = "catppuccin";
 
+        default_agent = "plan";
+        small_model = "anthropic/claude-haiku-4-5";
+        agent.explore.model = "anthropic/claude-haiku-4-5";
+
         mcp.context7 = {
           type = "remote";
           url = "https://mcp.context7.com/mcp";
