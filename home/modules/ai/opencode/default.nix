@@ -64,6 +64,7 @@
             "sort *" = "allow";
             "sed *" = "allow";
             "awk *" = "allow";
+            "date *" = "allow";
           }
           // {
             "git status" = "allow";
@@ -78,6 +79,7 @@
             "git branch --list" = "allow";
             "git branch --remotes" = "allow";
             "git branch --show-current" = "allow";
+            "git merge-base *" = "allow";
           }
           // {
             "gh issue view *" = "allow";
@@ -87,7 +89,17 @@
             "gh pr view *" = "allow";
             "gh pr diff *" = "allow";
             "gh pr checks *" = "allow";
+            "gh run view *" = "allow";
+            "gh run list *" = "allow";
+            "gh run watch *" = "allow";
             "gh-discussion-search *" = "allow";
+          }
+          // {
+            "jira issue list *" = "allow";
+            "jira issue view" = "allow";
+            "jira issue list" = "allow";
+            "jira epic list" = "allow";
+            "jira me" = "allow";
           };
         };
       };
