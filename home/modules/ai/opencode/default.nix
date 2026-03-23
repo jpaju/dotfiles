@@ -37,6 +37,12 @@
           enabled = false;
         };
 
+        mcp.atlassian = {
+          type = "remote";
+          url = "https://mcp.atlassian.com/v1/mcp";
+          enabled = false;
+        };
+
         mcp.glean = {
           type = "remote";
           url = "https://doordash-be.glean.com/mcp/default";
@@ -51,6 +57,12 @@
         permission = {
           edit = "ask";
           webfetch = "allow";
+          "atlassian_*" = "ask";
+          "atlassian_get*" = "allow";
+          "atlassian_search*" = "allow";
+          "atlassian_lookup*" = "allow";
+          "atlassian_fetch*" = "allow";
+          "atlassian_atlassianUserInfo" = "allow";
           bash = {
             "*" = "ask";
             "ls *" = "allow";
