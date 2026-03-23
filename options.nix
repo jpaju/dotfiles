@@ -7,10 +7,13 @@
       description = "List of browser cask names to install via Homebrew";
     };
 
+    # AI
+    ai.enable = lib.mkEnableOption "AI coding tools";
+    ai.work-mcps.enable = lib.mkEnableOption "Work-specific MCPs";
+
     # Utilities
     _1password.enable = lib.mkEnableOption "1Password password manager";
     _3dprinting.enable = lib.mkEnableOption "3D printing tools";
-    ai.enable = lib.mkEnableOption "AI coding tools";
     communication.enable = lib.mkEnableOption "Communication apps";
     karabiner.enable = lib.mkEnableOption "Karabiner-Elements";
     media.enable = lib.mkEnableOption "Media apps";

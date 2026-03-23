@@ -8,6 +8,7 @@
     # Utilities
     _1password.enable = true;
     ai.enable = true;
+    ai.work-mcps.enable = true;
     karabiner.enable = true;
     secrets.enable = true;
     terminal.enable = true;
