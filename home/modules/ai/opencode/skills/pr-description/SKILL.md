@@ -27,6 +27,8 @@ Use up to three sections depending on what the change needs. Not all sections ar
 ## Content rules
 
 - Each bullet should explain *what changed* and *why*, not implementation details
+- Describe the purpose of each change, not its internal contents or structure
+- Prefer round numbers and general terms over exact counts and parenthetical elaborations
 - Don't mention specific function names, unless specifically asked. Class names are acceptable when they add clarity
 - Don't mention test changes, import cleanups, or other mechanical follow-ups unless they represent a meaningful shift in testing strategy
 - Avoid mechanical follow-up details. Things like DI/wiring changes, import cleanups, adding tests, or configuration updates are expected parts of any change and don't need their own bullets. Only mention them if they represent a deliberate, notable decision
