@@ -1,4 +1,4 @@
-command_timeout = 750
+command_timeout = 1000
 
 # Appearance
 format = """
@@ -50,6 +50,9 @@ style = "#E2CC44 bold"
 format = "[$status]($style) "
 disabled = false
 
+[package]
+disabled = true
+
 [aws]
 symbol = '  '
 disabled = false
@@ -69,21 +72,25 @@ wolt-legacy-merchantoncall_rw = 'legacy-merchantoncall_rw'
 
 [direnv]
 disabled = false
-format = 'via [$symbol]($style)\($loaded\)'
+format = 'via [$symbol]($style) $loaded '
 style = 'bold green'
 symbol = 'direnv'
 loaded_msg = '✅'
 unloaded_msg = '❌'
 
 [docker_context]
-symbol = '🐳'
-format = 'via [$symbol]($style) '
+disabled = true
 
-[elm]
-symbol = " "
+[git_branch]
+symbol = " "
 
-[java]
-style = "red bold"
+[git_commit]
+tag_symbol = '  '
+
+[git_status]
+stashed = ""
+ahead = ' ⇡${count}'
+behind = ' ⇣${count}'
 
 [nix_shell]
 heuristic = true
@@ -91,8 +98,29 @@ symbol = ''
 unknown_msg = 'ad-hoc'
 format = 'via [$symbol $name]($style) '
 
-[package]
-disabled = true
+
+# Languages, build tools, and ecosystems
+[elm]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[gradle]
+symbol = " "
+version_format = "v$major.$minor"
+
+[java]
+symbol = " "
+version_format = "v${major}"
+style = "bold fg:#ED8B00"
+
+[nodejs]
+symbol = " "
+
+[kotlin]
+symbol = " "
+style = "bold fg:#B125EA"
 
 [python]
 symbol = ' '
