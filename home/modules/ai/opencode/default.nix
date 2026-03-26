@@ -33,6 +33,7 @@
 
       package = pkgs.writeShellScriptBin "opencode" ''
         export OPENCODE_DISABLE_LSP_DOWNLOAD=true
+        export OPENCODE_ENABLE_EXA=1
 
         export ANTHROPIC_API_KEY="$(cat ${config.secrets.anthropic_api_key})"
         export OPENAI_API_KEY="$(cat ${config.secrets.openai_api_key})"

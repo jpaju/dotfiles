@@ -8,6 +8,7 @@
     programs.opencode.settings.permission = {
       edit = "ask";
       webfetch = "allow";
+      websearch = "allow";
       bash = {
         "*" = "ask";
         "ls *" = "allow";
