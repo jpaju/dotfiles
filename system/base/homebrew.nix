@@ -28,8 +28,6 @@
 
           windowManagement = [
             "alt-tab"
-            "betterdisplay"
-            "monitorcontrol"
             "rectangle"
           ];
 
