@@ -41,6 +41,7 @@
 
     "fish/functions/yazi_picker.fish".source = ./yazi_picker.fish;
     "fish/functions/broot_picker.fish".source = ./broot_picker.fish;
+    "fish/functions/open_lazygit_floating_direnv.fish".source = ./open_lazygit_floating_direnv.fish;
 
     "helix/snippets" = {
       source = ./snippets;

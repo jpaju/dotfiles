@@ -189,7 +189,7 @@ Y = "yank_joined_to_clipboard"
 
 # <backspace> for zellij commands
 [keys.normal.backspace]
-g = ":sh 'zellij run -fc --height 96% --width 96% -y 4% -x 2% -- lazygit'"
+g = ":sh 'fish -c open_lazygit_floating_direnv'"
 d = ":sh 'zellij run -fc --height 96% --width 96% -y 4% -x 2% -- gh dash'"
 s = ":sh 'zellij run -fc --height 96% --width 96% -y 4% -x 2% -- serpl'"
 p = ''':sh 'zellij run -fc --height 84% --width 74% -y 8% -x 13% -- fish -c gh_pr_switch\ --wait-on-error''''
