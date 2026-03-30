@@ -6,6 +6,7 @@
   ];
 
   programs.git.enable = true;
+  programs.git.signing.format = "openpgp";
 
   home.file.".gitconfig".source = ./.gitconfig;
 
