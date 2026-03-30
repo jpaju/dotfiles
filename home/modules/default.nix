@@ -8,6 +8,7 @@
     ./gh
     ./ghostty
     ./go
+    ./gradle
     ./k8s
     ./kafka
     ./kotlin
