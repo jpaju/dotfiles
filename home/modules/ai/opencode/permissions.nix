@@ -9,6 +9,34 @@
       edit = "ask";
       webfetch = "allow";
       websearch = "allow";
+
+      read = {
+        "*" = "allow";
+        "*.env" = "ask";
+        "*.env.*" = "ask";
+        "*.env.example" = "allow";
+      }
+      // {
+        "*.jks" = "deny";
+        "*.key" = "deny";
+        "*.p12" = "deny";
+        "*.pem" = "deny";
+        "*.pfx" = "deny";
+        "*_dsa" = "deny";
+        "*_ecdsa" = "deny";
+        "*_ed25519" = "deny";
+        "*_rsa" = "deny";
+      }
+      // {
+        "~/.config/sops/age/*" = "deny";
+        "~/.gradle/gradle.properties" = "deny";
+        "~/.gnupg/private-keys-v1.d/*" = "deny";
+        "~/.local/share/atuin/*" = "deny";
+        "~/.local/share/fish/fish_history" = "deny";
+        "~/.sbt/.credentials" = "deny";
+        "~/.ssh/id_*" = "deny";
+      };
+
       bash = {
         "*" = "ask";
         "ls *" = "allow";
@@ -41,6 +69,8 @@
         "git show *" = "allow";
         "git stash list *" = "allow";
         "git status *" = "allow";
+        "git remote -v" = "allow";
+        "git rev-list *" = "allow";
       }
       // {
         "gh issue view *" = "allow";
