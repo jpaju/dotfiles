@@ -7,7 +7,6 @@
   config = lib.mkIf config.dotfiles.ai.enable {
     programs.opencode.settings = {
       plugin = [
-        "@franlol/opencode-md-table-formatter@latest"
         "@mohak34/opencode-notifier@latest"
       ];
     };
