@@ -1,0 +1,17 @@
+{
+  "jsonrpc": "2.0",
+  "method": "textDocument/completion",
+  "params": {
+    "context": {
+      "triggerKind": 1
+    },
+    "position": {
+      "character": 20,
+      "line": 1
+    },
+    "textDocument": {
+      "uri": "file:///Users/jaakkopaju/dotfiles/Example.kt"
+    }
+  },
+  "id": 8
+}
