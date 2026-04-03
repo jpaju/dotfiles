@@ -1,0 +1,52 @@
+{
+  "jsonrpc": "2.0",
+  "id": 8,
+  "result": {
+    "isIncomplete": true,
+    "items": [
+      {
+        "label": "foo",
+        "labelDetails": {
+          "detail": " (<root>)",
+          "description": "Int"
+        },
+        "kind": 21,
+        "sortText": "0000000000",
+        "textEdit": {
+          "newText": "",
+          "insert": {
+            "start": {
+              "line": 1,
+              "character": 20
+            },
+            "end": {
+              "line": 1,
+              "character": 20
+            }
+          },
+          "replace": {
+            "start": {
+              "line": 1,
+              "character": 20
+            },
+            "end": {
+              "line": 1,
+              "character": 20
+            }
+          }
+        },
+        "command": {
+          "title": "Apply Completion",
+          "command": "jetbrains.kotlin.completion.apply",
+          "arguments": [
+            23
+          ]
+        },
+        "data": {
+          "KotlinCompletionItemKey": 23,
+          "configurationEntryId": "KotlinCompletionProvider"
+        }
+      }
+    ]
+  }
+}
