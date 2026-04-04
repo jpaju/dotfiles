@@ -81,6 +81,7 @@ auto-fetch = true
 
 # =============================================== LSP ===============================================
 [editor.lsp]
+auto-document-highlight = true
 display-progress-messages = true
 goto-reference-include-declaration = false
 
