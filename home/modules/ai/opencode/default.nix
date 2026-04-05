@@ -10,7 +10,7 @@
     ../../secrets/interface.nix
     ./mcps
     ./permissions.nix
-    ./plugins.nix
+    ./plugins
   ];
 
   config = lib.mkIf config.dotfiles.ai.enable {
