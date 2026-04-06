@@ -11,6 +11,15 @@ const REDIRECTS: Redirect[] = [
   { forbidden: "cat", alternative: "Read" },
 ];
 
+// ==================================== Bypass ======================================
+
+const BYPASS_ENV_VAR = "OC_BYPASS_TOOL_REDIRECT";
+const BYPASS_PATTERN = new RegExp(`^${BYPASS_ENV_VAR}=".+"`);
+
+/** Check if the command line starts with OC_BYPASS_TOOL_REDIRECT="<non-empty reason>" */
+const hasBypass = (commandLine: string): boolean =>
+  BYPASS_PATTERN.test(commandLine.trim());
+
 // ================================= Command parsing =================================
 
 const SHELL_OPERATORS = /\||&&|\|\||;|\n/;
@@ -48,17 +57,24 @@ const buildErrorMessage = (redirects: Redirect[]): string => {
     .map((r) => `\`${r.forbidden}\` → use the ${r.alternative} tool`)
     .join(", ");
 
-  return `Forbidden: ${violations}. Only fall back to bash when built-in tools lack the capability.`;
+  return [
+    `Forbidden: ${violations}.`,
+    `Use the built-in tool instead. Only fall back to bash when the built-in tool cannot do the job (e.g. complex piped transformations, find -exec).`,
+    `To bypass, prefix the command with ${BYPASS_ENV_VAR}="<reason>", e.g.: ${BYPASS_ENV_VAR}="need find -exec for batch rename" find . -name '*.tmp' -exec rm {} +`,
+  ].join("\n");
 };
 
 export const BuiltinToolRedirect: Plugin = async () => ({
   "tool.execute.before": async (input, output) => {
     if (input.tool !== "bash") return;
 
-    const redirects = findRedirects(output.args.command);
+    const commandLine: string = output.args.command;
+
+    if (hasBypass(commandLine)) return;
+
+    const redirects = findRedirects(commandLine);
     if (redirects.length === 0) return;
 
-    const message = buildErrorMessage(redirects);
-    throw new Error(message);
+    throw new Error(buildErrorMessage(redirects));
   },
 });
