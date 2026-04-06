@@ -2,6 +2,6 @@
 {
   imports = [
     ./opencode-notifier.nix
-    ./local/builtin-tool-redirect
+    ./local/tool-redirect
   ];
 }

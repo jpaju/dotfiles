@@ -64,7 +64,7 @@ const buildErrorMessage = (redirects: Redirect[]): string => {
   ].join("\n");
 };
 
-export const BuiltinToolRedirect: Plugin = async () => ({
+export const ToolRedirect: Plugin = async () => ({
   "tool.execute.before": async (input, output) => {
     if (input.tool !== "bash") return;
 

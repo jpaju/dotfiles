@@ -5,6 +5,6 @@
 }:
 {
   config = lib.mkIf config.dotfiles.ai.enable {
-    xdg.configFile."opencode/plugins/builtin-tool-redirect.ts".source = ./plugin.ts;
+    xdg.configFile."opencode/plugins/tool-redirect.ts".source = ./plugin.ts;
   };
 }
