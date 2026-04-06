@@ -6,9 +6,11 @@ interface Redirect {
 }
 
 const REDIRECTS: Redirect[] = [
-  { forbidden: "grep", alternative: "Grep" },
-  { forbidden: "find", alternative: "Glob" },
+  { forbidden: "ls", alternative: "Read" },
   { forbidden: "cat", alternative: "Read" },
+  { forbidden: "find", alternative: "Glob" },
+  { forbidden: "grep", alternative: "Grep" },
+  { forbidden: "curl", alternative: "WebFetch" },
 ];
 
 // ==================================== Bypass ======================================
@@ -58,9 +60,9 @@ const buildErrorMessage = (redirects: Redirect[]): string => {
     .join(", ");
 
   return [
-    `Forbidden: ${violations}.`,
-    `Use the built-in tool instead. Only fall back to bash when the built-in tool cannot do the job (e.g. complex piped transformations, find -exec).`,
-    `To bypass, prefix the command with ${BYPASS_ENV_VAR}="<reason>", e.g.: ${BYPASS_ENV_VAR}="need find -exec for batch rename" find . -name '*.tmp' -exec rm {} +`,
+    `Forbidden: ${violations}. Use the built-in tool instead.`,
+    `Only fall back to bash when the built-in tool cannot do the job (e.g. complex piped transformations).`,
+    `To bypass, prefix the command with ${BYPASS_ENV_VAR}="<reason>"`,
   ].join("\n");
 };
 
