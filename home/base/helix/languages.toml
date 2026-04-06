@@ -165,9 +165,15 @@ language-servers = ["protols", "scls", "typos"]
 
 [[language]]
 name = "python"
-formatter = { command = "black", args = ["--quiet", "-"] }
 auto-format = true
-language-servers = ["pylsp", "scls", "typos"]
+language-servers = [
+  { name = "pylsp", except-features = [
+    "format", # Use ruff for formatting
+  ] },
+  "ruff",
+  "scls",
+  "typos",
+]
 
 [[language]]
 name = "scala"

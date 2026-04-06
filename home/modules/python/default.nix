@@ -7,10 +7,11 @@
 {
   config = lib.mkIf config.dotfiles.python.enable {
     home.packages = with pkgs; [
-      pyenv
-      python313Packages.python-lsp-server
-      black
+      python314Packages.python-lsp-server
+      ruff
     ];
+
+    home.file."flakes/python/flake.nix".source = ./flake.nix;
 
     programs.direnv.stdlib = ''
       # Copied from https://github.com/direnv/direnv/wiki/Python#uv
@@ -33,7 +34,5 @@
           export UV_ACTIVE=1  # or VENV_ACTIVE=1
           export VIRTUAL_ENV
       }'';
-
-    home.file."flakes/python/flake.nix".source = ./flake.nix;
   };
 }

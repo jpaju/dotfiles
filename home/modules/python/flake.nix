@@ -1,5 +1,5 @@
 {
-  description = "General flake for Python development with Python, Poetry and Black";
+  description = "General flake for Python development with Python and UV";
 
   inputs.nixpkgs.url = "github:nixos/nixpkgs";
   inputs.flake-utils.url = "github:numtide/flake-utils";
@@ -14,9 +14,8 @@
       {
         devShells.default = pkgs.mkShell {
           name = "python";
-          packages = [
-            pkgs.python3
-            pkgs.poetry
+          packages = with pkgs; [
+            uv
           ];
         };
       }

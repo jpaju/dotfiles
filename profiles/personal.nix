@@ -29,6 +29,7 @@
 
     # Programming languages
     elm.enable = true;
+    python.enable = true;
     rust.enable = true;
     scala.enable = true;
     terraform.enable = true;
