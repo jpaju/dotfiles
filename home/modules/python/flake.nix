@@ -14,9 +14,8 @@
       {
         devShells.default = pkgs.mkShell {
           name = "python";
-          packages = [
-            pkgs.python3
-            pkgs.poetry
+          packages = with pkgs; [
+            uv
           ];
         };
       }
