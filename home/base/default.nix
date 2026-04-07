@@ -35,4 +35,6 @@
     tlrc # Rust TLDR client
     tokei # Count lines of code
   ];
+
+  programs.fish.shellAbbrs.loc = "tokei";
 }

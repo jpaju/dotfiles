@@ -1,18 +1,18 @@
 { ... }:
 {
+  programs.eza = {
+    enable = true;
+    enableFishIntegration = false; # Enabling this overrides aliases such as 'll' and 'la'
+    icons = "auto";
+    git = true;
+  };
 
-  programs = {
-    eza = {
-      enable = true;
-      enableFishIntegration = false; # Enabling this overrides aliases such as 'll' and 'la'
-      icons = "auto";
-      git = true;
-    };
-
-    fish.shellAliases = {
+  programs.fish = {
+    shellAliases = {
       ll = "eza --long --group --icons --header --classify --git";
       ls = "eza --icons --header --classify";
       la = "ll --all";
     };
+    shellAbbrs.lt = "ls --tree --level 3";
   };
 }

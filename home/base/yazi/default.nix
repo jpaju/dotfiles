@@ -3,6 +3,8 @@
   catppuccin.yazi.enable = true;
   catppuccin.yazi.accent = "blue";
 
+  programs.fish.shellAbbrs.ya = "yazi";
+
   programs.yazi = {
     enable = true;
     shellWrapperName = "y";

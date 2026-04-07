@@ -10,6 +10,12 @@
   programs.fish = {
     enable = true;
 
+    shellAbbrs = {
+      reload = "exec fish";
+      rl = "exec fish";
+      utcnow = "date -u +%Y-%m-%dT%H:%M:%SZ";
+    };
+
     plugins = [
       (fishUtils.fishPlugin pkgs "autopair")
       (fishUtils.fishPlugin pkgs "done")
