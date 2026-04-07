@@ -50,6 +50,26 @@ Returns top-level PR comments and review-level comments (the summary each review
 
 **Note:** This does NOT return inline review comments (comments left on specific lines in the diff).
 
+### Create a PR
+
+```
+gh pr create --title "..." --body "$(cat <<'EOF'
+## Summary
+...
+EOF
+)"
+```
+
+Do not specify `--base` — `gh` defaults to the repo's default branch. Only set `--base` explicitly when targeting a non-default branch (e.g. stacked diffs). If unclear, ask the user.
+
+### Merge a PR
+
+```
+gh pr merge <number> --squash --delete-branch
+```
+
+Always squash merge (no merge commits). Always delete the branch after merge.
+
 ### Read inline review comments
 
 ```
