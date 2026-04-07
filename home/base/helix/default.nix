@@ -23,7 +23,6 @@
     marksman # Markdown
     mpls # Markdown preview
     nixd # Nix
-    nil # Nix
     nixfmt # Nix
     taplo # TOML
     vscode-langservers-extracted # JSON, HTML, CSS, SCSS

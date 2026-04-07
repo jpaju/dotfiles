@@ -152,7 +152,7 @@ formatter = { command = "prettier", args = [
 name = "nix"
 formatter = { command = "nixfmt", args = ["--width", "120"] }
 auto-format = true
-language-servers = ["nixd", "nil", "scls", "typos"]
+language-servers = ["nixd", "scls", "typos"]
 
 [[language]]
 name = "prisma"
