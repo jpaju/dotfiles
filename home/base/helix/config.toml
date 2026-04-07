@@ -190,9 +190,9 @@ Y = "yank_joined_to_clipboard"
 
 # <backspace> for zellij commands
 [keys.normal.backspace]
-g = ":sh 'fish -c open_lazygit_floating_direnv'"
-d = ":sh 'zellij run -fc --height 96% --width 96% -y 4% -x 2% -- gh dash'"
-s = ":sh 'zellij run -fc --height 96% --width 96% -y 4% -x 2% -- serpl'"
-p = ''':sh 'zellij run -fc --height 84% --width 74% -y 8% -x 13% -- fish -c gh_pr_switch\ --wait-on-error''''
-f = ''':sh 'zellij run -fc --height 96% --width 96% -y 4% -x 2% -- fish -c "yazi_picker open %{buffer_name}"''''
-F = ''':sh 'zellij run -fc --height 96% --width 96% -y 4% -x 2% -- fish -c "broot_picker open %{buffer_name}"''''
+g = ''':sh 'fish -c open_lazygit_floating_direnv''''
+d = ''':sh 'fish -c "zellij_float --large -- gh dash"''''
+s = ''':sh 'fish -c "zellij_float --large -- serpl"''''
+p = ''':sh 'fish -c "zellij_float --small -- gh_pr_switch --wait-on-error"''''
+f = ''':sh 'fish -c "zellij_float --large -- yazi_picker open %{buffer_name}"''''
+F = ''':sh 'fish -c "zellij_float --large -- broot_picker open %{buffer_name}"''''
