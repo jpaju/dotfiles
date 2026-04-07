@@ -46,6 +46,11 @@ const startsWith =
   (command) =>
     command.startsWith(prefix);
 
+const containsFlag =
+  (flag: string): Matcher =>
+  (command) =>
+    command.includes(flag);
+
 const findRedirects = (commandLine: string): Redirect[] => {
   const commands = splitCommands(commandLine).map(stripPathPrefix);
   return REDIRECTS.filter((redirect) => commands.some((cmd) => redirect.matches(cmd)));
@@ -86,6 +91,16 @@ const REDIRECTS: Redirect[] = [
     forbidden: "cd",
     alternative: "workdir parameter on Bash tool or path parameter on Glob/Grep tools",
     matches: programIs("cd"),
+  },
+  {
+    forbidden: "man",
+    alternative: "context7 MCP",
+    matches: programIs("man"),
+  },
+  {
+    forbidden: "--help",
+    alternative: "context7 MCP",
+    matches: containsFlag("--help"),
   },
 ];
 
