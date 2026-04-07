@@ -1,30 +1,5 @@
 import type { Plugin } from "@opencode-ai/plugin";
 
-interface Redirect {
-  forbidden: string;
-  alternative: string;
-}
-
-const REDIRECTS: Redirect[] = [
-  { forbidden: "find", alternative: "Glob tool" },
-  { forbidden: "curl", alternative: "WebFetch tool" },
-  { forbidden: "git -C", alternative: "workdir parameter on Bash tool" },
-  {
-    forbidden: "cd",
-    alternative:
-      "workdir parameter on Bash tool or path parameter on Glob/Grep tools",
-  },
-];
-
-// ==================================== Bypass ======================================
-
-const BYPASS_ENV_VAR = "OC_BYPASS_TOOL_REDIRECT";
-const BYPASS_PATTERN = new RegExp(`^${BYPASS_ENV_VAR}=".+"`);
-
-/** Check if the command line starts with OC_BYPASS_TOOL_REDIRECT="<non-empty reason>" */
-const hasBypass = (commandLine: string): boolean =>
-  BYPASS_PATTERN.test(commandLine.trim());
-
 // ================================= Command parsing =================================
 
 const SHELL_OPERATORS = /\||&&|\|\||;|\n/;
@@ -34,8 +9,7 @@ const splitCommands = (commandLine: string): string[] =>
   commandLine.split(SHELL_OPERATORS).map((cmd) => cmd.trim());
 
 /** "grep foo bar.txt" → "grep" */
-const extractProgramName = (command: string): string =>
-  command.trim().split(/\s/)[0] ?? "";
+const extractProgramName = (command: string): string => command.trim().split(/\s/)[0] ?? "";
 
 /** "/usr/bin/grep foo" → "grep foo" */
 const stripPathPrefix = (command: string): string => {
@@ -44,17 +18,37 @@ const stripPathPrefix = (command: string): string => {
   return basename + command.slice(program.length);
 };
 
-// ================================ Redirect matching ================================
+// ==================================== Bypass ======================================
 
-/** Check if a command segment starts with a forbidden prefix */
-const matchesRedirect = (command: string, redirect: Redirect): boolean =>
-  command.startsWith(redirect.forbidden);
+const BYPASS_ENV_VAR = "OC_BYPASS_TOOL_REDIRECT";
+const BYPASS_PATTERN = new RegExp(`^${BYPASS_ENV_VAR}=".+"`);
+
+/** Check if the command line starts with OC_BYPASS_TOOL_REDIRECT="<non-empty reason>" */
+const hasBypass = (commandLine: string): boolean => BYPASS_PATTERN.test(commandLine.trim());
+
+// ============================= Redirects & matching ================================
+
+interface Redirect {
+  forbidden: string;
+  alternative: string;
+  matches: Matcher;
+}
+
+type Matcher = (command: string) => boolean;
+
+const programIs =
+  (programName: string): Matcher =>
+  (command) =>
+    extractProgramName(command) === programName;
+
+const startsWith =
+  (prefix: string): Matcher =>
+  (command) =>
+    command.startsWith(prefix);
 
 const findRedirects = (commandLine: string): Redirect[] => {
   const commands = splitCommands(commandLine).map(stripPathPrefix);
-  return REDIRECTS.filter((r) =>
-    commands.some((cmd) => matchesRedirect(cmd, r)),
-  );
+  return REDIRECTS.filter((redirect) => commands.some((cmd) => redirect.matches(cmd)));
 };
 
 // ================================ Message rendering ================================
@@ -69,6 +63,31 @@ const buildErrorMessage = (redirects: Redirect[]): string => {
     `If the built-in tool cannot do the job (e.g. find -exec, complex piped transformations), prefix the command with ${BYPASS_ENV_VAR}="<reason>" to bypass.`,
   ].join("\n");
 };
+
+// ===================================== Plugin =======================================
+
+const REDIRECTS: Redirect[] = [
+  {
+    forbidden: "find",
+    alternative: "Glob tool",
+    matches: programIs("find"),
+  },
+  {
+    forbidden: "curl",
+    alternative: "WebFetch tool",
+    matches: programIs("curl"),
+  },
+  {
+    forbidden: "git -C",
+    alternative: "workdir parameter on Bash tool",
+    matches: startsWith("git -C"),
+  },
+  {
+    forbidden: "cd",
+    alternative: "workdir parameter on Bash tool or path parameter on Glob/Grep tools",
+    matches: programIs("cd"),
+  },
+];
 
 export const ToolRedirect: Plugin = async () => ({
   "tool.execute.before": async (input, output) => {
