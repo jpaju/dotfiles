@@ -29,7 +29,6 @@
     vscode-langservers-extracted # JSON, HTML, CSS, SCSS
     yaml-language-server # YAML
     prettier # JS, TS, HTML, CSS, YAML, Markdown
-    jdt-language-server # Java
     lua-language-server # Lua
   ];
 

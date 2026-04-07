@@ -13,7 +13,6 @@ abbr --add nti 'pnpm run test:integration'
 abbr --add nv  'pnpm --version'
 
 # Misc
-abbr --add jps              'jps -lm'
 abbr --add loc              'tokei --num-format underscores'
 abbr --add lt               'ls --tree --level 3'
 abbr --add reload           'exec fish'

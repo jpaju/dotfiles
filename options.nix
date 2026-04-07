@@ -37,6 +37,7 @@
     elm.enable = lib.mkEnableOption "Elm tools";
     go.enable = lib.mkEnableOption "Go tools";
     gradle.enable = lib.mkEnableOption "Gradle build tools";
+    java.enable = lib.mkEnableOption "Java/JVM tools";
     kotlin.enable = lib.mkEnableOption "Kotlin tools";
     python.enable = lib.mkEnableOption "Python tools";
     rust.enable = lib.mkEnableOption "Rust tools";

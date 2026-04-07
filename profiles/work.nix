@@ -27,6 +27,7 @@
     # Programming languages
     go.enable = true;
     gradle.enable = true;
+    java.enable = true;
     kotlin.enable = true;
     python.enable = true;
     scala.enable = true;
