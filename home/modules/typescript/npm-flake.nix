@@ -13,8 +13,11 @@
       in
       {
         devShells.default = pkgs.mkShell {
-          name = "npm/node";
-          packages = [ pkgs.nodejs_20 ];
+          name = "pnpm/node";
+          packages = [
+            pkgs.nodejs_24
+            pkgs.pnpm
+          ];
         };
       }
     );
