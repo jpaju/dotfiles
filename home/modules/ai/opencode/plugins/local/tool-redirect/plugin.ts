@@ -62,7 +62,7 @@ const buildErrorMessage = (redirects: Redirect[]): string => {
   const violations = redirects.map((r) => `\`${r.label}\` → use the ${r.alternative}`).join(", ");
 
   return [
-    `Forbidden: ${violations}.`,
+    `Blocked: ${violations}.`,
     `If the built-in tool cannot do the job (e.g. find -exec, complex piped transformations), prefix the command with ${BYPASS_ENV_VAR}="<reason>" to bypass.`,
   ].join("\n");
 };
@@ -81,22 +81,22 @@ const REDIRECTS: Redirect[] = [
     alternative: "WebFetch tool",
   },
   {
-    label: "git -C",
+    label: "git -C <path> <cmd>",
     matches: startsWith("git -C"),
-    alternative: "workdir parameter on Bash tool",
+    alternative: "Bash tool with workdir parameter (`git <cmd>`)",
   },
   {
     label: "cd",
     matches: programIs("cd"),
-    alternative: "workdir parameter on Bash tool or path parameter on Glob/Grep tools",
+    alternative: "workdir/path parameters on Bash, Glob, or Grep tools",
   },
   {
-    label: "man",
+    label: "man <cmd>",
     matches: programIs("man"),
     alternative: "context7 MCP",
   },
   {
-    label: "--help",
+    label: "<cmd> --help",
     matches: containsFlag("--help"),
     alternative: "context7 MCP",
   },
