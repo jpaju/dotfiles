@@ -29,9 +29,9 @@ const hasBypass = (commandLine: string): boolean => BYPASS_PATTERN.test(commandL
 // ============================= Redirects & matching ================================
 
 interface Redirect {
-  forbidden: string;
-  alternative: string;
+  label: string;
   matches: Matcher;
+  alternative: string;
 }
 
 type Matcher = (command: string) => boolean;
@@ -59,9 +59,7 @@ const findRedirects = (commandLine: string): Redirect[] => {
 // ================================ Message rendering ================================
 
 const buildErrorMessage = (redirects: Redirect[]): string => {
-  const violations = redirects
-    .map((r) => `\`${r.forbidden}\` → use the ${r.alternative}`)
-    .join(", ");
+  const violations = redirects.map((r) => `\`${r.label}\` → use the ${r.alternative}`).join(", ");
 
   return [
     `Forbidden: ${violations}.`,
@@ -69,38 +67,38 @@ const buildErrorMessage = (redirects: Redirect[]): string => {
   ].join("\n");
 };
 
-// ===================================== Plugin =======================================
+// ================================= Plugin & config ===================================
 
 const REDIRECTS: Redirect[] = [
   {
-    forbidden: "find",
-    alternative: "Glob tool",
+    label: "find",
     matches: programIs("find"),
+    alternative: "Glob tool",
   },
   {
-    forbidden: "curl",
-    alternative: "WebFetch tool",
+    label: "curl",
     matches: programIs("curl"),
+    alternative: "WebFetch tool",
   },
   {
-    forbidden: "git -C",
-    alternative: "workdir parameter on Bash tool",
+    label: "git -C",
     matches: startsWith("git -C"),
+    alternative: "workdir parameter on Bash tool",
   },
   {
-    forbidden: "cd",
-    alternative: "workdir parameter on Bash tool or path parameter on Glob/Grep tools",
+    label: "cd",
     matches: programIs("cd"),
+    alternative: "workdir parameter on Bash tool or path parameter on Glob/Grep tools",
   },
   {
-    forbidden: "man",
-    alternative: "context7 MCP",
+    label: "man",
     matches: programIs("man"),
+    alternative: "context7 MCP",
   },
   {
-    forbidden: "--help",
-    alternative: "context7 MCP",
+    label: "--help",
     matches: containsFlag("--help"),
+    alternative: "context7 MCP",
   },
 ];
 
