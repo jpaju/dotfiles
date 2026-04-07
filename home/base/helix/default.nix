@@ -35,12 +35,12 @@
     "helix/config.toml".source = ./config.toml;
     "helix/languages.toml".source = ./languages.toml;
     "helix/ignore".source = ./ignore;
-    "helix/broot-picker.hjson".source = ./broot-picker.hjson;
+    "helix/broot-picker.hjson".source = ./functions/broot-picker.hjson;
 
-    "fish/functions/zellij_float.fish".source = ./zellij_float.fish;
-    "fish/functions/yazi_picker.fish".source = ./yazi_picker.fish;
-    "fish/functions/broot_picker.fish".source = ./broot_picker.fish;
-    "fish/functions/open_lazygit_floating_direnv.fish".source = ./open_lazygit_floating_direnv.fish;
+    "fish/functions/zellij_float.fish".source = ./functions/zellij_float.fish;
+    "fish/functions/yazi_picker.fish".source = ./functions/yazi_picker.fish;
+    "fish/functions/broot_picker.fish".source = ./functions/broot_picker.fish;
+    "fish/functions/open_lazygit_floating_direnv.fish".source = ./functions/open_lazygit_floating_direnv.fish;
 
     "helix/snippets" = {
       source = ./snippets;
