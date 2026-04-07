@@ -1,6 +1,6 @@
 ---
 name: pr-description
-description: Write a concise PR description based on the diff against the base branch
+description: Always load when writing or reviewing PR titles and descriptions
 ---
 
 ## Process
@@ -23,6 +23,8 @@ Use up to three sections depending on what the change needs. Not all sections ar
 - **Summary**: A few sentences explaining what this PR does and why. Always include this. Keep it short. If the change is simple enough, this alone may be sufficient.
 - **Context**: Background information the reviewer needs to understand the problem. Use this when the motivation is not obvious from the summary alone. For example: a bug that is hard to understand without explaining the previous behavior, or a refactor driven by a specific pain point.
 - **Changes**: A bullet list of the concrete changes. Use this when the PR touches multiple things and a list helps the reviewer navigate. Skip it for single purpose PRs where the summary already covers everything.
+
+Only use section headings when there are multiple sections. If the body is just a summary, write it as plain text without a heading.
 
 ## Content rules
 
