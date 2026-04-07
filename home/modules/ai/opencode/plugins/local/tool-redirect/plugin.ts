@@ -6,11 +6,14 @@ interface Redirect {
 }
 
 const REDIRECTS: Redirect[] = [
-  { forbidden: "ls", alternative: "Read" },
-  { forbidden: "cat", alternative: "Read" },
-  { forbidden: "find", alternative: "Glob" },
-  { forbidden: "grep", alternative: "Grep" },
-  { forbidden: "curl", alternative: "WebFetch" },
+  { forbidden: "find", alternative: "Glob tool" },
+  { forbidden: "curl", alternative: "WebFetch tool" },
+  { forbidden: "git -C", alternative: "workdir parameter on Bash tool" },
+  {
+    forbidden: "cd",
+    alternative:
+      "workdir parameter on Bash tool or path parameter on Glob/Grep tools",
+  },
 ];
 
 // ==================================== Bypass ======================================
@@ -26,7 +29,7 @@ const hasBypass = (commandLine: string): boolean =>
 
 const SHELL_OPERATORS = /\||&&|\|\||;|\n/;
 
-/** "cat file.txt | grep foo" → ["cat file.txt", "grep foo"] */
+/** "cat file.txt | grep foo && ls" → ["cat file.txt", "grep foo", "ls"] */
 const splitCommands = (commandLine: string): string[] =>
   commandLine.split(SHELL_OPERATORS).map((cmd) => cmd.trim());
 
@@ -34,49 +37,47 @@ const splitCommands = (commandLine: string): string[] =>
 const extractProgramName = (command: string): string =>
   command.trim().split(/\s/)[0] ?? "";
 
-/** "/usr/bin/grep" → "grep" */
-const stripPathPrefix = (programPath: string): string =>
-  programPath.split("/").pop() ?? "";
-
-/** "cat file.txt | /usr/bin/grep foo && ls" → ["cat", "grep", "ls"] */
-const extractProgramNames = (commandLine: string): string[] =>
-  splitCommands(commandLine)
-    .map(extractProgramName)
-    .map(stripPathPrefix)
-    .filter(Boolean);
+/** "/usr/bin/grep foo" → "grep foo" */
+const stripPathPrefix = (command: string): string => {
+  const program = extractProgramName(command);
+  const basename = program.split("/").pop() ?? "";
+  return basename + command.slice(program.length);
+};
 
 // ================================ Redirect matching ================================
 
+/** Check if a command segment starts with a forbidden prefix */
+const matchesRedirect = (command: string, redirect: Redirect): boolean =>
+  command.startsWith(redirect.forbidden);
+
 const findRedirects = (commandLine: string): Redirect[] => {
-  const names = extractProgramNames(commandLine);
-  return REDIRECTS.filter((r) => names.includes(r.forbidden));
+  const commands = splitCommands(commandLine).map(stripPathPrefix);
+  return REDIRECTS.filter((r) =>
+    commands.some((cmd) => matchesRedirect(cmd, r)),
+  );
 };
 
 // ================================ Message rendering ================================
 
 const buildErrorMessage = (redirects: Redirect[]): string => {
   const violations = redirects
-    .map((r) => `\`${r.forbidden}\` → use the ${r.alternative} tool`)
+    .map((r) => `\`${r.forbidden}\` → use the ${r.alternative}`)
     .join(", ");
 
   return [
-    `Forbidden: ${violations}. Use the built-in tool instead.`,
-    `Only fall back to bash when the built-in tool cannot do the job (e.g. complex piped transformations).`,
-    `To bypass, prefix the command with ${BYPASS_ENV_VAR}="<reason>"`,
+    `Forbidden: ${violations}.`,
+    `If the built-in tool cannot do the job (e.g. find -exec, complex piped transformations), prefix the command with ${BYPASS_ENV_VAR}="<reason>" to bypass.`,
   ].join("\n");
 };
 
 export const ToolRedirect: Plugin = async () => ({
   "tool.execute.before": async (input, output) => {
     if (input.tool !== "bash") return;
+    if (hasBypass(output.args.command)) return;
 
-    const commandLine: string = output.args.command;
+    const redirects = findRedirects(output.args.command);
 
-    if (hasBypass(commandLine)) return;
-
-    const redirects = findRedirects(commandLine);
     if (redirects.length === 0) return;
-
-    throw new Error(buildErrorMessage(redirects));
+    else throw new Error(buildErrorMessage(redirects));
   },
 });
