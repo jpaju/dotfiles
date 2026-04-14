@@ -1,6 +1,9 @@
 { ... }:
 {
   programs.lazygit.enable = true;
+  programs.lazygit.enableFishIntegration = false;
+  programs.fish.shellAbbrs.lg = "lazygit";
+
   programs.lazygit.settings = {
     promptToReturnFromSubprocess = false;
 
