@@ -28,6 +28,7 @@
   #  - https://docs.github.com/en/graphql/guides/using-the-graphql-api-for-discussions
   home.packages = [
     (pkgs.writeShellScriptBin "gh-discussion-search" (builtins.readFile ./gh-discussion-search.sh))
+    (pkgs.writeShellScriptBin "gh-pr-inline-comments" (builtins.readFile ./gh-pr-inline-comments.sh))
   ];
 
   xdg.configFile = {

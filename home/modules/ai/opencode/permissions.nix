@@ -85,6 +85,7 @@
         "gh run list *" = "allow";
         "gh run watch *" = "allow";
         "gh-discussion-search *" = "allow";
+        "gh-pr-inline-comments *" = "allow";
       };
     };
   };

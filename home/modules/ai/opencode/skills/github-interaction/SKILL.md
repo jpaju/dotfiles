@@ -73,17 +73,10 @@ Always squash merge (no merge commits). Always delete the branch after merge.
 ### Read inline review comments
 
 ```
-gh api repos/{owner}/{repo}/pulls/{number}/comments --jq '.[] | {path: .path, line: .line, body: .body, user: .user.login, id: .id, in_reply_to_id: .in_reply_to_id}'
+gh-pr-inline-comments <owner/repo> <pr-number>
 ```
 
-This is the only way to get inline/diff review comments. The `--jq` filter extracts the most useful fields:
-
-- `path` — file the comment is on
-- `line` — line number in the diff
-- `body` — comment text
-- `user` — author username
-- `id` — comment ID
-- `in_reply_to_id` — parent comment ID for threaded replies (null if top-level)
+Returns inline/diff review comments grouped by file with author and line number.
 
 ## Workflow runs
 
