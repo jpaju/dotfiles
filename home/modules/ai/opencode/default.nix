@@ -27,8 +27,7 @@
         theme = "catppuccin";
 
         default_agent = "plan";
-        small_model = "anthropic/claude-haiku-4-5";
-        agent.explore.model = "anthropic/claude-haiku-4-5";
+        agent.explore.model = "anthropic/claude-sonnet-4-6";
       };
 
       package = pkgs.writeShellScriptBin "opencode" ''
