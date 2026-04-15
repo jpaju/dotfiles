@@ -3,6 +3,7 @@
   imports = [
     ./delta.nix
     ./lazygit.nix
+    ./lumen.nix
   ];
 
   programs.git.enable = true;

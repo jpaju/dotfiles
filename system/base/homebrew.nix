@@ -13,7 +13,12 @@
       onActivation.cleanup = "zap";
       caskArgs.no_quarantine = true;
 
-      taps = [ "pakerwreah/calendr" ];
+      taps = [
+        "jnsahaj/lumen"
+        "pakerwreah/calendr"
+      ];
+
+      brews = [ "lumen" ];
 
       casks =
         let
