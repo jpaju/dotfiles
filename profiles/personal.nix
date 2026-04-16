@@ -15,6 +15,7 @@
     _3dprinting.enable = true;
     ai.enable = true;
     communication.enable = true;
+    google.enable = true;
     karabiner.enable = true;
     media.enable = true;
     remote-access.enable = true;

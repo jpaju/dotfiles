@@ -9,6 +9,7 @@
   helix,
   catppuccin,
   llm-agents,
+  gws,
   fishUtils,
   config,
   ...
@@ -35,6 +36,7 @@
         helix
         catppuccin
         llm-agents
+        gws
         fishUtils
         ;
     };
