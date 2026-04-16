@@ -41,6 +41,7 @@
         "*" = "ask";
         "ls *" = "allow";
         "wc *" = "allow";
+        "man" = "allow";
         "pwd" = "allow";
         "head *" = "allow";
         "tail *" = "allow";
@@ -51,11 +52,14 @@
         "sed *" = "allow";
         "awk *" = "allow";
         "date *" = "allow";
+        "stat *" = "allow";
+        "which *" = "allow";
       }
       // {
         "git bisect bad *" = "allow";
         "git bisect good *" = "allow";
         "git blame *" = "allow";
+        "git branch" = "allow";
         "git branch --all" = "allow";
         "git branch --list" = "allow";
         "git branch --remotes" = "allow";
@@ -86,6 +90,15 @@
         "gh run watch *" = "allow";
         "gh-discussion-search *" = "allow";
         "gh-pr-inline-comments *" = "allow";
+      }
+      // {
+        "gws schema *" = "allow";
+        "gws gmail +triage" = "allow";
+        "gws calendar +agenda" = "allow";
+        "gws calendar events list *" = "allow";
+        "gws people people searchDirectoryPeople *" = "allow";
+        "gws meet conferenceRecords list *" = "allow";
+        "gws meet conferenceRecords participants list *" = "allow";
       };
     };
   };
