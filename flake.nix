@@ -22,6 +22,7 @@
     helix.url = "github:gj1118/helix/master";
     llm-agents.url = "github:numtide/llm-agents.nix";
     catppuccin.url = "github:catppuccin/nix";
+    gws.url = "github:googleworkspace/cli";
   };
 
   outputs =
@@ -44,6 +45,7 @@
       homeStateVersion = "23.11";
 
       llm-agents = inputs.llm-agents.packages.${system};
+      gws = inputs.gws.packages.${system}.default;
       fishUtils = import "${self}/util/fish.nix";
 
       specialArgs = {
@@ -59,6 +61,7 @@
           helix
           catppuccin
           llm-agents
+          gws
           fishUtils
           ;
       };

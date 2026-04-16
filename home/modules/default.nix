@@ -7,6 +7,7 @@
     ./elm
     ./gh
     ./ghostty
+    ./google
     ./go
     ./gradle
     ./java

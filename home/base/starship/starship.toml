@@ -81,6 +81,9 @@ unloaded_msg = '❌'
 [docker_context]
 disabled = true
 
+[gcloud]
+disabled = true
+
 [git_branch]
 symbol = " "
 

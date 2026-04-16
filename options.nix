@@ -15,6 +15,7 @@
     _1password.enable = lib.mkEnableOption "1Password password manager";
     _3dprinting.enable = lib.mkEnableOption "3D printing tools";
     communication.enable = lib.mkEnableOption "Communication apps";
+    google.enable = lib.mkEnableOption "Google Workspace CLI";
     karabiner.enable = lib.mkEnableOption "Karabiner-Elements";
     media.enable = lib.mkEnableOption "Media apps";
     remote-access.enable = lib.mkEnableOption "Remote access tools";
