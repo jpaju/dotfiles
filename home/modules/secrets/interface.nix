@@ -54,6 +54,12 @@
       readOnly = false;
     };
 
+    rootly_api_key = lib.mkOption {
+      type = lib.types.str;
+      description = "Path to the Rootly API key file";
+      readOnly = false;
+    };
+
     jira_api_token = lib.mkOption {
       type = lib.types.str;
       description = "Path to the Jira API token file";

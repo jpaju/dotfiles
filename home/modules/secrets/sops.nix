@@ -25,6 +25,9 @@
         google_generative_ai_api_key = { };
         context7_api_key = { };
       }
+      // lib.optionalAttrs config.dotfiles.ai.work-mcps.enable {
+        rootly_api_key = { };
+      }
       // lib.optionalAttrs config.dotfiles.wolt-tools.enable {
         jira_api_token = { };
       };
@@ -39,6 +42,9 @@
         openai_api_key = secrets.openai_api_key.path;
         google_generative_ai_api_key = secrets.google_generative_ai_api_key.path;
         context7_api_key = secrets.context7_api_key.path;
+      }
+      // lib.optionalAttrs config.dotfiles.ai.work-mcps.enable {
+        rootly_api_key = config.sops.secrets.rootly_api_key.path;
       }
       // lib.optionalAttrs config.dotfiles.wolt-tools.enable {
         jira_api_token = config.sops.secrets.jira_api_token.path;
