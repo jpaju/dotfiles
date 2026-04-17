@@ -7,6 +7,7 @@
     ./btop.nix
     ./catppuccin.nix
     ./direnv
+    ./duckdb
     ./eza.nix
     ./fish
     ./fzf.nix
