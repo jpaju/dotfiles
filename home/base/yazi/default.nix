@@ -10,18 +10,13 @@
     shellWrapperName = "y";
     initLua = ./init.lua;
 
-    plugins = with pkgs.yaziPlugins; {
-      piper = piper;
-      git = git;
-      vcs-files = vcs-files;
-      chmod = chmod;
-      starship = starship;
+    plugins = {
+      inherit (pkgs.yaziPlugins)
+        git
+        chmod
+        piper
+        ;
     };
-
-    extraPackages = with pkgs; [
-      glow
-      eza
-    ];
 
     settings = {
       mgr = {
@@ -37,24 +32,26 @@
       plugin.prepend_fetchers = [
         {
           id = "git";
-          name = "*";
+          url = "*";
           run = "git";
+          group = "git";
         }
         {
           id = "git";
-          name = "*/";
+          url = "*/";
           run = "git";
+          group = "git";
         }
       ];
 
       plugin.prepend_previewers = [
         {
-          name = "*.md";
+          url = "*.md";
           run = ''piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"'';
         }
         {
-          name = "*/";
-          run = ''piper --  eza --tree --level=3 --color=always --icons=always --group-directories-first --no-quotes --long --git --all --header "$1"'';
+          url = "*/";
+          run = ''piper --  eza --tree --level=2 --color=always --icons=always --group-directories-first "$1"'';
         }
       ];
     };
@@ -69,14 +66,6 @@
       ];
 
       mgr.prepend_keymap = [
-        {
-          on = [
-            "g"
-            "c"
-          ];
-          run = "plugin vcs-files";
-          desc = "Show Git file changes";
-        }
         {
           on = [
             "c"
