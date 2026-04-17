@@ -38,6 +38,9 @@
         export OPENAI_API_KEY="$(cat ${config.secrets.openai_api_key})"
         export GOOGLE_GENERATIVE_AI_API_KEY="$(cat ${config.secrets.google_generative_ai_api_key})"
         export CONTEXT7_API_KEY="$(cat ${config.secrets.context7_api_key})"
+        ${lib.optionalString config.dotfiles.ai.work-mcps.enable ''
+          export ROOTLY_API_KEY="$(cat ${config.secrets.rootly_api_key})"
+        ''}
 
         exec ${llm-agents.opencode}/bin/opencode "$@"
       '';
