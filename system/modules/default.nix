@@ -12,6 +12,5 @@
     ./mongodb.nix
     ./remote-access.nix
     ./wezterm
-    ./wolt-tools.nix
   ];
 }
