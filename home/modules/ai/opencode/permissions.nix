@@ -60,13 +60,14 @@
         "git bisect good *" = "allow";
         "git blame *" = "allow";
         "git branch" = "allow";
-        "git branch --all" = "allow";
-        "git branch --list" = "allow";
+        "git branch --all *" = "allow";
+        "git branch --list *" = "allow";
         "git branch --remotes" = "allow";
         "git branch --show-current" = "allow";
         "git branch -a" = "allow";
         "git branch -r" = "allow";
         "git branch -v" = "allow";
+        "git grep *" = "allow";
         "git diff *" = "allow";
         "git log *" = "allow";
         "git merge-base *" = "allow";
@@ -74,20 +75,31 @@
         "git stash list *" = "allow";
         "git status *" = "allow";
         "git remote -v" = "allow";
+        "git remote show *" = "allow";
         "git rev-list *" = "allow";
       }
       // {
-        "gh issue view *" = "allow";
+        "gh help *" = "allow";
         "gh issue list *" = "allow";
-        "gh search *" = "allow";
-        "gh repo view *" = "allow";
-        "gh pr list *" = "allow";
-        "gh pr view *" = "allow";
-        "gh pr diff *" = "allow";
+        "gh issue status *" = "allow";
+        "gh issue view *" = "allow";
+        "gh label list *" = "allow";
+        "gh org list *" = "allow";
         "gh pr checks *" = "allow";
-        "gh run view *" = "allow";
+        "gh pr diff *" = "allow";
+        "gh pr list *" = "allow";
+        "gh pr status *" = "allow";
+        "gh pr view *" = "allow";
+        "gh release list *" = "allow";
+        "gh release view *" = "allow";
+        "gh repo list *" = "allow";
+        "gh repo view *" = "allow";
         "gh run list *" = "allow";
+        "gh run view *" = "allow";
         "gh run watch *" = "allow";
+        "gh search *" = "allow";
+        "gh workflow list *" = "allow";
+        "gh workflow view *" = "allow";
         "gh-discussion-search *" = "allow";
         "gh-pr-inline-comments *" = "allow";
       }
