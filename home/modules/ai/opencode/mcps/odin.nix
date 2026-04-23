@@ -5,9 +5,9 @@
 }:
 {
   config = lib.mkIf (config.dotfiles.ai.enable && config.dotfiles.ai.work-mcps.enable) {
-    programs.opencode.settings.mcp.datadog = {
+    programs.opencode.settings.mcp.odin = {
       type = "remote";
-      url = "https://mcp.datadoghq.eu/api/unstable/mcp-server/mcp";
+      url = "https://cybertron-service-gateway-mcp.doordash.team/observability-mcp/mcp";
       enabled = false;
     };
   };
