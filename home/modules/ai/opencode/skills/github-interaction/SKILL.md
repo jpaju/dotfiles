@@ -32,14 +32,6 @@ gh pr view 3731 --json comments,reviews,reviewRequests
 
 Shows PR metadata, top-level comments, and review summaries. Supports `--json` with fields like `title`, `body`, `state`, `comments`, `reviews`, `reviewRequests`, `mergeable`, `reviewDecision`.
 
-### Check PR workflow status
-
-```
-gh pr checks <number>
-```
-
-Quick summary of all checks (CI jobs, status checks). Only shows the latest run — see "Workflow runs" section to investigate previous or failed runs.
-
 ### Read top-level comments and reviews
 
 ```
@@ -49,6 +41,19 @@ gh pr view 3731 --json comments,reviews
 Returns top-level PR comments and review-level comments (the summary each reviewer leaves when submitting a review).
 
 **Note:** This does NOT return inline review comments (comments left on specific lines in the diff).
+
+### Read inline review comments
+
+```
+gh-pr-inline-comments <owner/repo> <pr-number>
+gh-pr-inline-comments --pending <owner/repo> <pr-number>
+```
+
+Returns inline/diff review comments grouped by file with author and line number.
+
+Default mode returns submitted/public inline comments only.
+
+`--pending` returns only pending review comments for the visible pending review. This is reviewer-specific and only works when authenticated as the reviewer who can see that pending review.
 
 ### Create a PR
 
@@ -70,13 +75,13 @@ gh pr merge <number> --squash --delete-branch
 
 Always squash merge (no merge commits). Always delete the branch after merge.
 
-### Read inline review comments
+### Check PR workflow status
 
 ```
-gh-pr-inline-comments <owner/repo> <pr-number>
+gh pr checks <number>
 ```
 
-Returns inline/diff review comments grouped by file with author and line number.
+Quick summary of all checks (CI jobs, status checks). Only shows the latest run — see "Workflow runs" section to investigate previous or failed runs.
 
 ## Workflow runs
 

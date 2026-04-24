@@ -1,10 +1,18 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Usage: gh-pr-inline-comments <owner/repo> <pr-number>
+# Usage: gh-pr-inline-comments [--pending] <owner/repo> <pr-number>
+PENDING_ONLY=false
+
+if [ $# -gt 0 ] && [ "$1" = "--pending" ]; then
+  PENDING_ONLY=true
+  shift
+fi
+
 if [ $# -ne 2 ]; then
-  echo "Usage: gh-pr-inline-comments <owner/repo> <pr-number>" >&2
+  echo "Usage: gh-pr-inline-comments [--pending] <owner/repo> <pr-number>" >&2
   echo "Example: gh-pr-inline-comments my-org/my-repo 42" >&2
+  echo "         gh-pr-inline-comments --pending my-org/my-repo 42" >&2
   exit 1
 fi
 
@@ -24,12 +32,14 @@ fi
 OWNER="${REPO%/*}"
 REPO_NAME="${REPO#*/}"
 
-exec gh api "repos/$OWNER/$REPO_NAME/pulls/$PR_NUMBER/comments" --jq '
-  (map(select(.in_reply_to_id == null)) | INDEX(.id)) as $parents |
-  (map(select(.in_reply_to_id != null))) as $replies |
+JQ_FILTER='
+  . as $comments |
+  ($comments | INDEX(.id)) as $all_comments |
+  ($comments | map(select(.in_reply_to_id == null or ($all_comments[.in_reply_to_id | tostring] == null)))) as $parents |
+  ($comments | map(select(.in_reply_to_id != null and ($all_comments[.in_reply_to_id | tostring] != null)))) as $replies |
 
   [
-    $parents | to_entries[] | .value as $p | {
+    $parents[] as $p | {
       id: $p.id,
       path: $p.path,
       line: $p.line,
@@ -49,3 +59,18 @@ exec gh api "repos/$OWNER/$REPO_NAME/pulls/$PR_NUMBER/comments" --jq '
     comments: map(del(.path))
   })
 '
+
+if [ "$PENDING_ONLY" = true ]; then
+  PENDING_REVIEW_ID="$({
+    gh api "repos/$OWNER/$REPO_NAME/pulls/$PR_NUMBER/reviews" --jq 'map(select(.state == "PENDING"))[0].id // empty'
+  })"
+
+  if [ -z "$PENDING_REVIEW_ID" ]; then
+    printf '[]\n'
+    exit 0
+  fi
+
+  exec gh api "repos/$OWNER/$REPO_NAME/pulls/$PR_NUMBER/reviews/$PENDING_REVIEW_ID/comments" --jq "$JQ_FILTER"
+fi
+
+exec gh api "repos/$OWNER/$REPO_NAME/pulls/$PR_NUMBER/comments" --jq "$JQ_FILTER"
