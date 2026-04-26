@@ -17,6 +17,7 @@
     ./markdown
     ./moor.nix
     ./nix
+    ./ssh
     ./starship
     ./yazi
     ./zellij

@@ -16,6 +16,7 @@
     ai.enable = true;
     communication.enable = true;
     google.enable = true;
+    homelab.enable = true;
     karabiner.enable = true;
     media.enable = true;
     remote-access.enable = true;

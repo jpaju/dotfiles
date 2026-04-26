@@ -16,6 +16,7 @@
     _3dprinting.enable = lib.mkEnableOption "3D printing tools";
     communication.enable = lib.mkEnableOption "Communication apps";
     google.enable = lib.mkEnableOption "Google Workspace CLI";
+    homelab.enable = lib.mkEnableOption "Homelab SSH hosts";
     karabiner.enable = lib.mkEnableOption "Karabiner-Elements";
     media.enable = lib.mkEnableOption "Media apps";
     remote-access.enable = lib.mkEnableOption "Remote access tools";
