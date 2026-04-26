@@ -19,6 +19,7 @@
     homelab.enable = true;
     karabiner.enable = true;
     media.enable = true;
+    network-tools.enable = true;
     remote-access.enable = true;
     secrets.enable = true;
     terminal.enable = true;

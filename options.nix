@@ -19,6 +19,7 @@
     homelab.enable = lib.mkEnableOption "Homelab SSH hosts";
     karabiner.enable = lib.mkEnableOption "Karabiner-Elements";
     media.enable = lib.mkEnableOption "Media apps";
+    network-tools.enable = lib.mkEnableOption "Network tools";
     remote-access.enable = lib.mkEnableOption "Remote access tools";
     secrets.enable = lib.mkEnableOption "Secrets management (sops-nix)";
     terminal.enable = lib.mkEnableOption "Terminals";

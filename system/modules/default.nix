@@ -10,6 +10,7 @@
     ./kotlin.nix
     ./media.nix
     ./mongodb.nix
+    ./network-tools.nix
     ./remote-access.nix
     ./wezterm
   ];
