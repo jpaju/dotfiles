@@ -8,7 +8,7 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.hostPlatform = system;
 
-  nix.enable = true;
+  nix.enable = false; # Determinate Nix requires this to be false
   nix.package = pkgs.nix;
   nix.nixPath = [ "nixpkgs=${pkgs.path}" ];
 
@@ -41,21 +41,4 @@
   programs.zsh.enable = true;
   programs.fish.enable = true;
 
-  nix.gc =
-    let
-      nixOsSchedule = {
-        dates = "weekly";
-      };
-      darwinSchedule = {
-        interval.Weekday = 0;
-        interval.Hour = 0;
-        interval.Minute = 0;
-      };
-      gcSchedule = if pkgs.stdenv.isDarwin then darwinSchedule else nixOsSchedule;
-    in
-    {
-      automatic = true;
-      options = "--delete-older-than 30d";
-    }
-    // gcSchedule;
 }
