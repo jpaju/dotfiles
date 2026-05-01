@@ -23,6 +23,12 @@
         magnification = true;
         largesize = 70;
         tilesize = 50;
+
+        # Hot corner action
+        wvous-bl-corner = 1; # Disabled
+        wvous-br-corner = 1; # Disabled
+        wvous-tl-corner = 1; # Disabled
+        wvous-tr-corner = 1; # Disabled
       };
 
       # Menubar items
