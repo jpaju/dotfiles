@@ -11,7 +11,6 @@
       onActivation.autoUpdate = true;
       onActivation.upgrade = true;
       onActivation.cleanup = "zap";
-      caskArgs.no_quarantine = true;
 
       taps = [
         "jnsahaj/lumen"
