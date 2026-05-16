@@ -56,6 +56,22 @@
         "which *" = "allow";
       }
       // {
+        "nix --version" = "allow";
+        "nix help *" = "allow";
+        "nix search *" = "allow";
+        "nix log *" = "allow";
+        "nix flake info *" = "allow";
+        "nix flake show *" = "allow";
+        "nix flake metadata *" = "allow";
+        "nix derivation show *" = "allow";
+        "nix profile list *" = "allow";
+        "nix profile history *" = "allow";
+        "nix store ls *" = "allow";
+        "nix store cat *" = "allow";
+        "nix store info *" = "allow";
+        "nix config show *" = "allow";
+      }
+      // {
         "git bisect bad *" = "allow";
         "git bisect good *" = "allow";
         "git blame *" = "allow";
