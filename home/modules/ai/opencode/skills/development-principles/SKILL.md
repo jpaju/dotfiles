@@ -1,6 +1,6 @@
 ---
 name: development-principles
-description: Principles for software development. Load this skill for non-trivial development tasks.
+description: Principles for research, design, and implementation of software. Load at the START of non-trivial dev work, including planning, brainstorming approaches, and API design, before any code is written.
 ---
 
 # Development principles
