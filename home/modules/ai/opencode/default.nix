@@ -17,7 +17,7 @@
     programs.opencode = {
       enable = true;
 
-      rules = ./rules.md;
+      context = ./system-prompt.md;
       skills = ./skills;
       commands = ./commands;
 
