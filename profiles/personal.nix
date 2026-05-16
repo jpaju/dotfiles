@@ -12,7 +12,6 @@
 
     # Utilities
     _1password.enable = true;
-    _3dprinting.enable = true;
     ai.enable = true;
     communication.enable = true;
     google.enable = true;
@@ -38,5 +37,9 @@
     scala.enable = true;
     terraform.enable = true;
     typescript.enable = true;
+
+    # 3D printing
+    _3dprinting.slicers.enable = true;
+    _3dprinting.cad.enable = true;
   };
 }

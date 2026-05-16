@@ -13,7 +13,6 @@
 
     # Utilities
     _1password.enable = lib.mkEnableOption "1Password password manager";
-    _3dprinting.enable = lib.mkEnableOption "3D printing tools";
     communication.enable = lib.mkEnableOption "Communication apps";
     google.enable = lib.mkEnableOption "Google Workspace CLI";
     homelab.enable = lib.mkEnableOption "Homelab SSH hosts";
@@ -47,5 +46,9 @@
     scala.enable = lib.mkEnableOption "Scala tools";
     terraform.enable = lib.mkEnableOption "Terraform tools";
     typescript.enable = lib.mkEnableOption "TypeScript tools";
+
+    # 3D printing
+    _3dprinting.slicers.enable = lib.mkEnableOption "3D printing slicers";
+    _3dprinting.cad.enable = lib.mkEnableOption "CAD software";
   };
 }
