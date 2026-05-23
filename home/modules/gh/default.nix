@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  imports = [ ./gh-dash.nix ];
+
   programs.gh.enable = true;
 
   programs.fish.shellAbbrs = {
@@ -9,19 +11,7 @@
     ghprm = "gh pr merge --squash --delete-branch";
     ghrw = "gh run watch";
     ghprs = "gh_pr_switch";
-
-    ghd = "gh dash";
   };
-
-  programs.gh-dash = {
-    enable = true;
-    settings = {
-      defaults.preview.open = true;
-      defaults.preview.width = 80;
-      pager.diff = "delta";
-    };
-  };
-  catppuccin.gh-dash.enable = true;
 
   # GH CLI doesn't have support for discussions as of yet. For more information see
   #  - https://github.com/cli/cli/discussions/4212
