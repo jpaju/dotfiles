@@ -18,11 +18,6 @@
     # Load homebrew environment if on mac
     shellInit = ''
       ${if pkgs.stdenv.isDarwin then "eval (/opt/homebrew/bin/brew shellenv fish)" else ""}
-
-      # Make sure nix-daemon is running
-      if test -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish'
-        . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish'
-      end
     '';
 
     interactiveShellInit = ''

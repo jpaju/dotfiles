@@ -19,6 +19,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
+
     helix.url = "github:gj1118/helix/master";
     llm-agents.url = "github:numtide/llm-agents.nix";
     catppuccin.url = "github:catppuccin/nix";
@@ -49,6 +51,7 @@
       fishUtils = import "${self}/util/fish.nix";
 
       specialArgs = {
+        inherit inputs;
         inherit
           system
           homeStateVersion
