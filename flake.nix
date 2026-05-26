@@ -28,15 +28,7 @@
   };
 
   outputs =
-    inputs@{
-      self,
-      nix-darwin,
-      home-manager,
-      helix,
-      sops-nix,
-      catppuccin,
-      ...
-    }:
+    inputs@{ self, ... }:
     let
       system = "aarch64-darwin";
       username = "jaakkopaju";
@@ -46,25 +38,16 @@
       systemStateVersion = 4;
       homeStateVersion = "23.11";
 
-      llm-agents = inputs.llm-agents.packages.${system};
-      gws = inputs.gws.packages.${system}.default;
       fishUtils = import "${self}/util/fish.nix";
 
       specialArgs = {
-        inherit inputs;
         inherit
           system
+          inputs
           homeStateVersion
           systemStateVersion
           username
           userhome
-          nix-darwin
-          home-manager
-          sops-nix
-          helix
-          catppuccin
-          llm-agents
-          gws
           fishUtils
           ;
       };
@@ -72,14 +55,14 @@
     {
 
       darwinConfigurations = {
-        "Jaakkos-MacBook-Pro" = nix-darwin.lib.darwinSystem {
+        "Jaakkos-MacBook-Pro" = inputs.nix-darwin.lib.darwinSystem {
           inherit system;
           inherit specialArgs;
 
           modules = [ ./profiles/personal.nix ];
         };
 
-        "Wolt-MacBook-Pro" = nix-darwin.lib.darwinSystem {
+        "Wolt-MacBook-Pro" = inputs.nix-darwin.lib.darwinSystem {
           inherit system;
           inherit specialArgs;
 

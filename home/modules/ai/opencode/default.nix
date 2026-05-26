@@ -2,7 +2,8 @@
   config,
   lib,
   pkgs,
-  llm-agents,
+  inputs,
+  system,
   ...
 }:
 {
@@ -42,7 +43,7 @@
           export ROOTLY_API_KEY="$(cat ${config.secrets.rootly_api_key})"
         ''}
 
-        exec ${llm-agents.opencode}/bin/opencode "$@"
+        exec ${inputs.llm-agents.packages.${system}.opencode}/bin/opencode "$@"
       '';
     };
 

@@ -1,13 +1,13 @@
 {
   pkgs,
   system,
-  helix,
+  inputs,
   ...
 }:
 {
   programs.helix = {
     enable = true;
-    package = helix.packages.${system}.default;
+    package = inputs.helix.packages.${system}.default;
   };
 
   home.sessionVariables = {

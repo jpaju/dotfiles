@@ -1,22 +1,16 @@
 {
+  inputs,
   username,
   userhome,
   system,
   homeStateVersion,
-  nix-darwin,
-  home-manager,
-  sops-nix,
-  helix,
-  catppuccin,
-  llm-agents,
-  gws,
   fishUtils,
   config,
   ...
 }:
 {
   imports = [
-    home-manager.darwinModules.home-manager
+    inputs.home-manager.darwinModules.home-manager
     ../options.nix
     ../system
   ];
@@ -28,15 +22,10 @@
 
     extraSpecialArgs = {
       inherit
-        userhome
-        homeStateVersion
         system
-        nix-darwin
-        sops-nix
-        helix
-        catppuccin
-        llm-agents
-        gws
+        inputs
+        homeStateVersion
+        userhome
         fishUtils
         ;
     };

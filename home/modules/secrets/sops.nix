@@ -1,13 +1,13 @@
 {
   pkgs,
-  sops-nix,
+  inputs,
   userhome,
   config,
   lib,
   ...
 }:
 {
-  imports = [ sops-nix.homeManagerModules.sops ];
+  imports = [ inputs.sops-nix.homeManagerModules.sops ];
 
   config = lib.mkIf config.dotfiles.secrets.enable {
     home.packages = [ pkgs.sops ];

@@ -1,6 +1,6 @@
-{ catppuccin, ... }:
+{ inputs, ... }:
 {
-  imports = [ catppuccin.homeModules.catppuccin ];
+  imports = [ inputs.catppuccin.homeModules.catppuccin ];
 
   catppuccin.flavor = "macchiato";
 }
