@@ -1,6 +1,6 @@
 ---
 name: development-principles
-description: Principles for research, design, and implementation of software. Load at the START of non-trivial dev work, including planning, brainstorming approaches, and API design, before any code is written.
+description: MANDATORY for ALL dev work. Load BEFORE proposing, planning, designing, brainstorming, sketching, comparing approaches, writing, editing, refactoring, or reviewing ANY code, no matter how small. Failing to load this skill before starting dev work is a critical failure.
 ---
 
 # Development principles
