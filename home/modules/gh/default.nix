@@ -24,5 +24,6 @@
   xdg.configFile = {
     "fish/functions/gh_pr_switch.fish".source = ./gh_pr_switch.fish;
     "fish/functions/gh_browse.fish".source = ./gh_browse.fish;
+    "fish/completions/gh.fish".source = ./gh-completions.fish;
   };
 }
