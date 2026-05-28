@@ -26,9 +26,7 @@
         share = "disabled";
         autoupdate = false;
         theme = "catppuccin";
-
         default_agent = "plan";
-        agent.explore.model = "anthropic/claude-sonnet-4-6";
       };
 
       package = pkgs.writeShellScriptBin "opencode" ''
