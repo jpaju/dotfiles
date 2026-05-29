@@ -33,6 +33,7 @@
     gm = "git merge";
     gpl = "git pull";
     gps = "git push";
+    gpsf = "git push --force-with-lease";
     grb = "git rebase";
     grba = "git rebase --abort";
     grbc = "git rebase --continue";
