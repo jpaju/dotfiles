@@ -13,11 +13,8 @@
       onActivation.cleanup = "zap";
 
       taps = [
-        "jnsahaj/lumen"
         "pakerwreah/calendr"
       ];
-
-      brews = [ "lumen" ];
 
       casks =
         let
