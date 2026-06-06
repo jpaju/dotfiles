@@ -31,9 +31,6 @@
     conflictstyle = diff3
 [diff]
     colorMoved = default
-[delta]
-   features = decorations catppuccin-macchiato
-   line-numbers = true
 [alias]
    localprune = !git fetch --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D
 
