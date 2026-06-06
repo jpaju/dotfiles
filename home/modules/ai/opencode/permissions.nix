@@ -41,7 +41,7 @@
         "*" = "ask";
         "ls *" = "allow";
         "wc *" = "allow";
-        "man" = "allow";
+        "man *" = "allow";
         "pwd" = "allow";
         "echo *" = "allow";
         "date *" = "allow";
