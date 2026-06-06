@@ -43,17 +43,22 @@
         "wc *" = "allow";
         "man" = "allow";
         "pwd" = "allow";
-        "head *" = "allow";
-        "tail *" = "allow";
-        "grep *" = "allow";
-        "rg *" = "allow";
-        "jq *" = "allow";
-        "sort *" = "allow";
-        "sed *" = "allow";
-        "awk *" = "allow";
+        "echo *" = "allow";
         "date *" = "allow";
         "stat *" = "allow";
         "which *" = "allow";
+        "readlink *" = "allow";
+      }
+      // {
+        "head *" = "allow";
+        "tail *" = "allow";
+        "sort *" = "allow";
+        "uniq *" = "allow";
+        "grep *" = "allow";
+        "rg *" = "allow";
+        "jq *" = "allow";
+        "sed *" = "allow";
+        "awk *" = "allow";
       }
       // {
         "nix --version" = "allow";
@@ -93,6 +98,8 @@
         "git remote -v" = "allow";
         "git remote show *" = "allow";
         "git rev-list *" = "allow";
+        "git rev-parse *" = "allow";
+        "git ls-remote *" = "allow";
       }
       // {
         "gh help *" = "allow";
