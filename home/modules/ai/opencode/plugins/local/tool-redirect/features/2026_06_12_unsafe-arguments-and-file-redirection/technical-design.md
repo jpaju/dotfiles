@@ -13,68 +13,71 @@ The plugin never sees `unbash`'s types. We translate its AST into a dedicated do
 
 ## Domain model
 
-The command line is flattened into the set of concrete commands it will run, including those nested inside pipelines, lists, subshells, and command/process substitutions, because the feature inspects nested commands too.
-
-Each command is exposed as:
+The model is a small AST. A command line is flattened into the set of concrete commands it will run, including those nested inside pipelines, lists, subshells, and command/process substitutions, because the feature inspects nested commands too.
 
 ```ts
-interface ParsedCommand {
+type CommandLine = Command[];
+```
+
+A command keeps its parts structured rather than as flat strings, so rules can ask precise questions (is this a flag, what is it named, what does this redirect target).
+
+```ts
+interface Command {
   program: string; // basename, path-stripped: "/usr/bin/find" -> "find"
-  args: string[]; // argument words, in order
-  // redirect exposure: see open design decision below
+  arguments: Argument[];
+  redirects: Redirect[];
 }
 ```
 
-`program` is the path-stripped basename so that `/usr/bin/find` and `find` are treated identically (the current plugin already does this).
+`program` is the path-stripped basename so that `/usr/bin/find` and `find` are treated identically.
 
-The plugin receives the flattened list of `ParsedCommand`s and applies its rules to each.
+### Arguments
 
-### Open design decision: how to expose redirections
-
-The product requirements only ask one thing about redirection: does the command write to a real file? Everything in the allowed set (`> /dev/null`, stream redirections like `2>&1`) is safe; everything else that uses an output operator targeting a filename is unsafe.
-
-Two candidate shapes for the domain model:
-
-**Option A: collapse to a boolean.** The model classifies redirections and exposes a single flag per command:
+An argument is either a flag or an operand. Modelling the distinction lets a rule match `find -delete` (a flag) separately from `sort out.txt` (an operand written to), without re-parsing strings.
 
 ```ts
-interface ParsedCommand {
-  program: string;
-  args: string[];
-  writesToFile: boolean;
-}
+type Argument =
+  | { kind: "flag"; name: string } // "-exec", "--in-place"
+  | { kind: "operand"; value: string }; // "src/", "out.txt"
 ```
 
-The plugin never sees redirect operators or targets. Simplest, and it matches exactly what the requirements ask. The cost is that the "what counts as writing to a file" policy lives in the translation layer rather than alongside the other rules in the plugin.
+### Redirects
 
-**Option B: expose a typed redirect list.** The model surfaces a domain redirect type and lets the plugin decide:
+A redirect is an algebraic type over its operator and its target. The operator says whether it reads or writes; the target says where the data goes. Together they answer the only question the feature asks: does this write to a real file.
 
 ```ts
-interface ParsedRedirect {
-  writesOutput: boolean; // uses an output operator
-  target: RedirectTarget; // "file" | "devNull" | "stream" | ...
-}
+type Redirect = {
+  operator: RedirectOperator;
+  target: RedirectTarget;
+};
 
-interface ParsedCommand {
-  program: string;
-  args: string[];
-  redirects: ParsedRedirect[];
-}
+type RedirectOperator =
+  | "read" // <
+  | "write" // >, >|
+  | "append" // >>
+  | "writeAll" // &>, >&
+  | "appendAll" // &>>
+  | "duplicate"; // 2>&1 and friends
+
+type RedirectTarget =
+  | { kind: "file"; path: string } // a real file on disk
+  | { kind: "devNull" } // /dev/null
+  | { kind: "descriptor"; fd: number }; // an existing stream, e.g. 2>&1
 ```
 
-More flexible (the allow/deny policy for redirect targets lives with the other plugin rules), but it widens the model's surface and pushes shell-redirection nuance toward the plugin.
+This is richer than the feature strictly needs today (it only has to flag a write whose target is a `file`), but the structure keeps the model honest about what a redirect is and leaves room for the deferred cases (other `/dev/*` targets, process substitution) without reshaping it.
 
-This is the main thing to iterate on. Leaning toward Option A for simplicity unless we expect the redirect policy to grow.
+This is the main thing to iterate on: the exact set of operators and target variants, and whether this is more structure than we want.
 
 ## Parsing API
 
 A single entry point turns a command line into the domain model:
 
 ```ts
-function parseCommandLine(commandLine: string): ParsedCommand[];
+function parseCommandLine(commandLine: string): CommandLine;
 ```
 
-This is the only place that touches `unbash`. It flattens the AST and performs the translation (path-stripping, redirect classification) so that callers receive nothing but the domain model.
+This is the only place that touches `unbash`. It flattens the AST and performs the translation (path-stripping, argument and redirect classification) so that callers receive nothing but the domain model.
 
 The behaviour when the command line cannot be parsed or understood is an open question (see the requirements: fail open vs. fail closed, and how the user learns the plugin has stopped working). `unbash` is tolerant and collects parse errors rather than throwing, so the API must define what it returns in that case.
 
@@ -87,17 +90,17 @@ A rule is expressed against the domain model:
 ```ts
 interface Rule {
   label: string; // human-readable, for the block message
-  matches: (command: ParsedCommand) => boolean;
+  matches: (command: Command) => boolean;
 }
 ```
 
 with small matcher builders in domain terms:
 
-- `programWithArg(program, arg)` — e.g. `find` carrying `-exec` / `-execdir` / `-delete`, `sed` carrying `-i` / `--in-place`, `sort` carrying `-o` / `--output`.
+- `programWithFlag(program, flag)` — e.g. `find` carrying `-exec` / `-execdir` / `-delete`, `sed` carrying `-i` / `--in-place`, `sort` carrying `-o` / `--output`.
 - `programWithExtraFileOperand(program)` — the positional-write cases (`sort`, `uniq`).
-- a redirection rule derived from the chosen redirect exposure (Option A: `command.writesToFile`).
+- `writesToFile` — any redirect whose operator writes and whose target is a `file`.
 
-The plugin evaluates every parsed command against every rule; any match blocks the command line.
+The plugin evaluates every command against every rule; any match blocks the command line.
 
 ## Integration with the existing plugin
 
@@ -105,16 +108,7 @@ The `tool.execute.before` hook keeps its shape:
 
 1. Ignore non-`bash` tools.
 2. Honour the existing bypass mechanism (`OC_BYPASS_*="<reason>"` prefix).
-3. Parse the command line into `ParsedCommand`s.
+3. Parse the command line into a `CommandLine`.
 4. Evaluate rules; if any command matches a rule, throw with a message naming the violation and how to bypass.
 
 The regex helpers that drive matching today are replaced by `parseCommandLine` and the domain matchers. The bypass detection and message rendering are reused.
-
-## Testing
-
-The parsing and rules are pure functions over strings, so they are straightforward to unit test without OpenCode. Cover at least:
-
-- Each dangerous argument from the requirements table (positive and negative, including `--` end-of-options and path-prefixed programs).
-- Redirections: `> file` blocked; `>> file`, `&> file`, `>| file` blocked; `> /dev/null` and `2>&1` allowed.
-- Nesting: a dangerous command inside a pipeline, subshell, and command substitution is still detected.
-- Bypass prefix short-circuits evaluation.
