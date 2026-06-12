@@ -1,24 +1,32 @@
-# Tool redirect
+# Command safety gate
 
-An OpenCode plugin that redirects common shell commands to safer alternatives.
+An OpenCode plugin that lets agents run autonomously while staying safe.
 
-| Command  | Redirect to                                     |
-| -------- | ----------------------------------------------- |
-| `find`   | Glob tool                                       |
-| `curl`   | WebFetch tool                                   |
-| `git -C` | `workdir` parameter on Bash tool                |
-| `cd`     | `workdir` or `path` parameter on built-in tools |
-| `man`    | context7 MCP                                    |
-| `--help` | context7 MCP                                    |
+## Vision
 
-## Why
+Give agents **autonomy with safety**: let them run as freely as possible without manual oversight, while guaranteeing they cannot modify state (delete or change files, or cause other side effects) without explicit human approval.
 
-LLMs often reach for familiar shell commands even when safer built-in alternatives exist. Some shell commands can be dangerous. For example, `find -exec rm -rf` could delete files across the entire project, so they should require explicit user approval before running. With OpenCode [permissions](https://opencode.ai/docs/permissions/), you can enforce this, but every unapproved command then requires constant manual oversight.
+OpenCode already ships a [permissions](https://opencode.ai/docs/permissions/) system that decides allow/ask/deny by matching **command-prefix globs** (e.g. "`find *` is allowed"). It cannot inspect the internal structure of a command, so a command that is safe in its common form becomes dangerous through its **arguments or its redirections**, and permissions are blind to that distinction:
 
-Built-in tools are scoped to their specific purpose and cannot cause unintended side effects, so they can safely run without approval. Redirecting shell commands to their built-in equivalents lets the agent work autonomously for common operations, without requiring manual review every step of the way.
+- `find` is harmless for listing, but `find ... -exec <anything>` can run arbitrary commands.
+- `sed file` reads; `sed -i file` rewrites the file in place.
+- `cmd > /dev/null` discards output; `cmd > important.txt` overwrites a file.
 
-## How it works
+This plugin **complements** permissions; it does not replace them. Permissions stay broad and convenient (allow `find`, `sed`, `rg`, etc. outright); the plugin inspects the structure they can't see and requires approval for the dangerous variants those broad rules would otherwise let through. It only adds restrictions, and never overrides a permission `deny`.
 
-When the Bash tool is called, the plugin checks whether the command contains any redirectable programs. If it does, it blocks the execution and instructs the agent to use the built-in equivalent instead.
+## What "safe" means
 
-There are legitimate cases where built-in tools fall short, such as complex piped commands or advanced `find` chains. The plugin provides an escape hatch for those situations, allowing the agent to proceed as long as it provides an explicit reason.
+A command is **safe** (may run autonomously) when it cannot modify state:
+
+- Reading files, listing directories, searching, inspecting.
+- Writing to discard sinks such as `/dev/null`.
+- Stream redirection that does not write to a real file (e.g. redirecting stderr to stdout).
+
+A command is **unsafe** (requires manual approval) when it can modify state, whether on the local filesystem or on an external system:
+
+- Deleting or modifying files or directories.
+- Executing arbitrary sub-commands whose effects cannot be reasoned about (e.g. `find -exec`).
+- Redirecting output to a real file (truncating or appending).
+- Mutating an external datastore, e.g. a write query through `psql`.
+- Performing non-read-only operations against infrastructure, e.g. `kubectl` actions that create, modify, or delete resources.
+- Sending data over the network with a network-capable tool, e.g. `curl`.
