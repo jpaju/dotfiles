@@ -19,6 +19,8 @@ The plugin evaluates every bash command before it runs and requires explicit man
 
 **Unsafe-argument detection.** Flag a command as unsafe when it carries an argument that lets an otherwise-safe command modify state. This is usually a flag, but some commands also accept a state-modifying positional argument. This starts with the common cases below rather than an exhaustive set; further arguments can be added later.
 
+Long flags with an attached value are treated as the same flag as their separated form. For example, `sort --output=file` carries the unsafe `--output` flag. Other attached forms, such as short flags with attached values or combined short flags, are out of scope for now.
+
 | Command | Argument               | Why it is unsafe                                           |
 | ------- | ---------------------- | ---------------------------------------------------------- |
 | `find`  | `-exec`, `-execdir`    | Runs an arbitrary sub-command, including destructive ones. |
@@ -35,6 +37,8 @@ The plugin evaluates every bash command before it runs and requires explicit man
 | ---------------------- | --------------------------------- |
 | `> /dev/null`          | Discard output.                   |
 | `[n]>&m` (e.g. `2>&1`) | Redirect one stream onto another. |
+
+The `<>` operator is unsafe: it opens its target for both reading and writing and may create the file if it does not exist. Plain input redirections (`<`, `<&`) remain ignored because they cannot write to their target.
 
 **Nesting.** Both checks apply to commands nested inside pipelines and other compound constructs, not only the top-level command.
 
