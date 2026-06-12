@@ -13,7 +13,7 @@ The plugin never sees `unbash`'s types. We translate its AST into a dedicated do
 
 ## Domain model
 
-The model is a small AST. A command line is flattened into the set of concrete commands it will run, including those nested inside pipelines, lists, subshells, and command/process substitutions, because the feature inspects nested commands too.
+The model is a small AST. A command line is flattened into the set of concrete commands it will run, including those nested inside pipelines, lists, and subshells, because the feature inspects nested commands too.
 
 ```ts
 type CommandLine = Command[];
@@ -23,17 +23,17 @@ A command keeps its parts structured rather than as flat strings, so rules can a
 
 ```ts
 interface Command {
-  program: string; // basename, path-stripped: "/usr/bin/find" -> "find"
+  program: string;
   arguments: Argument[];
   redirects: Redirect[];
 }
 ```
 
-`program` is the path-stripped basename so that `/usr/bin/find` and `find` are treated identically.
+`program` is reduced to its basename so that `/usr/bin/find`, `./find`, and `find` are all treated identically; rules key on the program name, not on how it was located.
 
 ### Arguments
 
-An argument is either a flag or an operand. Modelling the distinction lets a rule match `find -delete` (a flag) separately from `sort out.txt` (an operand written to), without re-parsing strings.
+An argument is either a flag or an operand.
 
 ```ts
 type Argument =
@@ -41,9 +41,11 @@ type Argument =
   | { kind: "operand"; value: string }; // "src/", "out.txt"
 ```
 
+Each word is classified on its own. A flag that takes a separate value (`--output file.txt`) is kept as two arguments: a `flag` (`--output`) followed by an `operand` (`file.txt`). Whether the operand belongs to the flag depends on per-program knowledge the parser does not have, so a rule that cares about the pairing inspects the adjacency itself rather than relying on the parser to attach it.
+
 ### Redirects
 
-A redirect is an algebraic type over its operator and its target. The operator says whether it reads or writes; the target says where the data goes. Together they answer the only question the feature asks: does this write to a real file.
+A redirect has the literal shell operator and a target.
 
 ```ts
 type Redirect = {
@@ -51,23 +53,113 @@ type Redirect = {
   target: RedirectTarget;
 };
 
-type RedirectOperator =
-  | "read" // <
-  | "write" // >, >|
-  | "append" // >>
-  | "writeAll" // &>, >&
-  | "appendAll" // &>>
-  | "duplicate"; // 2>&1 and friends
+type RedirectOperator = ">" | ">>" | ">|" | "&>" | "&>>" | "<" | ">&" | "<&";
 
-type RedirectTarget =
-  | { kind: "file"; path: string } // a real file on disk
-  | { kind: "devNull" } // /dev/null
-  | { kind: "descriptor"; fd: number }; // an existing stream, e.g. 2>&1
+type RedirectTarget = { kind: "file"; path: string } | { kind: "descriptor"; fd: number };
 ```
 
-This is richer than the feature strictly needs today (it only has to flag a write whose target is a `file`), but the structure keeps the model honest about what a redirect is and leaves room for the deferred cases (other `/dev/*` targets, process substitution) without reshaping it.
+A `descriptor` target is an existing file descriptor (`0` stdin, `1` stdout, `2` stderr, or higher), as produced by `2>&1`; it never writes to disk.
 
-This is the main thing to iterate on: the exact set of operators and target variants, and whether this is more structure than we want.
+> Open: a redirect like `2> errs.txt` also has a _source_ file descriptor (the `2`, i.e. stderr) that this type currently drops, so `> errs.txt` and `2> errs.txt` look identical in the model. The feature does not need the source descriptor, but whether to model it for faithfulness is unresolved. Revisit.
+
+### Nested commands
+
+A command substitution (`cd $(git rev-parse --show-toplevel)`) contributes its inner command to the flattened `CommandLine`, so the inner command is inspected by every rule. The outer command sees only an opaque `operand` in its place; it does not carry the inner command's structure. This keeps a dangerous command from hiding inside `$(...)` without complicating the outer command's model.
+
+### Worked examples
+
+`/usr/bin/git status --short`
+
+```ts
+[
+  {
+    program: "git",
+    arguments: [
+      { kind: "operand", value: "status" },
+      { kind: "flag", name: "--short" },
+    ],
+    redirects: [],
+  },
+];
+```
+
+`cargo test 2>&1 | head` (a pipeline, so two commands)
+
+```ts
+[
+  {
+    program: "cargo",
+    arguments: [{ kind: "operand", value: "test" }],
+    redirects: [{ operator: ">&", target: { kind: "descriptor", fd: 1 } }],
+  },
+  {
+    program: "head",
+    arguments: [],
+    redirects: [],
+  },
+];
+```
+
+`gh repo --help > gh-help.txt`
+
+```ts
+[
+  {
+    program: "gh",
+    arguments: [
+      { kind: "operand", value: "repo" },
+      { kind: "flag", name: "--help" },
+    ],
+    redirects: [{ operator: ">", target: { kind: "file", path: "gh-help.txt" } }],
+  },
+];
+```
+
+`cargo build 2> errs.txt`
+
+```ts
+[
+  {
+    program: "cargo",
+    arguments: [{ kind: "operand", value: "build" }],
+    redirects: [{ operator: ">", target: { kind: "file", path: "errs.txt" } }],
+  },
+];
+```
+
+`npm test 2> /dev/null`
+
+```ts
+[
+  {
+    program: "npm",
+    arguments: [{ kind: "operand", value: "test" }],
+    redirects: [{ operator: ">", target: { kind: "file", path: "/dev/null" } }],
+  },
+];
+```
+
+`cd $(git rev-parse --show-toplevel)` (command substitution: outer + inner, both flattened)
+
+```ts
+[
+  {
+    program: "cd",
+    arguments: [{ kind: "operand", value: "$(git rev-parse --show-toplevel)" }],
+    redirects: [],
+  },
+  {
+    program: "git",
+    arguments: [
+      { kind: "operand", value: "rev-parse" },
+      { kind: "flag", name: "--show-toplevel" },
+    ],
+    redirects: [],
+  },
+];
+```
+
+The outer `cd` keeps the substitution as an opaque operand; the inner `git rev-parse` is flattened alongside it so rules inspect it directly.
 
 ## Parsing API
 
