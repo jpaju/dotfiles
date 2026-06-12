@@ -45,26 +45,24 @@ Each word is classified on its own. A flag that takes a separate value (`--outpu
 
 ### Redirects
 
-A redirect has the literal shell operator and a target.
+A redirect has the literal shell operator and a target. Only output operators are modelled; input redirections (`<`, `<&`) never write a file, so the feature ignores them.
 
 ```ts
+type RedirectOperator = ">" | ">>" | ">|" | "&>" | "&>>" | ">&";
+
+type Stdio = "stdin" | "stdout" | "stderr";
+
+type RedirectTarget = { kind: "file"; path: string } | { kind: "stdio"; stdio: Stdio };
+
 type Redirect = {
   operator: RedirectOperator;
   target: RedirectTarget;
 };
-
-type RedirectOperator = ">" | ">>" | ">|" | "&>" | "&>>" | "<" | ">&" | "<&";
-
-type RedirectTarget = { kind: "file"; path: string } | { kind: "descriptor"; fd: number };
 ```
 
-A `descriptor` target is an existing file descriptor (`0` stdin, `1` stdout, `2` stderr, or higher), as produced by `2>&1`; it never writes to disk.
+A `stdio` target points at one of the three standard streams (`stdin`, `stdout`, `stderr`), as produced by `2>&1` (stderr to stdout); it never writes to disk. We model it as this closed set rather than a raw file-descriptor number: the descriptors that appear in the commands this plugin inspects are the standard `0`/`1`/`2`, a number would also admit meaningless values (negative, or arbitrarily high), and naming the streams is clearer than their numeric ids. Higher descriptors opened explicitly via `exec` are out of scope.
 
-> Open: a redirect like `2> errs.txt` also has a _source_ file descriptor (the `2`, i.e. stderr) that this type currently drops, so `> errs.txt` and `2> errs.txt` look identical in the model. The feature does not need the source descriptor, but whether to model it for faithfulness is unresolved. Revisit.
-
-### Nested commands
-
-A command substitution (`cd $(git rev-parse --show-toplevel)`) contributes its inner command to the flattened `CommandLine`, so the inner command is inspected by every rule. The outer command sees only an opaque `operand` in its place; it does not carry the inner command's structure. This keeps a dangerous command from hiding inside `$(...)` without complicating the outer command's model.
+Only the redirect's target matters for the feature (does it write a real file). The source side of a redirect (e.g. the `2` in `2> errs.txt`) is intentionally not modelled.
 
 ### Worked examples
 
@@ -90,7 +88,7 @@ A command substitution (`cd $(git rev-parse --show-toplevel)`) contributes its i
   {
     program: "cargo",
     arguments: [{ kind: "operand", value: "test" }],
-    redirects: [{ operator: ">&", target: { kind: "descriptor", fd: 1 } }],
+    redirects: [{ operator: ">&", target: { kind: "stdio", stdio: "stdout" } }],
   },
   {
     program: "head",
