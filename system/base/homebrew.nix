@@ -10,7 +10,6 @@
       # When invoking homebrew with nix-darwin, perform update&upgrade packages and clean up
       onActivation.autoUpdate = true;
       onActivation.upgrade = true;
-      onActivation.cleanup = "zap";
       onActivation.extraFlags = [ "--force" ];
 
       taps = [
