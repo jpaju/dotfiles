@@ -20,7 +20,6 @@
       casks =
         let
           devTools = [
-            "cursor"
             "jetbrains-toolbox"
             "kitlangton-hex"
             "orbstack"
