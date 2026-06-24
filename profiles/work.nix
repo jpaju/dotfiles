@@ -21,7 +21,6 @@
     github.enable = true;
     k8s.enable = true;
     kafka.enable = true;
-    mongodb.enable = true;
     postgres.enable = true;
     protobuf.enable = true;
 

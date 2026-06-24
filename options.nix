@@ -30,7 +30,6 @@
     github.enable = lib.mkEnableOption "GitHub CLI tools";
     k8s.enable = lib.mkEnableOption "Kubernetes tools";
     kafka.enable = lib.mkEnableOption "Kafka tools";
-    mongodb.enable = lib.mkEnableOption "MongoDB tools";
     mqtt.enable = lib.mkEnableOption "MQTT tools";
     postgres.enable = lib.mkEnableOption "PostgreSQL tools";
     protobuf.enable = lib.mkEnableOption "Protobuf and gRPC tools";
