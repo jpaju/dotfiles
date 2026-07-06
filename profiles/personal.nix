@@ -4,7 +4,6 @@
 
   dotfiles = {
     browsers = [
-      "arc"
       "firefox"
       "google-chrome"
       "zen"
