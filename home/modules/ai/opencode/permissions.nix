@@ -11,12 +11,6 @@
       websearch = "allow";
 
       read = {
-        "*" = "allow";
-        "*.env" = "ask";
-        "*.env.*" = "ask";
-        "*.env.example" = "allow";
-      }
-      // {
         "*.jks" = "deny";
         "*.key" = "deny";
         "*.p12" = "deny";
@@ -43,10 +37,16 @@
         "wc *" = "allow";
         "man *" = "allow";
         "pwd" = "allow";
+        "cat" = "allow";
         "echo *" = "allow";
+        "diff *" = "allow";
+        "printf *" = "allow";
         "date *" = "allow";
         "stat *" = "allow";
+        "type *" = "allow";
+        "file *" = "allow";
         "which *" = "allow";
+        "strings *" = "allow";
         "readlink *" = "allow";
       }
       // {
@@ -57,6 +57,7 @@
         "grep *" = "allow";
         "rg *" = "allow";
         "jq *" = "allow";
+        "tr *" = "allow";
         "sed *" = "allow";
         "awk *" = "allow";
       }
@@ -88,18 +89,23 @@
         "git branch -a" = "allow";
         "git branch -r" = "allow";
         "git branch -v" = "allow";
+        "git cat-file *" = "allow";
+        "git config --get *" = "allow";
         "git grep *" = "allow";
         "git diff *" = "allow";
         "git log *" = "allow";
         "git merge-base *" = "allow";
         "git show *" = "allow";
         "git stash list *" = "allow";
+        "git stash show *" = "allow";
         "git status *" = "allow";
+        "git reflog show *" = "allow";
         "git remote -v" = "allow";
         "git remote show *" = "allow";
         "git rev-list *" = "allow";
         "git rev-parse *" = "allow";
         "git ls-remote *" = "allow";
+        "git ls-files *" = "allow";
       }
       // {
         "gh help *" = "allow";
