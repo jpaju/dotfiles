@@ -2,6 +2,7 @@
 {
   imports = [
     ./delta.nix
+    ./difftastic.nix
     ./lazygit.nix
   ];
 

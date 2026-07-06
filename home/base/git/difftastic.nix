@@ -1,0 +1,4 @@
+{ ... }:
+{
+  programs.difftastic.enable = true;
+}

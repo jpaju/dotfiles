@@ -17,9 +17,14 @@
 
       pagers = [
         {
+          name = "Delta";
           pager = "delta --dark --paging=never";
           colorArg = "always";
           useExternalDiffGitConfig = false;
+        }
+        {
+          name = "Difftastic";
+          externalDiffCommand = "difft --color=always --background=dark";
         }
       ];
     };
