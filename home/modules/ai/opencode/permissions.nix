@@ -11,12 +11,6 @@
       websearch = "allow";
 
       read = {
-        "*" = "allow";
-        "*.env" = "ask";
-        "*.env.*" = "ask";
-        "*.env.example" = "allow";
-      }
-      // {
         "*.jks" = "deny";
         "*.key" = "deny";
         "*.p12" = "deny";
@@ -43,11 +37,18 @@
         "wc *" = "allow";
         "man *" = "allow";
         "pwd" = "allow";
+        "cat" = "allow";
         "echo *" = "allow";
+        "diff *" = "allow";
+        "printf *" = "allow";
         "date *" = "allow";
         "stat *" = "allow";
+        "type *" = "allow";
+        "file *" = "allow";
         "which *" = "allow";
+        "strings *" = "allow";
         "readlink *" = "allow";
+        "hostname *" = "allow";
       }
       // {
         "head *" = "allow";
@@ -55,8 +56,10 @@
         "sort *" = "allow";
         "uniq *" = "allow";
         "grep *" = "allow";
+        "pgrep *" = "allow";
         "rg *" = "allow";
         "jq *" = "allow";
+        "tr *" = "allow";
         "sed *" = "allow";
         "awk *" = "allow";
       }
@@ -88,21 +91,33 @@
         "git branch -a" = "allow";
         "git branch -r" = "allow";
         "git branch -v" = "allow";
+        "git cat-file *" = "allow";
+        "git check-ignore *" = "allow";
+        "git config --get *" = "allow";
+        "git cherry *" = "allow";
         "git grep *" = "allow";
         "git diff *" = "allow";
         "git log *" = "allow";
         "git merge-base *" = "allow";
         "git show *" = "allow";
+        "git show-ref *" = "allow";
         "git stash list *" = "allow";
+        "git stash show *" = "allow";
         "git status *" = "allow";
+        "git range-diff *" = "allow";
+        "git reflog show *" = "allow";
         "git remote -v" = "allow";
         "git remote show *" = "allow";
         "git rev-list *" = "allow";
         "git rev-parse *" = "allow";
+        "git ls-files *" = "allow";
+        "git ls-tree *" = "allow";
         "git ls-remote *" = "allow";
+        "git hash-object *" = "allow";
       }
       // {
         "gh help *" = "allow";
+        "gh auth status" = "allow";
         "gh issue list *" = "allow";
         "gh issue status *" = "allow";
         "gh issue view *" = "allow";
@@ -121,6 +136,7 @@
         "gh run view *" = "allow";
         "gh run watch *" = "allow";
         "gh search *" = "allow";
+        "gh version *" = "allow";
         "gh workflow list *" = "allow";
         "gh workflow view *" = "allow";
         "gh-discussion-search *" = "allow";
@@ -129,11 +145,21 @@
       // {
         "gws schema *" = "allow";
         "gws gmail +triage" = "allow";
+        "gws docs documents get *" = "allow";
         "gws calendar +agenda" = "allow";
         "gws calendar events list *" = "allow";
         "gws people people searchDirectoryPeople *" = "allow";
         "gws meet conferenceRecords list *" = "allow";
         "gws meet conferenceRecords participants list *" = "allow";
+      }
+      // {
+        "snow sql --query *" = "allow";
+        "snow sql -q *" = "allow";
+      }
+      // {
+        "nm *" = "allow";
+        "objdump *" = "allow";
+        "shasum *" = "allow";
       };
     };
   };
