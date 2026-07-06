@@ -28,6 +28,7 @@
     aws.enable = lib.mkEnableOption "AWS tools";
     docker.enable = lib.mkEnableOption "Docker and container tools";
     github.enable = lib.mkEnableOption "GitHub CLI tools";
+    http.enable = lib.mkEnableOption "HTTP tools";
     k8s.enable = lib.mkEnableOption "Kubernetes tools";
     kafka.enable = lib.mkEnableOption "Kafka tools";
     mqtt.enable = lib.mkEnableOption "MQTT tools";

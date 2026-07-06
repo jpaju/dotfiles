@@ -10,6 +10,7 @@
     ./google
     ./go
     ./gradle
+    ./http
     ./java
     ./k8s
     ./kafka

@@ -27,7 +27,6 @@
   programs.zoxide.enable = true;
 
   home.packages = with pkgs; [
-    curlie
     entr # Watch mode for any CLI command
     gum # CLI/TUI component library
     ncdu

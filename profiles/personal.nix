@@ -25,6 +25,7 @@
     # Technologies
     docker.enable = true;
     github.enable = true;
+    http.enable = true;
     mqtt.enable = true;
     postgres.enable = true;
 
