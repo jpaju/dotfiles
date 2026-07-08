@@ -42,7 +42,6 @@
           misc = [
             "aldente"
             "appcleaner"
-            "bartender"
             "logi-options+"
             "menubarx"
             "stats"
