@@ -1,8 +1,23 @@
-function whichpane --argument-names pid --description 'Show a PID with its zellij ancestry'
-    if test -z "$pid"
-        echo "usage: whichpane <pid>" >&2
+function whichpane --description 'Show PIDs with their zellij ancestry'
+    if test (count $argv) -eq 0
+        echo "usage: whichpane <pid>..." >&2
         return 2
     end
+
+    set --local status_code 0
+    set --local first true
+    for pid in $argv
+        if test $first = true
+            set first false
+        else
+            echo
+        end
+        _whichpane_one $pid; or set status_code 1
+    end
+    return $status_code
+end
+
+function _whichpane_one --argument-names pid
     if test -z (ps -o pid= -p $pid 2>/dev/null | string trim)
         echo "whichpane: no such pid: $pid" >&2
         return 1
@@ -25,7 +40,7 @@ function whichpane --argument-names pid --description 'Show a PID with its zelli
         set --local cmd (ps -o command= -p $walk 2>/dev/null)
         set --append pids $walk
         set --append cmds $cmd
-        if string match --quiet '*zellij --server*' -- "$cmd"
+        if string match --quiet '*zellij*--server*' -- "$cmd"
             break
         end
         set walk (ps -o ppid= -p $walk 2>/dev/null | string trim)
@@ -46,10 +61,17 @@ function whichpane --argument-names pid --description 'Show a PID with its zelli
 
         set --local label (string sub --length 70 -- "$cmd")
         set --local note ''
-        if string match --quiet '*zellij --server*' -- "$cmd"
+        if string match --quiet '*zellij*--server*' -- "$cmd"
             set --local srvpath (string match --regex -- '--server\s+(\S+)' "$cmd")[2]
-            set label "zellij session: "(path basename $srvpath)
+            set --local session (path basename $srvpath)
+            set label "zellij session: $session"
             set note "  [pane=$pane]"
+            if test "$pane" != '?'
+                set --local tab (zellij --session $session action list-panes --tab --json 2>/dev/null | jq -r --argjson id $pane 'first(.[] | select((.is_plugin | not) and .id == $id)) | .tab_name' 2>/dev/null)
+                if test -n "$tab" -a "$tab" != null
+                    set note "  [tab=$tab pane=$pane]"
+                end
+            end
         else if test "$p" = "$pid"
             set note "  [cwd=$cwd]"
         end
