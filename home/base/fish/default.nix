@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ config, ... }:
 {
   imports = [ ./plugins.nix ];
 
@@ -14,11 +14,6 @@
       rl = "exec fish";
       utcnow = "date -u +%Y-%m-%dT%H:%M:%SZ";
     };
-
-    # Load homebrew environment if on mac
-    shellInit = ''
-      ${if pkgs.stdenv.isDarwin then "eval (/opt/homebrew/bin/brew shellenv fish)" else ""}
-    '';
 
     interactiveShellInit = ''
       # Load function descriptions to show them in auto-completion

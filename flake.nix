@@ -19,6 +19,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
 
     helix.url = "github:gj1118/helix/master";
