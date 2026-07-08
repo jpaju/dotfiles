@@ -72,13 +72,10 @@
         };
       };
 
-      systemModules.nix-settings = import ./system/base/nix-settings.nix;
-
       exports = {
         options = import ./options.nix;
         home = import ./home;
-        system = import ./system;
-        util = import ./util;
+        nix-settings = import ./system/base/nix-settings.nix;
       };
     };
 }
