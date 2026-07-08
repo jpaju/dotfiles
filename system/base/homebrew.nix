@@ -8,6 +8,7 @@
       onActivation.autoUpdate = false;
       onActivation.upgrade = false;
       onActivation.extraFlags = [ "--force" ];
+      onActivation.extraEnv.HOMEBREW_NO_ANALYTICS = "1";
 
       taps = [
         "pakerwreah/calendr"
