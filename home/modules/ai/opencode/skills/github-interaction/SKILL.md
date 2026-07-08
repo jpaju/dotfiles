@@ -9,6 +9,24 @@ Use the `gh` CLI to interact with GitHub. It is already installed and authentica
 
 Always prefer built-in `gh` subcommands (e.g. `gh pr view`, `gh pr list`) over `gh api`. The `gh api` command requires manual user approval for each invocation, so only use it when there is no built-in alternative.
 
+## Reading repo content without a local clone
+
+### Read a file's contents
+
+```
+https://raw.githubusercontent.com/<owner>/<repo>/<ref>/<path>
+```
+
+`<ref>` is required. Use `HEAD` to get the latest commit on the repo's default branch, or a branch name, tag, or full commit SHA to read the file as of that specific point. Fetch the URL with the `webfetch` tool.
+
+### Search for a string without downloading the whole file
+
+```
+gh search code "<query>" --repo <owner/repo> --filename <path> --json path,textMatches
+```
+
+Returns matching fragments with a few lines of surrounding context, not the whole file. Good for "does X still exist" / "what's around X" checks, especially on large files.
+
 ## PR operations
 
 ### List PRs
