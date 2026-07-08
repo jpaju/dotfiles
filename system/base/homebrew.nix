@@ -4,12 +4,9 @@
     homebrew = {
       enable = true;
 
-      # When invoking homebrew manually, dont't auto update
       global.autoUpdate = false;
-
-      # When invoking homebrew with nix-darwin, perform update&upgrade packages and clean up
-      onActivation.autoUpdate = true;
-      onActivation.upgrade = true;
+      onActivation.autoUpdate = false;
+      onActivation.upgrade = false;
       onActivation.extraFlags = [ "--force" ];
 
       taps = [
