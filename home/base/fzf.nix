@@ -3,6 +3,7 @@
   home.packages = [ pkgs.fd ];
 
   programs.fzf.enable = true;
+  programs.fzf.historyWidget.command = "";
   programs.fzf.defaultOptions =
     let
       keybindings = [ "--bind ctrl-a:toggle-all" ];
