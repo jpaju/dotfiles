@@ -5,7 +5,6 @@
     ./3dprinting.nix
     ./browsers.nix
     ./communication.nix
-    ./kafka.nix
     ./karabiner
     ./kotlin.nix
     ./media.nix
