@@ -34,6 +34,7 @@
     mqtt.enable = lib.mkEnableOption "MQTT tools";
     postgres.enable = lib.mkEnableOption "PostgreSQL tools";
     protobuf.enable = lib.mkEnableOption "Protobuf and gRPC tools";
+    snowflake.enable = lib.mkEnableOption "Snowflake tools";
 
     # Programming languages
     elm.enable = lib.mkEnableOption "Elm tools";

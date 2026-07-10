@@ -22,6 +22,7 @@
     ./rust
     ./scala
     ./secrets
+    ./snowflake
     ./terraform
     ./typescript
     ./wolt-tools
