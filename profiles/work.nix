@@ -24,6 +24,7 @@
     kafka.enable = true;
     postgres.enable = true;
     protobuf.enable = true;
+    snowflake.enable = true;
 
     # Programming languages
     go.enable = true;
