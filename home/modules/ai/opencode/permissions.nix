@@ -140,6 +140,10 @@
         "gws people people searchDirectoryPeople *" = "allow";
         "gws meet conferenceRecords list *" = "allow";
         "gws meet conferenceRecords participants list *" = "allow";
+      }
+      // {
+        "snow sql --query *" = "allow";
+        "snow sql -q *" = "allow";
       };
     };
   };
