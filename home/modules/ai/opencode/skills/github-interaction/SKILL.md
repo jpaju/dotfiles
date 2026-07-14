@@ -13,11 +13,14 @@ Always prefer built-in `gh` subcommands (e.g. `gh pr view`, `gh pr list`) over `
 
 ### Read a file's contents
 
+Use dedicated shell script to read file contents:
+
 ```
-https://raw.githubusercontent.com/<owner>/<repo>/<ref>/<path>
+gh-read-file <owner/repo> <path> [ref]
 ```
 
-`<ref>` is required. Use `HEAD` to get the latest commit on the repo's default branch, or a branch name, tag, or full commit SHA to read the file as of that specific point. Fetch the URL with the `webfetch` tool.
+Omit `[ref]` to read from the repository's default branch. Otherwise, use a branch name, tag, or full commit SHA.
+Do not use `gh api` directly for this operation, as it requires manual approval from the user.
 
 ### Search for a string without downloading the whole file
 
