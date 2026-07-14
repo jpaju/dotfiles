@@ -131,6 +131,7 @@
         "gh workflow view *" = "allow";
         "gh-discussion-search *" = "allow";
         "gh-pr-inline-comments *" = "allow";
+        "gh-read-file *" = "allow";
       }
       // {
         "gws schema *" = "allow";
