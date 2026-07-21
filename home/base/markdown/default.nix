@@ -7,4 +7,5 @@
   ];
 
   xdg.configFile."glow/glow.yml".source = ./glow.yml;
+  xdg.configFile."leaf/config.toml".source = ./leaf.toml;
 }

@@ -6,7 +6,7 @@
     settings.plugin.prepend_previewers = [
       {
         url = "*.md";
-        run = ''piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"'';
+        run = ''piper -- leaf --inline "ansi:$w" "$1"'';
       }
       {
         url = "*/";
