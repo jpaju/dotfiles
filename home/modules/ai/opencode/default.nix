@@ -25,8 +25,12 @@
       settings = {
         share = "disabled";
         autoupdate = false;
-        theme = "catppuccin";
         default_agent = "plan";
+      };
+
+      tui = {
+        theme = "catppuccin";
+        attention.enabled = true;
       };
 
       package = pkgs.writeShellScriptBin "opencode" ''
