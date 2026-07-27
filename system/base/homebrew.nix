@@ -43,6 +43,7 @@
             "logi-options+"
             "menubarx"
             "stats"
+            "thaw"
           ];
 
         in
