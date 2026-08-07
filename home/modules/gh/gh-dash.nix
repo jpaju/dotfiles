@@ -10,6 +10,14 @@
       defaults.preview.width = 80;
       pager.diff = "delta";
 
+      keybindings.prs = [
+        {
+          key = "T";
+          name = "Review in tuicr";
+          command = "tuicr pr '{{.RepoName}}#{{.PrNumber}}'";
+        }
+      ];
+
       prSections = [
         {
           title = "My PRs";

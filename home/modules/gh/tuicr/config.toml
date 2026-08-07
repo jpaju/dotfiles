@@ -1,0 +1,6 @@
+theme = "catppuccin-mocha"
+ignore_whitespace = true
+show_pr_checks = true
+
+[forge]
+comment_type_prefix = false

@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
-  imports = [ ./gh-dash.nix ];
+  imports = [
+    ./gh-dash.nix
+    ./tuicr
+  ];
 
   programs.gh = {
     enable = true;
