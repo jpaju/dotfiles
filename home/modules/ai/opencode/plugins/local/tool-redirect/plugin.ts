@@ -90,16 +90,6 @@ const REDIRECTS: Redirect[] = [
     matches: programIs("cd"),
     alternative: "workdir/path parameters on Bash, Glob, or Grep tools",
   },
-  {
-    label: "man <cmd>",
-    matches: programIs("man"),
-    alternative: "context7 MCP",
-  },
-  {
-    label: "<cmd> --help",
-    matches: containsFlag("--help"),
-    alternative: "context7 MCP",
-  },
 ];
 
 export const ToolRedirect: Plugin = async () => ({
