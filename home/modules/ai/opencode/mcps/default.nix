@@ -5,6 +5,7 @@
     ./context7.nix
     ./datadog.nix
     ./javadoc.nix
+    ./linear.nix
     ./odin.nix
     ./rootly.nix
   ];
