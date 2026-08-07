@@ -80,6 +80,23 @@
         "nix config show *" = "allow";
       }
       // {
+        "brew config *" = "allow";
+        "brew formulae *" = "allow";
+        "brew desc *" = "allow";
+        "brew doctor *" = "allow";
+        "brew info *" = "allow";
+        "brew leaves *" = "allow";
+        "brew log *" = "allow";
+        "brew list *" = "allow";
+        "brew ls *" = "allow";
+        "brew options *" = "allow";
+        "brew outdated *" = "allow";
+        "brew search *" = "allow";
+        "brew tap-info *" = "allow";
+        "brew uses *" = "allow";
+        "brew which-formula *" = "allow";
+      }
+      // {
         "git bisect bad *" = "allow";
         "git bisect good *" = "allow";
         "git blame *" = "allow";
