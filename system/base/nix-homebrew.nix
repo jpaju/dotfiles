@@ -20,11 +20,10 @@ in
       enableRosetta = false;
       user = username;
 
-      # Adopt the existing manually-installed Homebrew in place on first switch, preserving already-installed packages
-      autoMigrate = true;
-
       # Enables adding taps outside from Nix
       mutableTaps = true;
+
+      trust.taps = [ "pakerwreah/calendr" ];
     };
   };
 }
