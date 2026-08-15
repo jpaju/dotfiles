@@ -14,7 +14,7 @@ in
     inputs.nix-homebrew.darwinModules.nix-homebrew
   ];
 
-  config = lib.mkIf pkgs.stdenv.isDarwin {
+  config = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin {
     nix-homebrew = {
       enable = true;
       enableRosetta = false;

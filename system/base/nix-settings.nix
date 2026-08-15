@@ -7,7 +7,7 @@
   ...
 }:
 let
-  isDarwin = lib.hasSuffix "darwin" system; # Cannot use stdenv.isDarwin because of infinite recursion
+  isDarwin = lib.hasSuffix "darwin" system; # Cannot use stdenv.hostPlatform.isDarwin because of infinite recursion
 
   commonSettings = {
     accept-flake-config = true;
