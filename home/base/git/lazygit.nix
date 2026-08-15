@@ -17,16 +17,16 @@
           "main"
         ];
 
-        pagers = [
+        diffRenderers = [
           {
             name = "Delta";
-            pager = "delta --dark --paging=never";
+            command = "delta --dark --paging=never";
             colorArg = "always";
-            useExternalDiffGitConfig = false;
           }
           {
             name = "Difftastic";
-            externalDiffCommand = "difft --color=always --background=dark";
+            type = "extDiff";
+            command = "difft --color=always --background=dark --context={{diffContext}}";
           }
         ];
       };
