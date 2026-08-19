@@ -168,6 +168,7 @@
           "gh-discussion-search *" = "allow";
           "gh-pr-inline-comments *" = "allow";
           "gh-read-file *" = "allow";
+          "gh-ref-sha *" = "allow";
         }
         // {
           "gws schema *" = "allow";

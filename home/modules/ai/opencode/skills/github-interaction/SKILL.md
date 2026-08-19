@@ -30,6 +30,15 @@ gh search code "<query>" --repo <owner/repo> --filename <path> --json path,textM
 
 Returns matching fragments with a few lines of surrounding context, not the whole file. Good for "does X still exist" / "what's around X" checks, especially on large files.
 
+### Resolve a ref to a commit SHA
+
+```
+gh-ref-sha <owner/repo> [ref]
+```
+
+Omit `[ref]` to resolve the repository's default branch. Otherwise, use a branch name or commit SHA.
+Do not use `gh api` directly for this operation, as it requires manual approval from the user.
+
 ## PR operations
 
 ### List PRs

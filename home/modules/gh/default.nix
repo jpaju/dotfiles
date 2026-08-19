@@ -20,6 +20,7 @@
     (pkgs.writeShellScriptBin "gh-discussion-search" (builtins.readFile ./gh-discussion-search.sh))
     (pkgs.writeShellScriptBin "gh-pr-inline-comments" (builtins.readFile ./gh-pr-inline-comments.sh))
     (pkgs.writeShellScriptBin "gh-read-file" (builtins.readFile ./gh-read-file.sh))
+    (pkgs.writeShellScriptBin "gh-ref-sha" (builtins.readFile ./gh-ref-sha.sh))
   ];
 
   xdg.configFile = {
