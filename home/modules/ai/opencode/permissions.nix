@@ -165,6 +165,7 @@
           "gh version *" = "allow";
           "gh workflow list *" = "allow";
           "gh workflow view *" = "allow";
+          "gh-branch-info *" = "allow";
           "gh-discussion-search *" = "allow";
           "gh-pr-inline-comments *" = "allow";
           "gh-read-file *" = "allow";

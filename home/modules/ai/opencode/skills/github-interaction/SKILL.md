@@ -7,7 +7,11 @@ description: How to interact with GitHub. Load this skill whenever you need to i
 
 Use the `gh` CLI to interact with GitHub. It is already installed and authenticated.
 
-Always prefer built-in `gh` subcommands (e.g. `gh pr view`, `gh pr list`) over `gh api`. The `gh api` command requires manual user approval for each invocation, so only use it when there is no built-in alternative.
+To preserve autonomous execution, use GitHub commands in this order:
+
+1. Built-in `gh` subcommand.
+2. Dedicated `gh-*` wrapper documented below.
+3. Direct `gh api` only as a last resort. It pauses execution for user approval, blocking autonomous work and interrupting the user.
 
 ## Reading repo content without a local clone
 
@@ -20,7 +24,6 @@ gh-read-file <owner/repo> <path> [ref]
 ```
 
 Omit `[ref]` to read from the repository's default branch. Otherwise, use a branch name, tag, or full commit SHA.
-Do not use `gh api` directly for this operation, as it requires manual approval from the user.
 
 ### List a repository tree
 
@@ -29,7 +32,6 @@ gh-repo-tree <owner/repo> [ref]
 ```
 
 Prints every file and directory path recursively. Omit `[ref]` to use the repository's default branch.
-Do not use `gh api` directly for this operation, as it requires manual approval from the user.
 
 ### Search for a string without downloading the whole file
 
@@ -46,7 +48,16 @@ gh-ref-sha <owner/repo> [ref]
 ```
 
 Omit `[ref]` to resolve the repository's default branch. Otherwise, use a branch name or commit SHA.
-Do not use `gh api` directly for this operation, as it requires manual approval from the user.
+
+## Branches
+
+### Read branch information
+
+```
+gh-branch-info <owner/repo> <branch>
+```
+
+Returns the branch name, head commit SHA and URL, and protection status.
 
 ## PR operations
 
