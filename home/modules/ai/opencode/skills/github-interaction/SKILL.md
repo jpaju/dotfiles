@@ -22,6 +22,15 @@ gh-read-file <owner/repo> <path> [ref]
 Omit `[ref]` to read from the repository's default branch. Otherwise, use a branch name, tag, or full commit SHA.
 Do not use `gh api` directly for this operation, as it requires manual approval from the user.
 
+### List a repository tree
+
+```
+gh-repo-tree <owner/repo> [ref]
+```
+
+Prints every file and directory path recursively. Omit `[ref]` to use the repository's default branch.
+Do not use `gh api` directly for this operation, as it requires manual approval from the user.
+
 ### Search for a string without downloading the whole file
 
 ```

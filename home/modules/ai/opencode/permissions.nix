@@ -169,6 +169,7 @@
           "gh-pr-inline-comments *" = "allow";
           "gh-read-file *" = "allow";
           "gh-ref-sha *" = "allow";
+          "gh-repo-tree *" = "allow";
         }
         // {
           "gws schema *" = "allow";
