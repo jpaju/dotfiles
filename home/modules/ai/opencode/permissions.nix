@@ -27,9 +27,6 @@
           "*_rsa" = "deny";
         }
         // {
-          "~/.config/opencode" = "allow";
-        }
-        // {
           "~/.config/sops/age/*" = "deny";
           "~/.gradle/gradle.properties" = "deny";
           "~/.gnupg/private-keys-v1.d/*" = "deny";
@@ -43,6 +40,7 @@
           "*" = "ask";
           "ls *" = "allow";
           "wc *" = "allow";
+          "nl *" = "allow";
           "man *" = "allow";
           "pwd" = "allow";
           "cat" = "allow";
@@ -57,16 +55,19 @@
           "strings *" = "allow";
           "readlink *" = "allow";
           "hostname *" = "allow";
+          "command -v *" = "allow";
         }
         // {
           "head *" = "allow";
           "tail *" = "allow";
+          "less *" = "allow";
           "sort *" = "allow";
           "uniq *" = "allow";
           "grep *" = "allow";
           "pgrep *" = "allow";
           "rg *" = "allow";
           "jq *" = "allow";
+          "yq *" = "allow";
           "tr *" = "allow";
           "sed *" = "allow";
           "awk *" = "allow";
@@ -77,6 +78,7 @@
           "nix help *" = "allow";
           "nix search *" = "allow";
           "nix log *" = "allow";
+          "nix flake check --no-build" = "allow";
           "nix flake info *" = "allow";
           "nix flake show *" = "allow";
           "nix flake metadata *" = "allow";
@@ -117,6 +119,7 @@
           "git branch -a" = "allow";
           "git branch -r" = "allow";
           "git branch -v" = "allow";
+          "git branch -vv" = "allow";
           "git cat-file *" = "allow";
           "git check-ignore *" = "allow";
           "git config --get *" = "allow";
@@ -140,9 +143,11 @@
           "git ls-tree *" = "allow";
           "git ls-remote *" = "allow";
           "git hash-object *" = "allow";
+          "git --version" = "allow";
         }
         // {
           "gh help *" = "allow";
+          "gh api user" = "allow";
           "gh auth status" = "allow";
           "gh issue list *" = "allow";
           "gh issue status *" = "allow";
@@ -171,6 +176,36 @@
           "gh-read-file *" = "allow";
           "gh-ref-sha *" = "allow";
           "gh-repo-tree *" = "allow";
+        }
+        // {
+          "docker container ls *" = "allow";
+          "docker image ls *" = "allow";
+          "docker images *" = "allow";
+          "docker info *" = "allow";
+          "docker ps *" = "allow";
+          "docker search *" = "allow";
+          "docker version *" = "allow";
+        }
+        // {
+          "kubectl get *" = "allow";
+          "kubectl describe *" = "allow";
+          "kubectl events *" = "allow";
+          "kubectl explain *" = "allow";
+          "kubectl version *" = "allow";
+          "kubectl rollout status *" = "allow";
+          "kubectl rollout history *" = "allow";
+          "kubectl auth can-i *" = "allow";
+          "kubectl config current-context *" = "allow";
+          "kubectl config get-contexts *" = "allow";
+        }
+        // {
+          "./gradlew compileKotlin" = "allow";
+          "./gradlew compileTestKotlin" = "allow";
+          "./gradlew test" = "allow";
+          "./gradlew test --tests *" = "allow";
+          "./gradlew detekt" = "allow";
+          "./gradlew ktlintCheck" = "allow";
+          "./gradlew ktlintFormat" = "allow";
         }
         // {
           "gws schema *" = "allow";
