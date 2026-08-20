@@ -6,7 +6,7 @@
     ./datadog.nix
     ./javadoc.nix
     ./linear.nix
-    ./odin.nix
+    ./observability.nix
     ./rootly.nix
   ];
 }
