@@ -2,7 +2,10 @@
 {
   imports = [ ./gh-dash.nix ];
 
-  programs.gh.enable = true;
+  programs.gh = {
+    enable = true;
+    extensions = [ pkgs.gh-stack ];
+  };
 
   programs.fish.shellAbbrs = {
     ghb = "gh browse";
