@@ -219,6 +219,22 @@
           "gws meet conferenceRecords list *" = "allow";
           "gws meet conferenceRecords participants list *" = "allow";
         }
+        // lib.optionalAttrs config.dotfiles.home-assistant.enable {
+          "hass-cli --help" = "allow";
+          "hass-cli --version" = "allow";
+          "hass-cli -o json area list *" = "allow";
+          "hass-cli -o json config release *" = "allow";
+          "hass-cli -o json device list *" = "allow";
+          "hass-cli -o json device list-by-area *" = "allow";
+          "hass-cli -o json entity list *" = "allow";
+          "hass-cli -o json integration info *" = "allow";
+          "hass-cli -o json integration list *" = "allow";
+          "hass-cli -o json service list *" = "allow";
+          "hass-cli -o json state get *" = "allow";
+          "hass-cli -o json state history *" = "allow";
+          "hass-cli -o json state list *" = "allow";
+          "hass-cli -o json system health *" = "allow";
+        }
         // {
           "snow sql --query *" = "allow";
           "snow sql -q *" = "allow";
