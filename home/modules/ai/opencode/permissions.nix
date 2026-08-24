@@ -75,6 +75,11 @@
           "awk *" = "allow";
         }
         // {
+          "nm *" = "allow";
+          "objdump *" = "allow";
+          "shasum *" = "allow";
+        }
+        // {
           "nix --version" = "allow";
           "nix fmt *" = "allow";
           "nix help *" = "allow";
@@ -126,6 +131,7 @@
           "git check-ignore *" = "allow";
           "git config --get *" = "allow";
           "git cherry *" = "allow";
+          "git fsck *" = "allow";
           "git grep *" = "allow";
           "git diff *" = "allow";
           "git log *" = "allow";
@@ -135,10 +141,13 @@
           "git stash list *" = "allow";
           "git stash show *" = "allow";
           "git status *" = "allow";
+          "git tag --list *" = "allow";
+          "git tag --contains *" = "allow";
           "git range-diff *" = "allow";
           "git reflog show *" = "allow";
           "git remote -v" = "allow";
           "git remote show *" = "allow";
+          "git remote get-url *" = "allow";
           "git rev-list *" = "allow";
           "git rev-parse *" = "allow";
           "git ls-files *" = "allow";
@@ -147,7 +156,7 @@
           "git hash-object *" = "allow";
           "git --version" = "allow";
         }
-        // {
+        // lib.optionalAttrs config.dotfiles.github.enable {
           "gh help *" = "allow";
           "gh api user" = "allow";
           "gh auth status" = "allow";
@@ -179,7 +188,7 @@
           "gh-ref-sha *" = "allow";
           "gh-repo-tree *" = "allow";
         }
-        // {
+        // lib.optionalAttrs config.dotfiles.docker.enable {
           "docker container ls *" = "allow";
           "docker image ls *" = "allow";
           "docker images *" = "allow";
@@ -188,7 +197,7 @@
           "docker search *" = "allow";
           "docker version *" = "allow";
         }
-        // {
+        // lib.optionalAttrs config.dotfiles.k8s.enable {
           "kubectl get *" = "allow";
           "kubectl describe *" = "allow";
           "kubectl events *" = "allow";
@@ -200,7 +209,7 @@
           "kubectl config current-context *" = "allow";
           "kubectl config get-contexts *" = "allow";
         }
-        // {
+        // lib.optionalAttrs config.dotfiles.gradle.enable {
           "./gradlew compileKotlin" = "allow";
           "./gradlew compileTestKotlin" = "allow";
           "./gradlew test" = "allow";
@@ -209,7 +218,7 @@
           "./gradlew ktlintCheck" = "allow";
           "./gradlew ktlintFormat" = "allow";
         }
-        // {
+        // lib.optionalAttrs config.dotfiles.google.enable {
           "gws schema *" = "allow";
           "gws gmail +triage" = "allow";
           "gws docs documents get *" = "allow";
@@ -235,14 +244,9 @@
           "hass-cli -o json state list *" = "allow";
           "hass-cli -o json system health *" = "allow";
         }
-        // {
+        // lib.optionalAttrs config.dotfiles.snowflake.enable {
           "snow sql --query *" = "allow";
           "snow sql -q *" = "allow";
-        }
-        // {
-          "nm *" = "allow";
-          "objdump *" = "allow";
-          "shasum *" = "allow";
         };
       };
     };
