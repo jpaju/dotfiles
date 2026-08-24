@@ -64,7 +64,7 @@
           modules = [ ./profiles/personal.nix ];
         };
 
-        "Wolt-MacBook-Pro" = inputs.nix-darwin.lib.darwinSystem {
+        work-macbook = inputs.nix-darwin.lib.darwinSystem {
           inherit system;
           inherit specialArgs;
 

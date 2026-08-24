@@ -1,8 +1,17 @@
 function nix_rebuild_switch
+    if test (count $argv) -gt 1
+        echo "Usage: nix_rebuild_switch [profile]"
+        return 2
+    end
+
     set -l generation_before (get_current_generation)
+    set -l flake "$HOME/dotfiles"
+    if test (count $argv) -eq 1
+        set flake "$flake#$argv[1]"
+    end
 
     if is_darwin
-        sudo darwin-rebuild switch --flake ~/dotfiles
+        sudo darwin-rebuild switch --flake $flake
     else
         sudo nixos-rebuild switch
     end

@@ -14,7 +14,10 @@
     };
     nxfu = "nix flake update";
     nxd = "nix develop";
-    nrs = "nix_rebuild_switch &| nom";
+    nrs = {
+      expansion = "nix_rebuild_switch % &| nom";
+      setCursor = "%";
+    };
   };
 
   xdg.configFile."fish/functions/nix_rebuild_switch.fish".source = ./nix_rebuild_switch.fish;

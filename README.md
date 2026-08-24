@@ -5,13 +5,12 @@ This is my personal dotfiles repository. The files are managed with [nix-darwin]
 ## Fresh install
 
 1. Make sure username is `jaakkopaju`
-2. Change hostname to `Jaakkos-MacBook-Pro` for personal use, or `Wolt-MacBook-Pro` for work use
-3. Install [Determinate Nix](https://determinate.systems/nix/)
-4. Clone dotfiles repo to `~/.dotfiles
+2. Install [Determinate Nix](https://determinate.systems/nix/)
+3. Clone dotfiles repo to `~/.dotfiles
    ```bash
    nix run nixpkgs#git clone https://github.com/jpaju/dotfiles.git ~/dotfiles
    ```
-5. Install nix-darwin
+4. Install nix-darwin (on work machine use explicit profile: `~/dotfiles#work-macbook`)
 
    ```bash
    sudo nix run nix-darwin -- switch --flake ~/dotfiles \
@@ -19,7 +18,7 @@ This is my personal dotfiles repository. The files are managed with [nix-darwin]
      --option extra-trusted-public-keys "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs= helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
    ```
 
-6. Configure sops-nix to manage secrets by configuring the private key.
+5. Configure sops-nix to manage secrets by configuring the private key.
    The private key must be placed in `~/.config/sops/age/keys.txt` file .
    If nix has already installed packages, the secret can be configured with 1password CLI by running the following command:
 
