@@ -65,5 +65,17 @@
       description = "Path to the Jira API token file";
       readOnly = false;
     };
+
+    hass_server = lib.mkOption {
+      type = lib.types.str;
+      description = "Path to the Home Assistant server URL file";
+      readOnly = false;
+    };
+
+    hass_token = lib.mkOption {
+      type = lib.types.str;
+      description = "Path to the Home Assistant token file";
+      readOnly = false;
+    };
   };
 }
