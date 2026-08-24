@@ -1,0 +1,5 @@
+[default]
+
+[default.extend-words]
+hass = "hass"
+protols = "protols"
