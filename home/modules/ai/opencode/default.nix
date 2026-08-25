@@ -10,8 +10,9 @@
   imports = [
     ../../secrets/interface.nix
     ./mcps
-    ./permissions.nix
     ./plugins
+    ./permissions.nix
+    ./skills.nix
   ];
 
   config = lib.mkIf config.dotfiles.ai.enable {
@@ -19,7 +20,6 @@
       enable = true;
 
       context = ./system-prompt.md;
-      skills = ./skills;
       commands = ./commands;
 
       settings = {
