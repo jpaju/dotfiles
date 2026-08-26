@@ -1,0 +1,53 @@
+id = "local.popup-tools"
+name = "Popup Tools"
+version = "0.1.0"
+min_herdr_version = "0.8.2"
+platforms = ["macos"]
+
+[[panes]]
+id = "lazygit"
+title = "Lazygit"
+placement = "popup"
+width = "96%"
+height = "96%"
+command = ["lazygit"]
+
+[[panes]]
+id = "gh-dash"
+title = "GitHub Dashboard"
+placement = "popup"
+width = "96%"
+height = "96%"
+command = ["gh", "dash"]
+
+[[panes]]
+id = "serpl"
+title = "Serpl"
+placement = "popup"
+width = "96%"
+height = "96%"
+command = ["serpl"]
+
+[[panes]]
+id = "gh-pr-switch"
+title = "Switch Pull Request"
+placement = "popup"
+width = "74%"
+height = "84%"
+command = ["fish", "-c", "gh_pr_switch --wait-on-error"]
+
+[[panes]]
+id = "yazi"
+title = "Yazi"
+placement = "popup"
+width = "96%"
+height = "96%"
+command = ["fish", "-c", "yazi_picker \"$HELIX_PICKER_ACTION\" \"$HELIX_PICKER_TARGET\""]
+
+[[panes]]
+id = "broot"
+title = "Broot"
+placement = "popup"
+width = "96%"
+height = "96%"
+command = ["fish", "-c", "broot_picker \"$HELIX_PICKER_ACTION\""]

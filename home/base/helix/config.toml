@@ -188,11 +188,11 @@ s = ["split_selection_on_newline", ":sort"]
 y = "yank_joined"
 Y = "yank_joined_to_clipboard"
 
-# <backspace> for zellij commands
+# <backspace> for popup commands
 [keys.normal.backspace]
-g = ''':sh 'fish -c open_lazygit_floating_direnv''''
-d = ''':sh 'fish -c "zellij_float --large -- gh dash"''''
-s = ''':sh 'fish -c "zellij_float --large -- serpl"''''
-p = ''':sh 'fish -c "zellij_float --small -- gh_pr_switch --wait-on-error"''''
-f = ''':sh 'fish -c "zellij_float --large -- yazi_picker open %{buffer_name}"''''
-F = ''':sh 'fish -c "zellij_float --large -- broot_picker open %{buffer_name}"''''
+g = ''':sh 'fish -c "open_popup lazygit"''''
+d = ''':sh 'fish -c "open_popup gh-dash"''''
+s = ''':sh 'fish -c "open_popup serpl"''''
+p = ''':sh 'fish -c "open_popup gh-pr-switch"''''
+f = ''':sh 'fish -c "open_popup yazi open %{buffer_name}"''''
+F = ''':sh 'fish -c "open_popup broot open"''''
