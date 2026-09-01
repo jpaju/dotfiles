@@ -42,24 +42,47 @@
           "wc *" = "allow";
           "nl *" = "allow";
           "man *" = "allow";
+          "mdls *" = "allow";
           "pwd" = "allow";
           "cat" = "allow";
           "echo *" = "allow";
           "diff *" = "allow";
+          "cmp *" = "allow";
           "printf *" = "allow";
           "date *" = "allow";
           "stat *" = "allow";
           "type *" = "allow";
           "file *" = "allow";
+          "test *" = "allow";
           "which *" = "allow";
           "strings *" = "allow";
           "readlink *" = "allow";
+          "basename *" = "allow";
+          "dirname *" = "allow";
+          "realpath *" = "allow";
+          "du *" = "allow";
+          "df *" = "allow";
+          "uname *" = "allow";
+          "whoami" = "allow";
+          "id *" = "allow";
+          "uptime" = "allow";
+          "ps *" = "allow";
+          "sw_vers *" = "allow";
           "hostname *" = "allow";
           "command -v *" = "allow";
         }
         // {
           "cut *" = "allow";
           "col *" = "allow";
+          "comm *" = "allow";
+          "paste *" = "allow";
+          "join *" = "allow";
+          "fold *" = "allow";
+          "rev *" = "allow";
+          "expand *" = "allow";
+          "unexpand *" = "allow";
+          "column *" = "allow";
+          "seq *" = "allow";
           "head *" = "allow";
           "tail *" = "allow";
           "less *" = "allow";
@@ -73,14 +96,28 @@
           "tr *" = "allow";
           "sed *" = "allow";
           "awk *" = "allow";
+          "cmp *" = "allow";
+        }
+        // {
+          "defaults domains" = "allow";
+          "defaults find *" = "allow";
+          "defaults help" = "allow";
+          "defaults read *" = "allow";
+          "defaults read-type *" = "allow";
+          "plutil -p *" = "allow";
+          "log show *" = "allow";
         }
         // {
           "nm *" = "allow";
+          "od *" = "allow";
           "objdump *" = "allow";
+          "hexdump *" = "allow";
+          "cksum *" = "allow";
           "shasum *" = "allow";
         }
         // {
           "nix --version" = "allow";
+          "nixfmt *" = "allow";
           "nix fmt *" = "allow";
           "nix help *" = "allow";
           "nix search *" = "allow";
@@ -154,12 +191,16 @@
           "git ls-tree *" = "allow";
           "git ls-remote *" = "allow";
           "git hash-object *" = "allow";
+          "git worktree list *" = "allow";
           "git --version" = "allow";
         }
         // lib.optionalAttrs config.dotfiles.github.enable {
+          "gh --version" = "allow";
           "gh help *" = "allow";
           "gh api user" = "allow";
           "gh auth status" = "allow";
+          "gh extension list *" = "allow";
+          "gh extension search *" = "allow";
           "gh issue list *" = "allow";
           "gh issue status *" = "allow";
           "gh issue view *" = "allow";
@@ -178,6 +219,7 @@
           "gh run view *" = "allow";
           "gh run watch *" = "allow";
           "gh search *" = "allow";
+          "gh stack view *" = "allow";
           "gh version *" = "allow";
           "gh workflow list *" = "allow";
           "gh workflow view *" = "allow";
@@ -209,6 +251,10 @@
           "kubectl config current-context *" = "allow";
           "kubectl config get-contexts *" = "allow";
         }
+        // lib.optionalAttrs config.dotfiles.terraform.enable {
+          "terraform fmt *" = "allow";
+          "terraform validate *" = "allow";
+        }
         // lib.optionalAttrs config.dotfiles.gradle.enable {
           "./gradlew compileKotlin" = "allow";
           "./gradlew compileTestKotlin" = "allow";
@@ -217,6 +263,17 @@
           "./gradlew detekt" = "allow";
           "./gradlew ktlintCheck" = "allow";
           "./gradlew ktlintFormat" = "allow";
+        }
+        // {
+          "javap *" = "allow";
+        }
+        // {
+          "az account show *" = "allow";
+          "az functionapp list *" = "allow";
+          "az functionapp show *" = "allow";
+          "az monitor metrics list *" = "allow";
+          "az monitor metrics list-definitions *" = "allow";
+          "az monitor log-analytics workspace show *" = "allow";
         }
         // lib.optionalAttrs config.dotfiles.google.enable {
           "gws schema *" = "allow";
