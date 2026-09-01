@@ -32,22 +32,56 @@ fi
 OWNER="${REPO%/*}"
 REPO_NAME="${REPO#*/}"
 
-JQ_FILTER='
-  . as $comments |
-  ($comments | INDEX(.id)) as $all_comments |
-  ($comments | map(select(.in_reply_to_id == null or ($all_comments[.in_reply_to_id | tostring] == null)))) as $parents |
-  ($comments | map(select(.in_reply_to_id != null and ($all_comments[.in_reply_to_id | tostring] != null)))) as $replies |
+if [ "$PENDING_ONLY" = true ]; then
+  COMMENT_SELECTOR='select(.pullRequestReview.state == "PENDING")'
+else
+  COMMENT_SELECTOR='select(.pullRequestReview.state != "PENDING")'
+fi
 
+GRAPHQL_QUERY='
+  query($owner: String!, $name: String!, $number: Int!, $endCursor: String) {
+    repository(owner: $owner, name: $name) {
+      pullRequest(number: $number) {
+        reviewThreads(first: 100, after: $endCursor) {
+          nodes {
+            isResolved
+            comments(first: 100) {
+              nodes {
+                databaseId
+                path
+                line
+                author { login }
+                body
+                pullRequestReview { state }
+              }
+            }
+          }
+          pageInfo {
+            hasNextPage
+            endCursor
+          }
+        }
+      }
+    }
+  }
+'
+
+JQ_FILTER='
   [
-    $parents[] as $p | {
-      id: $p.id,
+    .[].data.repository.pullRequest.reviewThreads.nodes[] |
+    . as $thread |
+    ([.comments.nodes[] | __COMMENT_SELECTOR__]) as $comments |
+    select($comments | length > 0) |
+    $comments[0] as $p | {
+      id: $p.databaseId,
       path: $p.path,
       line: $p.line,
-      user: $p.user.login,
+      user: $p.author.login,
       body: $p.body,
+      isResolved: $thread.isResolved,
       replies: [
-        $replies[] | select(.in_reply_to_id == $p.id) | {
-          user: .user.login,
+        $comments[1:][] | {
+          user: .author.login,
           body: .body
         }
       ]
@@ -60,17 +94,13 @@ JQ_FILTER='
   })
 '
 
-if [ "$PENDING_ONLY" = true ]; then
-  PENDING_REVIEW_ID="$({
-    gh api "repos/$OWNER/$REPO_NAME/pulls/$PR_NUMBER/reviews" --jq 'map(select(.state == "PENDING"))[0].id // empty'
-  })"
+JQ_FILTER="${JQ_FILTER/__COMMENT_SELECTOR__/$COMMENT_SELECTOR}"
 
-  if [ -z "$PENDING_REVIEW_ID" ]; then
-    printf '[]\n'
-    exit 0
-  fi
-
-  exec gh api "repos/$OWNER/$REPO_NAME/pulls/$PR_NUMBER/reviews/$PENDING_REVIEW_ID/comments" --jq "$JQ_FILTER"
-fi
-
-exec gh api "repos/$OWNER/$REPO_NAME/pulls/$PR_NUMBER/comments" --jq "$JQ_FILTER"
+gh api graphql \
+  --paginate \
+  --slurp \
+  -f owner="$OWNER" \
+  -f name="$REPO_NAME" \
+  -F number="$PR_NUMBER" \
+  -f query="$GRAPHQL_QUERY" |
+  jq "$JQ_FILTER"
