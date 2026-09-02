@@ -29,7 +29,7 @@
     }
     // lib.optionalAttrs config.dotfiles.wolt-tools.enable {
       jira-interaction = ./skills/jira-interaction;
-      jira-ticket = ./skills/jira-ticket;
+      ticket-writing = ./skills/ticket-writing;
     };
   };
 }
