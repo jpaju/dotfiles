@@ -14,6 +14,9 @@
       settings = {
         command = "${pkgs.fish}/bin/fish";
         font-family = "FiraCode Nerd Font Mono";
+        cursor-style = "block";
+        cursor-style-blink = true;
+        shell-integration-features = "no-cursor";
 
         # Configure opt key to be alt, but hard code some characters
         macos-option-as-alt = true;
@@ -24,7 +27,7 @@
           "alt+7=text:|"
           "alt+8=text:["
           "alt+9=text:]"
-          "shift+alt+slash=text:\\"
+          "shift+alt+Digit7=text:\\\\"
           "shift+alt+8=text:{"
           "shift+alt+9=text:}"
           "alt+right_bracket=text:~"
