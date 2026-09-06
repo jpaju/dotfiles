@@ -31,6 +31,16 @@
         focus_pane_up = "alt+k";
         focus_pane_right = "alt+l";
         zoom = "prefix+f";
+        command = [
+          {
+            key = "prefix+space";
+            type = "popup";
+            command = "exec ${lib.getExe pkgs.fish}";
+            description = "open floating shell";
+            width = "80%";
+            height = "80%";
+          }
+        ];
       };
     };
   };
