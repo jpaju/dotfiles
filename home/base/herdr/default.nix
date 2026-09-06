@@ -31,6 +31,8 @@
         focus_pane_up = "alt+k";
         focus_pane_right = "alt+l";
         zoom = "prefix+f";
+        move_tab_previous = "prefix+comma";
+        move_tab_next = "prefix+period";
         command = [
           {
             key = "prefix+space";
