@@ -1,10 +1,13 @@
 {
-  config,
   lib,
   pkgs,
   ...
 }:
 {
+  imports = [
+    ./plugins/popup-tools
+  ];
+
   programs.herdr = {
     enable = true;
     settings = {
@@ -45,16 +48,6 @@
         ];
       };
     };
-  };
-
-  xdg.configFile."herdr/local-plugins/popup-tools" = {
-    source = ./plugins/popup-tools;
-    onChange =
-      let
-        herdrCLI = lib.getExe pkgs.herdr;
-        pluginPath = "${config.xdg.configHome}/herdr/local-plugins/popup-tools";
-      in
-      "${herdrCLI} plugin link ${pluginPath}";
   };
 
   programs.fish.shellAbbrs.hrd = "herdr";
