@@ -23,4 +23,3 @@ end
 function branch_exists_on_remote --argument-names branch
     git show-ref --verify --quiet refs/remotes/origin/$branch
 end
-
