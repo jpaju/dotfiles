@@ -6,6 +6,7 @@
   homeStateVersion,
   fishUtils,
   config,
+  pkgs,
   ...
 }:
 {
@@ -21,6 +22,8 @@
     backupFileExtension = "bak";
 
     extraSpecialArgs = {
+      localPkgs = import ../packages { inherit pkgs; };
+
       inherit
         system
         inputs

@@ -6,7 +6,6 @@
     ./browsers.nix
     ./communication.nix
     ./karabiner
-    ./kotlin.nix
     ./media.nix
     ./network-tools.nix
     ./remote-access.nix
