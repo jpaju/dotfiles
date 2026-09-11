@@ -152,7 +152,6 @@
         }
         // {
           "nix --version" = "allow";
-          "nix eval --read-only --no-write-lock-file -- *" = "allow";
           "nixfmt *" = "allow";
           "nix fmt *" = "allow";
           "nix help *" = "allow";
@@ -173,6 +172,7 @@
           "nix store info *" = "allow";
           "nix config show *" = "allow";
           "nix why-depends --read-only --no-write-lock-file -- *" = "allow";
+          "nix-inspect *" = "allow";
         }
         // {
           "brew config *" = "allow";

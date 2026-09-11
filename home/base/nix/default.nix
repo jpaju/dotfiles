@@ -5,6 +5,7 @@
     nh
     nix-output-monitor
     nvd
+    (writeShellScriptBin "nix-inspect" (builtins.readFile ./agent-tools/nix-inspect.sh))
   ];
 
   programs.fish.shellAbbrs = {

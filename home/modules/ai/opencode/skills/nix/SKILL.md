@@ -17,6 +17,12 @@ Conventions for using the Nix CLI. Prefer the modern unified `nix <cmd>` form ov
 
 - `nix-command` and `flakes` experimental features are enabled globally. Don't explicitly pass `--experimental-features`
 
+## Evaluation and builds
+
+- Use `nix-inspect eval <installable>` and `nix-inspect build <installable>` whenever they support the required operation. Their pre-approved defaults avoid unnecessary interruptions to autonomous work.
+- Run `nix eval` or `nix build` directly only when `nix-inspect` cannot express the required command.
+
 ## Restrictions
 
 - Don't run commands that rebuild or activate system/user configuration (`nixos-rebuild`, `darwin-rebuild`, `home-manager switch`, etc.). Ask the user to run them.
+- Never recursively search `/nix/store`; resolve and inspect a specific store path instead.
