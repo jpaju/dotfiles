@@ -19,15 +19,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
-
-    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
-
     helix = {
       url = "github:gj1118/helix/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     llm-agents.url = "github:numtide/llm-agents.nix";
     catppuccin.url = "github:catppuccin/nix";
     gws.url = "github:googleworkspace/cli";
