@@ -54,7 +54,10 @@ let
 
   nixosConfig = {
     nix.settings = commonSettings // {
-      experimental-features = "nix-command flakes";
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
     };
   };
 in
