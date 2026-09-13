@@ -13,6 +13,7 @@
     ./fzf.nix
     ./git
     ./helix
+    ./herdr
     ./json
     ./markdown
     ./moor.nix

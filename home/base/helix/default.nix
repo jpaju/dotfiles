@@ -37,10 +37,10 @@
     "helix/ignore".source = ./ignore;
     "helix/broot-picker.hjson".source = ./functions/broot-picker.hjson;
 
-    "fish/functions/zellij_float.fish".source = ./functions/zellij_float.fish;
     "fish/functions/yazi_picker.fish".source = ./functions/yazi_picker.fish;
     "fish/functions/broot_picker.fish".source = ./functions/broot_picker.fish;
-    "fish/functions/open_lazygit_floating_direnv.fish".source = ./functions/open_lazygit_floating_direnv.fish;
+    "fish/functions/open_paths_in_helix.fish".source = ./functions/open_paths_in_helix.fish;
+    "fish/functions/open_popup.fish".source = ./functions/open_popup.fish;
 
     "helix/snippets" = {
       source = ./snippets;
