@@ -1,6 +1,6 @@
 ---
 name: github-interaction
-description: How to interact with GitHub. Load this skill whenever you need to interact with GitHub in any way.
+description: How to interact with GitHub. Load this skill whenever you need to interact with GitHub in any way, including reading files.
 ---
 
 # GitHub interaction

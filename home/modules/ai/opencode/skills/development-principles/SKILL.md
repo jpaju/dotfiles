@@ -1,6 +1,6 @@
 ---
 name: development-principles
-description: MANDATORY for ALL dev work. Load BEFORE proposing, planning, designing, brainstorming, sketching, comparing approaches, writing, editing, refactoring, or reviewing ANY code, no matter how small. Failing to load this skill before starting dev work is a critical failure.
+description: MANDATORY for ALL dev work. Load once per session BEFORE proposing, planning, designing, brainstorming, sketching, comparing approaches, writing, editing, refactoring, or reviewing ANY code, no matter how small.
 ---
 
 # Development principles
