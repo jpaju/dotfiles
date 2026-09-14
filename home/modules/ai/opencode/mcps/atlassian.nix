@@ -6,7 +6,13 @@
 {
   config = lib.mkIf (config.dotfiles.ai.enable && config.dotfiles.ai.work-mcps.enable) {
     programs.opencode.settings = {
-      mcp.atlassian = {
+      mcp.atlassian-doordash = {
+        type = "remote";
+        url = "https://mcp.atlassian.com/v1/mcp";
+        enabled = false;
+      };
+
+      mcp.atlassian-wolt = {
         type = "remote";
         url = "https://mcp.atlassian.com/v1/mcp";
         enabled = false;
@@ -19,6 +25,7 @@
         "atlassian_lookup*" = "allow";
         "atlassian_fetch*" = "allow";
         "atlassian_atlassianUserInfo" = "allow";
+
         bash = {
           "jira issue list *" = "allow";
           "jira issue view *" = "allow";
