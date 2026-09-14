@@ -9,6 +9,7 @@
       development-principles = ./skills/development-principles;
       handoff = ./skills/handoff;
       nix = ./skills/nix;
+      sqlite = ./skills/sqlite;
       tdd = ./skills/tdd;
     }
     // lib.optionalAttrs config.dotfiles.github.enable {

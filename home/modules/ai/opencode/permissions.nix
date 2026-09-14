@@ -122,6 +122,7 @@
           # Structured data
           "jq *" = "allow";
           "yq *" = "allow";
+          "sqlite3 -readonly *" = "allow";
           "xmllint --version" = "allow";
           "xmllint -- *" = "allow";
           "xmllint --format -- *" = "allow";
