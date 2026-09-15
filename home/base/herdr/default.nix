@@ -5,7 +5,6 @@
 }:
 {
   imports = [
-    ./plugins/pane-name
     ./plugins/popup-tools
   ];
 
