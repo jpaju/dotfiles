@@ -5,8 +5,8 @@
   ...
 }:
 {
-  xdg.configFile."herdr/local-plugins/popup-tools/herdr-plugin.toml" = {
-    source = ./herdr-plugin.toml;
+  xdg.configFile."herdr/local-plugins/popup-tools" = {
+    source = ./plugin;
     onChange =
       let
         herdrCLI = lib.getExe pkgs.herdr;
