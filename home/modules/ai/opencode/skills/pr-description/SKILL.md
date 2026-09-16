@@ -26,6 +26,8 @@ Use up to three sections depending on what the change needs. Not all sections ar
 
 Only use section headings when there are multiple sections. If the body is just a summary, write it as plain text without a heading.
 
+End the PR body with `Part of <ticket-link-url>` when a related ticket is available. If no ticket link was provided, ask the user whether there is one.
+
 ## Content rules
 
 - Each bullet should explain *what changed* and *why*, not implementation details
@@ -42,5 +44,6 @@ Only use section headings when there are multiple sections. If the body is just 
 - Be direct and factual, no filler words
 - Use simple, plain english. Avoid jargon and fancy phrasing
 - Short sentences. Prefer simple structure over complex grammar
+- Use the base form of verbs, for example, “Change” instead of “Changes.”
 - Never use dashes (em dash, en dash) in the output
 - Don't start bullets with "We". Use passive voice or start with the subject
