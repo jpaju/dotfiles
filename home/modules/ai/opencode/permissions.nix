@@ -378,17 +378,27 @@
           "hass-cli --help" = "allow";
           "hass-cli --version" = "allow";
           "hass-cli -o json area list *" = "allow";
+          "hass-cli -o json config full *" = "allow";
+          "hass-cli -o json config integrations *" = "allow";
           "hass-cli -o json config release *" = "allow";
           "hass-cli -o json device list *" = "allow";
           "hass-cli -o json device list-by-area *" = "allow";
           "hass-cli -o json entity list *" = "allow";
+          "hass-cli -o json event watch *" = "allow";
+          "hass-cli -o json info *" = "allow";
           "hass-cli -o json integration info *" = "allow";
           "hass-cli -o json integration list *" = "allow";
+          "hass-cli -o json integration list-disabled *" = "allow";
+          "hass-cli -o json integration list-loaded *" = "allow";
+          "hass-cli -o json integration list-unloaded *" = "allow";
+          "hass-cli -o json raw get *" = "allow";
           "hass-cli -o json service list *" = "allow";
           "hass-cli -o json state get *" = "allow";
           "hass-cli -o json state history *" = "allow";
           "hass-cli -o json state list *" = "allow";
           "hass-cli -o json system health *" = "allow";
+          "hass-cli -o json system log *" = "allow";
+          "hass-cli -o json template *" = "allow";
         }
         // lib.optionalAttrs config.dotfiles.snowflake.enable {
           "snow sql --query *" = "allow";
