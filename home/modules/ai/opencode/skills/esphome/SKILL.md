@@ -5,14 +5,12 @@ description: Load when interacting with ESPHome in any way.
 
 # ESPHome
 
-`aioesphomeapi-discover` and `aioesphomeapi-logs` are installed.
+`aioesphomeapi-discover-once` and `aioesphomeapi-logs` are installed.
 
-Both commands stream indefinitely. Run them through `script` so output is flushed, bound the output, and set a short Bash tool timeout. Treat the timeout as expected.
-
-Discover local devices:
+`aioesphomeapi-discover` runs indefinitely. Discover local devices with the bounded wrapper:
 
 ```bash
-script -q /dev/null aioesphomeapi-discover | head -n 100
+aioesphomeapi-discover-once
 ```
 
 Stream device logs and entity state changes:
@@ -20,6 +18,8 @@ Stream device logs and entity state changes:
 ```bash
 script -q /dev/null aioesphomeapi-logs <address> | head -n 200
 ```
+
+Logs stream indefinitely. Run them through `script` so output is flushed, bound the output, and set a short Bash tool timeout. Treat the timeout as expected.
 
 If the device requires encryption, ask the user for its Noise PSK and add `--noise-psk <key>` before `<address>`.
 

@@ -439,7 +439,7 @@
           "hass-cli -o json system health *" = "allow";
           "hass-cli -o json system log *" = "allow";
           "hass-cli -o json template *" = "allow";
-          "script -q /dev/null aioesphomeapi-discover *" = "allow";
+          "aioesphomeapi-discover-once" = "allow";
           "script -q /dev/null aioesphomeapi-logs *" = "allow";
         }
         // lib.optionalAttrs config.dotfiles.snowflake.enable {

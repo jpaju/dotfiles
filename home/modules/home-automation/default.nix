@@ -1,4 +1,7 @@
 { ... }:
 {
-  imports = [ ./home-assistant ];
+  imports = [
+    ./esphome
+    ./home-assistant
+  ];
 }
