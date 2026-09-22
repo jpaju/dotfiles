@@ -11,6 +11,7 @@
       onActivation.extraEnv.HOMEBREW_NO_ANALYTICS = "1";
 
       taps = [
+        "anomalyco/tap"
         "pakerwreah/calendr"
       ];
 
@@ -18,7 +19,7 @@
         let
           devTools = [
             "jetbrains-toolbox"
-            "kitlangton-hex"
+            "anomalyco/tap/hex"
             "orbstack"
             "visual-studio-code"
           ];

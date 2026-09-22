@@ -23,7 +23,10 @@ in
       # Enables adding taps outside from Nix
       mutableTaps = true;
 
-      trust.taps = [ "pakerwreah/calendr" ];
+      trust.taps = [
+        "anomalyco/tap"
+        "pakerwreah/calendr"
+      ];
     };
   };
 }
