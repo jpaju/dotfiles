@@ -121,6 +121,10 @@ style = "bold fg:#ED8B00"
 [nodejs]
 symbol = " "
 
+[maven]
+symbol = " "
+style = "bold fg:#C71A3A"
+
 [kotlin]
 symbol = " "
 style = "bold fg:#B125EA"
