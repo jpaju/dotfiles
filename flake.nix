@@ -27,6 +27,7 @@
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     llm-agents.url = "github:numtide/llm-agents.nix";
+    omp.url = "github:can1357/oh-my-pi";
     catppuccin.url = "github:catppuccin/nix";
     gws.url = "github:googleworkspace/cli";
   };
