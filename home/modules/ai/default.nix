@@ -2,6 +2,7 @@
 {
   imports = [
     ./claude
+    ./codex
     ./opencode
   ];
 }
