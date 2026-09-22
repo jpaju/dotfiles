@@ -5,6 +5,8 @@
     enableDefaultConfig = false;
 
     settings = {
+      "*".useKeychain = true;
+
       "github.com" = {
         identityFile = "~/.ssh/id_ed25519";
         identitiesOnly = true;
