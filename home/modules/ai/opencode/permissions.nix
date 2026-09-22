@@ -54,7 +54,7 @@
         }
         // {
           # System and processes
-          "date" = "allow";
+          "date *" = "allow";
           "uname *" = "allow";
           "whoami" = "allow";
           "id *" = "allow";
@@ -143,13 +143,25 @@
         }
         // {
           # MacOS specific
+          "codesign -d *" = "allow";
+          "codesign --display *" = "allow";
           "defaults domains" = "allow";
           "defaults find *" = "allow";
           "defaults help" = "allow";
           "defaults read *" = "allow";
           "defaults read-type *" = "allow";
-          "plutil -p *" = "allow";
+          "launchctl list *" = "allow";
+          "launchctl blame *" = "allow";
+          "launchctl print *" = "allow";
+          "launchctl print-cache *" = "allow";
+          "launchctl print-disabled *" = "allow";
+          "launchctl procinfo *" = "allow";
+          "launchctl hostinfo" = "allow";
+          "launchctl version" = "allow";
           "log show *" = "allow";
+          "plutil -p *" = "allow";
+          "system_profiler *" = "allow";
+          "systemextensionsctl list *" = "allow";
         }
         // {
           "nix --version" = "allow";
@@ -188,6 +200,7 @@
           "brew options *" = "allow";
           "brew outdated *" = "allow";
           "brew search *" = "allow";
+          "brew tap" = "allow";
           "brew tap-info *" = "allow";
           "brew uses *" = "allow";
           "brew which-formula *" = "allow";
@@ -213,6 +226,7 @@
           "git cherry *" = "allow";
           "git count-objects *" = "allow";
           "git describe *" = "allow";
+          "git diff-tree *" = "allow";
           "git for-each-ref *" = "allow";
           "git fsck" = "allow";
           "git grep *" = "allow";
@@ -229,6 +243,7 @@
           "git tag --list *" = "allow";
           "git tag --contains *" = "allow";
           "git range-diff *" = "allow";
+          "git rebase --show-current-patch *" = "allow";
           "git reflog show *" = "allow";
           "git remote -v" = "allow";
           "git remote show *" = "allow";
