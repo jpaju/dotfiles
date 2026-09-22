@@ -23,7 +23,7 @@
     secrets.enable = lib.mkEnableOption "Secrets management (sops-nix)";
     terminal.enable = lib.mkEnableOption "Terminals";
     wolt-tools.enable = lib.mkEnableOption "Wolt tools";
-    home-assistant.enable = lib.mkEnableOption "Home Assistant tools";
+    home-automation.enable = lib.mkEnableOption "Home automation tools";
 
     # Technologies
     aws.enable = lib.mkEnableOption "AWS tools";

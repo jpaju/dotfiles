@@ -10,7 +10,7 @@
     ./google
     ./go
     ./gradle
-    ./home-assistant
+    ./home-automation
     ./http
     ./java
     ./k8s

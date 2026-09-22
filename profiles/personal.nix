@@ -25,7 +25,7 @@
     # Technologies
     docker.enable = true;
     github.enable = true;
-    home-assistant.enable = true;
+    home-automation.enable = true;
     http.enable = true;
     mqtt.enable = true;
     postgres.enable = true;

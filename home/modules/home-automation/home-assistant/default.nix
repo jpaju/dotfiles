@@ -17,7 +17,7 @@ let
   };
 in
 {
-  config = lib.mkIf config.dotfiles.home-assistant.enable {
+  config = lib.mkIf config.dotfiles.home-automation.enable {
     home.packages = [
       hass-cli
       pkgs.python3Packages.aioesphomeapi

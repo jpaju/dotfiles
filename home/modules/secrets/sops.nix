@@ -31,7 +31,7 @@
       // lib.optionalAttrs config.dotfiles.wolt-tools.enable {
         jira_api_token = { };
       }
-      // lib.optionalAttrs config.dotfiles.home-assistant.enable {
+      // lib.optionalAttrs config.dotfiles.home-automation.enable {
         hass_server = { };
         hass_token = { };
       };
@@ -53,7 +53,7 @@
       // lib.optionalAttrs config.dotfiles.wolt-tools.enable {
         jira_api_token = config.sops.secrets.jira_api_token.path;
       }
-      // lib.optionalAttrs config.dotfiles.home-assistant.enable {
+      // lib.optionalAttrs config.dotfiles.home-automation.enable {
         hass_server = config.sops.secrets.hass_server.path;
         hass_token = config.sops.secrets.hass_token.path;
       };

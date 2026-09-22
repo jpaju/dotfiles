@@ -414,7 +414,7 @@
           "gws meet conferenceRecords list *" = "allow";
           "gws meet conferenceRecords participants list *" = "allow";
         }
-        // lib.optionalAttrs config.dotfiles.home-assistant.enable {
+        // lib.optionalAttrs config.dotfiles.home-automation.enable {
           "hass-cli --help" = "allow";
           "hass-cli --version" = "allow";
           "hass-cli -o json area list *" = "allow";

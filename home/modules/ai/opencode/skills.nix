@@ -19,7 +19,7 @@
     // lib.optionalAttrs config.dotfiles.google.enable {
       google-workspace = ./skills/google-workspace;
     }
-    // lib.optionalAttrs config.dotfiles.home-assistant.enable {
+    // lib.optionalAttrs config.dotfiles.home-automation.enable {
       esphome = ./skills/esphome;
       home-assistant = ./skills/home-assistant;
     }
