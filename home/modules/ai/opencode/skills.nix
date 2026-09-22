@@ -20,6 +20,7 @@
       google-workspace = ./skills/google-workspace;
     }
     // lib.optionalAttrs config.dotfiles.home-assistant.enable {
+      esphome = ./skills/esphome;
       home-assistant = ./skills/home-assistant;
     }
     // lib.optionalAttrs config.dotfiles.k8s.enable {
