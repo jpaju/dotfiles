@@ -21,7 +21,7 @@
     github.enable = true;
     http.enable = true;
     k8s.enable = true;
-    kafka.enable = true;
+    kafka.enable = false;
     postgres.enable = true;
     protobuf.enable = true;
     snowflake.enable = true;
