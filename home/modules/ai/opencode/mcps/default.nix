@@ -8,5 +8,6 @@
     ./linear.nix
     ./observability.nix
     ./rootly.nix
+    ./slack.nix
   ];
 }
