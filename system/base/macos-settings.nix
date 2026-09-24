@@ -32,6 +32,8 @@
       };
 
       # Menubar items
+      NSGlobalDomain.NSStatusItemSpacing = 6;
+      NSGlobalDomain.NSStatusItemSelectionPadding = 3;
       controlcenter = {
         AirDrop = false;
         BatteryShowPercentage = false;
