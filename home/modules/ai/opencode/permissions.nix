@@ -206,6 +206,29 @@
           "brew which-formula *" = "allow";
         }
         // {
+          "herdr agent get *" = "allow";
+          "herdr agent explain *" = "allow";
+          "herdr agent list *" = "allow";
+          "herdr agent read *" = "allow";
+          "herdr integration status *" = "allow";
+          "herdr pane get *" = "allow";
+          "herdr pane current *" = "allow";
+          "herdr pane edges *" = "allow";
+          "herdr pane layout *" = "allow";
+          "herdr pane list *" = "allow";
+          "herdr pane process-info *" = "allow";
+          "herdr pane read *" = "allow";
+          "herdr plugin list *" = "allow";
+          "herdr plugin log*" = "allow";
+          "herdr session list *" = "allow";
+          "herdr status *" = "allow";
+          "herdr tab get *" = "allow";
+          "herdr tab list *" = "allow";
+          "herdr workspace get *" = "allow";
+          "herdr workspace list *" = "allow";
+          "herdr worktree list *" = "allow";
+        }
+        // {
           "git blame *" = "allow";
           "git branch" = "allow";
           "git branch --all" = "allow";
@@ -266,6 +289,8 @@
           "gh auth status" = "allow";
           "gh cache list *" = "allow";
           "gh config get *" = "allow";
+          "gh discussion list *" = "allow";
+          "gh discussion view *" = "allow";
           "gh extension list *" = "allow";
           "gh extension search *" = "allow";
           "gh gist list *" = "allow";
