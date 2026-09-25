@@ -51,9 +51,25 @@ const parseArguments = (values: string[]): Argument[] => {
 };
 
 const parseRedirect = (redirect: BashRedirect): Redirect[] => {
-  if (redirect.operator !== ">" || redirect.target === undefined) return [];
+  if (redirect.target === undefined) return [];
 
-  return [{ operator: ">", target: { kind: "file", path: redirect.target.value } }];
+  switch (redirect.operator) {
+    case ">":
+    case ">>":
+    case ">|":
+    case "&>":
+    case "&>>":
+    case ">&":
+    case "<>":
+      return [
+        {
+          operator: redirect.operator,
+          target: { kind: "file", path: redirect.target.value },
+        },
+      ];
+    default:
+      return [];
+  }
 };
 
 function parseNestedCommands(word: Word): CommandLine {

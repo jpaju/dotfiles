@@ -174,4 +174,19 @@ describe("parseCommandLine", () => {
 
     expect(actual).toEqual([expected]);
   });
+
+  test.each([">>", ">|", "&>", "&>>", ">&", "<>"] as const)(
+    "parses %s as an output file redirect",
+    (operator) => {
+      const actual = parseCommandLine(`printf foo ${operator} output.txt`);
+
+      const expected = {
+        program: "printf",
+        arguments: [{ kind: "operand", value: "foo" }],
+        redirects: [{ operator, target: { kind: "file", path: "output.txt" } }],
+      };
+
+      expect(actual).toEqual([expected]);
+    },
+  );
 });
