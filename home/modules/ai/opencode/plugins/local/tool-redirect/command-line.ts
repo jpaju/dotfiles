@@ -120,6 +120,8 @@ function parseCommandExpansionPart(part: WordPart): CommandLine {
     case "DoubleQuoted":
     case "LocaleString":
       return part.parts.flatMap(parseCommandExpansionPart);
+    case "BraceExpansion":
+      return (part.parts ?? []).flatMap(parseCommandExpansionPart);
     case "ParameterExpansion":
       return [
         ...(part.indexParts ?? []).flatMap(parseCommandExpansionPart),

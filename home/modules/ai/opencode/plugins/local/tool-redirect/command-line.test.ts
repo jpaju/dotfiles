@@ -295,6 +295,25 @@ describe("parseCommandLine", () => {
     expect(actual).toEqual(expected);
   });
 
+  test("flattens command substitutions inside brace expansions", () => {
+    const actual = parseCommandLine("echo {a,$(pwd)}");
+
+    const expected = [
+      {
+        program: "echo",
+        arguments: [{ kind: "operand", value: "{a,$(pwd)}" }],
+        redirects: [],
+      },
+      {
+        program: "pwd",
+        arguments: [],
+        redirects: [],
+      },
+    ];
+
+    expect(actual).toEqual(expected);
+  });
+
   test("flattens command substitutions inside heredocs", () => {
     const actual = parseCommandLine("cat <<EOF\n$(git status)\nEOF");
 
