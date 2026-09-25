@@ -59,4 +59,24 @@ describe("parseCommandLine", () => {
 
     expect(actual).toEqual([expected]);
   });
+
+  test("flattens semicolon and newline-separated commands", () => {
+    const actual = parseCommandLine("pwd; git status\nrg foo");
+
+    const expected = [
+      { program: "pwd", arguments: [], redirects: [] },
+      {
+        program: "git",
+        arguments: [{ kind: "operand", value: "status" }],
+        redirects: [],
+      },
+      {
+        program: "rg",
+        arguments: [{ kind: "operand", value: "foo" }],
+        redirects: [],
+      },
+    ];
+
+    expect(actual).toEqual(expected);
+  });
 });
