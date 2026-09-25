@@ -219,8 +219,10 @@ const parseFor = (forNode: BashFor): CommandLine => [
 const parseArithmeticFor = (forNode: BashArithmeticFor): CommandLine =>
   parseStatements(forNode.body.commands);
 
-const parseSelect = (selectNode: BashSelect): CommandLine =>
-  parseStatements(selectNode.body.commands);
+const parseSelect = (selectNode: BashSelect): CommandLine => [
+  ...selectNode.wordlist.flatMap(parseCommandExpansions),
+  ...parseStatements(selectNode.body.commands),
+];
 
 const parseWhile = (whileNode: BashWhile): CommandLine => [
   ...parseStatements(whileNode.clause.commands),

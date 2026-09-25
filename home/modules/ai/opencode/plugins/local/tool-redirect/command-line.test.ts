@@ -499,6 +499,25 @@ describe("parseCommandLine", () => {
     expect(actual).toEqual([expected]);
   });
 
+  test("flattens command substitutions inside a select loop word list", () => {
+    const actual = parseCommandLine('select file in $(git ls-files); do echo "$file"; done');
+
+    const expected = [
+      {
+        program: "git",
+        arguments: [{ kind: "operand", value: "ls-files" }],
+        redirects: [],
+      },
+      {
+        program: "echo",
+        arguments: [{ kind: "operand", value: "$file" }],
+        redirects: [],
+      },
+    ];
+
+    expect(actual).toEqual(expected);
+  });
+
   test("flattens commands inside a while loop", () => {
     const actual = parseCommandLine("while git status; do rg foo; done");
 
