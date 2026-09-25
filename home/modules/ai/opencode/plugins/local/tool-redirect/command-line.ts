@@ -253,6 +253,8 @@ function parseTestExpression(expression: TestExpression): CommandLine {
         ...parseCommandExpansions(expression.left),
         ...parseCommandExpansions(expression.right),
       ];
+    case "TestNot":
+      return parseTestExpression(expression.operand);
     default:
       return [];
   }
