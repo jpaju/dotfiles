@@ -98,4 +98,24 @@ describe("parseCommandLine", () => {
 
     expect(actual).toEqual(expected);
   });
+
+  test("flattens logical command chains", () => {
+    const actual = parseCommandLine("git status && rg foo || pwd");
+
+    const expected = [
+      {
+        program: "git",
+        arguments: [{ kind: "operand", value: "status" }],
+        redirects: [],
+      },
+      {
+        program: "rg",
+        arguments: [{ kind: "operand", value: "foo" }],
+        redirects: [],
+      },
+      { program: "pwd", arguments: [], redirects: [] },
+    ];
+
+    expect(actual).toEqual(expected);
+  });
 });
