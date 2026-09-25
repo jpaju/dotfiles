@@ -1,5 +1,6 @@
 import {
   parse,
+  type ArithmeticFor as BashArithmeticFor,
   type BraceGroup,
   type Case as BashCase,
   type Command as BashCommand,
@@ -159,6 +160,9 @@ function parseIf(ifNode: BashIf): CommandLine {
 
 const parseFor = (forNode: BashFor): CommandLine => parseStatements(forNode.body.commands);
 
+const parseArithmeticFor = (forNode: BashArithmeticFor): CommandLine =>
+  parseStatements(forNode.body.commands);
+
 const parseWhile = (whileNode: BashWhile): CommandLine => [
   ...parseStatements(whileNode.clause.commands),
   ...parseStatements(whileNode.body.commands),
@@ -189,6 +193,8 @@ function parseNode(node: Node): CommandLine {
       return parseIf(node);
     case "For":
       return parseFor(node);
+    case "ArithmeticFor":
+      return parseArithmeticFor(node);
     case "While":
       return parseWhile(node);
     case "Case":

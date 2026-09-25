@@ -327,6 +327,18 @@ describe("parseCommandLine", () => {
     expect(actual).toEqual([expected]);
   });
 
+  test("flattens commands inside an arithmetic for loop", () => {
+    const actual = parseCommandLine('for ((i = 0; i < 3; i++)); do echo "$i"; done');
+
+    const expected = {
+      program: "echo",
+      arguments: [{ kind: "operand", value: "$i" }],
+      redirects: [],
+    };
+
+    expect(actual).toEqual([expected]);
+  });
+
   test("flattens commands inside a while loop", () => {
     const actual = parseCommandLine("while git status; do rg foo; done");
 
