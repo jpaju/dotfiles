@@ -9,6 +9,7 @@ import {
   type Redirect as BashRedirect,
   type Statement,
   type Subshell,
+  type While as BashWhile,
   type Word,
 } from "unbash";
 
@@ -138,6 +139,11 @@ function parseIf(ifNode: BashIf): CommandLine {
 
 const parseFor = (forNode: BashFor): CommandLine => parseStatements(forNode.body.commands);
 
+const parseWhile = (whileNode: BashWhile): CommandLine => [
+  ...parseStatements(whileNode.clause.commands),
+  ...parseStatements(whileNode.body.commands),
+];
+
 function parseNode(node: Node): CommandLine {
   switch (node.type) {
     case "Pipeline":
@@ -151,6 +157,8 @@ function parseNode(node: Node): CommandLine {
       return parseIf(node);
     case "For":
       return parseFor(node);
+    case "While":
+      return parseWhile(node);
     case "Command":
       return parseCommand(node);
     default:
