@@ -21,6 +21,13 @@ export interface Redirect {
   target: RedirectTarget;
 }
 
+const parseArgument = (value: string): Argument => {
+  if (!value.startsWith("-")) return { kind: "operand", value };
+
+  const equalsIndex = value.startsWith("--") ? value.indexOf("=") : -1;
+  return { kind: "flag", name: equalsIndex === -1 ? value : value.slice(0, equalsIndex) };
+};
+
 export const parseCommandLine = (commandLine: string): CommandLine => {
   const script = parse(commandLine);
 
@@ -30,11 +37,7 @@ export const parseCommandLine = (commandLine: string): CommandLine => {
     return [
       {
         program: statement.command.name.value.split("/").pop() ?? "",
-        arguments: statement.command.suffix.map((word) =>
-          word.value.startsWith("-")
-            ? { kind: "flag" as const, name: word.value }
-            : { kind: "operand" as const, value: word.value },
-        ),
+        arguments: statement.command.suffix.map((word) => parseArgument(word.value)),
         redirects: [],
       },
     ];
