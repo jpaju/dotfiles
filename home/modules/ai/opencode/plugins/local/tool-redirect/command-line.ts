@@ -119,6 +119,8 @@ function parseCommandExpansionPart(part: WordPart): CommandLine {
     case "DoubleQuoted":
     case "LocaleString":
       return part.parts.flatMap(parseCommandExpansionPart);
+    case "ParameterExpansion":
+      return part.operand === undefined ? [] : parseCommandExpansions(part.operand);
     default:
       return [];
   }
