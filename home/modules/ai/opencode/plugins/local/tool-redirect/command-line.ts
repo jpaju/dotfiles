@@ -211,7 +211,10 @@ function parseIf(ifNode: BashIf): CommandLine {
   return [...commands, ...elseCommands];
 }
 
-const parseFor = (forNode: BashFor): CommandLine => parseStatements(forNode.body.commands);
+const parseFor = (forNode: BashFor): CommandLine => [
+  ...forNode.wordlist.flatMap(parseCommandExpansions),
+  ...parseStatements(forNode.body.commands),
+];
 
 const parseArithmeticFor = (forNode: BashArithmeticFor): CommandLine =>
   parseStatements(forNode.body.commands);
