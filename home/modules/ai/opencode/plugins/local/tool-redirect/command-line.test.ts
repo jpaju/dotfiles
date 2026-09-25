@@ -159,4 +159,19 @@ describe("parseCommandLine", () => {
 
     expect(actual).toEqual(expected);
   });
+
+  test("parses an output file redirect", () => {
+    const actual = parseCommandLine("gh repo --help > gh-help.txt");
+
+    const expected = {
+      program: "gh",
+      arguments: [
+        { kind: "operand", value: "repo" },
+        { kind: "flag", name: "--help" },
+      ],
+      redirects: [{ operator: ">", target: { kind: "file", path: "gh-help.txt" } }],
+    };
+
+    expect(actual).toEqual([expected]);
+  });
 });
