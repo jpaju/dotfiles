@@ -46,6 +46,8 @@ const parseArguments = (values: string[]): Argument[] => {
 
 const parseNode = (node: Node): CommandLine => {
   if (node.type === "Pipeline" || node.type === "AndOr") return node.commands.flatMap(parseNode);
+  if (node.type === "Subshell")
+    return node.body.commands.flatMap((statement) => parseNode(statement.command));
   if (node.type !== "Command" || node.name === undefined) return [];
 
   return [
