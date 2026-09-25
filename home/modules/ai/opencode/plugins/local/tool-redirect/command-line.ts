@@ -1,8 +1,11 @@
 import {
   parse,
+  type Command as BashCommand,
   type Node,
   type ParsedScript,
   type Redirect as BashRedirect,
+  type Statement,
+  type Subshell,
   type Word,
 } from "unbash";
 
@@ -72,31 +75,46 @@ const parseRedirect = (redirect: BashRedirect): Redirect[] => {
   }
 };
 
-function parseNestedCommands(word: Word): CommandLine {
-  return (word.parts ?? []).flatMap((part) =>
+const parseCommandExpansions = (word: Word): CommandLine =>
+  (word.parts ?? []).flatMap((part) =>
     part.type === "CommandExpansion" && part.script !== undefined ? parseScript(part.script) : [],
   );
-}
 
-function parseNode(node: Node): CommandLine {
-  if (node.type === "Pipeline" || node.type === "AndOr") return node.commands.flatMap(parseNode);
-  if (node.type === "Subshell")
-    return node.body.commands.flatMap((statement) => parseNode(statement.command));
-  if (node.type !== "Command" || node.name === undefined) return [];
+function parseCommand(commandNode: BashCommand): CommandLine {
+  if (commandNode.name === undefined) return [];
 
-  const command = {
-    program: node.name.value.split("/").pop() ?? "",
-    arguments: parseArguments(node.suffix.map((word) => word.value)),
-    redirects: node.redirects.flatMap(parseRedirect),
+  const command: Command = {
+    program: commandNode.name.value.split("/").pop() ?? "",
+    arguments: parseArguments(commandNode.suffix.map((word) => word.value)),
+    redirects: commandNode.redirects.flatMap(parseRedirect),
   };
 
-  const nestedCommands = [node.name, ...node.suffix].flatMap(parseNestedCommands);
+  const nestedCommands = [commandNode.name, ...commandNode.suffix].flatMap(parseCommandExpansions);
   return [command, ...nestedCommands];
 }
 
-function parseScript(script: ParsedScript): CommandLine {
-  return script.commands.flatMap((statement) => parseNode(statement.command));
+const parseCommandSequence = (nodes: Node[]): CommandLine => nodes.flatMap(parseNode);
+
+const parseStatements = (statements: Statement[]): CommandLine =>
+  statements.flatMap((s) => parseNode(s.command));
+
+const parseSubshell = (subshell: Subshell): CommandLine => parseStatements(subshell.body.commands);
+
+function parseNode(node: Node): CommandLine {
+  switch (node.type) {
+    case "Pipeline":
+    case "AndOr":
+      return parseCommandSequence(node.commands);
+    case "Subshell":
+      return parseSubshell(node);
+    case "Command":
+      return parseCommand(node);
+    default:
+      return [];
+  }
 }
+
+const parseScript = (script: ParsedScript): CommandLine => parseStatements(script.commands);
 
 export const parseCommandLine = (commandLine: string): CommandLine =>
   parseScript(parse(commandLine));
