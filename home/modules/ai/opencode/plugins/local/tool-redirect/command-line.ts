@@ -16,6 +16,8 @@ import {
   type WordPart,
 } from "unbash";
 
+// ================================= Domain model ==================================
+
 export type CommandLine = Command[];
 
 export interface Command {
@@ -36,6 +38,8 @@ export interface Redirect {
   operator: RedirectOperator;
   target: RedirectTarget;
 }
+
+// =============================== Argument parsing ================================
 
 const parseArgument = (value: string): Argument => {
   if (!value.startsWith("-")) return { kind: "operand", value };
@@ -59,6 +63,8 @@ const parseArguments = (values: string[]): Argument[] => {
 
   return arguments_;
 };
+
+// =============================== Redirect parsing ================================
 
 const parseStdio = (descriptor: string): Stdio | undefined => {
   switch (descriptor) {
@@ -100,6 +106,8 @@ const parseRedirect = (redirect: BashRedirect): Redirect[] => {
   }
 };
 
+// ============================= Command expansions ================================
+
 function parseCommandExpansionPart(part: WordPart): CommandLine {
   switch (part.type) {
     case "CommandExpansion":
@@ -115,6 +123,8 @@ function parseCommandExpansionPart(part: WordPart): CommandLine {
 const parseCommandExpansions = (word: Word): CommandLine =>
   (word.parts ?? []).flatMap(parseCommandExpansionPart);
 
+// ============================== Concrete commands ================================
+
 function parseCommand(commandNode: BashCommand): CommandLine {
   if (commandNode.name === undefined) return [];
 
@@ -128,10 +138,7 @@ function parseCommand(commandNode: BashCommand): CommandLine {
   return [command, ...nestedCommands];
 }
 
-const parseCommandSequence = (nodes: Node[]): CommandLine => nodes.flatMap(parseNode);
-
-const parseStatements = (statements: Statement[]): CommandLine =>
-  statements.flatMap((s) => parseNode(s.command));
+// ============================== Compound commands ================================
 
 const parseSubshell = (subshell: Subshell): CommandLine => parseStatements(subshell.body.commands);
 
@@ -162,6 +169,13 @@ const parseCase = (caseNode: BashCase): CommandLine =>
 
 const parseFunction = (functionNode: BashFunction): CommandLine => parseNode(functionNode.body);
 
+// ================================ AST traversal ==================================
+
+const parseCommandSequence = (nodes: Node[]): CommandLine => nodes.flatMap(parseNode);
+
+const parseStatements = (statements: Statement[]): CommandLine =>
+  statements.flatMap((s) => parseNode(s.command));
+
 function parseNode(node: Node): CommandLine {
   switch (node.type) {
     case "Pipeline":
@@ -190,6 +204,8 @@ function parseNode(node: Node): CommandLine {
 
 const parseScript = (script: ParsedScript): CommandLine =>
   script.errors === undefined || script.errors.length === 0 ? parseStatements(script.commands) : [];
+
+// ================================= Public API ====================================
 
 export const parseCommandLine = (commandLine: string): CommandLine =>
   parseScript(parse(commandLine));

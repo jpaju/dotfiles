@@ -3,6 +3,8 @@ import { describe, expect, test } from "bun:test";
 import { CommandLine, parseCommandLine, type RedirectOperator, type Stdio } from "./command-line";
 
 describe("parseCommandLine", () => {
+  // ============================ Commands & arguments ==============================
+
   test("parses a simple command", () => {
     const actual = parseCommandLine("/usr/bin/git status --short");
 
@@ -59,6 +61,8 @@ describe("parseCommandLine", () => {
 
     expect(actual).toEqual([expected]);
   });
+
+  // ============================= Command sequences ================================
 
   test("flattens semicolon and newline-separated commands", () => {
     const actual = parseCommandLine("pwd; git status\nrg foo");
@@ -118,6 +122,8 @@ describe("parseCommandLine", () => {
 
     expect(actual).toEqual(expected);
   });
+
+  // ============================== Nested commands =================================
 
   test("flattens commands inside a subshell", () => {
     const actual = parseCommandLine("(git status; rg foo)");
@@ -181,6 +187,8 @@ describe("parseCommandLine", () => {
 
     expect(actual).toEqual(expected);
   });
+
+  // ================================ Redirections ==================================
 
   test("parses an output file redirect", () => {
     const actual = parseCommandLine("gh repo --help > gh-help.txt");
@@ -256,6 +264,8 @@ describe("parseCommandLine", () => {
     expect(actual).toEqual([expected]);
   });
 
+  // =============================== Error handling =================================
+
   test("returns no commands when parsing fails", () => {
     const actual = parseCommandLine("git status |");
 
@@ -263,6 +273,8 @@ describe("parseCommandLine", () => {
 
     expect(actual).toEqual(expected);
   });
+
+  // ============================= Compound commands ================================
 
   test("flattens commands inside a brace group", () => {
     const actual = parseCommandLine("{ git status; rg foo; }");
@@ -375,6 +387,8 @@ describe("parseCommandLine", () => {
   });
 
 });
+
+// ================================ Test helpers ==================================
 
 const expectOutputFileRedirect = (operator: RedirectOperator): void => {
   const actual = parseCommandLine(`printf foo ${operator} output.txt`);
