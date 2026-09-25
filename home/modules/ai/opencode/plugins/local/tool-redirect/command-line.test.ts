@@ -32,4 +32,16 @@ describe("parseCommandLine", () => {
 
     expect(actual).toEqual([expected]);
   });
+
+  test("treats arguments after -- as operands", () => {
+    const actual = parseCommandLine("sed -- -i");
+
+    const expected = {
+      program: "sed",
+      arguments: [{ kind: "operand", value: "-i" }],
+      redirects: [],
+    };
+
+    expect(actual).toEqual([expected]);
+  });
 });
