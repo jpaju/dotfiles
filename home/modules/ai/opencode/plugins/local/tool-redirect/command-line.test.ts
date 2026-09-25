@@ -280,6 +280,18 @@ describe("parseCommandLine", () => {
 
     expect(actual).toEqual(expected);
   });
+
+  test("flattens commands inside a for loop", () => {
+    const actual = parseCommandLine('for file in a b; do cat "$file"; done');
+
+    const expected = {
+      program: "cat",
+      arguments: [{ kind: "operand", value: "$file" }],
+      redirects: [],
+    };
+
+    expect(actual).toEqual([expected]);
+  });
 });
 
 const expectOutputFileRedirect = (operator: RedirectOperator): void => {
