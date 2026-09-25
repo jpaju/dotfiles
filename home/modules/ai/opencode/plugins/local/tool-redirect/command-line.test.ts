@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
 
-import { parseCommandLine, type RedirectOperator, type Stdio } from "./command-line";
+import { CommandLine, parseCommandLine, type RedirectOperator, type Stdio } from "./command-line";
 
 describe("parseCommandLine", () => {
   test("parses a simple command", () => {
@@ -232,6 +232,14 @@ describe("parseCommandLine", () => {
     };
 
     expect(actual).toEqual([expected]);
+  });
+
+  test("returns no commands when parsing fails", () => {
+    const actual = parseCommandLine("git status |");
+
+    const expected: CommandLine = [];
+
+    expect(actual).toEqual(expected);
   });
 });
 
