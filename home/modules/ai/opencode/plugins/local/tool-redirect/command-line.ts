@@ -130,6 +130,9 @@ const parseCommandExpansions = (word: Word): CommandLine =>
 const parseAssignmentExpansions = (assignment: AssignmentPrefix): CommandLine =>
   assignment.value === undefined ? [] : parseCommandExpansions(assignment.value);
 
+const parseRedirectExpansions = (redirect: BashRedirect): CommandLine =>
+  redirect.target === undefined ? [] : parseCommandExpansions(redirect.target);
+
 // ============================== Concrete commands ================================
 
 function parseCommand(commandNode: BashCommand): CommandLine {
@@ -144,6 +147,7 @@ function parseCommand(commandNode: BashCommand): CommandLine {
   const nestedCommands = [
     ...commandNode.prefix.flatMap(parseAssignmentExpansions),
     ...[commandNode.name, ...commandNode.suffix].flatMap(parseCommandExpansions),
+    ...commandNode.redirects.flatMap(parseRedirectExpansions),
   ];
   return [command, ...nestedCommands];
 }
