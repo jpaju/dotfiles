@@ -292,6 +292,25 @@ describe("parseCommandLine", () => {
 
     expect(actual).toEqual([expected]);
   });
+
+  test("flattens commands inside a while loop", () => {
+    const actual = parseCommandLine("while git status; do rg foo; done");
+
+    const expected = [
+      {
+        program: "git",
+        arguments: [{ kind: "operand", value: "status" }],
+        redirects: [],
+      },
+      {
+        program: "rg",
+        arguments: [{ kind: "operand", value: "foo" }],
+        redirects: [],
+      },
+    ];
+
+    expect(actual).toEqual(expected);
+  });
 });
 
 const expectOutputFileRedirect = (operator: RedirectOperator): void => {
