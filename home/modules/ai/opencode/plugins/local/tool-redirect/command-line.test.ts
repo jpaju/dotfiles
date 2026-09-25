@@ -209,6 +209,18 @@ describe("parseCommandLine", () => {
 
     expect(actual).toEqual([expected]);
   });
+
+  test("ignores the source file descriptor", () => {
+    const actual = parseCommandLine("cargo build 2> errors.txt");
+
+    const expected = {
+      program: "cargo",
+      arguments: [{ kind: "operand", value: "build" }],
+      redirects: [{ operator: ">", target: { kind: "file", path: "errors.txt" } }],
+    };
+
+    expect(actual).toEqual([expected]);
+  });
 });
 
 const expectOutputFileRedirect = (operator: RedirectOperator): void => {
