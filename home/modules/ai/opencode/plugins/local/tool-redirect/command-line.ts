@@ -17,6 +17,8 @@ import {
   type Select as BashSelect,
   type Statement,
   type Subshell,
+  type TestCommand as BashTestCommand,
+  type TestExpression,
   type While as BashWhile,
   type Word,
   type WordPart,
@@ -242,6 +244,18 @@ const parseArithmeticFor = (forNode: BashArithmeticFor): CommandLine => [
 const parseArithmeticCommand = (commandNode: BashArithmeticCommand): CommandLine =>
   commandNode.expression === undefined ? [] : parseArithmeticExpression(commandNode.expression);
 
+function parseTestExpression(expression: TestExpression): CommandLine {
+  switch (expression.type) {
+    case "TestUnary":
+      return parseCommandExpansions(expression.operand);
+    default:
+      return [];
+  }
+}
+
+const parseTestCommand = (commandNode: BashTestCommand): CommandLine =>
+  parseTestExpression(commandNode.expression);
+
 const parseSelect = (selectNode: BashSelect): CommandLine => [
   ...selectNode.wordlist.flatMap(parseCommandExpansions),
   ...parseStatements(selectNode.body.commands),
@@ -285,6 +299,8 @@ function parseNode(node: Node): CommandLine {
       return parseArithmeticFor(node);
     case "ArithmeticCommand":
       return parseArithmeticCommand(node);
+    case "TestCommand":
+      return parseTestCommand(node);
     case "Select":
       return parseSelect(node);
     case "While":
