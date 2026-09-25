@@ -260,6 +260,26 @@ describe("parseCommandLine", () => {
 
     expect(actual).toEqual(expected);
   });
+
+  test("flattens commands inside an if statement", () => {
+    const actual = parseCommandLine("if git status; then rg foo; else pwd; fi");
+
+    const expected = [
+      {
+        program: "git",
+        arguments: [{ kind: "operand", value: "status" }],
+        redirects: [],
+      },
+      {
+        program: "rg",
+        arguments: [{ kind: "operand", value: "foo" }],
+        redirects: [],
+      },
+      { program: "pwd", arguments: [], redirects: [] },
+    ];
+
+    expect(actual).toEqual(expected);
+  });
 });
 
 const expectOutputFileRedirect = (operator: RedirectOperator): void => {
