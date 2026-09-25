@@ -2,6 +2,7 @@ import {
   parse,
   type BraceGroup,
   type Command as BashCommand,
+  type For as BashFor,
   type If as BashIf,
   type Node,
   type ParsedScript,
@@ -135,6 +136,8 @@ function parseIf(ifNode: BashIf): CommandLine {
   return [...commands, ...elseCommands];
 }
 
+const parseFor = (forNode: BashFor): CommandLine => parseStatements(forNode.body.commands);
+
 function parseNode(node: Node): CommandLine {
   switch (node.type) {
     case "Pipeline":
@@ -146,6 +149,8 @@ function parseNode(node: Node): CommandLine {
       return parseBraceGroup(node);
     case "If":
       return parseIf(node);
+    case "For":
+      return parseFor(node);
     case "Command":
       return parseCommand(node);
     default:
