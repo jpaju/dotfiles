@@ -127,8 +127,13 @@ function parseCommandExpansionPart(part: WordPart): CommandLine {
 const parseCommandExpansions = (word: Word): CommandLine =>
   (word.parts ?? []).flatMap(parseCommandExpansionPart);
 
-const parseAssignmentExpansions = (assignment: AssignmentPrefix): CommandLine =>
-  assignment.value === undefined ? [] : parseCommandExpansions(assignment.value);
+const parseAssignmentExpansions = (assignment: AssignmentPrefix): CommandLine => [
+  ...[
+    ...(assignment.value === undefined ? [] : [assignment.value]),
+    ...(assignment.array ?? []),
+  ].flatMap(parseCommandExpansions),
+  ...(assignment.indexParts ?? []).flatMap(parseCommandExpansionPart),
+];
 
 const parseRedirectExpansions = (redirect: BashRedirect): CommandLine =>
   redirect.target === undefined ? [] : parseCommandExpansions(redirect.target);

@@ -225,6 +225,30 @@ describe("parseCommandLine", () => {
     expect(actual).toEqual([expected]);
   });
 
+  test("flattens command substitutions inside assignment arrays", () => {
+    const actual = parseCommandLine("files=($(git ls-files))");
+
+    const expected = {
+      program: "git",
+      arguments: [{ kind: "operand", value: "ls-files" }],
+      redirects: [],
+    };
+
+    expect(actual).toEqual([expected]);
+  });
+
+  test("flattens command substitutions inside assignment indexes", () => {
+    const actual = parseCommandLine("files[$(printf 0)]=value");
+
+    const expected = {
+      program: "printf",
+      arguments: [{ kind: "operand", value: "0" }],
+      redirects: [],
+    };
+
+    expect(actual).toEqual([expected]);
+  });
+
   test("flattens command substitutions inside redirect targets", () => {
     const actual = parseCommandLine('printf foo > "$(pwd)/output.txt"');
 
