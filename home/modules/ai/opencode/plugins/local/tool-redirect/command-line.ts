@@ -257,6 +257,11 @@ function parseTestExpression(expression: TestExpression): CommandLine {
       return parseTestExpression(expression.operand);
     case "TestGroup":
       return parseTestExpression(expression.expression);
+    case "TestLogical":
+      return [
+        ...parseTestExpression(expression.left),
+        ...parseTestExpression(expression.right),
+      ];
     default:
       return [];
   }
