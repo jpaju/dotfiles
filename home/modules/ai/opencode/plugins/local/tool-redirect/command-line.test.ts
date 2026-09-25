@@ -782,6 +782,30 @@ describe("parseCommandLine", () => {
     expect(actual).toEqual(expected);
   });
 
+  test("flattens command substitutions inside case selectors", () => {
+    const actual = parseCommandLine(
+      "case $(git branch --show-current) in main) pwd ;; esac",
+    );
+
+    const expected = [
+      {
+        program: "git",
+        arguments: [
+          { kind: "operand", value: "branch" },
+          { kind: "flag", name: "--show-current" },
+        ],
+        redirects: [],
+      },
+      {
+        program: "pwd",
+        arguments: [],
+        redirects: [],
+      },
+    ];
+
+    expect(actual).toEqual(expected);
+  });
+
   test("flattens commands inside a function body", () => {
     const actual = parseCommandLine("inspect() { git status; rg foo; }");
 
