@@ -207,6 +207,25 @@ describe("parseCommandLine", () => {
     expect(actual).toEqual(expected);
   });
 
+  test("flattens command substitutions inside parameter expansion indexes", () => {
+    const actual = parseCommandLine('echo "${files[$(printf 0)]}"');
+
+    const expected = [
+      {
+        program: "echo",
+        arguments: [{ kind: "operand", value: "${files[$(printf 0)]}" }],
+        redirects: [],
+      },
+      {
+        program: "printf",
+        arguments: [{ kind: "operand", value: "0" }],
+        redirects: [],
+      },
+    ];
+
+    expect(actual).toEqual(expected);
+  });
+
   test("flattens command substitutions inside arithmetic expansions", () => {
     const actual = parseCommandLine("echo $(( $(printf 1) + 1 ))");
 

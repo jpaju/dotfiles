@@ -121,7 +121,10 @@ function parseCommandExpansionPart(part: WordPart): CommandLine {
     case "LocaleString":
       return part.parts.flatMap(parseCommandExpansionPart);
     case "ParameterExpansion":
-      return part.operand === undefined ? [] : parseCommandExpansions(part.operand);
+      return [
+        ...(part.indexParts ?? []).flatMap(parseCommandExpansionPart),
+        ...(part.operand === undefined ? [] : parseCommandExpansions(part.operand)),
+      ];
     case "ArithmeticExpansion":
       return part.expression === undefined ? [] : parseArithmeticExpression(part.expression);
     default:
