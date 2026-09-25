@@ -314,6 +314,25 @@ describe("parseCommandLine", () => {
     expect(actual).toEqual(expected);
   });
 
+  test("flattens command substitutions inside extended globs", () => {
+    const actual = parseCommandLine("echo @($(pwd)|foo)");
+
+    const expected = [
+      {
+        program: "echo",
+        arguments: [{ kind: "operand", value: "@($(pwd)|foo)" }],
+        redirects: [],
+      },
+      {
+        program: "pwd",
+        arguments: [],
+        redirects: [],
+      },
+    ];
+
+    expect(actual).toEqual(expected);
+  });
+
   test("flattens command substitutions inside heredocs", () => {
     const actual = parseCommandLine("cat <<EOF\n$(git status)\nEOF");
 

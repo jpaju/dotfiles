@@ -121,6 +121,7 @@ function parseCommandExpansionPart(part: WordPart): CommandLine {
     case "LocaleString":
       return part.parts.flatMap(parseCommandExpansionPart);
     case "BraceExpansion":
+    case "ExtendedGlob":
       return (part.parts ?? []).flatMap(parseCommandExpansionPart);
     case "ParameterExpansion":
       return [
