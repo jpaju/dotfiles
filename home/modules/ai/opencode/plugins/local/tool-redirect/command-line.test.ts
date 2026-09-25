@@ -311,6 +311,27 @@ describe("parseCommandLine", () => {
 
     expect(actual).toEqual(expected);
   });
+
+  test("flattens commands inside case branches", () => {
+    const actual = parseCommandLine(
+      'case "$mode" in read) cat file ;; search) rg foo ;; esac',
+    );
+
+    const expected = [
+      {
+        program: "cat",
+        arguments: [{ kind: "operand", value: "file" }],
+        redirects: [],
+      },
+      {
+        program: "rg",
+        arguments: [{ kind: "operand", value: "foo" }],
+        redirects: [],
+      },
+    ];
+
+    expect(actual).toEqual(expected);
+  });
 });
 
 const expectOutputFileRedirect = (operator: RedirectOperator): void => {
