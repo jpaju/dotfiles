@@ -193,6 +193,8 @@ const parseCoproc = (coprocNode: BashCoproc): CommandLine => parseNode(coprocNod
 
 // ================================ AST traversal ==================================
 
+const PARSE_FAILURE = Symbol("PARSE_FAILURE");
+
 const parseCommandSequence = (nodes: Node[]): CommandLine => nodes.flatMap(parseNode);
 
 const parseStatements = (statements: Statement[]): CommandLine =>
@@ -230,10 +232,18 @@ function parseNode(node: Node): CommandLine {
   }
 }
 
-const parseScript = (script: ParsedScript): CommandLine =>
-  script.errors === undefined || script.errors.length === 0 ? parseStatements(script.commands) : [];
+const parseScript = (script: ParsedScript): CommandLine => {
+  if (script.errors !== undefined && script.errors.length > 0) throw PARSE_FAILURE;
+  return parseStatements(script.commands);
+};
 
 // ================================= Public API ====================================
 
-export const parseCommandLine = (commandLine: string): CommandLine =>
-  parseScript(parse(commandLine));
+export const parseCommandLine = (commandLine: string): CommandLine => {
+  try {
+    return parseScript(parse(commandLine));
+  } catch (error) {
+    if (error === PARSE_FAILURE) return [];
+    throw error;
+  }
+};
