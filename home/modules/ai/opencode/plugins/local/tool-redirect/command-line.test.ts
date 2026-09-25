@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
 
-import { parseCommandLine } from "./command-line";
+import { parseCommandLine, type RedirectOperator, type Stdio } from "./command-line";
 
 describe("parseCommandLine", () => {
   test("parses a simple command", () => {
@@ -175,34 +175,62 @@ describe("parseCommandLine", () => {
     expect(actual).toEqual([expected]);
   });
 
-  test.each([">>", ">|", "&>", "&>>", ">&", "<>"] as const)(
-    "parses %s as an output file redirect",
-    (operator) => {
-      const actual = parseCommandLine(`printf foo ${operator} output.txt`);
+  test("parses >> as an output file redirect", () => expectOutputFileRedirect(">>"));
+  test("parses >| as an output file redirect", () => expectOutputFileRedirect(">|"));
+  test("parses &> as an output file redirect", () => expectOutputFileRedirect("&>"));
+  test("parses &>> as an output file redirect", () => expectOutputFileRedirect("&>>"));
+  test("parses >& as an output file redirect", () => expectOutputFileRedirect(">&"));
+  test("parses <> as an output file redirect", () => expectOutputFileRedirect("<>"));
 
-      const expected = {
-        program: "printf",
-        arguments: [{ kind: "operand", value: "foo" }],
-        redirects: [{ operator, target: { kind: "file", path: "output.txt" } }],
-      };
+  test("parses a redirect to stdin", () => expectStdioRedirect("0", "stdin"));
+  test("parses a redirect to stdout", () => expectStdioRedirect("1", "stdout"));
+  test("parses a redirect to stderr", () => expectStdioRedirect("2", "stderr"));
 
-      expect(actual).toEqual([expected]);
-    },
-  );
-
-  test.each([
-    ["0", "stdin"],
-    ["1", "stdout"],
-    ["2", "stderr"],
-  ] as const)("parses a redirect to file descriptor %s", (descriptor, stdio) => {
-    const actual = parseCommandLine(`cargo test 2>&${descriptor}`);
+  test("ignores an input file redirect", () => {
+    const actual = parseCommandLine("cat < input.txt");
 
     const expected = {
-      program: "cargo",
-      arguments: [{ kind: "operand", value: "test" }],
-      redirects: [{ operator: ">&", target: { kind: "stdio", stdio } }],
+      program: "cat",
+      arguments: [],
+      redirects: [],
+    };
+
+    expect(actual).toEqual([expected]);
+  });
+
+  test("ignores an input descriptor redirect", () => {
+    const actual = parseCommandLine("cat <&0");
+
+    const expected = {
+      program: "cat",
+      arguments: [],
+      redirects: [],
     };
 
     expect(actual).toEqual([expected]);
   });
 });
+
+const expectOutputFileRedirect = (operator: RedirectOperator): void => {
+  const actual = parseCommandLine(`printf foo ${operator} output.txt`);
+
+  const expected = {
+    program: "printf",
+    arguments: [{ kind: "operand", value: "foo" }],
+    redirects: [{ operator, target: { kind: "file", path: "output.txt" } }],
+  };
+
+  expect(actual).toEqual([expected]);
+};
+
+const expectStdioRedirect = (descriptor: string, stdio: Stdio): void => {
+  const actual = parseCommandLine(`cargo test 2>&${descriptor}`);
+
+  const expected = {
+    program: "cargo",
+    arguments: [{ kind: "operand", value: "test" }],
+    redirects: [{ operator: ">&", target: { kind: "stdio", stdio } }],
+  };
+
+  expect(actual).toEqual([expected]);
+};
