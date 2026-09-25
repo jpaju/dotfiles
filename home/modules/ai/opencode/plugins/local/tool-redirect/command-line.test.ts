@@ -79,4 +79,23 @@ describe("parseCommandLine", () => {
 
     expect(actual).toEqual(expected);
   });
+
+  test("flattens pipeline commands", () => {
+    const actual = parseCommandLine("printf foo | rg foo");
+
+    const expected = [
+      {
+        program: "printf",
+        arguments: [{ kind: "operand", value: "foo" }],
+        redirects: [],
+      },
+      {
+        program: "rg",
+        arguments: [{ kind: "operand", value: "foo" }],
+        redirects: [],
+      },
+    ];
+
+    expect(actual).toEqual(expected);
+  });
 });
