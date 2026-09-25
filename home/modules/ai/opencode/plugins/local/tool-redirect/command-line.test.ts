@@ -241,6 +241,25 @@ describe("parseCommandLine", () => {
 
     expect(actual).toEqual(expected);
   });
+
+  test("flattens commands inside a brace group", () => {
+    const actual = parseCommandLine("{ git status; rg foo; }");
+
+    const expected = [
+      {
+        program: "git",
+        arguments: [{ kind: "operand", value: "status" }],
+        redirects: [],
+      },
+      {
+        program: "rg",
+        arguments: [{ kind: "operand", value: "foo" }],
+        redirects: [],
+      },
+    ];
+
+    expect(actual).toEqual(expected);
+  });
 });
 
 const expectOutputFileRedirect = (operator: RedirectOperator): void => {
