@@ -1,4 +1,4 @@
-import { parse, type Node } from "unbash";
+import { parse, type Node, type ParsedScript, type Word } from "unbash";
 
 export type CommandLine = Command[];
 
@@ -44,20 +44,31 @@ const parseArguments = (values: string[]): Argument[] => {
   return arguments_;
 };
 
-const parseNode = (node: Node): CommandLine => {
+function parseNestedCommands(word: Word): CommandLine {
+  return (word.parts ?? []).flatMap((part) =>
+    part.type === "CommandExpansion" && part.script !== undefined ? parseScript(part.script) : [],
+  );
+}
+
+function parseNode(node: Node): CommandLine {
   if (node.type === "Pipeline" || node.type === "AndOr") return node.commands.flatMap(parseNode);
   if (node.type === "Subshell")
     return node.body.commands.flatMap((statement) => parseNode(statement.command));
   if (node.type !== "Command" || node.name === undefined) return [];
 
-  return [
-    {
-      program: node.name.value.split("/").pop() ?? "",
-      arguments: parseArguments(node.suffix.map((word) => word.value)),
-      redirects: [],
-    },
-  ];
-};
+  const command = {
+    program: node.name.value.split("/").pop() ?? "",
+    arguments: parseArguments(node.suffix.map((word) => word.value)),
+    redirects: [],
+  };
+
+  const nestedCommands = [node.name, ...node.suffix].flatMap(parseNestedCommands);
+  return [command, ...nestedCommands];
+}
+
+function parseScript(script: ParsedScript): CommandLine {
+  return script.commands.flatMap((statement) => parseNode(statement.command));
+}
 
 export const parseCommandLine = (commandLine: string): CommandLine =>
-  parse(commandLine).commands.flatMap((statement) => parseNode(statement.command));
+  parseScript(parse(commandLine));
