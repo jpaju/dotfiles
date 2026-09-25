@@ -250,6 +250,32 @@ describe("parseCommandLine", () => {
     expect(actual).toEqual(expected);
   });
 
+  test("flattens command substitutions inside parameter expansion replacements", () => {
+    const actual = parseCommandLine('echo "${value/$(printf old)/$(printf new)}"');
+
+    const expected = [
+      {
+        program: "echo",
+        arguments: [
+          { kind: "operand", value: "${value/$(printf old)/$(printf new)}" },
+        ],
+        redirects: [],
+      },
+      {
+        program: "printf",
+        arguments: [{ kind: "operand", value: "old" }],
+        redirects: [],
+      },
+      {
+        program: "printf",
+        arguments: [{ kind: "operand", value: "new" }],
+        redirects: [],
+      },
+    ];
+
+    expect(actual).toEqual(expected);
+  });
+
   test("flattens command substitutions inside arithmetic expansions", () => {
     const actual = parseCommandLine("echo $(( $(printf 1) + 1 ))");
 

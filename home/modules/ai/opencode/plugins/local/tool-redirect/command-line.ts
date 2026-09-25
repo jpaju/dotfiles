@@ -130,6 +130,9 @@ function parseCommandExpansionPart(part: WordPart): CommandLine {
               part.slice.offset,
               ...(part.slice.length === undefined ? [] : [part.slice.length]),
             ].flatMap(parseCommandExpansions)),
+        ...(part.replace === undefined
+          ? []
+          : [part.replace.pattern, part.replace.replacement].flatMap(parseCommandExpansions)),
       ];
     case "ArithmeticExpansion":
       return part.expression === undefined ? [] : parseArithmeticExpression(part.expression);
