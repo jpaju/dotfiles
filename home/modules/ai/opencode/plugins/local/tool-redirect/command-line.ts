@@ -132,7 +132,8 @@ function parseNode(node: Node): CommandLine {
   }
 }
 
-const parseScript = (script: ParsedScript): CommandLine => parseStatements(script.commands);
+const parseScript = (script: ParsedScript): CommandLine =>
+  script.errors === undefined || script.errors.length === 0 ? parseStatements(script.commands) : [];
 
 export const parseCommandLine = (commandLine: string): CommandLine =>
   parseScript(parse(commandLine));
