@@ -44,4 +44,19 @@ describe("parseCommandLine", () => {
 
     expect(actual).toEqual([expected]);
   });
+
+  test("uses dequoted argument values", () => {
+    const actual = parseCommandLine('rg "foo bar" file\\ name');
+
+    const expected = {
+      program: "rg",
+      arguments: [
+        { kind: "operand", value: "foo bar" },
+        { kind: "operand", value: "file name" },
+      ],
+      redirects: [],
+    };
+
+    expect(actual).toEqual([expected]);
+  });
 });
