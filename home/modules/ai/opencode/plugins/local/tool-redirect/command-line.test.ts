@@ -410,6 +410,25 @@ describe("parseCommandLine", () => {
     expect(actual).toEqual(expected);
   });
 
+  test("flattens commands inside a coprocess body", () => {
+    const actual = parseCommandLine("coproc worker { git status; rg foo; }");
+
+    const expected = [
+      {
+        program: "git",
+        arguments: [{ kind: "operand", value: "status" }],
+        redirects: [],
+      },
+      {
+        program: "rg",
+        arguments: [{ kind: "operand", value: "foo" }],
+        redirects: [],
+      },
+    ];
+
+    expect(actual).toEqual(expected);
+  });
+
 });
 
 // ================================ Test helpers ==================================
