@@ -282,7 +282,10 @@ const parseWhile = (whileNode: BashWhile): CommandLine => [
 
 const parseCase = (caseNode: BashCase): CommandLine => [
   ...parseCommandExpansions(caseNode.word),
-  ...caseNode.items.flatMap((item) => parseStatements(item.body.commands)),
+  ...caseNode.items.flatMap((item) => [
+    ...item.pattern.flatMap(parseCommandExpansions),
+    ...parseStatements(item.body.commands),
+  ]),
 ];
 
 const parseFunction = (functionNode: BashFunction): CommandLine => parseNode(functionNode.body);

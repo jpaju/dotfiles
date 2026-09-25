@@ -806,6 +806,25 @@ describe("parseCommandLine", () => {
     expect(actual).toEqual(expected);
   });
 
+  test("flattens command substitutions inside case patterns", () => {
+    const actual = parseCommandLine("case x in $(printf x)) pwd ;; esac");
+
+    const expected = [
+      {
+        program: "printf",
+        arguments: [{ kind: "operand", value: "x" }],
+        redirects: [],
+      },
+      {
+        program: "pwd",
+        arguments: [],
+        redirects: [],
+      },
+    ];
+
+    expect(actual).toEqual(expected);
+  });
+
   test("flattens commands inside a function body", () => {
     const actual = parseCommandLine("inspect() { git status; rg foo; }");
 
