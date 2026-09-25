@@ -606,6 +606,37 @@ describe("parseCommandLine", () => {
     expect(actual).toEqual([expected]);
   });
 
+  test("flattens command substitutions inside an arithmetic for loop header", () => {
+    const actual = parseCommandLine(
+      'for ((i = $(pwd); $(git status); i += $(rg foo))); do echo "$i"; done',
+    );
+
+    const expected = [
+      {
+        program: "pwd",
+        arguments: [],
+        redirects: [],
+      },
+      {
+        program: "git",
+        arguments: [{ kind: "operand", value: "status" }],
+        redirects: [],
+      },
+      {
+        program: "rg",
+        arguments: [{ kind: "operand", value: "foo" }],
+        redirects: [],
+      },
+      {
+        program: "echo",
+        arguments: [{ kind: "operand", value: "$i" }],
+        redirects: [],
+      },
+    ];
+
+    expect(actual).toEqual(expected);
+  });
+
   test("flattens commands inside a select loop", () => {
     const actual = parseCommandLine('select file in a b; do echo "$file"; done');
 

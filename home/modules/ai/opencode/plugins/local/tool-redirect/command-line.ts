@@ -232,8 +232,12 @@ const parseFor = (forNode: BashFor): CommandLine => [
   ...parseStatements(forNode.body.commands),
 ];
 
-const parseArithmeticFor = (forNode: BashArithmeticFor): CommandLine =>
-  parseStatements(forNode.body.commands);
+const parseArithmeticFor = (forNode: BashArithmeticFor): CommandLine => [
+  ...(forNode.initialize === undefined ? [] : parseArithmeticExpression(forNode.initialize)),
+  ...(forNode.test === undefined ? [] : parseArithmeticExpression(forNode.test)),
+  ...(forNode.update === undefined ? [] : parseArithmeticExpression(forNode.update)),
+  ...parseStatements(forNode.body.commands),
+];
 
 const parseArithmeticCommand = (commandNode: BashArithmeticCommand): CommandLine =>
   commandNode.expression === undefined ? [] : parseArithmeticExpression(commandNode.expression);
