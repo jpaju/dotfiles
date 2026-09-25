@@ -2,6 +2,7 @@ import {
   parse,
   type BraceGroup,
   type Command as BashCommand,
+  type If as BashIf,
   type Node,
   type ParsedScript,
   type Redirect as BashRedirect,
@@ -122,6 +123,18 @@ const parseSubshell = (subshell: Subshell): CommandLine => parseStatements(subsh
 const parseBraceGroup = (braceGroup: BraceGroup): CommandLine =>
   parseStatements(braceGroup.body.commands);
 
+function parseIf(ifNode: BashIf): CommandLine {
+  const commands = [
+    ...parseStatements(ifNode.clause.commands),
+    ...parseStatements(ifNode.then.commands),
+  ];
+
+  if (ifNode.else === undefined) return commands;
+  const elseCommands =
+    ifNode.else.type === "If" ? parseIf(ifNode.else) : parseStatements(ifNode.else.commands);
+  return [...commands, ...elseCommands];
+}
+
 function parseNode(node: Node): CommandLine {
   switch (node.type) {
     case "Pipeline":
@@ -131,6 +144,8 @@ function parseNode(node: Node): CommandLine {
       return parseSubshell(node);
     case "BraceGroup":
       return parseBraceGroup(node);
+    case "If":
+      return parseIf(node);
     case "Command":
       return parseCommand(node);
     default:
