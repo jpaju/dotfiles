@@ -4,6 +4,7 @@ import {
   type BraceGroup,
   type Case as BashCase,
   type Command as BashCommand,
+  type Coproc as BashCoproc,
   type For as BashFor,
   type Function as BashFunction,
   type If as BashIf,
@@ -177,6 +178,8 @@ const parseCase = (caseNode: BashCase): CommandLine =>
 
 const parseFunction = (functionNode: BashFunction): CommandLine => parseNode(functionNode.body);
 
+const parseCoproc = (coprocNode: BashCoproc): CommandLine => parseNode(coprocNode.body);
+
 // ================================ AST traversal ==================================
 
 const parseCommandSequence = (nodes: Node[]): CommandLine => nodes.flatMap(parseNode);
@@ -207,6 +210,8 @@ function parseNode(node: Node): CommandLine {
       return parseCase(node);
     case "Function":
       return parseFunction(node);
+    case "Coproc":
+      return parseCoproc(node);
     case "Command":
       return parseCommand(node);
     default:
