@@ -4,6 +4,7 @@ import {
   type Case as BashCase,
   type Command as BashCommand,
   type For as BashFor,
+  type Function as BashFunction,
   type If as BashIf,
   type Node,
   type ParsedScript,
@@ -148,6 +149,8 @@ const parseWhile = (whileNode: BashWhile): CommandLine => [
 const parseCase = (caseNode: BashCase): CommandLine =>
   caseNode.items.flatMap((item) => parseStatements(item.body.commands));
 
+const parseFunction = (functionNode: BashFunction): CommandLine => parseNode(functionNode.body);
+
 function parseNode(node: Node): CommandLine {
   switch (node.type) {
     case "Pipeline":
@@ -165,6 +168,8 @@ function parseNode(node: Node): CommandLine {
       return parseWhile(node);
     case "Case":
       return parseCase(node);
+    case "Function":
+      return parseFunction(node);
     case "Command":
       return parseCommand(node);
     default:
