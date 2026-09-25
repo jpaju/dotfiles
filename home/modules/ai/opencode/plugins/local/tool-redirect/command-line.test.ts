@@ -210,6 +210,27 @@ describe("parseCommandLine", () => {
     expect(actual).toEqual(expected);
   });
 
+  test("flattens command substitutions inside redirect targets", () => {
+    const actual = parseCommandLine('printf foo > "$(pwd)/output.txt"');
+
+    const expected = [
+      {
+        program: "printf",
+        arguments: [{ kind: "operand", value: "foo" }],
+        redirects: [
+          { operator: ">", target: { kind: "file", path: "$(pwd)/output.txt" } },
+        ],
+      },
+      {
+        program: "pwd",
+        arguments: [],
+        redirects: [],
+      },
+    ];
+
+    expect(actual).toEqual(expected);
+  });
+
   // ================================ Redirections ==================================
 
   test("parses an output file redirect", () => {
