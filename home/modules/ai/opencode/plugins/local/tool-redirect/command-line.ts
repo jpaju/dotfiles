@@ -1,5 +1,6 @@
 import {
   parse,
+  type BraceGroup,
   type Command as BashCommand,
   type Node,
   type ParsedScript,
@@ -118,6 +119,9 @@ const parseStatements = (statements: Statement[]): CommandLine =>
 
 const parseSubshell = (subshell: Subshell): CommandLine => parseStatements(subshell.body.commands);
 
+const parseBraceGroup = (braceGroup: BraceGroup): CommandLine =>
+  parseStatements(braceGroup.body.commands);
+
 function parseNode(node: Node): CommandLine {
   switch (node.type) {
     case "Pipeline":
@@ -125,6 +129,8 @@ function parseNode(node: Node): CommandLine {
       return parseCommandSequence(node.commands);
     case "Subshell":
       return parseSubshell(node);
+    case "BraceGroup":
+      return parseBraceGroup(node);
     case "Command":
       return parseCommand(node);
     default:
