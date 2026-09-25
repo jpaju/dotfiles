@@ -10,6 +10,7 @@ import {
   type Node,
   type ParsedScript,
   type Redirect as BashRedirect,
+  type Select as BashSelect,
   type Statement,
   type Subshell,
   type While as BashWhile,
@@ -163,6 +164,9 @@ const parseFor = (forNode: BashFor): CommandLine => parseStatements(forNode.body
 const parseArithmeticFor = (forNode: BashArithmeticFor): CommandLine =>
   parseStatements(forNode.body.commands);
 
+const parseSelect = (selectNode: BashSelect): CommandLine =>
+  parseStatements(selectNode.body.commands);
+
 const parseWhile = (whileNode: BashWhile): CommandLine => [
   ...parseStatements(whileNode.clause.commands),
   ...parseStatements(whileNode.body.commands),
@@ -195,6 +199,8 @@ function parseNode(node: Node): CommandLine {
       return parseFor(node);
     case "ArithmeticFor":
       return parseArithmeticFor(node);
+    case "Select":
+      return parseSelect(node);
     case "While":
       return parseWhile(node);
     case "Case":
