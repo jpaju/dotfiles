@@ -1,4 +1,4 @@
-import { parse } from "unbash";
+import { parse, type Node } from "unbash";
 
 export type CommandLine = Command[];
 
@@ -44,18 +44,18 @@ const parseArguments = (values: string[]): Argument[] => {
   return arguments_;
 };
 
-export const parseCommandLine = (commandLine: string): CommandLine => {
-  const script = parse(commandLine);
+const parseNode = (node: Node): CommandLine => {
+  if (node.type === "Pipeline" || node.type === "AndOr") return node.commands.flatMap(parseNode);
+  if (node.type !== "Command" || node.name === undefined) return [];
 
-  return script.commands.flatMap((statement) => {
-    if (statement.command.type !== "Command" || statement.command.name === undefined) return [];
-
-    return [
-      {
-        program: statement.command.name.value.split("/").pop() ?? "",
-        arguments: parseArguments(statement.command.suffix.map((word) => word.value)),
-        redirects: [],
-      },
-    ];
-  });
+  return [
+    {
+      program: node.name.value.split("/").pop() ?? "",
+      arguments: parseArguments(node.suffix.map((word) => word.value)),
+      redirects: [],
+    },
+  ];
 };
+
+export const parseCommandLine = (commandLine: string): CommandLine =>
+  parse(commandLine).commands.flatMap((statement) => parseNode(statement.command));
