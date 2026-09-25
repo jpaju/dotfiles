@@ -221,6 +221,18 @@ describe("parseCommandLine", () => {
 
     expect(actual).toEqual([expected]);
   });
+
+  test("preserves an absolute file redirect target", () => {
+    const actual = parseCommandLine("npm test 2> /tmp/npm-errors.log");
+
+    const expected = {
+      program: "npm",
+      arguments: [{ kind: "operand", value: "test" }],
+      redirects: [{ operator: ">", target: { kind: "file", path: "/tmp/npm-errors.log" } }],
+    };
+
+    expect(actual).toEqual([expected]);
+  });
 });
 
 const expectOutputFileRedirect = (operator: RedirectOperator): void => {
