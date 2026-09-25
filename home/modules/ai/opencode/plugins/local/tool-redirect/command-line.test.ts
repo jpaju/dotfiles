@@ -307,16 +307,6 @@ describe("parseCommandLine", () => {
     expect(actual).toEqual([expected]);
   });
 
-  // =============================== Error handling =================================
-
-  test("returns no commands when parsing fails", () => {
-    const actual = parseCommandLine("git status |");
-
-    const expected: CommandLine = [];
-
-    expect(actual).toEqual(expected);
-  });
-
   // ============================= Compound commands ================================
 
   test("flattens commands inside a brace group", () => {
@@ -468,6 +458,24 @@ describe("parseCommandLine", () => {
         redirects: [],
       },
     ];
+
+    expect(actual).toEqual(expected);
+  });
+
+  // =============================== Error handling =================================
+
+  test("returns no commands when parsing fails", () => {
+    const actual = parseCommandLine("git status |");
+
+    const expected: CommandLine = [];
+
+    expect(actual).toEqual(expected);
+  });
+
+  test("returns no commands when nested parsing fails", () => {
+    const actual = parseCommandLine('echo "$(git status |)"');
+
+    const expected: CommandLine = [];
 
     expect(actual).toEqual(expected);
   });
