@@ -1,5 +1,6 @@
 import {
   parse,
+  type ArithmeticCommand as BashArithmeticCommand,
   type ArithmeticExpression,
   type ArithmeticFor as BashArithmeticFor,
   type AssignmentPrefix,
@@ -234,6 +235,9 @@ const parseFor = (forNode: BashFor): CommandLine => [
 const parseArithmeticFor = (forNode: BashArithmeticFor): CommandLine =>
   parseStatements(forNode.body.commands);
 
+const parseArithmeticCommand = (commandNode: BashArithmeticCommand): CommandLine =>
+  commandNode.expression === undefined ? [] : parseArithmeticExpression(commandNode.expression);
+
 const parseSelect = (selectNode: BashSelect): CommandLine => [
   ...selectNode.wordlist.flatMap(parseCommandExpansions),
   ...parseStatements(selectNode.body.commands),
@@ -275,6 +279,8 @@ function parseNode(node: Node): CommandLine {
       return parseFor(node);
     case "ArithmeticFor":
       return parseArithmeticFor(node);
+    case "ArithmeticCommand":
+      return parseArithmeticCommand(node);
     case "Select":
       return parseSelect(node);
     case "While":

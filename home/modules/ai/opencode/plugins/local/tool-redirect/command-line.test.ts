@@ -295,6 +295,18 @@ describe("parseCommandLine", () => {
     expect(actual).toEqual(expected);
   });
 
+  test("flattens command substitutions inside arithmetic commands", () => {
+    const actual = parseCommandLine("(( $(printf 1) ))");
+
+    const expected = {
+      program: "printf",
+      arguments: [{ kind: "operand", value: "1" }],
+      redirects: [],
+    };
+
+    expect(actual).toEqual([expected]);
+  });
+
   test("flattens command substitutions inside brace expansions", () => {
     const actual = parseCommandLine("echo {a,$(pwd)}");
 
