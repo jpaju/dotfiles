@@ -136,7 +136,17 @@ const parseRedirectExpansions = (redirect: BashRedirect): CommandLine =>
 // ============================== Concrete commands ================================
 
 function parseCommand(commandNode: BashCommand): CommandLine {
-  if (commandNode.name === undefined) return [];
+  const words =
+    commandNode.name === undefined
+      ? commandNode.suffix
+      : [commandNode.name, ...commandNode.suffix];
+  const nestedCommands = [
+    ...commandNode.prefix.flatMap(parseAssignmentExpansions),
+    ...words.flatMap(parseCommandExpansions),
+    ...commandNode.redirects.flatMap(parseRedirectExpansions),
+  ];
+
+  if (commandNode.name === undefined) return nestedCommands;
 
   const command: Command = {
     program: commandNode.name.value.split("/").pop() ?? "",
@@ -144,11 +154,6 @@ function parseCommand(commandNode: BashCommand): CommandLine {
     redirects: commandNode.redirects.flatMap(parseRedirect),
   };
 
-  const nestedCommands = [
-    ...commandNode.prefix.flatMap(parseAssignmentExpansions),
-    ...[commandNode.name, ...commandNode.suffix].flatMap(parseCommandExpansions),
-    ...commandNode.redirects.flatMap(parseRedirectExpansions),
-  ];
   return [command, ...nestedCommands];
 }
 

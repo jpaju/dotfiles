@@ -210,6 +210,21 @@ describe("parseCommandLine", () => {
     expect(actual).toEqual(expected);
   });
 
+  test("flattens command substitutions inside assignment-only statements", () => {
+    const actual = parseCommandLine("root=$(git rev-parse --show-toplevel)");
+
+    const expected = {
+      program: "git",
+      arguments: [
+        { kind: "operand", value: "rev-parse" },
+        { kind: "flag", name: "--show-toplevel" },
+      ],
+      redirects: [],
+    };
+
+    expect(actual).toEqual([expected]);
+  });
+
   test("flattens command substitutions inside redirect targets", () => {
     const actual = parseCommandLine('printf foo > "$(pwd)/output.txt"');
 
