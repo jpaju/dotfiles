@@ -1,4 +1,10 @@
-import { parse, type Node, type ParsedScript, type Word } from "unbash";
+import {
+  parse,
+  type Node,
+  type ParsedScript,
+  type Redirect as BashRedirect,
+  type Word,
+} from "unbash";
 
 export type CommandLine = Command[];
 
@@ -44,6 +50,12 @@ const parseArguments = (values: string[]): Argument[] => {
   return arguments_;
 };
 
+const parseRedirect = (redirect: BashRedirect): Redirect[] => {
+  if (redirect.operator !== ">" || redirect.target === undefined) return [];
+
+  return [{ operator: ">", target: { kind: "file", path: redirect.target.value } }];
+};
+
 function parseNestedCommands(word: Word): CommandLine {
   return (word.parts ?? []).flatMap((part) =>
     part.type === "CommandExpansion" && part.script !== undefined ? parseScript(part.script) : [],
@@ -59,7 +71,7 @@ function parseNode(node: Node): CommandLine {
   const command = {
     program: node.name.value.split("/").pop() ?? "",
     arguments: parseArguments(node.suffix.map((word) => word.value)),
-    redirects: [],
+    redirects: node.redirects.flatMap(parseRedirect),
   };
 
   const nestedCommands = [node.name, ...node.suffix].flatMap(parseNestedCommands);
