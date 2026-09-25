@@ -160,6 +160,28 @@ describe("parseCommandLine", () => {
     expect(actual).toEqual(expected);
   });
 
+  test("flattens command substitutions inside quotes", () => {
+    const actual = parseCommandLine('cd "$(git rev-parse --show-toplevel)"');
+
+    const expected = [
+      {
+        program: "cd",
+        arguments: [{ kind: "operand", value: "$(git rev-parse --show-toplevel)" }],
+        redirects: [],
+      },
+      {
+        program: "git",
+        arguments: [
+          { kind: "operand", value: "rev-parse" },
+          { kind: "flag", name: "--show-toplevel" },
+        ],
+        redirects: [],
+      },
+    ];
+
+    expect(actual).toEqual(expected);
+  });
+
   test("parses an output file redirect", () => {
     const actual = parseCommandLine("gh repo --help > gh-help.txt");
 
@@ -351,6 +373,7 @@ describe("parseCommandLine", () => {
 
     expect(actual).toEqual(expected);
   });
+
 });
 
 const expectOutputFileRedirect = (operator: RedirectOperator): void => {

@@ -13,6 +13,7 @@ import {
   type Subshell,
   type While as BashWhile,
   type Word,
+  type WordPart,
 } from "unbash";
 
 export type CommandLine = Command[];
@@ -99,10 +100,20 @@ const parseRedirect = (redirect: BashRedirect): Redirect[] => {
   }
 };
 
+function parseCommandExpansionPart(part: WordPart): CommandLine {
+  switch (part.type) {
+    case "CommandExpansion":
+      return part.script === undefined ? [] : parseScript(part.script);
+    case "DoubleQuoted":
+    case "LocaleString":
+      return part.parts.flatMap(parseCommandExpansionPart);
+    default:
+      return [];
+  }
+}
+
 const parseCommandExpansions = (word: Word): CommandLine =>
-  (word.parts ?? []).flatMap((part) =>
-    part.type === "CommandExpansion" && part.script !== undefined ? parseScript(part.script) : [],
-  );
+  (word.parts ?? []).flatMap(parseCommandExpansionPart);
 
 function parseCommand(commandNode: BashCommand): CommandLine {
   if (commandNode.name === undefined) return [];
