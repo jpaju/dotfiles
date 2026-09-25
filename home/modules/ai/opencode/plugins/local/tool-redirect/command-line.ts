@@ -53,8 +53,26 @@ const parseArguments = (values: string[]): Argument[] => {
   return arguments_;
 };
 
+const parseStdio = (descriptor: string): Stdio | undefined => {
+  switch (descriptor) {
+    case "0":
+      return "stdin";
+    case "1":
+      return "stdout";
+    case "2":
+      return "stderr";
+    default:
+      return undefined;
+  }
+};
+
 const parseRedirect = (redirect: BashRedirect): Redirect[] => {
   if (redirect.target === undefined) return [];
+
+  if (redirect.operator === ">&") {
+    const stdio = parseStdio(redirect.target.value);
+    if (stdio !== undefined) return [{ operator: ">&", target: { kind: "stdio", stdio } }];
+  }
 
   switch (redirect.operator) {
     case ">":

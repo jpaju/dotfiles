@@ -189,4 +189,20 @@ describe("parseCommandLine", () => {
       expect(actual).toEqual([expected]);
     },
   );
+
+  test.each([
+    ["0", "stdin"],
+    ["1", "stdout"],
+    ["2", "stderr"],
+  ] as const)("parses a redirect to file descriptor %s", (descriptor, stdio) => {
+    const actual = parseCommandLine(`cargo test 2>&${descriptor}`);
+
+    const expected = {
+      program: "cargo",
+      arguments: [{ kind: "operand", value: "test" }],
+      redirects: [{ operator: ">&", target: { kind: "stdio", stdio } }],
+    };
+
+    expect(actual).toEqual([expected]);
+  });
 });
