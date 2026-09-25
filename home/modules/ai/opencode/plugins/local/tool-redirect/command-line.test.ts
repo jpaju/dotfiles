@@ -730,6 +730,18 @@ describe("parseCommandLine", () => {
     expect(actual).toEqual([expected]);
   });
 
+  test("flattens command substitutions inside grouped test expressions", () => {
+    const actual = parseCommandLine("[[ ( -n $(pwd) ) ]]");
+
+    const expected = {
+      program: "pwd",
+      arguments: [],
+      redirects: [],
+    };
+
+    expect(actual).toEqual([expected]);
+  });
+
   test("flattens commands inside case branches", () => {
     const actual = parseCommandLine(
       'case "$mode" in read) cat file ;; search) rg foo ;; esac',

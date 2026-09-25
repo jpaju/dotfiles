@@ -255,6 +255,8 @@ function parseTestExpression(expression: TestExpression): CommandLine {
       ];
     case "TestNot":
       return parseTestExpression(expression.operand);
+    case "TestGroup":
+      return parseTestExpression(expression.expression);
     default:
       return [];
   }
