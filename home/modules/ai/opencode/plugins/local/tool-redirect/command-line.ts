@@ -248,6 +248,11 @@ function parseTestExpression(expression: TestExpression): CommandLine {
   switch (expression.type) {
     case "TestUnary":
       return parseCommandExpansions(expression.operand);
+    case "TestBinary":
+      return [
+        ...parseCommandExpansions(expression.left),
+        ...parseCommandExpansions(expression.right),
+      ];
     default:
       return [];
   }

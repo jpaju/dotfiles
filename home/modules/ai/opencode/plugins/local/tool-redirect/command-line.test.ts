@@ -699,6 +699,25 @@ describe("parseCommandLine", () => {
     expect(actual).toEqual([expected]);
   });
 
+  test("flattens command substitutions inside binary test expressions", () => {
+    const actual = parseCommandLine("[[ $(pwd) == $(git status) ]]");
+
+    const expected = [
+      {
+        program: "pwd",
+        arguments: [],
+        redirects: [],
+      },
+      {
+        program: "git",
+        arguments: [{ kind: "operand", value: "status" }],
+        redirects: [],
+      },
+    ];
+
+    expect(actual).toEqual(expected);
+  });
+
   test("flattens commands inside case branches", () => {
     const actual = parseCommandLine(
       'case "$mode" in read) cat file ;; search) rg foo ;; esac',
