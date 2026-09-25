@@ -55,6 +55,7 @@
         // {
           # System and processes
           "date *" = "allow";
+          "free *" = "allow";
           "uname *" = "allow";
           "whoami" = "allow";
           "id *" = "allow";
@@ -150,6 +151,10 @@
           "defaults help" = "allow";
           "defaults read *" = "allow";
           "defaults read-type *" = "allow";
+          "defaults -currentHost find *" = "allow";
+          "defaults -currentHost help" = "allow";
+          "defaults -currentHost read *" = "allow";
+          "defaults -currentHost read-type *" = "allow";
           "launchctl list *" = "allow";
           "launchctl blame *" = "allow";
           "launchctl print *" = "allow";
