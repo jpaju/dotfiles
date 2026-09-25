@@ -165,7 +165,10 @@ const parseAssignmentExpansions = (assignment: AssignmentPrefix): CommandLine =>
 ];
 
 const parseRedirectExpansions = (redirect: BashRedirect): CommandLine =>
-  redirect.target === undefined ? [] : parseCommandExpansions(redirect.target);
+  [
+    ...(redirect.target === undefined ? [] : [redirect.target]),
+    ...(redirect.body === undefined ? [] : [redirect.body]),
+  ].flatMap(parseCommandExpansions);
 
 // ============================== Concrete commands ================================
 

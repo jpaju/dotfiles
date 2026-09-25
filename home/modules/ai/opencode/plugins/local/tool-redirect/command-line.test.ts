@@ -226,6 +226,25 @@ describe("parseCommandLine", () => {
     expect(actual).toEqual(expected);
   });
 
+  test("flattens command substitutions inside heredocs", () => {
+    const actual = parseCommandLine("cat <<EOF\n$(git status)\nEOF");
+
+    const expected = [
+      {
+        program: "cat",
+        arguments: [],
+        redirects: [],
+      },
+      {
+        program: "git",
+        arguments: [{ kind: "operand", value: "status" }],
+        redirects: [],
+      },
+    ];
+
+    expect(actual).toEqual(expected);
+  });
+
   test("flattens command substitutions inside assignments", () => {
     const actual = parseCommandLine('root=$(git rev-parse --show-toplevel) cd "$root"');
 
