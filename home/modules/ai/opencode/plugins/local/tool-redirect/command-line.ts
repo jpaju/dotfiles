@@ -1,6 +1,7 @@
 import {
   parse,
   type ArithmeticFor as BashArithmeticFor,
+  type AssignmentPrefix,
   type BraceGroup,
   type Case as BashCase,
   type Command as BashCommand,
@@ -126,6 +127,9 @@ function parseCommandExpansionPart(part: WordPart): CommandLine {
 const parseCommandExpansions = (word: Word): CommandLine =>
   (word.parts ?? []).flatMap(parseCommandExpansionPart);
 
+const parseAssignmentExpansions = (assignment: AssignmentPrefix): CommandLine =>
+  assignment.value === undefined ? [] : parseCommandExpansions(assignment.value);
+
 // ============================== Concrete commands ================================
 
 function parseCommand(commandNode: BashCommand): CommandLine {
@@ -137,7 +141,10 @@ function parseCommand(commandNode: BashCommand): CommandLine {
     redirects: commandNode.redirects.flatMap(parseRedirect),
   };
 
-  const nestedCommands = [commandNode.name, ...commandNode.suffix].flatMap(parseCommandExpansions);
+  const nestedCommands = [
+    ...commandNode.prefix.flatMap(parseAssignmentExpansions),
+    ...[commandNode.name, ...commandNode.suffix].flatMap(parseCommandExpansions),
+  ];
   return [command, ...nestedCommands];
 }
 
