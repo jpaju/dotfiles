@@ -207,6 +207,25 @@ describe("parseCommandLine", () => {
     expect(actual).toEqual(expected);
   });
 
+  test("flattens command substitutions inside arithmetic expansions", () => {
+    const actual = parseCommandLine("echo $(( $(printf 1) + 1 ))");
+
+    const expected = [
+      {
+        program: "echo",
+        arguments: [{ kind: "operand", value: "$(( $(printf 1) + 1 ))" }],
+        redirects: [],
+      },
+      {
+        program: "printf",
+        arguments: [{ kind: "operand", value: "1" }],
+        redirects: [],
+      },
+    ];
+
+    expect(actual).toEqual(expected);
+  });
+
   test("flattens command substitutions inside assignments", () => {
     const actual = parseCommandLine('root=$(git rev-parse --show-toplevel) cd "$root"');
 

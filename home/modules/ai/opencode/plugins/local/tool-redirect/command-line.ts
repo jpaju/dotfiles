@@ -1,5 +1,6 @@
 import {
   parse,
+  type ArithmeticExpression,
   type ArithmeticFor as BashArithmeticFor,
   type AssignmentPrefix,
   type BraceGroup,
@@ -121,8 +122,34 @@ function parseCommandExpansionPart(part: WordPart): CommandLine {
       return part.parts.flatMap(parseCommandExpansionPart);
     case "ParameterExpansion":
       return part.operand === undefined ? [] : parseCommandExpansions(part.operand);
+    case "ArithmeticExpansion":
+      return part.expression === undefined ? [] : parseArithmeticExpression(part.expression);
     default:
       return [];
+  }
+}
+
+function parseArithmeticExpression(expression: ArithmeticExpression): CommandLine {
+  switch (expression.type) {
+    case "ArithmeticCommandExpansion":
+      return expression.script === undefined ? [] : parseScript(expression.script);
+    case "ArithmeticBinary":
+      return [
+        ...parseArithmeticExpression(expression.left),
+        ...parseArithmeticExpression(expression.right),
+      ];
+    case "ArithmeticUnary":
+      return parseArithmeticExpression(expression.operand);
+    case "ArithmeticTernary":
+      return [
+        ...parseArithmeticExpression(expression.test),
+        ...parseArithmeticExpression(expression.consequent),
+        ...parseArithmeticExpression(expression.alternate),
+      ];
+    case "ArithmeticGroup":
+      return parseArithmeticExpression(expression.expression);
+    case "ArithmeticWord":
+      return (expression.parts ?? []).flatMap(parseCommandExpansionPart);
   }
 }
 
@@ -144,9 +171,7 @@ const parseRedirectExpansions = (redirect: BashRedirect): CommandLine =>
 
 function parseCommand(commandNode: BashCommand): CommandLine {
   const words =
-    commandNode.name === undefined
-      ? commandNode.suffix
-      : [commandNode.name, ...commandNode.suffix];
+    commandNode.name === undefined ? commandNode.suffix : [commandNode.name, ...commandNode.suffix];
   const nestedCommands = [
     ...commandNode.prefix.flatMap(parseAssignmentExpansions),
     ...words.flatMap(parseCommandExpansions),
