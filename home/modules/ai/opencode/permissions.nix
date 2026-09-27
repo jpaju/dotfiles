@@ -61,6 +61,9 @@
           "uptime" = "allow";
           "ps *" = "allow";
           "pgrep *" = "allow";
+          "scutil get *" = "allow";
+          "scutil --dns" = "allow";
+          "scutil --proxy" = "allow";
           "sw_vers *" = "allow";
           "hostname" = "allow";
         }
@@ -249,11 +252,12 @@
           "git cherry *" = "allow";
           "git count-objects *" = "allow";
           "git describe *" = "allow";
+          "git diff *" = "allow";
           "git diff-tree *" = "allow";
           "git for-each-ref *" = "allow";
           "git fsck" = "allow";
           "git grep *" = "allow";
-          "git diff *" = "allow";
+          "git hash-object *" = "allow";
           "git log *" = "allow";
           "git merge-base *" = "allow";
           "git show *" = "allow";
@@ -263,8 +267,13 @@
           "git stash show *" = "allow";
           "git status *" = "allow";
           "git submodule status *" = "allow";
+          "git tag -l *" = "allow";
           "git tag --list *" = "allow";
           "git tag --contains *" = "allow";
+          "git tag --merged *" = "allow";
+          "git tag --no-contains *" = "allow";
+          "git tag --no-merged *" = "allow";
+          "git tag --points-at *" = "allow";
           "git range-diff *" = "allow";
           "git rebase --show-current-patch *" = "allow";
           "git reflog show *" = "allow";
@@ -286,7 +295,7 @@
           "gh --version" = "allow";
           "gh alias list *" = "allow";
           "gh api user" = "allow";
-          "gh auth status" = "allow";
+          "gh auth status *" = "allow";
           "gh cache list *" = "allow";
           "gh config get *" = "allow";
           "gh discussion list *" = "allow";
@@ -310,6 +319,7 @@
           "gh release view *" = "allow";
           "gh repo list *" = "allow";
           "gh repo view *" = "allow";
+          "gh ruleset check *" = "allow";
           "gh ruleset list *" = "allow";
           "gh ruleset view *" = "allow";
           "gh run list *" = "allow";
@@ -410,6 +420,7 @@
           "gws docs documents get *" = "allow";
           "gws calendar +agenda" = "allow";
           "gws calendar events list *" = "allow";
+          "gws calendar calendarList list *" = "allow";
           "gws people people searchDirectoryPeople *" = "allow";
           "gws meet conferenceRecords list *" = "allow";
           "gws meet conferenceRecords participants list *" = "allow";
