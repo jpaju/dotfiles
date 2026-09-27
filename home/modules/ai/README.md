@@ -15,7 +15,7 @@ Define AI configuration once and share it across all harnesses: Claude Code, Cod
 
 | Topic       | Status                                                               |
 | ----------- | -------------------------------------------------------------------- |
-| MCPs        | In progress: Claude done (verifying), Codex next, OpenCode last      |
+| MCPs        | In progress: Claude done, Codex verifying, OpenCode last             |
 | Permissions | Not started                                                          |
 | Skills      | Not started                                                          |
 
