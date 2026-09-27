@@ -12,10 +12,13 @@
   config = lib.mkIf config.dotfiles.ai.enable {
     programs.codex = {
       enable = true;
+      enableMcpIntegration = true;
+
       package =
         let
           wrappedCodex = pkgs.writeShellScriptBin "codex" ''
             export OPENAI_API_KEY="$(cat ${config.secrets.openai_api_key})"
+            ${config.dotfiles.ai.mcp.secretEnvExports}
             exec ${inputs.llm-agents.packages.${system}.codex}/bin/codex "$@"
           '';
         in
