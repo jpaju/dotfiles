@@ -20,6 +20,7 @@
         "rootly_list*" = "allow";
         "rootly_find*" = "allow";
         "rootly_check*" = "allow";
+        "rootly_collect*" = "allow";
         "rootly_search*" = "allow";
         "rootly_suggest*" = "allow";
       };
