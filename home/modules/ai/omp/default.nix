@@ -16,13 +16,17 @@
     programs.omp = {
       enable = true;
 
-      settings.tools.approvalMode = "write";
+      settings = {
+        tools.approvalMode = "write";
+        enabledProviders = [ "opencode" ];
+      };
 
       package = pkgs.writeShellScriptBin "omp" ''
         export ANTHROPIC_API_KEY="$(cat ${config.secrets.anthropic_api_key})"
         export OPENAI_API_KEY="$(cat ${config.secrets.openai_api_key})"
         export GEMINI_API_KEY="$(cat ${config.secrets.google_generative_ai_api_key})"
         export GOOGLE_API_KEY="$GEMINI_API_KEY"
+        ${config.dotfiles.ai.mcp.secretEnvExports}
 
         exec ${inputs.llm-agents.packages.${system}.omp}/bin/omp "$@"
       '';
