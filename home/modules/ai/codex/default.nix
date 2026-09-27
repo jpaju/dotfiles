@@ -12,7 +12,6 @@
   config = lib.mkIf config.dotfiles.ai.enable {
     programs.codex = {
       enable = true;
-      enableMcpIntegration = true;
 
       package =
         let
@@ -76,6 +75,36 @@
           lib.genAttrs trustedProjects (_: {
             trust_level = "trusted";
           });
+
+        mcp_servers =
+          let
+            isEnvReference = value: !builtins.isString value;
+
+            literalHeaders = server: lib.filterAttrs (_: value: !isEnvReference value) server.headers;
+
+            envHeaders = server: lib.mapAttrs (_: value: value.env) (lib.filterAttrs (_: isEnvReference) server.headers);
+
+            oauth = oauthClient: {
+              client_id = oauthClient.clientId;
+              callback_port = oauthClient.callbackPort;
+            };
+
+            toCodexMcpServer =
+              _: server:
+              {
+                inherit (server) url;
+              }
+              // lib.optionalAttrs (literalHeaders server != { }) { http_headers = literalHeaders server; }
+              // lib.optionalAttrs (envHeaders server != { }) { env_http_headers = envHeaders server; }
+              // lib.optionalAttrs (server.bearerTokenEnv != null) {
+                bearer_token_env_var = server.bearerTokenEnv;
+              }
+              // lib.optionalAttrs (server.oauth != null) { oauth = oauth server.oauth; }
+              // lib.optionalAttrs (server.oauth != null && server.oauth.scopes != [ ]) {
+                inherit (server.oauth) scopes;
+              };
+          in
+          lib.mapAttrs toCodexMcpServer config.dotfiles.ai.mcp.servers;
       };
     };
 
