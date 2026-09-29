@@ -2,6 +2,7 @@
 {
   imports = [ ./plugins.nix ];
 
+  home.sessionPath = [ "$HOME/.cargo/bin" ];
   home.shell.enableFishIntegration = true;
   programs.nix-your-shell.enable = true;
   catppuccin.fish.enable = true;
