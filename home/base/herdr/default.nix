@@ -21,9 +21,21 @@
       theme.name = "catppuccin";
 
       ui = {
+        window_title = "{workspace}";
+
         show_agent_labels_on_pane_borders = true;
         status_indicators = "symbols";
+        sidebar.agents.rows = [
+          [
+            "state_icon"
+            "workspace"
+            "tab"
+          ]
+          [ "terminal_title_stripped" ]
+        ];
+
         toast.delivery = "terminal";
+        toast.delay_seconds = 0;
         sound.enabled = true;
       };
 
