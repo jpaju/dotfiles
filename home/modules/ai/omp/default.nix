@@ -17,8 +17,32 @@
       enable = true;
 
       settings = {
+        setupVersion = 2;
+        theme.dark = "dark-catppuccin";
+        symbolPreset = "nerd";
+
+        modelRoles.default = "openai/gpt-6.1-sol:high";
+
         tools.approvalMode = "write";
+
         enabledProviders = [ "opencode" ];
+        disabledProviders = [
+          "alibaba-coding-plan"
+          "alibaba-token-plan"
+          "qwen-portal"
+          "zai"
+          "zhipu-coding-plan"
+          "minimax-cn"
+          "minimax-code-cn"
+          "xiaomi"
+          "xiaomi-token-plan-ams"
+          "xiaomi-token-plan-cn"
+          "xiaomi-token-plan-sgp"
+          "siliconflow-cn"
+          "qianfan"
+          "moonshot"
+          "deepseek"
+        ];
       };
 
       package = pkgs.writeShellScriptBin "omp" ''
