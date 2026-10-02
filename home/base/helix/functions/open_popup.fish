@@ -15,7 +15,8 @@ function herdr_popup
     set -l popup_env \
         --env "HELIX_ORIGIN_PANE_ID=$HERDR_PANE_ID" \
         --env "HELIX_PICKER_ACTION=$args[1]" \
-        --env "HELIX_PICKER_TARGET=$args[2]"
+        --env "HELIX_PREVIEW_FILE=$args[1]" \
+        --env "HELIX_PICKER_TARGET=$args[2]" 
 
     herdr plugin pane open \
         --plugin local.popup-tools \
@@ -49,6 +50,8 @@ function zellij_popup
             set command yazi_picker $args
         case broot
             set command broot_picker $args
+        case leaf
+            set command leaf --watch (string escape -- $args[1])
         case '*'
             echo "zellij_popup: unknown tool: $tool" >&2
             return 1

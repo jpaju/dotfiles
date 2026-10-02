@@ -51,3 +51,11 @@ placement = "popup"
 width = "96%"
 height = "96%"
 command = ["fish", "-c", "broot_picker \"$HELIX_PICKER_ACTION\""]
+
+[[panes]]
+id = "leaf"
+title = "Markdown Preview"
+placement = "popup"
+width = "96%"
+height = "96%"
+command = ["fish", "-c", "leaf --watch \"$HELIX_PREVIEW_FILE\""]
