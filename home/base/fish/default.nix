@@ -13,6 +13,7 @@
     shellAbbrs = {
       reload = "exec fish";
       rl = "exec fish";
+      unset = "set --erase";
       utcnow = "date -u +%Y-%m-%dT%H:%M:%SZ";
     };
 
@@ -32,6 +33,10 @@
 
     configFile."fish/functions" = {
       source = ./functions;
+      recursive = true;
+    };
+    configFile."fish/completions" = {
+      source = ./completions;
       recursive = true;
     };
   };
