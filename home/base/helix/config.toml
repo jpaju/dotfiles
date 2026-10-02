@@ -190,9 +190,10 @@ Y = "yank_joined_to_clipboard"
 
 # <backspace> for popup commands
 [keys.normal.backspace]
-g = ''':sh 'fish -c "open_popup lazygit"''''
-d = ''':sh 'fish -c "open_popup gh-dash"''''
-s = ''':sh 'fish -c "open_popup serpl"''''
-p = ''':sh 'fish -c "open_popup gh-pr-switch"''''
-f = ''':sh 'fish -c "open_popup yazi open %{buffer_name}"''''
-F = ''':sh 'fish -c "open_popup broot open"''''
+g = ''':sh open_popup lazygit'''
+d = ''':sh open_popup gh-dash'''
+s = ''':sh open_popup serpl'''
+p = ''':sh open_popup gh-pr-switch'''
+m = ''':sh open_popup leaf "%{buffer_name}"'''
+f = ''':sh open_popup yazi open %{buffer_name}'''
+F = ''':sh open_popup broot open'''
