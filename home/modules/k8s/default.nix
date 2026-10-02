@@ -5,6 +5,7 @@
       kubectl
       kubectx
       argo-rollouts
+      argo-workflows
     ];
 
     programs.fish.shellAbbrs = {
