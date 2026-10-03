@@ -10,6 +10,7 @@
   config = lib.mkIf config.dotfiles.ai.enable {
     programs.claude-code = {
       enable = true;
+      mutableSettings = true;
 
       package =
         let
