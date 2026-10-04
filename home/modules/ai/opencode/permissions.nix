@@ -36,7 +36,11 @@
           "~/.ssh/id_*" = "deny";
         };
 
-        external_directory = lib.optionalAttrs config.dotfiles.gradle.enable {
+        external_directory = {
+          "/nix/store/*" = "allow";
+          "/nix/store/?" = "deny";
+        }
+        // lib.optionalAttrs config.dotfiles.gradle.enable {
           "~/.gradle/caches/modules-2/files-2.1/**" = "allow";
         };
 
