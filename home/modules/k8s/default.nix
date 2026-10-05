@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   config = lib.mkIf config.dotfiles.k8s.enable {
     home.packages = with pkgs; [
@@ -24,6 +29,7 @@
       settings.k9s = {
         liveViewAutoRefresh = false;
         refreshRate = 2;
+        defaultView = "deployments";
 
         ui = {
           enableMouse = true;
