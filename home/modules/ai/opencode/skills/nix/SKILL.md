@@ -19,8 +19,13 @@ Conventions for using the Nix CLI. Prefer the modern unified `nix <cmd>` form ov
 
 ## Evaluation and builds
 
-- Use `nix-inspect eval <installable>` and `nix-inspect build <installable>` whenever they support the required operation. Their pre-approved defaults avoid unnecessary interruptions to autonomous work.
-- Run `nix eval` or `nix build` directly only when `nix-inspect` cannot express the required command.
+Prefer `nix-inspect` for evaluation and builds to preserve autonomous operation without manual permission approvals. Its supported commands are pre-approved and enforce fixed defaults. Invoke the installed command directly; calling its script through `bash` or an absolute path misses the permission allowance. Separate external-directory permissions still apply.
+
+- Evaluation: `nix-inspect eval <installable>`, `nix-inspect eval --expr EXPR`, or `nix-inspect eval --file PATH`. Exactly one input.
+- Supported flags and options: `--raw`, `--json`, `--apply FUNCTION`, `--impure`, and `--no-write-lock-file`. Refer to `nix help eval` for their semantics. Options may appear before or after the input; `--` terminates option parsing.
+- Evaluation always enforces read-only mode, no lock-file writes, and disabled import from derivation and unsafe native evaluation.
+- Builds: `nix-inspect build <installable>`, with fixed `--no-link --print-out-paths`.
+- Use direct `nix eval` or `nix build` only for unsupported operations. Do not bypass blocked import from derivation through direct evaluation.
 
 ## Restrictions
 
