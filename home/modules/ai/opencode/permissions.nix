@@ -80,6 +80,7 @@
           "ps *" = "allow";
           "pgrep *" = "allow";
           "scutil get *" = "allow";
+          "scutil --get *" = "allow";
           "scutil --dns" = "allow";
           "scutil --proxy" = "allow";
           "sw_vers *" = "allow";
@@ -143,6 +144,7 @@
           # Structured data
           "jq *" = "allow";
           "yq *" = "allow";
+          "sqlite3 --help *" = "allow";
           "sqlite3 -readonly *" = "allow";
           "xmllint --version" = "allow";
           "xmllint -- *" = "allow";
@@ -192,6 +194,7 @@
           "nix --version" = "allow";
           "nixfmt *" = "allow";
           "nix fmt *" = "allow";
+          "nix help" = "allow";
           "nix help *" = "allow";
           "nix search *" = "allow";
           "nix log *" = "allow";
@@ -199,17 +202,25 @@
           "nix flake info *" = "allow";
           "nix flake show *" = "allow";
           "nix flake metadata *" = "allow";
+          "nix flake prefetch *" = "allow";
           "nix derivation show *" = "allow";
           "nix path-info --read-only --no-write-lock-file -- *" = "allow";
           "nix profile list *" = "allow";
           "nix profile history *" = "allow";
+          "nix registry list" = "allow";
           "nix registry list *" = "allow";
+          "nix store gc --dry-run" = "allow";
           "nix store diff-closures -- *" = "allow";
           "nix store ls *" = "allow";
           "nix store cat *" = "allow";
           "nix store info *" = "allow";
+          "nix store prefetch-file *" = "allow";
           "nix config show *" = "allow";
           "nix why-depends --read-only --no-write-lock-file -- *" = "allow";
+          "nix-store --help" = "allow";
+          "nix-store --gc --print-roots" = "allow";
+          "nix-store --gc --print-live" = "allow";
+          "nix-store --gc --print-dead" = "allow";
           "nix-inspect *" = "allow";
         }
         // {
@@ -258,8 +269,7 @@
           "git branch" = "allow";
           "git branch --all" = "allow";
           "git branch --contains *" = "allow";
-          "git branch --list" = "allow";
-          "git branch --list -- *" = "allow";
+          "git branch --list *" = "allow";
           "git branch --remotes" = "allow";
           "git branch --show-current" = "allow";
           "git branch -a" = "allow";
@@ -314,19 +324,20 @@
           "git --version" = "allow";
         }
         // lib.optionalAttrs config.dotfiles.github.enable {
-          "gh --version" = "allow";
           "gh alias list *" = "allow";
           "gh api user" = "allow";
+          "gh auth status" = "allow";
           "gh auth status *" = "allow";
           "gh cache list *" = "allow";
           "gh config get *" = "allow";
+          "gh config list" = "allow";
           "gh discussion list *" = "allow";
           "gh discussion view *" = "allow";
+          "gh extension list" = "allow";
           "gh extension list *" = "allow";
           "gh extension search *" = "allow";
           "gh gist list *" = "allow";
           "gh gist view *" = "allow";
-          "gh help *" = "allow";
           "gh issue list *" = "allow";
           "gh issue status *" = "allow";
           "gh issue view *" = "allow";
@@ -348,9 +359,11 @@
           "gh run view *" = "allow";
           "gh run watch *" = "allow";
           "gh search *" = "allow";
+          "gh secret list" = "allow";
+          "gh secret list *" = "allow";
+          "gh stack view" = "allow";
           "gh stack view *" = "allow";
           "gh status *" = "allow";
-          "gh version *" = "allow";
           "gh workflow list *" = "allow";
           "gh workflow view *" = "allow";
           "gh-branch-info *" = "allow";
@@ -359,6 +372,30 @@
           "gh-read-file *" = "allow";
           "gh-ref-sha *" = "allow";
           "gh-repo-tree *" = "allow";
+          "gh --help" = "allow";
+          "gh --version" = "allow";
+          "gh --version 2>&1" = "allow";
+          "gh dash --version" = "allow";
+          "gh help *" = "allow";
+          "gh pr edit --help" = "allow";
+          "gh release edit --help" = "allow";
+          "gh repo fork --help" = "allow";
+          "gh stack --help" = "allow";
+          "gh stack --version" = "allow";
+          "gh stack add --help" = "allow";
+          "gh stack checkout --help" = "allow";
+          "gh stack init --help" = "allow";
+          "gh stack link --help" = "allow";
+          "gh stack modify --help" = "allow";
+          "gh stack push --help" = "allow";
+          "gh stack rebase --help" = "allow";
+          "gh stack submit --help" = "allow";
+          "gh stack switch --help" = "allow";
+          "gh stack sync --help" = "allow";
+          "gh stack unstack --help" = "allow";
+          "gh version" = "allow";
+          "gh version *" = "allow";
+          "gh workflow run --help" = "allow";
         }
         // lib.optionalAttrs config.dotfiles.docker.enable {
           "docker compose config" = "allow";
@@ -405,6 +442,10 @@
           "terraform fmt *" = "allow";
           "terraform validate *" = "allow";
         }
+        // lib.optionalAttrs config.dotfiles.snowflake.enable {
+          "snow sql --query *" = "allow";
+          "snow sql -q *" = "allow";
+        }
         // lib.optionalAttrs config.dotfiles.gradle.enable {
           "./gradlew --version" = "allow";
           "./gradlew compileKotlin" = "allow";
@@ -437,15 +478,17 @@
           "az monitor log-analytics workspace show *" = "allow";
         }
         // lib.optionalAttrs config.dotfiles.google.enable {
-          "gws schema *" = "allow";
-          "gws gmail +triage" = "allow";
-          "gws docs documents get *" = "allow";
           "gws calendar +agenda" = "allow";
-          "gws calendar events list *" = "allow";
           "gws calendar calendarList list *" = "allow";
-          "gws people people searchDirectoryPeople *" = "allow";
+          "gws calendar events list *" = "allow";
+          "gws docs documents get *" = "allow";
+          "gws drive files list *" = "allow";
+          "gws gmail +triage" = "allow";
           "gws meet conferenceRecords list *" = "allow";
           "gws meet conferenceRecords participants list *" = "allow";
+          "gws people people searchDirectoryPeople *" = "allow";
+          "gws schema *" = "allow";
+          "gws sheets spreadsheets get *" = "allow";
         }
         // lib.optionalAttrs config.dotfiles.home-automation.enable {
           "hass-cli --help" = "allow";
@@ -475,9 +518,8 @@
           "aioesphomeapi-discover-once" = "allow";
           "script -q /dev/null aioesphomeapi-logs *" = "allow";
         }
-        // lib.optionalAttrs config.dotfiles.snowflake.enable {
-          "snow sql --query *" = "allow";
-          "snow sql -q *" = "allow";
+        // lib.optionalAttrs config.dotfiles.wolt-tools.enable {
+          "live-config *" = "allow";
         };
       };
     };
