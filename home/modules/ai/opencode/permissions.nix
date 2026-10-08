@@ -39,9 +39,22 @@
         external_directory = {
           "/nix/store/*" = "allow";
           "/nix/store/?" = "deny";
-        }
-        // lib.optionalAttrs config.dotfiles.gradle.enable {
-          "~/.gradle/caches/modules-2/files-2.1/**" = "allow";
+          "/etc/nix/**" = "deny";
+          "~/dotfiles/**" = "allow";
+          "~/Dev/**" = "allow";
+          "~/Development/**" = "allow";
+          "~/work/**" = "allow";
+          "~/wolt-scripts/**" = "allow";
+          "~/.config/**" = "allow";
+          "~/.cache/**" = "allow";
+          "~/.cargo/**" = "allow";
+          "~/.local/share/opencode/**" = "allow";
+          "~/.gradle/caches/**" = "allow";
+          "~/.ivy2/cache/**" = "allow";
+          "~/.m2/repository/**" = "allow";
+          "~/.sbt/boot/**" = "allow";
+          "~/.sbt/1.0/plugins/**" = "allow";
+          "~/Library/Caches/Coursier/**" = "allow";
         };
 
         bash = {
