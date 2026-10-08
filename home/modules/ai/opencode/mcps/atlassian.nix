@@ -19,12 +19,12 @@
       };
 
       permission = {
-        "atlassian_*" = "ask";
-        "atlassian_get*" = "allow";
-        "atlassian_search*" = "allow";
-        "atlassian_lookup*" = "allow";
-        "atlassian_fetch*" = "allow";
-        "atlassian_atlassianUserInfo" = "allow";
+        "atlassian*" = "ask";
+        "atlassian*_get*" = "allow";
+        "atlassian*_search*" = "allow";
+        "atlassian*_lookup*" = "allow";
+        "atlassian*_fetch*" = "allow";
+        "atlassian*_atlassianUserInfo" = "allow";
 
         bash = {
           "jira issue list *" = "allow";
