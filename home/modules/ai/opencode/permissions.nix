@@ -325,6 +325,8 @@
         }
         // lib.optionalAttrs config.dotfiles.github.enable {
           "gh alias list *" = "allow";
+          "gh api --method GET -- *" = "allow";
+          "gh api --method GET --paginate -- *" = "allow";
           "gh api user" = "allow";
           "gh auth status" = "allow";
           "gh auth status *" = "allow";
@@ -375,6 +377,7 @@
           "gh --help" = "allow";
           "gh --version" = "allow";
           "gh --version 2>&1" = "allow";
+          "gh api --help" = "allow";
           "gh dash --version" = "allow";
           "gh help *" = "allow";
           "gh pr edit --help" = "allow";

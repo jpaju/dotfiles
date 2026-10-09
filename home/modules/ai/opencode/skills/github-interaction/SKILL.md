@@ -11,7 +11,17 @@ To preserve autonomous execution, use GitHub commands in this order:
 
 1. Built-in `gh` subcommand.
 2. Dedicated `gh-*` wrapper documented below.
-3. Direct `gh api` only as a last resort. It pauses execution for user approval, blocking autonomous work and interrupting the user.
+3. Direct `gh api` only as a last resort. For REST reads, always use the pre-approved GET formats below when possible to avoid manual permission approvals. Using any other `gh api` format WILL stop execution and prompt the user for manual approval.
+
+## Direct API reads
+
+- Use `gh api --method GET -- '<endpoint>'`, or `gh api --method GET --paginate -- '<endpoint>'` when pagination is needed. Preserve the exact flag order to match the permission rules; `--` ends option parsing so later flags cannot override GET.
+- Put query parameters in the quoted endpoint URL rather than `-f` or `-F` fields, and pipe output to `jq` instead of adding `--jq`. Only the endpoint belongs after `--`.
+
+```sh
+gh api --method GET -- 'repos/OWNER/REPO/commits?per_page=100' | jq '.[].sha'
+gh api --method GET --paginate -- 'repos/OWNER/REPO/commits?per_page=100'
+```
 
 ## Reading repo content without a local clone
 
