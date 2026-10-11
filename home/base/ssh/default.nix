@@ -1,33 +1,40 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
 
-    settings = {
-      "*".useKeychain = true;
+    settings =
+      lib.optionalAttrs pkgs.stdenv.hostPlatform.isDarwin {
+        "*".useKeychain = true;
+      }
+      // {
+        "github.com" = {
+          identityFile = "~/.ssh/id_ed25519";
+          identitiesOnly = true;
+        };
+      }
+      // lib.optionalAttrs config.dotfiles.homelab.enable {
+        "home-automation" = {
+          hostname = "home-automation.int.jpaju.fi";
+          user = "jaakko";
+          identityFile = "~/.ssh/id_ed25519";
+          identitiesOnly = true;
+          sendEnv = [ "COLORTERM" ];
+        };
 
-      "github.com" = {
-        identityFile = "~/.ssh/id_ed25519";
-        identitiesOnly = true;
+        "media-server" = {
+          hostname = "media-server.int.jpaju.fi";
+          user = "jaakko";
+          identityFile = "~/.ssh/id_ed25519";
+          identitiesOnly = true;
+          sendEnv = [ "COLORTERM" ];
+        };
       };
-    }
-    // lib.optionalAttrs config.dotfiles.homelab.enable {
-      "home-automation" = {
-        hostname = "home-automation.int.jpaju.fi";
-        user = "jaakko";
-        identityFile = "~/.ssh/id_ed25519";
-        identitiesOnly = true;
-        sendEnv = [ "COLORTERM" ];
-      };
-
-      "media-server" = {
-        hostname = "media-server.int.jpaju.fi";
-        user = "jaakko";
-        identityFile = "~/.ssh/id_ed25519";
-        identitiesOnly = true;
-        sendEnv = [ "COLORTERM" ];
-      };
-    };
   };
 }
