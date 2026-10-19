@@ -116,6 +116,7 @@
           "echo *" = "allow";
           "printf *" = "allow";
           "wc *" = "allow";
+          "nl *" = "allow";
           "cut *" = "allow";
           "col *" = "allow";
           "comm *" = "allow";
@@ -124,6 +125,7 @@
           "fold *" = "allow";
           "rev *" = "allow";
           "expand *" = "allow";
+          "base64 *" = "allow";
           "unexpand *" = "allow";
           "column *" = "allow";
           "seq *" = "allow";
@@ -522,6 +524,9 @@
         }
         // lib.optionalAttrs config.dotfiles.wolt-tools.enable {
           "live-config *" = "allow";
+          "vault policy read *" = "allow";
+          "vault status *" = "allow";
+          "vault token capabilities *" = "allow";
         };
       };
     };
