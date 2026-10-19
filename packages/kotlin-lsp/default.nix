@@ -9,11 +9,11 @@
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "kotlin-lsp";
-  version = "263.6379.0";
+  version = "263.7084.0";
 
   src = fetchzip {
     url = "https://download.jetbrains.com/language-server/kotlin-server/${finalAttrs.version}/kotlin-server-${finalAttrs.version}-aarch64.sit";
-    hash = "sha256-Ytdwzz4RwuYJCacQEUDd9dm7PSzN0q7DLDfOJBc12L4=";
+    hash = "sha256-wD4BU8Be6pLOmrnaojm7EHr+lfYAp5NjCoPC+M3deHM=";
     extension = "zip";
   };
 
