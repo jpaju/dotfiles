@@ -97,6 +97,21 @@ auto-format = false
 language-servers = ["fish-lsp", "scls", "typos"]
 
 [[language]]
+name = "github-action"
+auto-format = true
+formatter = { command = "prettier", args = [
+  "--stdin-filepath",
+  "%{buffer_name}",
+] }
+language-servers = [
+  "actions-language-server",
+  "yaml-language-server",
+  "zizmor",
+  "scls",
+  "typos",
+]
+
+[[language]]
 name = "hcl"
 auto-format = true
 formatter = { command = "terraform", args = ["fmt", "-"] }

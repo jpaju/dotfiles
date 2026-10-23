@@ -16,6 +16,7 @@
   };
 
   home.packages = with pkgs; [
+    actions-languageserver # GitHub actions
     simple-completion-language-server # Snippets
     typos-lsp # Spellchecking
     fish-lsp # Fish
@@ -29,6 +30,7 @@
     yaml-language-server # YAML
     prettier # JS, TS, HTML, CSS, YAML, Markdown
     lua-language-server # Lua
+    zizmor # GitHub actions static analysis
   ];
 
   xdg.configFile = {
