@@ -66,7 +66,7 @@
           ];
         };
 
-        authorColors."*" = "#b7bdf8";
+        theme.authorColors."*" = "#b7bdf8";
 
         # Catppuccin Macchiato Maroon
         theme = {

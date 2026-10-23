@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    snowflake-nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
 
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin";

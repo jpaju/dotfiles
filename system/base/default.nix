@@ -7,7 +7,6 @@
     ./nix-homebrew.nix
     ./macos-settings.nix
     ./nix-settings.nix
-    ./overlays.nix
     ./users.nix
   ];
 }
