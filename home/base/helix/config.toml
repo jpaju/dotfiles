@@ -157,6 +157,7 @@ F = "file_picker"
 [keys.normal.space.space]
 r = ":reset-diff-change"
 w = ":sh gh_browse %{buffer_name} %{selection_line_start} %{selection_line_end}"
+W = ":sh gh_browse %{buffer_name}"
 b = "blame_line"
 
 # + for LSP commands
