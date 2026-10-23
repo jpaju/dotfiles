@@ -1,10 +1,10 @@
-{ pkgs, localPkgs, ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     glow
     graph-easy
     slides
-    localPkgs.leaf
+    leaf-markdown-viewer
   ];
 
   xdg.configFile."glow/glow.yml".source = ./glow.yml;
