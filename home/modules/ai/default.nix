@@ -2,6 +2,6 @@
 {
   imports = [
     ./claude
-    ./opencode
+    ./opencode-v1
   ];
 }
