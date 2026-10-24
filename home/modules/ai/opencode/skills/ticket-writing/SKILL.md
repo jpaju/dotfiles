@@ -23,13 +23,13 @@ If the user asks you to create or update tickets, do so. Always get explicit con
 Every ticket description must follow this format:
 
 ```
-**Context**
+# Context
 Why does this work need to happen? What is the current state?
 
-**Goal**
+# Goal
 What outcome are we trying to achieve?
 
-**Definition of Done**
+# Definition of Done
 - Concrete, verifiable criteria
 ```
 

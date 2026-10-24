@@ -283,6 +283,7 @@
           "git config --get *" = "allow";
           "git config get *" = "allow";
           "git config list *" = "allow";
+          "git config user.email" = "allow";
           "git cherry *" = "allow";
           "git count-objects *" = "allow";
           "git describe *" = "allow";
@@ -367,6 +368,8 @@
           "gh stack view" = "allow";
           "gh stack view *" = "allow";
           "gh status *" = "allow";
+          "gh variable list *" = "allow";
+          "gh variable get *" = "allow";
           "gh workflow list *" = "allow";
           "gh workflow view *" = "allow";
           "gh-branch-info *" = "allow";
