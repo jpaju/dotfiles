@@ -10,7 +10,6 @@
   imports = [
     ../../secrets/interface.nix
     ./mcps
-    ./plugins
     ./permissions.nix
     ./skills.nix
   ];
@@ -18,6 +17,7 @@
   config = lib.mkIf config.dotfiles.ai.enable {
     programs.opencode = {
       enable = true;
+      mutableSettings = true;
 
       context = ./system-prompt.md;
       commands = ./commands;
@@ -26,27 +26,48 @@
         share = "disabled";
         autoupdate = false;
         default_agent = "plan";
+        websearch.provider = "exa";
+        policies = [
+          {
+            action = "integration.use";
+            resource = "plugin:*";
+            effect = "deny";
+          }
+        ];
       };
 
-      tui = {
-        theme = "catppuccin";
-        attention.enabled = true;
+      cli = {
+        theme.name = "catppuccin";
+        animations = true;
+        session.scrollbar = true;
+        tabs = {
+          mode = "on";
+          scope = "cwd";
+          layout = "horizontal";
+        };
+        attention = {
+          notifications = false;
+          sound = false;
+        };
       };
 
-      package = pkgs.writeShellScriptBin "opencode" ''
-        export OPENCODE_DISABLE_LSP_DOWNLOAD=true
-        export OPENCODE_ENABLE_EXA=1
+      package =
+        let
+          version = inputs.llm-agents.packages.${system}.opencode2.version;
+          wrapper = pkgs.writeShellScriptBin "opencode" ''
+            export ANTHROPIC_API_KEY="$(cat ${config.secrets.anthropic_api_key})"
+            export OPENAI_API_KEY="$(cat ${config.secrets.openai_api_key})"
+            export GOOGLE_GENERATIVE_AI_API_KEY="$(cat ${config.secrets.google_generative_ai_api_key})"
+            export CONTEXT7_API_KEY="$(cat ${config.secrets.context7_api_key})"
+            ${lib.optionalString config.dotfiles.ai.work-mcps.enable ''
+              export ROOTLY_API_KEY="$(cat ${config.secrets.rootly_api_key})"
+            ''}
 
-        export ANTHROPIC_API_KEY="$(cat ${config.secrets.anthropic_api_key})"
-        export OPENAI_API_KEY="$(cat ${config.secrets.openai_api_key})"
-        export GOOGLE_GENERATIVE_AI_API_KEY="$(cat ${config.secrets.google_generative_ai_api_key})"
-        export CONTEXT7_API_KEY="$(cat ${config.secrets.context7_api_key})"
-        ${lib.optionalString config.dotfiles.ai.work-mcps.enable ''
-          export ROOTLY_API_KEY="$(cat ${config.secrets.rootly_api_key})"
-        ''}
-
-        exec ${inputs.llm-agents.packages.${system}.opencode}/bin/opencode "$@"
-      '';
+            exec ${inputs.llm-agents.packages.${system}.opencode2}/bin/opencode2 "$@"
+          '';
+        in
+        # Home Manager needs the version to recognize v2 CLI configuration support
+        wrapper // { version = version; };
     };
 
     programs.fish.shellAbbrs = {

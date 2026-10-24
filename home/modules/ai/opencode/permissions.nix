@@ -9,6 +9,10 @@
 
       # Explore denies unlisted tools by default, so skill loading needs an explicit opt-in.
       agent.explore.permission.skill = "allow";
+      agent.plan.permission.edit = {
+        "*" = "deny";
+        "~/.opencode/plan/*" = "allow";
+      };
 
       permission = {
         edit = "allow";
@@ -37,6 +41,7 @@
         };
 
         external_directory = {
+          "*" = "ask";
           "/nix/store/*" = "allow";
           "/nix/store/?" = "deny";
           "/etc/nix/**" = "deny";
