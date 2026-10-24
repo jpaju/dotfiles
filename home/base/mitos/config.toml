@@ -1,11 +1,5 @@
 theme = "catppuccin_macchiato"
 
-# Configure
-# TODO Labels for custom menu items
-# TODO Show part of path in buffer name when two files with same name open?
-# TODO Enable breadcrumbs
-# TODO Global LSPs (enabled for all languages)?
-
 # Experiment
 # TODO Try native snippets: https://mitos.computer/docs/snippets
 # TODO Try out quicklist: https://mitos.computer/docs/quicklist
