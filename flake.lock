@@ -324,6 +324,27 @@
         "type": "github"
       }
     },
+    "mitos": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792827884,
+        "narHash": "sha256-j/fwt+2LV/BPBBfiqxwppcjEyZNZZrbQhGoK1xA2SQY=",
+        "owner": "mitos-editor",
+        "repo": "mitos",
+        "rev": "b209c7b794457591eb57614716433d6b896b5ece",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mitos-editor",
+        "ref": "main",
+        "repo": "mitos",
+        "type": "github"
+      }
+    },
     "nix": {
       "inputs": {
         "bdwgc": "bdwgc",
@@ -513,6 +534,7 @@
         "helix": "helix",
         "home-manager": "home-manager",
         "llm-agents": "llm-agents",
+        "mitos": "mitos",
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
         "nixpkgs": "nixpkgs_6",

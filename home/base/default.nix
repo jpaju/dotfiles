@@ -16,6 +16,7 @@
     ./herdr
     ./json
     ./markdown
+    ./mitos
     ./moor.nix
     ./nix
     ./ssh
