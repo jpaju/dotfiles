@@ -141,6 +141,7 @@
           "fd -- *" = "allow";
           "grep *" = "allow";
           "rg *" = "allow";
+          "mdfind" = "allow";
         }
         // {
           # Structured data
@@ -165,6 +166,10 @@
           "unzip -l *" = "allow";
           "unzip -p *" = "allow";
           "unzip -t *" = "allow";
+        }
+        // {
+          # Network
+          "dig *" = "allow";
         }
         // {
           # MacOS specific
@@ -283,6 +288,7 @@
           "git config --get *" = "allow";
           "git config get *" = "allow";
           "git config list *" = "allow";
+          "git config user.email" = "allow";
           "git cherry *" = "allow";
           "git count-objects *" = "allow";
           "git describe *" = "allow";
@@ -367,6 +373,8 @@
           "gh stack view" = "allow";
           "gh stack view *" = "allow";
           "gh status *" = "allow";
+          "gh variable list *" = "allow";
+          "gh variable get *" = "allow";
           "gh workflow list *" = "allow";
           "gh workflow view *" = "allow";
           "gh-branch-info *" = "allow";
@@ -475,11 +483,16 @@
         }
         // {
           "az account show *" = "allow";
+          "az extension list *" = "allow";
+          "az extension list-available *" = "allow";
           "az functionapp list *" = "allow";
           "az functionapp show *" = "allow";
+          "az monitor app-insights query *" = "allow";
           "az monitor metrics list *" = "allow";
           "az monitor metrics list-definitions *" = "allow";
+          "az monitor log-analytics query *" = "allow";
           "az monitor log-analytics workspace show *" = "allow";
+          "az resource show *" = "allow";
         }
         // lib.optionalAttrs config.dotfiles.google.enable {
           "gws calendar +agenda" = "allow";
@@ -488,11 +501,14 @@
           "gws docs documents get *" = "allow";
           "gws drive files list *" = "allow";
           "gws gmail +triage" = "allow";
+          "gws gmail users messages list *" = "allow";
+          "gws gmail users messages get *" = "allow";
           "gws meet conferenceRecords list *" = "allow";
           "gws meet conferenceRecords participants list *" = "allow";
           "gws people people searchDirectoryPeople *" = "allow";
           "gws schema *" = "allow";
           "gws sheets spreadsheets get *" = "allow";
+          "gws sheets spreadsheets values get *" = "allow";
         }
         // lib.optionalAttrs config.dotfiles.home-automation.enable {
           "hass-cli --help" = "allow";
