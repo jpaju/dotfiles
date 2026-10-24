@@ -1,0 +1,156 @@
+theme = "catppuccin_macchiato"
+
+# Configure
+# TODO Labels for custom menu items
+# TODO Show part of path in buffer name when two files with same name open?
+# TODO Enable breadcrumbs
+# TODO Global LSPs (enabled for all languages)?
+
+# Experiment
+# TODO Try native snippets: https://mitos.computer/docs/snippets
+# TODO Try out quicklist: https://mitos.computer/docs/quicklist
+# TODO How does search and replace work: https://mitos.computer/docs/search
+# TODO Try native spell checking: https://mitos.computer/docs/spell-checking
+
+[editor]
+line-number = "relative"
+whitespace.render = "all"
+shell = ["fish", "-c"]
+idle-timeout = 50
+text-width = 120
+icons = true
+border-style = "rounded"
+
+[editor.cursor]
+highlight-line = true
+
+[editor.cursor.shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.completion]
+trigger-delay = 5
+trigger-length = 0
+preview-insert = false
+word.trigger-length = 2
+
+[editor.rulers]
+columns = [120]
+
+[editor.rainbow-brackets]
+enable = true
+
+[editor.bufferline]
+show = "always"
+
+[editor.statusline]
+left = [
+  "mode",
+  "spacer",
+  "spinner",
+  "diagnostics",
+  "file-type",
+  "separator",
+  "spacer",
+  "branch",
+]
+right = [
+  "selections",
+  "position",
+  "file-line-ending",
+  "file-encoding",
+  "file-indent-style",
+]
+separator = "|"
+mode.color = true
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.file-picker]
+hidden = false
+
+[editor.indent-guides]
+render = true
+skip-levels = 1
+
+[editor.inline-blame]
+show = "cursor-line"
+
+[editor.lsp]
+document-highlight.auto-trigger = true
+progress.enable = true
+references.include-declaration = false
+
+[editor.diagnostics.inline]
+cursor-line = "hint"
+other-lines = "disable"
+
+[editor.diagnostics.end-of-line]
+severity = "hint"
+
+[keys.insert]
+C-p = ["signature_help"]
+
+[keys.select]
+X = ["extend_line_above"]
+
+[keys.normal]
+esc = ["collapse_selection", "keep_primary_selection"]
+ret = ["goto_word"]
+C-p = ["signature_help"]
+X = ["extend_line_above"]
+"*" = ["search_selection"]
+C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+C-k = [
+  "extend_to_line_bounds",
+  "delete_selection",
+  "move_line_up",
+  "paste_before",
+]
+
+[keys.normal.space]
+f = "file_picker_in_current_directory"
+F = "file_picker"
+
+[keys.normal.space.space]
+r = ":restore-change"
+w = ":sh gh_browse %{buffer_name} %{selection_line_start} %{selection_line_end}"
+W = ":sh gh_browse %{buffer_name}"
+b = "blame_line"
+
+[keys.normal."+"]
+r = ":lsp-restart"
+s = ":lsp-stop"
+l = ":lsp-workspace-command"
+b = ":lsp-workspace-command compile-cascade"
+i = ":lsp-workspace-command build-import"
+
+[keys.normal."§"]
+f = ":toggle-option format.on-save"
+h = ":toggle-option file-picker.hidden"
+g = ":toggle-option file-picker.git-ignore"
+i = ":toggle-option lsp.inlay-hints.enable"
+w = ":toggle-option soft-wrap.enable"
+
+[keys.normal."'"]
+f = ":format"
+w = ":buffer-close"
+W = ":buffer-close-others"
+r = ":reload-all"
+g = ":restore-change"
+")" = "rotate_selection_contents_forward"
+"(" = "rotate_selection_contents_backward"
+s = ["split_selection_on_newline", ":sort"]
+y = "yank_joined"
+Y = "yank_joined_to_clipboard"
+
+[keys.normal.backspace]
+g = ":sh open_popup lazygit"
+d = ":sh open_popup gh-dash"
+s = ":sh open_popup serpl"
+p = ":sh open_popup gh-pr-switch"
+m = ''':sh open_popup leaf "%{buffer_name}"'''
+f = ":sh open_popup yazi open %{buffer_name}"
+F = ":sh open_popup broot open"
