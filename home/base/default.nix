@@ -8,15 +8,14 @@
     ./catppuccin.nix
     ./direnv
     ./duckdb
+    ./editors
     ./eza.nix
     ./fish
     ./fzf.nix
     ./git
-    ./helix
     ./herdr
     ./json
     ./markdown
-    ./mitos
     ./moor.nix
     ./nix
     ./ssh

@@ -1,5 +1,4 @@
 {
-  pkgs,
   system,
   inputs,
   ...
@@ -9,29 +8,6 @@
     enable = true;
     package = inputs.helix.packages.${system}.default;
   };
-
-  home.sessionVariables = {
-    EDITOR = "hx";
-    VISUAL = "$EDITOR";
-  };
-
-  home.packages = with pkgs; [
-    actions-languageserver # GitHub actions
-    simple-completion-language-server # Snippets
-    typos-lsp # Spellchecking
-    fish-lsp # Fish
-    bash-language-server # Bash
-    marksman # Markdown
-    mpls # Markdown preview
-    nixd # Nix
-    nixfmt # Nix
-    taplo # TOML
-    vscode-langservers-extracted # JSON, HTML, CSS, SCSS
-    yaml-language-server # YAML
-    prettier # JS, TS, HTML, CSS, YAML, Markdown
-    lua-language-server # Lua
-    zizmor # GitHub actions static analysis
-  ];
 
   xdg.configFile = {
     "helix/config.toml".source = ./config.toml;
