@@ -109,42 +109,49 @@ f = "file_picker_in_current_directory"
 F = "file_picker"
 
 [keys.normal.space.space]
-r = ":restore-change"
-w = ":sh gh_browse %{buffer_name} %{selection_line_start} %{selection_line_end}"
-W = ":sh gh_browse %{buffer_name}"
-b = "blame_line"
+label = "Git"
+r = { label = "Restore change", command = ":restore-change" }
+w = { label = "Open selection on GitHub", command = ":sh gh_browse %{buffer_name} %{selection_line_start} %{selection_line_end}" }
+W = { label = "Open file on GitHub", command = ":sh gh_browse %{buffer_name}" }
 
 [keys.normal."+"]
-r = ":lsp-restart"
-s = ":lsp-stop"
-l = ":lsp-workspace-command"
-b = ":lsp-workspace-command compile-cascade"
-i = ":lsp-workspace-command build-import"
+label = "LSP"
+r = { label = "Restart language server", command = ":lsp-restart" }
+s = { label = "Stop language server", command = ":lsp-stop" }
+l = { label = "Workspace commands", command = ":lsp-workspace-command" }
+b = { label = "Compile cascade", command = ":lsp-workspace-command compile-cascade" }
+i = { label = "Import build", command = ":lsp-workspace-command build-import" }
 
 [keys.normal."§"]
-f = ":toggle-option format.on-save"
-h = ":toggle-option file-picker.hidden"
-g = ":toggle-option file-picker.git-ignore"
-i = ":toggle-option lsp.inlay-hints.enable"
-w = ":toggle-option soft-wrap.enable"
+label = "Toggles"
+f = { label = "Format on save", command = ":toggle-option format.on-save" }
+h = { label = "Hidden files", command = ":toggle-option file-picker.hidden" }
+g = { label = "Respect gitignore", command = ":toggle-option file-picker.git-ignore" }
+i = { label = "Inlay hints", command = ":toggle-option lsp.inlay-hints.enable" }
+w = { label = "Soft wrap", command = ":toggle-option soft-wrap.enable" }
 
 [keys.normal."'"]
-f = ":format"
-w = ":buffer-close"
-W = ":buffer-close-others"
-r = ":reload-all"
-g = ":restore-change"
+label = "Editing"
+f = { label = "Format", command = ":format" }
+w = { label = "Close buffer", command = ":buffer-close" }
+W = { label = "Close other buffers", command = ":buffer-close-others" }
+r = { label = "Reload all buffers", command = ":reload-all" }
+g = { label = "Restore change", command = ":restore-change" }
 ")" = "rotate_selection_contents_forward"
 "(" = "rotate_selection_contents_backward"
-s = ["split_selection_on_newline", ":sort"]
+s = { label = "Sort selected lines", command = [
+  "split_selection_on_newline",
+  ":sort",
+] }
 y = "yank_joined"
 Y = "yank_joined_to_clipboard"
 
 [keys.normal.backspace]
-g = ":sh open_popup lazygit"
-d = ":sh open_popup gh-dash"
-s = ":sh open_popup serpl"
-p = ":sh open_popup gh-pr-switch"
-m = ''':sh open_popup leaf "%{buffer_name}"'''
-f = ":sh open_popup yazi open %{buffer_name}"
-F = ":sh open_popup broot open"
+label = "Popups"
+g = { label = "Lazygit", command = ":sh open_popup lazygit" }
+f = { label = "Yazi", command = ":sh open_popup yazi open %{buffer_name}" }
+F = { label = "Broot", command = ":sh open_popup broot open" }
+d = { label = "GH Dash", command = ":sh open_popup gh-dash" }
+m = { label = "Leaf", command = ''':sh open_popup leaf "%{buffer_name}"''' }
+p = { label = "Switch PR", command = ":sh open_popup gh-pr-switch" }
+s = { label = "Search and replace", command = ":sh open_popup serpl" }
