@@ -38,6 +38,10 @@ enable = true
 [editor.bufferline]
 show = "always"
 
+[editor.breadcrumb]
+enable = true
+path = "none"
+
 [editor.statusline]
 left = [
   "mode",
