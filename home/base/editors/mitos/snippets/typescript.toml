@@ -1,0 +1,79 @@
+[[snippet]]
+name = "TypeScript log"
+prefix = "log"
+scope = "typescript"
+body = 'console.log("$1")'
+
+[[snippet]]
+name = "TypeScript Effect"
+prefix = "EE"
+scope = "typescript"
+body = 'Effect.Effect<$1>'
+
+[[snippet]]
+name = "TypeScript Option"
+prefix = "OO"
+scope = "typescript"
+body = 'Option.Option<$1>'
+
+[[snippet]]
+name = "TypeScript Layer"
+prefix = "LL"
+scope = "typescript"
+body = 'Layer.Layer<$1>'
+
+[[snippet]]
+name = "TypeScript TODO"
+prefix = "TODO"
+scope = "typescript"
+body = '''
+return yield* Effect.dieMessage('TODO')
+'''
+
+[[snippet]]
+name = "TypeScript tagged error"
+prefix = "Err"
+scope = "typescript"
+body = '''export class $1 extends Data.TaggedError('$1') {}'''
+
+[[snippet]]
+name = "TypeScript Effect generator"
+prefix = "gen"
+scope = "typescript"
+body = '''
+Effect.gen(function* () {
+  $1
+})'''
+
+[[snippet]]
+name = "TypeScript context tag"
+prefix = "tag"
+scope = "typescript"
+body = '''
+export interface $1 {
+  readonly $2
+}
+
+export const $1 = Context.Tag('$1')<$1, $1>();
+'''
+
+[[snippet]]
+name = "TypeScript live layer"
+prefix = "live"
+scope = "typescript"
+body = '''
+export namespace Live$1 {
+  const layer = Layer.effect(
+    $1,
+    Effect.gen(function* () {
+      return create()
+    })
+  )
+
+  function create(): $1 {
+    return $1.of({
+
+    })
+  }
+}
+'''

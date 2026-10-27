@@ -1,0 +1,43 @@
+[[snippet]]
+name = "Scala log"
+prefix = "log"
+scope = "scala"
+body = 'println("$1")'
+
+[[snippet]]
+name = "Scala final case class"
+prefix = "fcc"
+scope = "scala"
+body = 'final case class $1()'
+
+[[snippet]]
+name = "Scala case class"
+prefix = "cc"
+scope = "scala"
+body = 'case class $1()'
+
+[[snippet]]
+name = "Scala sealed trait"
+prefix = "st"
+scope = "scala"
+body = 'sealed trait $1 extends scala.Product with Serializable'
+
+[[snippet]]
+name = "Scala ADT"
+prefix = "adt"
+scope = "scala"
+body = '''
+sealed trait $1 extends scala.Product with Serializable
+
+object $1 {
+  final case class $2() extends $1
+}'''
+
+[[snippet]]
+name = "Scala for comprehension"
+prefix = "fr"
+scope = "scala"
+body = '''
+for {
+  value <- $1
+} yield value'''

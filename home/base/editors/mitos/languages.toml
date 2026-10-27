@@ -1,0 +1,216 @@
+[language-server.taplo]
+command = "taplo"
+args = ["lsp", "stdio"]
+environment = { RUST_LOG = "error" }
+
+[language-server.typos]
+command = "typos-lsp"
+config.diagnosticSeverity = "Hint"
+
+[language-server.metals]
+command = "metals"
+environment = { "SBT_TPOLECAT_DEV" = "1" }
+
+[language-server.metals.config]
+isHttpEnabled = true
+icons = "unicode"
+
+[language-server.metals.config.metals]
+autoImportBuild = "all"
+defaultBspToBuildTool = false
+showImplicitArguments = true
+showImplicitConversionsAndClasses = true
+showInferredType = true
+superMethodLensesEnabled = true
+startMcpServer = true
+
+[language-server.metals.config.metals.inlayHints]
+inferredTypes.enable = true
+typeParameters.enable = false
+hintsInPatternMatch.enable = true
+implicitArguments.enable = true
+implicitConversions.enable = false
+hintsXRayMode.enable = true
+
+[language-server.mpls]
+command = "mpls"
+args = ["--dark-mode", "--enable-emoji", "--no-auto"]
+
+[language-server.kotlin-lsp]
+command = "kotlin-lsp"
+args = ["--stdio"]
+timeout = 120
+
+[language-server.terraform-ls]
+command = "terraform-ls"
+args = ["serve", "-log-file", "/dev/null"]
+
+[language-server.nixd]
+command = "nixd"
+args = ["--log=error"]
+
+[[language]]
+name = "css"
+formatter = { command = "prettier", args = [
+  "--stdin-filepath",
+  "%{buffer_name}",
+] }
+auto-format = true
+language-servers = ["vscode-css-language-server", "typos"]
+
+[[language]]
+name = "docker-compose"
+language-servers = ["docker-language-server", "yaml-language-server", "typos"]
+
+[[language]]
+name = "env"
+language-servers = ["typos"]
+
+[[language]]
+name = "fish"
+auto-format = false
+language-servers = ["fish-lsp", "typos"]
+
+[[language]]
+name = "github-action"
+auto-format = true
+formatter = { command = "prettier", args = [
+  "--stdin-filepath",
+  "%{buffer_name}",
+] }
+language-servers = ["actions-language-server", "yaml-language-server", "zizmor", "typos"]
+
+[[language]]
+name = "hcl"
+auto-format = true
+formatter = { command = "terraform", args = ["fmt", "-"] }
+language-servers = ["terraform-ls", "typos"]
+
+[[language]]
+name = "html"
+formatter = { command = "prettier", args = [
+  "--stdin-filepath",
+  "%{buffer_name}",
+] }
+auto-format = true
+language-servers = ["vscode-html-language-server", "typos"]
+
+[[language]]
+name = "java"
+auto-format = true
+
+[[language]]
+name = "javascript"
+roots = ["package.json"]
+formatter = { command = "prettier", args = [
+  "--stdin-filepath",
+  "%{buffer_name}",
+] }
+auto-format = true
+language-servers = ["typescript-language-server", "vscode-eslint-language-server", "typos"]
+
+[[language]]
+name = "json"
+auto-format = true
+language-servers = ["vscode-json-language-server", "typos"]
+
+[[language]]
+name = "lua"
+auto-format = true
+
+[[language]]
+name = "kotlin"
+auto-format = true
+language-servers = ["kotlin-lsp", "typos"]
+
+[[language]]
+name = "markdown"
+language-servers = ["marksman", "mpls", "typos"]
+auto-format = true
+formatter = { command = "prettier", args = [
+  "--stdin-filepath",
+  "%{buffer_name}",
+] }
+
+[[language]]
+name = "nix"
+formatter = { command = "nixfmt", args = ["--width", "120"] }
+auto-format = true
+language-servers = ["nixd", "typos"]
+
+[[language]]
+name = "prisma"
+auto-format = true
+language-servers = ["prisma-language-server", "typos"]
+
+[[language]]
+name = "protobuf"
+language-servers = ["protols", "typos"]
+
+[[language]]
+name = "python"
+auto-format = true
+language-servers = [
+  { name = "pylsp", except-features = ["format"] },
+  "ruff",
+  "typos",
+]
+
+[[language]]
+name = "scala"
+auto-format = true
+language-servers = ["metals", "typos"]
+
+[[language]]
+name = "scss"
+formatter = { command = "prettier", args = [
+  "--stdin-filepath",
+  "%{buffer_name}",
+] }
+auto-format = true
+language-servers = ["vscode-css-language-server", "typos"]
+
+[[language]]
+name = "sql"
+formatter = { command = "pg_format", args = ["--wrap-limit", "140"] }
+auto-format = false
+language-servers = ["typos"]
+
+[[language]]
+name = "toml"
+auto-format = true
+language-servers = ["taplo", "typos"]
+
+[[language]]
+name = "typescript"
+roots = ["package.json"]
+formatter = { command = "prettier", args = [
+  "--stdin-filepath",
+  "%{buffer_name}",
+] }
+auto-format = true
+language-servers = ["typescript-language-server", "vscode-eslint-language-server", "typos"]
+
+[[language]]
+name = "tsx"
+auto-format = true
+language-servers = ["typescript-language-server", "vscode-eslint-language-server", "typos"]
+
+[[language]]
+name = "xml"
+auto-format = true
+language-servers = ["vscode-html-language-server", "typos"]
+
+[[language]]
+name = "jsx"
+auto-format = true
+language-servers = ["typescript-language-server", "vscode-eslint-language-server", "typos"]
+
+[[language]]
+name = "yaml"
+formatter = { command = "prettier", args = [
+  "--stdin-filepath",
+  "%{buffer_name}",
+] }
+auto-format = true
+language-servers = ["yaml-language-server", "typos"]

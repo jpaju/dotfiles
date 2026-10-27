@@ -1,10 +1,9 @@
 theme = "catppuccin_macchiato"
 
 # Experiment
-# TODO Try native snippets: https://mitos.computer/docs/snippets
+# TODO Try native spell checking: https://mitos.computer/docs/spell-checking
 # TODO Try out quicklist: https://mitos.computer/docs/quicklist
 # TODO How does search and replace work: https://mitos.computer/docs/search
-# TODO Try native spell checking: https://mitos.computer/docs/spell-checking
 
 [editor]
 line-number = "relative"
@@ -24,6 +23,7 @@ normal = "block"
 select = "underline"
 
 [editor.completion]
+snippets = true
 trigger-delay = 5
 trigger-length = 0
 preview-insert = false
