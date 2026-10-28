@@ -3,7 +3,6 @@
   lib,
   pkgs,
   inputs,
-  system,
   ...
 }:
 {
@@ -52,7 +51,7 @@
         export GOOGLE_API_KEY="$GEMINI_API_KEY"
         ${config.dotfiles.ai.mcp.secretEnvExports}
 
-        exec ${inputs.llm-agents.packages.${system}.omp}/bin/omp "$@"
+        exec ${pkgs.omp}/bin/omp "$@"
       '';
     };
 
