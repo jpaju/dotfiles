@@ -15,6 +15,7 @@ function nix_rebuild_switch
     else
         sudo nixos-rebuild switch
     end
+    or return $status
 
     set -l generation_after (get_current_generation)
 
