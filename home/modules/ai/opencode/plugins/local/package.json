@@ -1,5 +1,7 @@
 {
-  "dependencies": {
-    "@opencode-ai/plugin": "latest"
+  "devDependencies": {
+    "@opencode/plugin": "2.1.4",
+    "@opencode/schema": "2.1.4",
+    "effect": "4.0.1"
   }
 }

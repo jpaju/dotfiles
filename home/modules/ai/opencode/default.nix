@@ -11,6 +11,7 @@
     ../../secrets/interface.nix
     ./mcps
     ./permissions.nix
+    ./plugins
     ./skills.nix
   ];
 

@@ -1,4 +1,6 @@
-import type { Plugin } from "@opencode-ai/plugin";
+import { Plugin } from "@opencode/plugin/effect";
+import * as Tool from "@opencode/plugin/promise/tool";
+import { Effect, Schema } from "effect";
 
 // ================================= Command parsing =================================
 
@@ -83,23 +85,35 @@ const REDIRECTS: Redirect[] = [
   {
     label: "git -C <path> <cmd>",
     matches: startsWith("git -C"),
-    alternative: "Bash tool with workdir parameter (`git <cmd>`)",
+    alternative: "Shell tool with workdir parameter (`git <cmd>`)",
   },
   {
     label: "cd",
     matches: programIs("cd"),
-    alternative: "workdir/path parameters on Bash, Glob, or Grep tools",
+    alternative: "workdir/path parameters on Shell, Glob, or Grep tools",
   },
 ];
 
-export const ToolRedirect: Plugin = async () => ({
-  "tool.execute.before": async (input, output) => {
-    if (input.tool !== "bash") return;
-    if (hasBypass(output.args.command)) return;
+const ShellInput = Schema.Struct({ command: Schema.String });
 
-    const redirects = findRedirects(output.args.command);
+export default Plugin.define({
+  id: "tool-redirect",
+  effect: (ctx) =>
+    Effect.gen(function* () {
+      yield* ctx.tool.hook("execute.before", (event) =>
+        Effect.gen(function* () {
+          if (event.tool !== "shell") return;
 
-    if (redirects.length === 0) return;
-    else throw new Error(buildErrorMessage(redirects));
-  },
+          const { command } = yield* Schema.decodeUnknownEffect(ShellInput)(event.input).pipe(
+            Effect.mapError(() => new Tool.Error({ message: "Shell tool input must contain a string command" })),
+          );
+          if (hasBypass(command)) return;
+
+          const redirects = findRedirects(command);
+
+          if (redirects.length === 0) return;
+          yield* Effect.fail(new Tool.Error({ message: buildErrorMessage(redirects) }));
+        }),
+      );
+    }),
 });
