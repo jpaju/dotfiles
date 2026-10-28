@@ -31,5 +31,40 @@
         exec ${inputs.llm-agents.packages.${system}.omp}/bin/omp "$@"
       '';
     };
+
+    home.file.".omp/agent/mcp.json".source =
+      let
+        envReference = name: "\${${name}}";
+
+        headerValue = value: if builtins.isString value then value else envReference value.env;
+
+        headers =
+          server:
+          lib.mapAttrs (_: headerValue) server.headers
+          // lib.optionalAttrs (server.bearerTokenEnv != null) {
+            Authorization = "Bearer ${envReference server.bearerTokenEnv}";
+          };
+
+        oauth =
+          oauthClient:
+          {
+            inherit (oauthClient) clientId callbackPort;
+          }
+          // lib.optionalAttrs (oauthClient.scopes != [ ]) {
+            scope = lib.concatStringsSep " " oauthClient.scopes;
+          };
+
+        toOmpMcpServer =
+          _: server:
+          {
+            type = "http";
+            inherit (server) url enabled;
+          }
+          // lib.optionalAttrs (headers server != { }) { headers = headers server; }
+          // lib.optionalAttrs (server.oauth != null) { oauth = oauth server.oauth; };
+      in
+      (pkgs.formats.json { }).generate "omp-mcp.json" {
+        mcpServers = lib.mapAttrs toOmpMcpServer config.dotfiles.ai.mcp.servers;
+      };
   };
 }
