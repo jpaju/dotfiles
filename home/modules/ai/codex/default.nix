@@ -2,8 +2,6 @@
   config,
   lib,
   pkgs,
-  inputs,
-  system,
   ...
 }:
 {
@@ -19,11 +17,11 @@
           wrappedCodex = pkgs.writeShellScriptBin "codex" ''
             export OPENAI_API_KEY="$(cat ${config.secrets.openai_api_key})"
             ${config.dotfiles.ai.mcp.secretEnvExports}
-            exec ${inputs.llm-agents.packages.${system}.codex}/bin/codex "$@"
+            exec ${pkgs.codex}/bin/codex "$@"
           '';
         in
         # Home Manager uses the package version to select the config format.
-        wrappedCodex.overrideAttrs { inherit (inputs.llm-agents.packages.${system}.codex) version; };
+        wrappedCodex.overrideAttrs { inherit (pkgs.codex) version; };
 
       settings = {
         model_provider = "openai-api-key";

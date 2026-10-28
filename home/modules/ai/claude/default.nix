@@ -2,8 +2,6 @@
   config,
   lib,
   pkgs,
-  inputs,
-  system,
   ...
 }:
 {
@@ -14,7 +12,7 @@
 
       package =
         let
-          claudeCode = inputs.llm-agents.packages.${system}.claude-code;
+          claudeCode = pkgs.claude-code;
           wrappedClaudeCode = pkgs.writeShellScriptBin "claude" ''
             ${config.dotfiles.ai.mcp.secretEnvExports}
             exec ${claudeCode}/bin/claude "$@"
