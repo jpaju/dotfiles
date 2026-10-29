@@ -22,7 +22,7 @@
 
         modelRoles.default = "openai/gpt-6.1-sol:high";
 
-        tools.approvalMode = "write";
+        tools.approvalMode = "yolo";
 
         enabledProviders = [ "opencode" ];
         disabledProviders = [
@@ -45,6 +45,8 @@
       };
 
       package = pkgs.writeShellScriptBin "omp" ''
+        export HERDR_AGENT=omp # Herdr doesn't recognize Nix-installed omp without this
+
         export ANTHROPIC_API_KEY="$(cat ${config.secrets.anthropic_api_key})"
         export OPENAI_API_KEY="$(cat ${config.secrets.openai_api_key})"
         export GEMINI_API_KEY="$(cat ${config.secrets.google_generative_ai_api_key})"
@@ -55,6 +57,7 @@
       '';
     };
 
+    home.file.".omp/agent/mcp.json".force = true;
     home.file.".omp/agent/mcp.json".source =
       let
         envReference = name: "\${${name}}";
@@ -81,7 +84,8 @@
           _: server:
           {
             type = "http";
-            inherit (server) url enabled;
+            inherit (server) url;
+            enabled = true; # Add every MCP as enabled in OMP, because they cannot be toggled per session
           }
           // lib.optionalAttrs (headers server != { }) { headers = headers server; }
           // lib.optionalAttrs (server.oauth != null) { oauth = oauth server.oauth; };
