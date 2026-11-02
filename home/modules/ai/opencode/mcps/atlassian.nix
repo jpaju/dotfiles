@@ -8,13 +8,13 @@
     programs.opencode.settings = {
       mcp.atlassian-doordash = {
         type = "remote";
-        url = "https://mcp.atlassian.com/v1/mcp";
+        url = "https://mcp.atlassian.com/v2/mcp";
         enabled = false;
       };
 
       mcp.atlassian-wolt = {
         type = "remote";
-        url = "https://mcp.atlassian.com/v1/mcp";
+        url = "https://mcp.atlassian.com/v2/mcp";
         enabled = false;
       };
 
