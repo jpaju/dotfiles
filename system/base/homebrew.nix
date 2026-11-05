@@ -7,6 +7,7 @@
       global.autoUpdate = false;
       onActivation.autoUpdate = false;
       onActivation.upgrade = false;
+      onActivation.cleanup = "zap";
       onActivation.extraFlags = [ "--force" ];
       onActivation.extraEnv.HOMEBREW_NO_ANALYTICS = "1";
 
