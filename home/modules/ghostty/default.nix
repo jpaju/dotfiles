@@ -34,6 +34,8 @@
 
           "cmd+opt+left=previous_tab"
           "cmd+opt+right=next_tab"
+
+          "cmd+enter=unbind"
         ];
       };
     };
