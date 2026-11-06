@@ -3,6 +3,6 @@ function yazi_picker --argument-names action target
     set -l paths (yazi "$target" --chooser-file=/dev/stdout)
 
     if test (count $paths) -gt 0
-        open_paths_in_helix $action $paths
+        open_paths_in_editor $action $paths
     end
 end

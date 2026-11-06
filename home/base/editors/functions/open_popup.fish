@@ -13,10 +13,10 @@ function herdr_popup
     set -l tool $argv[1]
     set -l args $argv[2..]
     set -l popup_env \
-        --env "HELIX_ORIGIN_PANE_ID=$HERDR_PANE_ID" \
-        --env "HELIX_PICKER_ACTION=$args[1]" \
-        --env "HELIX_PREVIEW_FILE=$args[1]" \
-        --env "HELIX_PICKER_TARGET=$args[2]" 
+        --env "EDITOR_ORIGIN_PANE_ID=$HERDR_PANE_ID" \
+        --env "EDITOR_PICKER_ACTION=$args[1]" \
+        --env "EDITOR_PREVIEW_FILE=$args[1]" \
+        --env "EDITOR_PICKER_TARGET=$args[2]"
 
     herdr plugin pane open \
         --plugin local.popup-tools \

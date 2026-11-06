@@ -9,7 +9,7 @@
   xdg.configFile = {
     "mitos/config.toml".source = ./config.toml;
     "mitos/languages.toml".source = ./languages.toml;
-    "mitos/ignore".source = ../helix/ignore;
+    "mitos/ignore".source = ../ignore;
     "mitos/snippets" = {
       source = ./snippets;
       recursive = true;

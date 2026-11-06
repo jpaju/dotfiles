@@ -1,5 +1,5 @@
 function broot_picker --argument-names action
-    set -l picker_conf "$HOME/.config/helix/broot-picker.hjson"
+    set -l picker_conf "$HOME/.config/broot/editor-picker.hjson"
     set -l base_conf "$HOME/.config/broot/conf.hjson"
     set -l output_file (mktemp -t broot-output)
 
@@ -11,6 +11,6 @@ function broot_picker --argument-names action
     rm -f $output_file
 
     if test (count $paths) -gt 0
-        open_paths_in_helix $action $paths
+        open_paths_in_editor $action $paths
     end
 end

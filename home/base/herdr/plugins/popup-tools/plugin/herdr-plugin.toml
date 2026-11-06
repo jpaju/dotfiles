@@ -42,7 +42,7 @@ title = "Yazi"
 placement = "popup"
 width = "96%"
 height = "96%"
-command = ["fish", "-c", "yazi_picker \"$HELIX_PICKER_ACTION\" \"$HELIX_PICKER_TARGET\""]
+command = ["fish", "-c", "yazi_picker \"$EDITOR_PICKER_ACTION\" \"$EDITOR_PICKER_TARGET\""]
 
 [[panes]]
 id = "broot"
@@ -50,7 +50,7 @@ title = "Broot"
 placement = "popup"
 width = "96%"
 height = "96%"
-command = ["fish", "-c", "broot_picker \"$HELIX_PICKER_ACTION\""]
+command = ["fish", "-c", "broot_picker \"$EDITOR_PICKER_ACTION\""]
 
 [[panes]]
 id = "leaf"
@@ -58,4 +58,4 @@ title = "Markdown Preview"
 placement = "popup"
 width = "96%"
 height = "96%"
-command = ["fish", "-c", "leaf --watch \"$HELIX_PREVIEW_FILE\""]
+command = ["fish", "-c", "leaf --watch \"$EDITOR_PREVIEW_FILE\""]

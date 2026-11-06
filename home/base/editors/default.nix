@@ -5,7 +5,13 @@
     ./mitos
   ];
 
-  # TODO Share helper scripts ownership instead of installing them through Helix
+  xdg.configFile = {
+    "fish/functions/open_popup.fish".source = ./functions/open_popup.fish;
+    "fish/functions/yazi_picker.fish".source = ./functions/yazi_picker.fish;
+    "fish/functions/broot_picker.fish".source = ./functions/broot_picker.fish;
+    "fish/functions/open_paths_in_editor.fish".source = ./functions/open_paths_in_editor.fish;
+    "broot/editor-picker.hjson".source = ./functions/broot-picker.hjson;
+  };
 
   home.sessionVariables = {
     EDITOR = "hx";
