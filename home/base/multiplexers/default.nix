@@ -2,6 +2,7 @@
 {
   imports = [
     ./herdr
+    ./rex
     ./zellij
   ];
 }

@@ -20,6 +20,7 @@
                                       "^com.apple.Terminal$",
                                       "^com.github.wez.wezterm$",
                                       "^com.mitchellh.ghostty$",
+                                      "^com.superlogical.rex$",
                                       "^company.thebrowser.Browser$"
                                     ]
                                   }
@@ -39,6 +40,7 @@
                                       "^com.apple.Terminal$",
                                       "^com.github.wez.wezterm$",
                                       "^com.mitchellh.ghostty$",
+                                      "^com.superlogical.rex$",
                                       "^company.thebrowser.Browser$"
                                     ]
                                   }
@@ -58,6 +60,7 @@
                                       "^com.apple.Terminal$",
                                       "^com.github.wez.wezterm$",
                                       "^com.mitchellh.ghostty$",
+                                      "^com.superlogical.rex$",
                                       "^company.thebrowser.Browser$"
                                     ]
                                   }
@@ -77,6 +80,7 @@
                                       "^com.apple.Terminal$",
                                       "^com.github.wez.wezterm$",
                                       "^com.mitchellh.ghostty$",
+                                      "^com.superlogical.rex$",
                                       "^company.thebrowser.Browser$"
                                     ]
                                   }
