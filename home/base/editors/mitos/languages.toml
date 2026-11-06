@@ -9,7 +9,7 @@ config.diagnosticSeverity = "Hint"
 
 [language-server.metals]
 command = "metals"
-environment = { "SBT_TPOLECAT_DEV" = "1" }
+environment = { "SBT_TPOLECAT_DEV" = "1", "JAVA_TOOL_OPTIONS" = "-Dmetals.client=helix" }
 
 [language-server.metals.config]
 isHttpEnabled = true
@@ -17,7 +17,7 @@ icons = "unicode"
 
 [language-server.metals.config.metals]
 autoImportBuild = "all"
-defaultBspToBuildTool = false
+defaultBspToBuildTool = true
 showImplicitArguments = true
 showImplicitConversionsAndClasses = true
 showInferredType = true
@@ -78,7 +78,12 @@ formatter = { command = "prettier", args = [
   "--stdin-filepath",
   "%{buffer_name}",
 ] }
-language-servers = ["actions-language-server", "yaml-language-server", "zizmor", "typos"]
+language-servers = [
+  "actions-language-server",
+  "yaml-language-server",
+  "zizmor",
+  "typos",
+]
 
 [[language]]
 name = "hcl"
@@ -107,7 +112,11 @@ formatter = { command = "prettier", args = [
   "%{buffer_name}",
 ] }
 auto-format = true
-language-servers = ["typescript-language-server", "vscode-eslint-language-server", "typos"]
+language-servers = [
+  "typescript-language-server",
+  "vscode-eslint-language-server",
+  "typos",
+]
 
 [[language]]
 name = "json"
@@ -151,7 +160,9 @@ language-servers = ["protols", "typos"]
 name = "python"
 auto-format = true
 language-servers = [
-  { name = "pylsp", except-features = ["format"] },
+  { name = "pylsp", except-features = [
+    "format",
+  ] },
   "ruff",
   "typos",
 ]
@@ -189,12 +200,20 @@ formatter = { command = "prettier", args = [
   "%{buffer_name}",
 ] }
 auto-format = true
-language-servers = ["typescript-language-server", "vscode-eslint-language-server", "typos"]
+language-servers = [
+  "typescript-language-server",
+  "vscode-eslint-language-server",
+  "typos",
+]
 
 [[language]]
 name = "tsx"
 auto-format = true
-language-servers = ["typescript-language-server", "vscode-eslint-language-server", "typos"]
+language-servers = [
+  "typescript-language-server",
+  "vscode-eslint-language-server",
+  "typos",
+]
 
 [[language]]
 name = "xml"
@@ -204,7 +223,11 @@ language-servers = ["vscode-html-language-server", "typos"]
 [[language]]
 name = "jsx"
 auto-format = true
-language-servers = ["typescript-language-server", "vscode-eslint-language-server", "typos"]
+language-servers = [
+  "typescript-language-server",
+  "vscode-eslint-language-server",
+  "typos",
+]
 
 [[language]]
 name = "yaml"
