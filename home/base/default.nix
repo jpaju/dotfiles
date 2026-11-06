@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
   imports = [
+    ./editors
+    ./multiplexers
+
     ./atuin.nix
     ./bat.nix
     ./broot.nix
@@ -8,12 +11,10 @@
     ./catppuccin.nix
     ./direnv
     ./duckdb
-    ./editors
     ./eza.nix
     ./fish
     ./fzf.nix
     ./git
-    ./herdr
     ./json
     ./markdown
     ./moor.nix
@@ -21,7 +22,6 @@
     ./ssh
     ./starship
     ./yazi
-    ./zellij
   ];
 
   programs.ripgrep.enable = true;
