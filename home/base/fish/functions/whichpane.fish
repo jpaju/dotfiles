@@ -42,6 +42,9 @@ function _whichpane_one --argument-names pid
         else if string match --quiet --regex '(^|/)herdr server($| )' -- "$cmd"
             set multiplexer herdr
             break
+        else if string match --quiet --regex '/rex server run($| )' -- "$cmd"
+            set multiplexer rex
+            break
         end
         set walk (ps -o ppid= -p $walk 2>/dev/null | string trim)
     end
@@ -56,6 +59,11 @@ function _whichpane_one --argument-names pid
     set --local herdr_context
     if test "$multiplexer" = herdr
         set herdr_context (_whichpane_herdr_context $pids)
+    end
+
+    set --local rex_context
+    if test "$multiplexer" = rex
+        set rex_context (_whichpane_rex_context $pid $cmds[-1])
     end
 
     # print root-first, indented
@@ -94,6 +102,15 @@ function _whichpane_one --argument-names pid
                     "workspace: $fields[2]" \
                     "tab:       $fields[3]" \
                     "pane:      $fields[4]"
+            end
+        else if string match --quiet --regex '/rex server run($| )' -- "$cmd"
+            set label 'rex server'
+            if test -n "$rex_context"
+                set --local fields (string split \t -- "$rex_context")
+                set label "rex session: $fields[1]"
+                set metadata \
+                    "tab:       $fields[2]" \
+                    "pane:      $fields[3]"
             end
         else if test "$p" = "$pid"
             set note "  [cwd=$cwd]"
@@ -140,4 +157,38 @@ function _whichpane_herdr_context
     end
 
     return 1
+end
+
+# Rex sets the session and pane IDs in the environment of every process in a pane.
+# The rex CLI is not always on PATH, so it is taken from the server's command line.
+function _whichpane_rex_context --argument-names pid server_cmd
+    type --query jq; or return 1
+
+    set --local rex_bin (string match --regex '^(.*/rex) server run' -- "$server_cmd")[2]
+    set --local env_line (ps -E -p $pid 2>/dev/null)
+    set --local session (string match --regex 'REX_SESSION=(\S+)' -- "$env_line")[2]
+    set --local block (string match --regex 'REX_BLOCK=(\S+)' -- "$env_line")[2]
+    test -n "$rex_bin" -a -n "$session" -a -n "$block"; or return 1
+
+    set --local details ($rex_bin window ls --session $session --json 2>/dev/null | jq -r --arg block $block '
+        .label as $session
+        | .windows[]
+        | . as $window
+        | .layers[].blocks[]?
+        | select(.block_id == $block)
+        | [$session, $window.label, .label]
+        | @tsv
+    ' 2>/dev/null)
+    test -n "$details"; or return 1
+
+    set --local fields (string split \t -- "$details")
+    set --local pane_label $fields[3]
+
+    # "shell" is the label Rex gives every pane by default, so prefer the terminal title over it
+    if test -z "$pane_label" -o "$pane_label" = shell
+        set pane_label ($rex_bin block call --session $session --block $block title 2>/dev/null | jq -r '.title // empty' 2>/dev/null)
+    end
+    test -n "$pane_label"; or set pane_label unnamed
+
+    printf '%s\t%s\t%s\n' $fields[1] $fields[2] "$pane_label"
 end
