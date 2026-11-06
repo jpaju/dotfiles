@@ -3,6 +3,7 @@
 # This depends on Helix's command mode, so it works with Helix and Mitos (a Helix fork).
 #
 # Supported multiplexers:
+# - rex: sends keys to the pane in $EDITOR_ORIGIN_PANE_ID, which open_popup sets
 # - herdr: sends keys to the pane in $EDITOR_ORIGIN_PANE_ID, which open_popup sets
 # - zellij: closes the floating popup, then types into the pane that has focus
 function open_paths_in_editor
@@ -25,7 +26,13 @@ function open_paths_in_editor
 
     set -l command ":$action -- "(string join ' ' -- $quoted_paths)
 
-    if set -q EDITOR_ORIGIN_PANE_ID
+    if set -q REX_SESSION
+        set -l rex_bin "$REX_BIN_DIR/rex"
+
+        $rex_bin send-key --block $EDITOR_ORIGIN_PANE_ID escape
+        and $rex_bin send --block $EDITOR_ORIGIN_PANE_ID "$command"
+        and $rex_bin send-key --block $EDITOR_ORIGIN_PANE_ID enter
+    else if set -q EDITOR_ORIGIN_PANE_ID
         set -l herdr_bin herdr
         if set -q HERDR_BIN_PATH
             set herdr_bin $HERDR_BIN_PATH
