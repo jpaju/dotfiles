@@ -116,8 +116,8 @@ F = "file_picker"
 [keys.normal.space.space]
 label = "Git"
 r = { label = "Restore change", command = ":restore-change" }
-w = { label = "Open selection on GitHub", command = ":sh gh_browse %{buffer_name} %{selection_line_start} %{selection_line_end}" }
-W = { label = "Open file on GitHub", command = ":sh gh_browse %{buffer_name}" }
+w = { label = "Open selection on GitHub", command = ":sh gh_browse %{file_path_absolute} %{selection_line_start} %{selection_line_end}" }
+W = { label = "Open file on GitHub", command = ":sh gh_browse %{file_path_absolute}" }
 
 [keys.normal."+"]
 label = "LSP"
