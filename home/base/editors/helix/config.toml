@@ -142,8 +142,8 @@ F = "file_picker"
 # <space><space> for git commands
 [keys.normal.space.space]
 r = ":reset-diff-change"
-w = ":sh gh_browse %{buffer_name} %{selection_line_start} %{selection_line_end}"
-W = ":sh gh_browse %{buffer_name}"
+w = ":sh gh_browse %{file_path_absolute} %{selection_line_start} %{selection_line_end}"
+W = ":sh gh_browse %{file_path_absolute}"
 b = "blame_line"
 
 # + for LSP commands
