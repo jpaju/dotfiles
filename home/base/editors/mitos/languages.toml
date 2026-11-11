@@ -78,12 +78,7 @@ formatter = { command = "prettier", args = [
   "--stdin-filepath",
   "%{buffer_name}",
 ] }
-language-servers = [
-  "actions-language-server",
-  "yaml-language-server",
-  "zizmor",
-  "typos",
-]
+language-servers = ["actions-language-server", "yaml-language-server", "typos"]
 
 [[language]]
 name = "hcl"

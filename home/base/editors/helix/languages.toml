@@ -106,7 +106,6 @@ formatter = { command = "prettier", args = [
 language-servers = [
   "actions-language-server",
   "yaml-language-server",
-  "zizmor",
   "scls",
   "typos",
 ]
