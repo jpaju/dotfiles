@@ -33,6 +33,5 @@
     yaml-language-server # YAML
     prettier # JS, TS, HTML, CSS, YAML, Markdown
     lua-language-server # Lua
-    zizmor # GitHub actions static analysis
   ];
 }
