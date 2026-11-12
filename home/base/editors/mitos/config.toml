@@ -110,12 +110,12 @@ C-k = [
 ]
 
 [keys.normal.space]
-f = "file_picker_in_current_directory"
+f = "file_picker_in_current_working_directory"
 F = "file_picker"
 
 [keys.normal.space.space]
 label = "Git"
-r = { label = "Restore change", command = ":restore-change" }
+r = { label = "Restore change", command = ":vcs-restore-change" }
 w = { label = "Open selection on GitHub", command = ":sh gh_browse %{file_path_absolute} %{selection_line_start} %{selection_line_end}" }
 W = { label = "Open file on GitHub", command = ":sh gh_browse %{file_path_absolute}" }
 
@@ -141,7 +141,7 @@ f = { label = "Format", command = ":format" }
 w = { label = "Close buffer", command = ":buffer-close" }
 W = { label = "Close other buffers", command = ":buffer-close-others" }
 r = { label = "Reload all buffers", command = ":reload-all" }
-g = { label = "Restore change", command = ":restore-change" }
+g = { label = "Restore change", command = ":vcs-restore-change" }
 ")" = "rotate_selection_contents_forward"
 "(" = "rotate_selection_contents_backward"
 s = { label = "Sort selected lines", command = [
