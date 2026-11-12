@@ -277,6 +277,52 @@
           "herdr worktree list *" = "allow";
         }
         // {
+          "rex __internal skill *" = "allow";
+          "rex --help" = "allow";
+          "rex * --help" = "allow";
+          "rex help *" = "allow";
+          "rex version *" = "allow";
+          "rex whoami *" = "allow";
+          "rex ls *" = "allow";
+          "rex list *" = "allow";
+          "rex capture *" = "allow";
+          "rex wait *" = "allow";
+          "rex events *" = "allow";
+          "rex actions *" = "allow";
+          "rex keymap *" = "allow";
+          "rex session ls *" = "allow";
+          "rex session list *" = "allow";
+          "rex session inspect *" = "allow";
+          "rex window ls *" = "allow";
+          "rex window list *" = "allow";
+          "rex window inspect *" = "allow";
+          "rex block ls *" = "allow";
+          "rex block list *" = "allow";
+          "rex block inspect *" = "allow";
+          "rex block types *" = "allow";
+          "rex block capture *" = "allow";
+          "rex block stream *" = "allow";
+          "rex block call * process" = "allow";
+          "rex block call * modes" = "allow";
+          "rex client ls *" = "allow";
+          "rex client list *" = "allow";
+          "rex client inspect *" = "allow";
+          "rex api ls *" = "allow";
+          "rex api list *" = "allow";
+          "rex api describe *" = "allow";
+          "rex server status *" = "allow";
+          "rex server logs *" = "allow";
+          "rex config check *" = "allow";
+          "rex home" = "allow";
+          "rex hosts" = "allow";
+          "rex hosts list *" = "allow";
+          "rex hosts check *" = "allow";
+          "rex terminfo status *" = "allow";
+          "rex terminfo show *" = "allow";
+          "rex skill status *" = "allow";
+          "rex skill show *" = "allow";
+        }
+        // {
           "git blame *" = "allow";
           "git branch" = "allow";
           "git branch --all" = "allow";
