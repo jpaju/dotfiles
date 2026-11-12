@@ -34,3 +34,16 @@ rex.bind("resize/j", "pane.resize", { direction = "down" })
 rex.bind("resize/k", "pane.resize", { direction = "up" })
 rex.bind("resize/l", "pane.resize", { direction = "right" })
 rex.bind("resize/=", "pane.balance")
+
+-- Option acts as Alt, so type the characters that macOS Finnish layout puts behind Option
+local write = "com.superlogical.terminal.write"
+rex.bind("alt+[Digit2]", write, { data = "@" })
+rex.bind("alt+[Digit3]", write, { data = "£" })
+rex.bind("alt+[Digit4]", write, { data = "$" })
+rex.bind("alt+[Digit7]", write, { data = "|" })
+rex.bind("alt+[Digit8]", write, { data = "[" })
+rex.bind("alt+[Digit9]", write, { data = "]" })
+rex.bind("shift+alt+[Digit7]", write, { data = "\\" })
+rex.bind("shift+alt+[Digit8]", write, { data = "{" })
+rex.bind("shift+alt+[Digit9]", write, { data = "}" })
+rex.bind("alt+[BracketRight]", write, { data = "~" })

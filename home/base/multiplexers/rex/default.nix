@@ -14,6 +14,8 @@
       "Workspace.paneDensity" = "compact";
       "Workspace.animationStyle" = "snappy";
       "Workspace.inactivePaneFadeMode" = "none";
+      "Workspace.showsPaneHeaders" = false;
+      "Workspace.terminalOptionKeyBehavior" = "actsAsAlt";
       "Workspace.terminalFontName" = "FiraCode Nerd Font Mono";
       "Workspace.terminalFontPointSize" = 13.0;
       "Workspace.terminalSmoothScrolling" = true;
