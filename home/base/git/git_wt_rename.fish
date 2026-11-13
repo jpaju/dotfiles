@@ -2,8 +2,8 @@ function git_wt_rename
     # Parse arguments
     set -l explicit_wt_name
     set -l explicit_wt_name_set false
-    set -l should_rename_zellij_tab false
-    set -l usage "Usage: git_wt_rename [--name NAME] [--zellij-rename]"
+    set -l should_rename_multiplexer_tab false
+    set -l usage "Usage: git_wt_rename [--name NAME] [--multiplexer-rename]"
 
     set -l i 1
     while test $i -le (count $argv)
@@ -23,8 +23,8 @@ function git_wt_rename
 
                 set explicit_wt_name_set true
                 set explicit_wt_name "$argv[$i]"
-            case --zellij-rename
-                set should_rename_zellij_tab true
+            case --multiplexer-rename
+                set should_rename_multiplexer_tab true
             case '*'
                 echo >&2 $usage
                 return 1
@@ -80,10 +80,10 @@ function git_wt_rename
         direnv allow
     end
 
-    # Rename zellij tab if requested
-    if test "$should_rename_zellij_tab" = true; and in_zellij
+    # Rename multiplexer tab if requested
+    if test "$should_rename_multiplexer_tab" = true
         set -l tab_name (string sub -l 30 $new_wt_name) # Truncated
-        zellij action rename-tab $tab_name
+        rename_multiplexer_tab $tab_name
     end
 end
 
@@ -106,6 +106,27 @@ function has_active_direnv
     test -n "$DIRENV_FILE"
 end
 
-function in_zellij
-    test -n "$ZELLIJ"
+# Multiplexer-dependent logic
+
+function rename_multiplexer_tab -a tab_name
+    switch (current_multiplexer)
+        case herdr
+            herdr tab rename $HERDR_TAB_ID $tab_name >/dev/null
+        case zellij
+            zellij action rename-tab $tab_name
+        case rex
+            set -l rex_bin "$REX_BIN_DIR/rex"
+            set -l window_id ($rex_bin block inspect --session $REX_SESSION $REX_BLOCK --json | jq -r .block.window_id)
+            and $rex_bin window rename --session $REX_SESSION $window_id $tab_name >/dev/null
+    end
+end
+
+function current_multiplexer
+    if set -q HERDR_ENV
+        echo herdr
+    else if set -q ZELLIJ
+        echo zellij
+    else if set -q REX_SESSION
+        echo rex
+    end
 end
