@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   imports = [
     ./editors
@@ -27,16 +27,21 @@
   programs.ripgrep.enable = true;
   programs.zoxide.enable = true;
 
-  home.packages = with pkgs; [
-    entr # Watch mode for any CLI command
-    gum # CLI/TUI component library
-    ncdu
-    procps # On macOS includes only 'watch' command
-    serpl # Global search and replace
-    sshs # SSH TUI
-    tlrc # Rust TLDR client
-    tokei # Count lines of code
-  ];
+  home.packages =
+    with pkgs;
+    [
+      entr # Watch mode for any CLI command
+      gum # CLI/TUI component library
+      ncdu
+      serpl # Global search and replace
+      sshs # SSH TUI
+      tlrc # Rust TLDR client
+      tokei # Count lines of code
+    ]
+    ++ lib.optionals stdenv.hostPlatform.isDarwin [
+      mole-cleaner # macOS system cleaner
+      procps # On macOS includes only 'watch' command
+    ];
 
   programs.fish.shellAbbrs.loc = "tokei";
 }
