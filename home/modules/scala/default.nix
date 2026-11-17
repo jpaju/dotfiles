@@ -7,7 +7,6 @@
 {
   config = lib.mkIf config.dotfiles.scala.enable {
     home.packages = with pkgs; [
-      sbt
       coursier
       metals
       scalafmt
