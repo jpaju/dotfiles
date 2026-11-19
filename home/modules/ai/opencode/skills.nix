@@ -7,6 +7,7 @@
   config = lib.mkIf config.dotfiles.ai.enable {
     programs.opencode.skills = {
       development-principles = ./skills/development-principles;
+      git = ./skills/git;
       handoff = ./skills/handoff;
       nix = ./skills/nix;
       sqlite = ./skills/sqlite;
