@@ -20,8 +20,9 @@
         setupVersion = 2;
         theme.dark = "dark-catppuccin";
         symbolPreset = "nerd";
+        hideThinkingBlock = true;
 
-        modelRoles.default = "openai/gpt-6.1-sol:high";
+        modelRoles.default = "openai/gpt-6.2-sol:high";
 
         tools.approvalMode = "yolo";
 
