@@ -594,7 +594,43 @@
           "vault policy read *" = "allow";
           "vault status *" = "allow";
           "vault token capabilities *" = "allow";
+        }
+        // lib.optionalAttrs config.dotfiles.ai.work-mcps.enable {
+          "jira issue list *" = "allow";
+          "jira issue view *" = "allow";
+          "jira epic list *" = "allow";
+          "jira me *" = "allow";
         };
+      }
+      // lib.optionalAttrs config.dotfiles.ai.work-mcps.enable {
+        "atlassian*" = "ask";
+        "atlassian*_get*" = "allow";
+        "atlassian*_search*" = "allow";
+        "atlassian*_lookup*" = "allow";
+        "atlassian*_fetch*" = "allow";
+        "atlassian*_atlassianUserInfo" = "allow";
+
+        "glean_*" = "ask";
+
+        "linear_*" = "ask";
+        "linear_get*" = "allow";
+        "linear_list*" = "allow";
+        "linear_search*" = "allow";
+
+        "rootly_*" = "ask";
+        "rootly_get*" = "allow";
+        "rootly_list*" = "allow";
+        "rootly_find*" = "allow";
+        "rootly_check*" = "allow";
+        "rootly_collect*" = "allow";
+        "rootly_search*" = "allow";
+        "rootly_suggest*" = "allow";
+
+        "slack_*" = "ask";
+        "slack_*get*" = "allow";
+        "slack_*list*" = "allow";
+        "slack_*read*" = "allow";
+        "slack_*search*" = "allow";
       };
     };
   };
