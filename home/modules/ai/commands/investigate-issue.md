@@ -1,11 +1,10 @@
 ---
 description: Research related GitHub issues and discussions and save the findings
-subtask: false
 ---
 
 # Investigate issue
 
-Research existing issues and discussions in the repository at $1.
+Research existing issues and discussions in the repository the user gives. If no repository is given, ask for its URL.
 
 ## Usage
 

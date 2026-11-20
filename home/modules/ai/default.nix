@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./commands
     ./mcp
     ./skills
 

@@ -32,6 +32,7 @@
         ];
       };
 
+      commands = config.dotfiles.ai.commands;
       skills = config.dotfiles.ai.skills;
 
       mcpServers =

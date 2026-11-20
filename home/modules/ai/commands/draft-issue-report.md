@@ -1,11 +1,10 @@
 ---
 description: Draft a GitHub issue or discussion from saved investigation findings
-subtask: false
 ---
 
 # Draft issue report
 
-Draft a GitHub issue or discussion using the investigation file at $1.
+Draft a GitHub issue or discussion using the investigation file the user gives. If no file is given, ask for it.
 
 ## Usage
 

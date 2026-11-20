@@ -17,7 +17,7 @@
       mutableSettings = true;
 
       context = ./system-prompt.md;
-      commands = ./commands;
+      commands = config.dotfiles.ai.commands;
 
       settings = {
         share = "disabled";
