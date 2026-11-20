@@ -20,15 +20,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    helix = {
-      url = "github:gj1118/helix/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    mitos = {
-      url = "github:mitos-editor/mitos/main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    helix.url = "github:gj1118/helix/master";
+    mitos.url = "github:mitos-editor/mitos/main";
 
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
