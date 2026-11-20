@@ -2,8 +2,6 @@
   config,
   lib,
   pkgs,
-  inputs,
-  system,
   ...
 }:
 {
@@ -56,18 +54,17 @@
 
       package =
         let
-          version = inputs.llm-agents.packages.${system}.opencode2.version;
-          wrapper = pkgs.writeShellScriptBin "opencode" ''
+          wrappedOpencode = pkgs.writeShellScriptBin "opencode" ''
             export ANTHROPIC_API_KEY="$(cat ${config.secrets.anthropic_api_key})"
             export OPENAI_API_KEY="$(cat ${config.secrets.openai_api_key})"
             export GOOGLE_GENERATIVE_AI_API_KEY="$(cat ${config.secrets.google_generative_ai_api_key})"
             ${config.dotfiles.ai.mcp.secretEnvExports}
 
-            exec ${inputs.llm-agents.packages.${system}.opencode2}/bin/opencode2 "$@"
+            exec ${pkgs.opencode}/bin/opencode "$@"
           '';
         in
         # Home Manager needs the version to recognize v2 CLI configuration support
-        wrapper // { version = version; };
+        wrappedOpencode.overrideAttrs { inherit (pkgs.opencode) version; };
     };
 
     programs.fish.shellAbbrs = {
