@@ -8,6 +8,7 @@
 {
   imports = [
     ../../secrets/interface.nix
+    ./omp-compact.nix
     inputs.omp.homeManagerModules.default
   ];
 
@@ -46,6 +47,7 @@
 
       package = pkgs.writeShellScriptBin "omp" ''
         export HERDR_AGENT=omp # Herdr doesn't recognize Nix-installed omp without this
+        export OMP_COMPACT_MODE=compact
 
         export ANTHROPIC_API_KEY="$(cat ${config.secrets.anthropic_api_key})"
         export OPENAI_API_KEY="$(cat ${config.secrets.openai_api_key})"
