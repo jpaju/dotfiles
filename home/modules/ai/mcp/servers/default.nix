@@ -4,6 +4,7 @@
     ./atlassian.nix
     ./context7.nix
     ./datadog.nix
+    ./glean.nix
     ./javadoc.nix
     ./linear.nix
     ./observability.nix
