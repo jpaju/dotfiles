@@ -6,8 +6,18 @@ description: Always load when writing or reviewing PR titles and descriptions
 ## Process
 
 1. Read the git diff and commit log against the base branch to understand all changes
-2. Draft a title and summary following the rules below
-3. Ask the user to review. Iterate based on feedback before finalizing
+2. Gather the context (see below) before drafting. Skip only if the user explicitly says so
+3. Draft a title and summary following the rules below
+4. Ask the user to review. Iterate based on feedback before finalizing
+
+## Gathering context
+
+The description must make clear in which context the change is made: what problem, improvement, or feature is being worked on, and why this solution was chosen. Keep it high level, without unnecessary details.
+
+This is rarely inferable from the diff. Never invent or guess it.
+
+- If the user already gave the context in the conversation, use it
+- Otherwise, ask the user before drafting. You may propose what you inferred from commits or the ticket, but ask the user to confirm and fill the gaps
 
 ## Title
 
@@ -16,7 +26,7 @@ description: Always load when writing or reviewing PR titles and descriptions
 
 ## Body structure
 
-The goal is that a reviewer understands *why* the change is proposed and can review it efficiently. The reason for the change must always come through clearly, whether as a separate section or woven into the summary.
+The goal is that a reviewer understands the context of the change and why this solution was chosen, and can review it efficiently. This must always come through clearly, whether as a separate Context section or woven into the summary.
 
 Use up to three sections depending on what the change needs. Not all sections are always needed. Use your judgement.
 
