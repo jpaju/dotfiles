@@ -40,7 +40,11 @@
       cli = {
         theme.name = "catppuccin";
         animations = true;
-        session.scrollbar = true;
+        session = {
+          scrollbar = true;
+          verbosity = "medium";
+          grouping = "none";
+        };
         tabs = {
           mode = "on";
           scope = "cwd";
