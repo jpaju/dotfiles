@@ -23,6 +23,8 @@
         # Home Manager uses the package version to select the config format.
         wrappedCodex.overrideAttrs { inherit (pkgs.codex) version; };
 
+      context = ../system-prompt.md;
+
       settings = {
         model_provider = "openai-api-key";
         check_for_update_on_startup = false;

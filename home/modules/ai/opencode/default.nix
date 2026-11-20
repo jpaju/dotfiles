@@ -16,7 +16,10 @@
       enable = true;
       mutableSettings = true;
 
-      context = ./system-prompt.md;
+      context = lib.concatStringsSep "\n" [
+        (builtins.readFile ../system-prompt.md)
+        (builtins.readFile ./opencode-system-prompt.md)
+      ];
       commands = config.dotfiles.ai.commands;
 
       settings = {

@@ -26,7 +26,6 @@
 
         tools.approvalMode = "yolo";
 
-        enabledProviders = [ "opencode" ];
         disabledProviders = [
           "alibaba-coding-plan"
           "alibaba-token-plan"

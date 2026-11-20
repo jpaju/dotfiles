@@ -8,7 +8,7 @@ Define AI configuration once and share it across all harnesses: Claude Code, Cod
 
 - Shared definitions live in one place, in our own format
 - Each harness module renders the shared definitions into its own config format
-- omp reads the OpenCode config instead of getting its own, enabled with `enabledProviders = [ "opencode" ]`
+- The system prompt is shared from `system-prompt.md`. A harness can add its own instructions in its module's `<harness>-system-prompt.md`, which are appended to the shared prompt
 - Secrets are declared next to what needs them, and all harnesses pick them up automatically
 
 ## Status
