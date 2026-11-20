@@ -1,9 +1,11 @@
 { ... }:
 {
   imports = [
+    ./mcp
+    ./skills
+
     ./claude
     ./codex
-    ./mcp
     ./omp
     ./opencode
   ];

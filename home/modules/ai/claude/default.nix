@@ -32,6 +32,8 @@
         ];
       };
 
+      skills = config.dotfiles.ai.skills;
+
       mcpServers =
         let
           envReference = name: "\${${name}}";

@@ -13,17 +13,18 @@ Define AI configuration once and share it across all harnesses: Claude Code, Cod
 
 ## Status
 
-| Topic       | Status                                                               |
-| ----------- | -------------------------------------------------------------------- |
-| MCPs        | In progress: Claude done, Codex verifying, OpenCode done             |
-| Permissions | Not started                                                          |
-| Skills      | Not started                                                          |
+| Topic       | Status                                                       |
+| ----------- | ------------------------------------------------------------ |
+| MCPs        | In progress: Claude done, Codex verifying, OpenCode done     |
+| Skills      | In progress: Claude, OpenCode and omp done, Codex has issues |
+| Permissions | Not started                                                  |
 
 ## Decisions and limitations
 
 - Home Manager's native MCP integration was tried and dropped: harnesses use different env var syntax in headers
 - Claude can't disable individual MCP servers, so all servers are enabled there
 - Codex can't enable MCP servers interactively within a session, so all servers are enabled there
+- Some skills are worded around OpenCode's bash permission allowlist. Revisit them when permissions are shared
 
 ## Way of working
 

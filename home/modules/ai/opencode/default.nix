@@ -11,7 +11,6 @@
     ../../secrets/interface.nix
     ./permissions.nix
     ./plugins
-    ./skills.nix
   ];
 
   config = lib.mkIf config.dotfiles.ai.enable {
