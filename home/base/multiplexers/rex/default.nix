@@ -21,7 +21,40 @@
       "Workspace.terminalStartupCommand" = "${config.home.profileDirectory}/bin/fish";
     };
 
-    xdg.configFile."rex/init.lua".source = ./init.lua;
+    xdg.configFile =
+      let
+        includeLuaConfigFile =
+          {
+            file,
+            isEnabled,
+          }:
+          lib.mkIf isEnabled {
+            "rex/${file}.lua".source = ./${file}.lua;
+            "rex/init.lua".text = ''require("${file}")'';
+          };
+
+        # init.lua is generated in Nix and only includes imports to other lua files
+        rexConfigFiles = lib.mkMerge [
+          (includeLuaConfigFile {
+            file = "keys";
+            isEnabled = true;
+          })
+          (includeLuaConfigFile {
+            file = "homelab";
+            isEnabled = config.dotfiles.homelab.enable;
+          })
+        ];
+
+        fishCompletions = {
+          "fish/completions/rex.fish".text = ''
+            command -q rex; and rex completion fish | source
+          '';
+        };
+      in
+      lib.mkMerge [
+        rexConfigFiles
+        fishCompletions
+      ];
 
     # Rex doesn't watch its config, so reload it on rebuild.
     # Fails on missing CLI or invalid config
@@ -50,10 +83,6 @@
       if set -q REX_BIN_DIR
         fish_add_path --path --prepend --move $REX_BIN_DIR
       end
-    '';
-
-    xdg.configFile."fish/completions/rex.fish".text = ''
-      command -q rex; and rex completion fish | source
     '';
   };
 }
